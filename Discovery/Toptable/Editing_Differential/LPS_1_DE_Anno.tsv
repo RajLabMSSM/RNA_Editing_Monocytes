@@ -1,0 +1,1362 @@
+ESid	ESid2	Editing_Index	Gene	Location	Mutation	REDIportal_info	rmsk	known_a_i	rep_type	Function
+chr1:120461383:C:T	chr1:120461383:C:T	C:T	NBPF8	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr1:148532070:T:C	chr1:148532070:A:G	A:G	NBPF14	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:148532133:T:C	chr1:148532133:A:G	A:G	NBPF14	UTR3	unknown	T;C;-;A||R;NONREP;-;-/-;UTR3;NBPF20;-;-;ncRNA_intronic;NBPF25P;-;-;UTR3;NBPF14||NBPF9;-;-;-;1244;30;53	Name=L1MC4	TRUE	LINE	UTR3
+chr1:148532139:T:C	chr1:148532139:A:G	A:G	NBPF14	UTR3	unknown	T;C;-;A||R;NONREP;-;-/-;UTR3;NBPF20;-;-;ncRNA_intronic;NBPF25P;-;-;UTR3;NBPF14||NBPF9;-;-;-;1;1;1	Name=L1MC4	TRUE	LINE	UTR3
+chr1:148532191:T:C	chr1:148532191:A:G	A:G	NBPF14	UTR3	unknown	T;C;-;A;REP;-;LINE/L1MC4;UTR3;NBPF20;-;-;ncRNA_intronic;NBPF25P;-;-;UTR3;NBPF14||NBPF9;-;-;-;134;26;42	Name=L1MC4	TRUE	LINE	UTR3
+chr1:149054842:T:C	chr1:149054842:A:G	A:G	NBPF9	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149055001:T:C	chr1:149055001:A:G	A:G	NBPF9	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555530:A:G	chr1:149555530:A:G	A:G	NBPF19	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555534:A:G	chr1:149555534:A:G	A:G	NBPF19	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555537:A:G	chr1:149555537:A:G	A:G	NBPF19	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555552:A:G	chr1:149555552:A:G	A:G	NBPF19	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555580:A:G	chr1:149555580:A:G	A:G	NBPF19	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555610:A:G	chr1:149555610:A:G	A:G	NBPF19	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:149555673:A:G	chr1:149555673:A:G	A:G	NBPF19	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:149555763:A:G	chr1:149555763:A:G	A:G	NBPF19	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:150731136:T:C	chr1:150731136:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1156;30;54	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731137:T:C	chr1:150731137:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1233;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731143:T:C	chr1:150731143:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;931;29;51	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731158:T:C	chr1:150731158:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;787;28;47	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731171:T:C	chr1:150731171:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;672;25;44	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731185:T:C	chr1:150731185:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;608;25;43	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731203:T:C	chr1:150731203:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;771;26;44	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731216:T:C	chr1:150731216:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;849;27;45	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731220:T:C	chr1:150731220:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;661;26;42	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731239:T:C	chr1:150731239:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;626;26;40	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731240:T:C	chr1:150731240:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;706;28;43	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731244:T:C	chr1:150731244:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;927;28;44	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731276:T:C	chr1:150731276:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1184;30;52	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731311:T:C	chr1:150731311:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1286;30;52	Name=AluSx	TRUE	Alu	UTR3
+chr1:150731937:T:C	chr1:150731937:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1285;30;53	Name=AluJo	TRUE	Alu	UTR3
+chr1:150731942:T:C	chr1:150731942:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1098;28;50	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732005:T:C	chr1:150732005:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1149;30;51	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732007:T:C	chr1:150732007:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1204;30;53	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732024:T:C	chr1:150732024:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;998;30;51	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732068:T:C	chr1:150732068:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1019;30;52	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732109:T:C	chr1:150732109:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1000;30;51	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732111:T:C	chr1:150732111:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;879;29;50	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732129:T:C	chr1:150732129:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;922;30;52	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732157:T:C	chr1:150732157:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1228;30;54	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732160:T:C	chr1:150732160:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1124;30;53	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732177:T:C	chr1:150732177:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;799;29;51	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732183:T:C	chr1:150732183:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;797;29;51	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732184:T:C	chr1:150732184:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;777;29;51	Name=AluJo	TRUE	Alu	UTR3
+chr1:150907847:C:T	chr1:150907847:C:T	C:T	CTXND2	ncRNA
+intronic	unknown	.	Name=AluY	FALSE	Alu	ncRNA
+chr1:150907856:C:T	chr1:150907856:C:T	C:T	CTXND2	ncRNA
+intronic	unknown	.	Name=AluY	FALSE	Alu	ncRNA
+chr1:150907859:G:A	chr1:150907859:G:A	C:T	CTXND2	ncRNA
+intronic	unknown	.	Name=AluY	FALSE	Alu	ncRNA
+chr1:150907865:A:G	chr1:150907865:A:G	A:G	CTXND2	ncRNA
+intronic	unknown	.	Name=AluY	FALSE	Alu	ncRNA
+chr1:150907869:C:T	chr1:150907869:C:T	C:T	CTXND2	ncRNA
+intronic	unknown	.	Name=AluY	FALSE	Alu	ncRNA
+chr1:160996561:T:C	chr1:160996561:A:G	A:G	F11R	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;F11R;-;-;UTR3;F11R;-;-;UTR3;F11R;-;-;-;1957;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr1:160996562:T:C	chr1:160996562:A:G	A:G	F11R	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;F11R;-;-;UTR3;F11R;-;-;UTR3;F11R;-;-;-;1965;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr1:160996563:T:C	chr1:160996563:A:G	A:G	F11R	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;F11R;-;-;UTR3;F11R;-;-;UTR3;F11R;-;-;-;2402;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr1:220058801:T:C	chr1:220058801:A:G	A:G	BPNT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;BPNT1;-;-;ncRNA_intronic;RNU5F-1;-;-;ncRNA_intronic;RNU5F-1;-;-;-;1959;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr1:220058802:T:C	chr1:220058802:A:G	A:G	BPNT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;BPNT1;-;-;ncRNA_intronic;RNU5F-1;-;-;ncRNA_intronic;RNU5F-1;-;-;-;2134;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr1:228114830:C:T	chr1:228114830:G:A	C:T	MRPL55	upstream	unknown	.	.	FALSE	None	upstream
+chr1:228114865:T:C	chr1:228114865:A:G	A:G	MRPL55	upstream	unknown	.	.	FALSE	None	upstream
+chr1:23846073:C:T	chr1:23846073:G:A	C:T	FUCA1	splicing	unknown	.	.	FALSE	None	splicing
+chr1:28335145:A:G	chr1:28335145:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;2009;30;54	Name=AluSg	TRUE	Alu	UTR3
+chr1:35351354:A:G	chr1:35351354:A:G	A:G	ZMYM4	intronic	unknown	.	.	FALSE	None	intronic
+chr1:35602076:T:C	chr1:35602076:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2345;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602148:T:C	chr1:35602148:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2358;30;54	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602151:T:C	chr1:35602151:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2399;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602159:T:C	chr1:35602159:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2607;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602216:T:C	chr1:35602216:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2559;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602237:T:C	chr1:35602237:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2482;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602583:T:C	chr1:35602583:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2447;30;54	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602594:T:C	chr1:35602594:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;629;30;53	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602609:T:C	chr1:35602609:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2404;30;54	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602674:T:C	chr1:35602674:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;5;3;3	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602675:T:C	chr1:35602675:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;4;2;2	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602694:T:C	chr1:35602694:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2202;30;54	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602768:T:C	chr1:35602768:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2118;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602769:T:C	chr1:35602769:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2455;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr1:45521891:G:A	chr1:45521891:C:T	C:T	PRDX1	UTR5	unknown	.	.	FALSE	None	UTR5
+chr1:9100841:T:C	chr1:9100841:A:G	A:G	GPR157	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;-;1839;30;53	Name=AluJb	TRUE	Alu	UTR3
+chr1:9100899:T:C	chr1:9100899:A:G	A:G	GPR157	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;-;1660;30;47	Name=AluJb	TRUE	Alu	UTR3
+chr1:9100904:T:C	chr1:9100904:A:G	A:G	GPR157	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;-;1706;30;49	Name=AluJb	TRUE	Alu	UTR3
+chr1:9100930:T:C	chr1:9100930:A:G	A:G	GPR157	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;-;1653;30;47	Name=AluJb	TRUE	Alu	UTR3
+chr1:9173454:T:C	chr1:9173454:A:G	A:G	MIR34AHG	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intergenic;MIR34A||RP3-510D11.1;-;-;ncRNA_intronic;MIR34AHG;-;-;intronic;mir-34;-;-;-;1;1;1	Name=AluJb	TRUE	Alu	ncRNA
+chr1:9267988:A:G	chr1:9267988:A:G	A:G	H6PD	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluJr;UTR3;H6PD;-;-;UTR3;H6PD;-;-;UTR3;H6PD;-;-;-;1842;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr1:148532069:T:C	chr1:148532069:A:G	A:G	NBPF14	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:154215292:T:C	chr1:154215292:A:G	A:G	C1orf43	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr1:179357639:A:G	chr1:179357639:A:G	A:G	SOAT1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;-;965;30;54	Name=AluJo	TRUE	Alu	UTR3
+chr1:149054721:T:C	chr1:149054721:A:G	A:G	NBPF9	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:149555674:A:G	chr1:149555674:A:G	A:G	NBPF19	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:149555762:A:G	chr1:149555762:A:G	A:G	NBPF19	UTR3	unknown	.	Name=L1MC4	FALSE	LINE	UTR3
+chr1:150731936:T:C	chr1:150731936:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1103;30;52	Name=AluJo	TRUE	Alu	UTR3
+chr1:150732137:T:C	chr1:150732137:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1013;28;50	Name=AluJo	TRUE	Alu	UTR3
+chr1:161592171:C:T	chr1:161592171:C:T	C:T	FCGR2C	exonic	unknown	.	.	FALSE	None	exonic
+chr1:222742292:T:C	chr1:222742292:T:C	A:G	FAM177B	intronic	unknown	.	.	FALSE	None	intronic
+chr1:35602220:T:C	chr1:35602220:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2209;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602724:T:C	chr1:35602724:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2355;30;53	Name=AluSc	TRUE	Alu	UTR3
+chr1:35602763:T:C	chr1:35602763:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;1886;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr1:52823198:A:G	chr1:52823198:A:G	A:G	ZYG11B	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FLAM_C;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;-;1722;30;55	Name=FLAM_C	TRUE	Other	UTR3
+chr1:9267968:A:G	chr1:9267968:A:G	A:G	H6PD	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;H6PD;-;-;UTR3;H6PD;-;-;UTR3;H6PD;-;-;-;2299;30;53	.	TRUE	None	UTR3
+chr1:149054793:T:C	chr1:149054793:A:G	A:G	NBPF9	UTR3	unknown	.	.	FALSE	None	UTR3
+chr1:150309507:A:G	chr1:150309507:A:G	A:G	MRPS21	downstream	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;downstream;MRPS21;-;-;downstream;MRPS21;-;-;intergenic;MRPS21||PRPF3;-;-;-;2086;30;55	Name=AluYj4	TRUE	Alu	downstream
+chr1:220058604:T:C	chr1:220058604:A:G	A:G	BPNT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;BPNT1;-;-;ncRNA_intronic;RNU5F-1;-;-;ncRNA_intronic;RNU5F-1;-;-;-;1868;30;54	Name=AluSz	TRUE	Alu	UTR3
+chr1:28335701:A:G	chr1:28335701:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R||D;ALU;rs752418310;SINE/AluSq2;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;1538;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr1:28335702:A:G	chr1:28335702:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;1574;30;53	Name=AluSq2	TRUE	Alu	UTR3
+chr1:35602324:T:C	chr1:35602324:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;2472;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:35602595:T:C	chr1:35602595:A:G	A:G	PSMB2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;UTR3;PSMB2;-;-;-;1518;30;54	Name=AluSc	TRUE	Alu	UTR3
+chr1:52823252:A:G	chr1:52823252:A:G	A:G	ZYG11B	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FLAM_C;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;346;34;1525;30;55	Name=FLAM_C	TRUE	Other	UTR3
+chr1:159918942:C:T	chr1:159918942:G:A	C:T	TAGLN2	splicing	unknown	.	.	FALSE	None	splicing
+chr1:159918944:G:A	chr1:159918944:C:T	C:T	TAGLN2	intronic	unknown	.	.	FALSE	None	intronic
+chr1:204556420:A:G	chr1:204556420:A:G	A:G	MDM4	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;MDM4;-;-;UTR3;MDM4;-;-;UTR3;MDM4;-;-;-;2593;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:228109303:A:G	chr1:228109303:T:C	A:G	MRPL55	UTR5	unknown	.	.	FALSE	None	UTR5
+chr1:27326050:C:T	chr1:27326050:C:T	C:T	ACTG1P20	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr1:35351302:C:T	chr1:35351302:C:T	C:T	ZMYM4	intronic	unknown	.	.	FALSE	None	intronic
+chr1:35351343:A:G	chr1:35351343:A:G	A:G	ZMYM4	intronic	unknown	.	.	FALSE	None	intronic
+chr1:52823190:A:G	chr1:52823190:A:G	A:G	ZYG11B	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FLAM_C;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;-;959;30;54	Name=FLAM_C	TRUE	Other	UTR3
+chr1:9149376:T:C	chr1:9149376:A:G	A:G	MIR34AHG	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intergenic;GPR157||MIR34A;-;-;ncRNA_exonic;MIR34AHG;-;-;UTR3;mir-34;-;-;-;1581;30;53	Name=AluJb	TRUE	Alu	ncRNA
+chr1:9149390:T:C	chr1:9149390:A:G	A:G	MIR34AHG	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intergenic;GPR157||MIR34A;-;-;ncRNA_exonic;MIR34AHG;-;-;UTR3;mir-34;-;-;-;1364;30;53	Name=AluJb	TRUE	Alu	ncRNA
+chr1:9149414:T:C	chr1:9149414:A:G	A:G	MIR34AHG	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intergenic;GPR157||MIR34A;-;-;ncRNA_exonic;MIR34AHG;-;-;UTR3;mir-34;-;-;-;1308;30;47	Name=AluJb	TRUE	Alu	ncRNA
+chr1:155734424:A:G	chr1:155734424:A:G	A:G	DAP3	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;DAP3||MSTO1;-;-;intronic;DAP3;-;-;intronic;DAP3||YY1AP1;-;-;-;1480;30;53	Name=AluJr	TRUE	Alu	intronic
+chr1:9179472:T:C	chr1:9179472:A:G	A:G	MIR34AHG	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr4;intergenic;MIR34A||RP3-510D11.1;-;-;ncRNA_intronic;MIR34AHG;-;-;intronic;mir-34;-;-;-;6;3;3	Name=AluJr4	TRUE	Alu	ncRNA
+chr1:150732000:T:C	chr1:150732000:A:G	A:G	CTSS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;CTSS;-;-;UTR3;CTSS;-;-;UTR3;CTSS;-;-;-;1255;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr1:28335142:A:G	chr1:28335142:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSg;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;1572;30;54	Name=AluSg	TRUE	Alu	UTR3
+chr1:28335546:A:G	chr1:28335546:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSq2;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;1273;30;53	Name=AluSq2	TRUE	Alu	UTR3
+chr1:78659496:C:T	chr1:78659496:C:T	C:T	IFI44	intronic	unknown	.	.	FALSE	None	intronic
+chr1:78659498:A:G	chr1:78659498:A:G	A:G	IFI44	intronic	unknown	.	.	FALSE	None	intronic
+chr1:89020203:T:C	chr1:89020203:A:G	A:G	GBP3	UTR5	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;GBP3;-;-;intronic;GBP3;-;-;UTR5;GBP3;-;-;-;772;30;47	Name=AluJb	TRUE	Alu	UTR5
+chr1:89183644:T:C	chr1:89183644:A:G	A:G	GBP4	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GBP4;-;-;UTR3;GBP4;-;-;UTR3;GBP4;-;-;-;1650;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:89426660:G:A	chr1:89426660:G:A	C:T	GBP1P1	downstream	unknown	.	.	FALSE	None	downstream
+chr1:89426662:G:A	chr1:89426662:G:A	C:T	GBP1P1	downstream	unknown	.	.	FALSE	None	downstream
+chr1:89426669:A:G	chr1:89426669:A:G	A:G	GBP1P1	downstream	unknown	.	.	FALSE	None	downstream
+chr1:179357751:A:G	chr1:179357751:A:G	A:G	SOAT1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;-;1575;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr1:11655849:A:G	chr1:11655849:A:G	A:G	FBXO44	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr1:11655853:C:T	chr1:11655853:C:T	C:T	FBXO44	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr1:203179758:T:C	chr1:203179758:A:G	A:G	CHI3L1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:207336825:A:G	chr1:207336825:A:G	A:G	CD55	intronic	unknown	.	.	FALSE	None	intronic
+chr1:222742403:T:C	chr1:222742403:T:C	A:G	FAM177B	intronic	unknown	.	.	FALSE	None	intronic
+chr1:37544948:C:T	chr1:37544948:G:A	C:T	SNIP1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:37544949:A:G	chr1:37544949:T:C	A:G	SNIP1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:37544985:T:C	chr1:37544985:A:G	A:G	SNIP1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:9982879:A:G	chr1:9982879:A:G	A:G	NMNAT1	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSc;UTR3;NMNAT1;-;-;UTR3;NMNAT1;-;-;UTR3;NMNAT1;-;-;-;969;30;54	Name=AluSc	TRUE	Alu	UTR3
+chr1:1575949:C:T	chr1:1575949:G:A	C:T	SSU72	upstream	unknown	.	Name=AluY	FALSE	Alu	upstream
+chr1:197223118:A:G	chr1:197223118:A:G	A:G	CRB1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:202001490:T:C	chr1:202001490:T:C	A:G	RNPEP	splicing	unknown	.	.	FALSE	None	splicing
+chr1:202001496:C:T	chr1:202001496:G:A	C:T	ELF3-AS1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr1:212590041:T:C	chr1:212590041:T:C	A:G	ATF3	intronic	unknown	.	.	FALSE	None	intronic
+chr1:26282338:G:A	chr1:26282338:C:T	C:T	UBXN11	exonic	synonymous SNV	.	Name=(GGACCG)n	FALSE	Simple
+repeat	exonic
+chr1:26282793:C:T	chr1:26282793:G:A	C:T	UBXN11	intronic	unknown	.	.	FALSE	None	intronic
+chr1:26282795:C:T	chr1:26282795:G:A	C:T	UBXN11	intronic	unknown	.	.	FALSE	None	intronic
+chr1:26282799:C:T	chr1:26282799:G:A	C:T	UBXN11	intronic	unknown	.	.	FALSE	None	intronic
+chr1:28335671:A:G	chr1:28335671:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;1443;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr1:52825753:A:G	chr1:52825753:A:G	A:G	ZYG11B	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;-;2513;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr1:20649499:T:C	chr1:20649499:A:G	A:G	PINK1-AS	ncRNA
+exonic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz6;ncRNA_exonic;PINK1-AS;-;-;ncRNA_exonic;PINK1-AS;-;-;intronic;PINK1;-;-;-;1633;30;54	Name=AluSz6	TRUE	Alu	ncRNA
+chr1:225787044:A:G	chr1:225787044:A:G	A:G	SRP9	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;intronic;SRP9;-;-;intronic;SRP9;-;-;intronic;SRP9;-;-;-;1883;30;55	Name=AluJo	TRUE	Alu	intronic
+chr1:52825748:A:G	chr1:52825748:A:G	A:G	ZYG11B	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;UTR3;ZYG11B;-;-;-;2120;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr1:184793390:T:C	chr1:184793390:A:G	A:G	NIBAN1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;FAM129A;-;-;UTR3;FAM129A;-;-;UTR3;FAM129A;-;-;-;2195;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr1:89424396:G:A	chr1:89424396:G:A	C:T	GBP1P1	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr1:179357403:A:G	chr1:179357403:A:G	A:G	SOAT1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;-;1309;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chr1:204556513:A:G	chr1:204556513:A:G	A:G	MDM4	UTR3	unknown	A;G;+;A||R||D;ALU;rs779502088;SINE/AluJb;UTR3;MDM4;-;-;UTR3;MDM4;-;-;UTR3;MDM4;-;-;-;2100;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr1:11656042:G:A	chr1:11656042:G:A	C:T	FBXO44	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr1:179357744:A:G	chr1:179357744:A:G	A:G	SOAT1	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluJo;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;-;4;2;2	Name=AluJo	TRUE	Alu	UTR3
+chr1:179357143:A:G	chr1:179357143:A:G	A:G	SOAT1	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;UTR3;SOAT1;-;-;-;1605;30;54	.	TRUE	None	UTR3
+chr1:109628809:G:A	chr1:109628809:G:A	C:T	AMPD2	intronic	unknown	.	.	FALSE	None	intronic
+chr1:203179750:G:A	chr1:203179750:C:T	C:T	CHI3L1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:203179756:C:T	chr1:203179756:G:A	C:T	CHI3L1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:36478682:T:C	chr1:36478682:A:G	A:G	CSF3R	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJb;intronic;CSF3R;-;-;intronic;CSF3R;-;-;intronic;CSF3R;-;-;-;356;21;33	Name=AluJb	TRUE	Alu	intronic
+chr1:40091326:T:C	chr1:40091326:A:G	A:G	PPT1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:9103328:T:C	chr1:9103328:A:G	A:G	GPR157	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;intergenic;SLC2A5||GPR157;-;-;-;949;30;42	Name=AluSq2	TRUE	Alu	UTR3
+chr1:36478477:T:C	chr1:36478477:A:G	A:G	CSF3R	intronic	unknown	T;C;-;A;ALU;-;SINE/AluSx1;intronic;CSF3R;-;-;intronic;CSF3R;-;-;intronic;CSF3R;-;-;-;333;20;25	Name=AluSx1	TRUE	Alu	intronic
+chr1:225788349:A:G	chr1:225788349:A:G	A:G	SRP9	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;intronic;SRP9;-;-;intronic;SRP9;-;-;intronic;SRP9;-;-;-;1463;30;55	Name=AluSx	TRUE	Alu	intronic
+chr1:207652660:G:A	chr1:207652660:G:A	C:T	CR1L	intronic	unknown	.	.	FALSE	None	intronic
+chr1:51251284:G:A	chr1:51251284:G:A	C:T	RNF11	intronic	unknown	.	.	FALSE	None	intronic
+chr1:7918212:T:C	chr1:7918212:A:G	A:G	TNFRSF9	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intergenic;UTS2||TNFRSF9;-;-;UTR3;TNFRSF9;-;-;UTR3;TNFRSF9;-;-;-;95;6;8	Name=AluSq2	TRUE	Alu	UTR3
+chr1:9149136:T:C	chr1:9149136:A:G	A:G	MIR34AHG	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intergenic;GPR157||MIR34A;-;-;ncRNA_exonic;MIR34AHG;-;-;UTR3;mir-34;-;-;-;1283;30;51	Name=AluSx1	TRUE	Alu	ncRNA
+chr1:244858845:A:G	chr1:244858845:T:C	A:G	HNRNPU	intronic	unknown	.	.	FALSE	None	intronic
+chr1:171270632:G:A	chr1:171270632:G:A	C:T	FMO1	intronic	unknown	.	.	FALSE	None	intronic
+chr1:145922075:T:C	chr1:145922075:T:C	A:G	GNRHR2	ncRNA
+intronic	unknown	.	Name=AluSz6	FALSE	Alu	ncRNA
+chr1:207652651:C:T	chr1:207652651:C:T	C:T	CR1L	intronic	unknown	.	.	FALSE	None	intronic
+chr1:182604394:A:G	chr1:182604394:T:C	A:G	RGS16	upstream	unknown	.	.	FALSE	None	upstream
+chr1:28335302:A:G	chr1:28335302:A:G	A:G	MED18	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSg;UTR3;MED18;-;-;UTR3;MED18;-;-;UTR3;MED18;-;-;-;1051;30;53	Name=AluSg	TRUE	Alu	UTR3
+chr1:222742466:T:C	chr1:222742466:T:C	A:G	FAM177B	intronic	unknown	.	.	FALSE	None	intronic
+chr2:161136960:A:G	chr2:161136960:A:G	A:G	TANK	UTR5	unknown	.	.	FALSE	None	UTR5
+chr2:184790745:A:G	chr2:184790745:A:G	A:G	ZNF804A	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr2:184790752:T:C	chr2:184790752:T:C	A:G	ZNF804A	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr2:190934866:A:G	chr2:190934866:A:G	A:G	GLS	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;GLS;-;-;UTR3;GLS;-;-;UTR3;GLS;-;-;-;2175;30;55	.	TRUE	None	UTR3
+chr2:201164010:A:G	chr2:201164010:A:G	A:G	CFLAR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;CFLAR;-;-;UTR3;CFLAR;-;-;UTR3;CFLAR;-;-;-;2203;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr2:201164144:A:G	chr2:201164144:A:G	A:G	CFLAR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;CFLAR;-;-;UTR3;CFLAR;-;-;UTR3;CFLAR;-;-;-;2389;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr2:201165371:A:G	chr2:201165371:A:G	A:G	CFLAR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;CFLAR;-;-;UTR3;CFLAR;-;-;UTR3;CFLAR;-;-;-;1295;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr2:201219176:A:G	chr2:201219176:A:G	A:G	CASP10	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;CASP10;-;-;UTR3;CASP10;-;-;UTR3;CASP10;-;-;-;1912;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr2:207754653:A:G	chr2:207754653:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FAM;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;1776;30;54	Name=FAM	TRUE	Other	UTR3
+chr2:207754807:A:G	chr2:207754807:A:G	A:G	MIR4775	ncRNA
+exonic	unknown	A;G;+;A||R;NONREP;-;-/-;ncRNA_exonic;MIR4775;-;-;ncRNA_exonic;MIR4775;-;-;ncRNA_exonic;MIR4775;-;-;-;2088;30;54	.	TRUE	None	ncRNA
+chr2:207754861:A:G	chr2:207754861:A:G	A:G	MIR4775	ncRNA
+exonic	unknown	A;G;+;A||R||D;NONREP;-;-/-;ncRNA_exonic;MIR4775;-;-;ncRNA_exonic;MIR4775;-;-;ncRNA_exonic;MIR4775;-;-;289;20;1521;30;54	.	TRUE	None	ncRNA
+chr2:207754938:A:G	chr2:207754938:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FAM;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;1315;29;52	Name=AluJo	TRUE	Alu	UTR3
+chr2:207755018:A:G	chr2:207755018:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FAM;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;2314;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr2:207755405:A:G	chr2:207755405:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;1677;30;53	.	TRUE	None	UTR3
+chr2:207755419:A:G	chr2:207755419:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;1710;30;54	.	TRUE	None	UTR3
+chr2:218235855:A:G	chr2:218235855:A:G	A:G	ARPC2	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;intronic;ARPC2;-;-;intronic;ARPC2;-;-;UTR5;ARPC2;-;-;-;1884;30;55	Name=AluSx1	TRUE	Alu	intronic
+chr2:26028349:T:C	chr2:26028349:T:C	A:G	RAB10	upstream	unknown	.	.	FALSE	None	upstream
+chr2:37103288:T:C	chr2:37103288:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;827;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr2:38566185:T:C	chr2:38566185:A:G	A:G	HNRNPLL	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;HNRNPLL;-;-;intronic;HNRNPLL;-;-;intronic;HNRPLL;-;-;-;1301;30;55	Name=AluSx1	TRUE	Alu	intronic
+chr2:84916515:C:T	chr2:84916515:C:T	C:T	TMSB10	downstream	unknown	.	.	FALSE	None	downstream
+chr2:127843890:T:C	chr2:127843890:A:G	A:G	POLR2D	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;ncRNA_exonic;RP5-935K16.1;-;-;intergenic;WDR33||POLR2D;-;-;intergenic;WDR33||POLR2D;-;-;-;2366;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr2:171749317:A:G	chr2:171749317:A:G	A:G	DYNC1I2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;downstream;DYNC1I2;-;-;UTR3;DYNC1I2;-;-;UTR3;DYNC1I2;-;-;-;1588;30;55	.	TRUE	None	UTR3
+chr2:191076133:T:C	chr2:191076133:A:G	A:G	STAT4	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr4;intronic;STAT4;-;-;intronic;STAT4;-;-;UTR3;STAT4;-;-;-;17;7;7	Name=AluJr4	TRUE	Alu	intronic
+chr2:201287339:A:G	chr2:201287339:A:G	A:G	CASP8	UTR3	unknown	A;G;+;A||D;ALU;-;SINE/AluJr;UTR3;CASP8;-;-;UTR3;CASP8;-;-;UTR3;CASP8;-;-;-;1928;30;54	Name=AluJr	TRUE	Alu	UTR3
+chr2:207754737:A:G	chr2:207754737:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FAM;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;1476;30;54	Name=FAM	TRUE	Other	UTR3
+chr2:227539612:A:G	chr2:227539612:A:G	A:G	AGFG1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr4;intronic;AGFG1;-;-;intronic;AGFG1;-;-;intronic;AGFG1;-;-;-;69;14;20	Name=AluJr4	TRUE	Alu	intronic
+chr2:71334797:T:C	chr2:71334797:T:C	A:G	ZNF638	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr2:96249200:T:C	chr2:96249200:A:G	A:G	TMEM127	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;TMEM127;-;-;intergenic;STARD7-AS1||TMEM127;-;-;intergenic;LOC285033||TMEM127;-;-;-;1091;29;53	Name=AluSc	TRUE	Alu	UTR3
+chr2:99195826:A:G	chr2:99195826:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;1753;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr2:99196001:A:G	chr2:99196001:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;1698;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr2:207754926:A:G	chr2:207754926:A:G	A:G	CCNYL1	UTR3	unknown	A;G;+;A||R||D;REP;-;SINE/FAM;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;UTR3;CCNYL1;-;-;-;2123;30;54	Name=AluJo	TRUE	Alu	UTR3
+chr2:215943585:T:C	chr2:215943585:A:G	A:G	MREG	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc8;downstream;MREG;-;-;UTR3;MREG;-;-;UTR3;MREG;-;-;-;1372;30;53	Name=AluSc8	TRUE	Alu	UTR3
+chr2:215943597:T:C	chr2:215943597:A:G	A:G	MREG	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc8;downstream;MREG;-;-;UTR3;MREG;-;-;UTR3;MREG;-;-;-;1370;29;52	Name=AluSc8	TRUE	Alu	UTR3
+chr2:99195966:A:G	chr2:99195966:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;2106;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr2:99196515:A:G	chr2:99196515:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;2390;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr2:99196557:A:G	chr2:99196557:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;2388;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr2:10784970:G:A	chr2:10784970:C:T	C:T	PDIA6	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr2:127334909:T:C	chr2:127334909:A:G	A:G	MAP3K2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;intronic;MAP3K2;-;-;intronic;MAP3K2;-;-;intronic;MAP3K2;-;-;-;90;16;20	Name=AluSc	TRUE	Alu	intronic
+chr2:143048896:A:G	chr2:143048896:A:G	A:G	KYNU	UTR3	unknown	A;G;+;A||R;REP;-;LINE/L1PA8A;intergenic;KYNU||ARHGAP15;-;-;intergenic;KYNU||ARHGAP15;-;-;intergenic;KYNU||ARHGAP15;-;-;-;43;10;11	Name=L1PA8A	TRUE	LINE	UTR3
+chr2:37100870:T:C	chr2:37100870:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||R||D;NONREP;-;-/-;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;2330;30;55	.	TRUE	None	UTR3
+chr2:37100891:T:C	chr2:37100891:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||R||D;NONREP;rs552562330;-/-;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;2431;30;55	.	TRUE	None	UTR3
+chr2:99196552:A:G	chr2:99196552:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;2105;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr2:37100932:T:C	chr2:37100932:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||R||D;NONREP;-;-/-;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;2524;30;55	.	TRUE	None	UTR3
+chr2:37100939:T:C	chr2:37100939:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||R||D;NONREP;-;-/-;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;2224;30;55	.	TRUE	None	UTR3
+chr2:37100944:T:C	chr2:37100944:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||D;NONREP;rs112433864;-/-;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;2490;30;55	.	TRUE	None	UTR3
+chr2:99195987:A:G	chr2:99195987:A:G	A:G	MRPL30	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;C2orf15||MRPL30;-;-;UTR3;MRPL30;-;-;UTR3;MRPL30;-;-;-;2257;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr2:11160549:G:A	chr2:11160549:G:A	C:T	SLC66A3	splicing	unknown	.	.	FALSE	None	splicing
+chr2:11160551:A:G	chr2:11160551:A:G	A:G	SLC66A3	intronic	unknown	.	.	FALSE	None	intronic
+chr2:202239637:C:T	chr2:202239637:G:A	C:T	SUMO1	upstream	unknown	.	.	FALSE	None	upstream
+chr2:37103922:T:C	chr2:37103922:A:G	A:G	EIF2AK2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;intergenic;GPATCH11||EIF2AK2;-;-;-;1393;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr2:27376102:T:C	chr2:27376102:T:C	A:G	SNX17	intronic	unknown	.	.	FALSE	None	intronic
+chr2:215944251:T:C	chr2:215944251:A:G	A:G	MREG	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;downstream;MREG;-;-;UTR3;MREG;-;-;UTR3;MREG;-;-;-;595;26;44	Name=AluSg	TRUE	Alu	UTR3
+chr2:178455560:A:G	chr2:178455560:A:G	A:G	PJVK	intronic	unknown	.	.	FALSE	None	intronic
+chr2:215943598:T:C	chr2:215943598:A:G	A:G	MREG	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc8;downstream;MREG;-;-;UTR3;MREG;-;-;UTR3;MREG;-;-;-;787;28;50	Name=AluSc8	TRUE	Alu	UTR3
+chr2:222559707:A:G	chr2:222559707:A:G	A:G	SGPP2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;SGPP2;-;-;downstream;SGPP2;-;-;downstream;SGPP2;-;-;-;815;28;49	Name=AluJb	TRUE	Alu	UTR3
+chr2:215944250:T:C	chr2:215944250:A:G	A:G	MREG	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;downstream;MREG;-;-;UTR3;MREG;-;-;UTR3;MREG;-;-;-;463;25;43	Name=AluSg	TRUE	Alu	UTR3
+chr2:222559523:A:G	chr2:222559523:A:G	A:G	SGPP2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;SGPP2;-;-;downstream;SGPP2;-;-;downstream;SGPP2;-;-;-;1003;30;52	Name=AluJb	TRUE	Alu	UTR3
+chr2:27365985:T:C	chr2:27365985:A:G	A:G	EIF2B4	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr;ncRNA_intronic;AC074117.10;-;-;intronic;EIF2B4;-;-;intronic;EIF2B4;-;-;-;1191;30;52	Name=AluJb	TRUE	Alu	intronic
+chr2:231181656:T:C	chr2:231181656:T:C	A:G	PSMD1	downstream	unknown	.	Name=AluSz6	FALSE	Alu	downstream
+chr2:127844888:T:C	chr2:127844888:A:G	A:G	POLR2D	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;ncRNA_exonic;RP5-935K16.1;-;-;intergenic;WDR33||POLR2D;-;-;intergenic;WDR33||POLR2D;-;-;-;1221;29;54	Name=AluSq2	TRUE	Alu	UTR3
+chr3:14178606:C:T	chr3:14178606:G:A	C:T	XPC	UTR5	unknown	.	.	FALSE	None	UTR5
+chr3:14944946:T:C	chr3:14944946:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;2125;30;55	Name=AluSq2	TRUE	Alu	ncRNA
+chr3:179399367:T:C	chr3:179399367:A:G	A:G	GNB4	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;UTR3;GNB4;-;-;UTR3;GNB4;-;-;UTR3;GNB4;-;-;-;1102;30;53	Name=AluSz	TRUE	Alu	UTR3
+chr3:179399376:T:C	chr3:179399376:A:G	A:G	GNB4	UTR3	unknown	T;C;-;A;ALU;rs199714419;SINE/AluSz;UTR3;GNB4;-;-;UTR3;GNB4;-;-;UTR3;GNB4;-;-;-;951;29;52	Name=AluSz	TRUE	Alu	UTR3
+chr3:46375781:A:G	chr3:46375781:T:C	A:G	CCR5AS	ncRNA
+intronic	unknown	A;G;+;A||R||D;NONREP;-;-/-;ncRNA_intronic;RP11-24F11.2;-;-;ncRNA_intronic;LOC102724297;-;-;UTR3;CCR5;-;-;-;383;29;47	.	TRUE	None	ncRNA
+chr3:46375792:A:G	chr3:46375792:T:C	A:G	CCR5AS	ncRNA
+intronic	unknown	A;G;+;A||R||D;NONREP;-;-/-;ncRNA_intronic;RP11-24F11.2;-;-;ncRNA_intronic;LOC102724297;-;-;UTR3;CCR5;-;-;-;309;28;45	.	TRUE	None	ncRNA
+chr3:72929497:G:A	chr3:72929497:G:A	C:T	GXYLT2	intronic	unknown	.	.	FALSE	None	intronic
+chr3:14944940:T:C	chr3:14944940:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;2443;30;55	Name=AluSq2	TRUE	Alu	ncRNA
+chr3:179258720:T:C	chr3:179258720:A:G	A:G	KCNMB3	intronic	unknown	.	.	FALSE	None	intronic
+chr3:179399445:T:C	chr3:179399445:A:G	A:G	GNB4	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;GNB4;-;-;UTR3;GNB4;-;-;UTR3;GNB4;-;-;-;1211;29;53	Name=AluSz	TRUE	Alu	UTR3
+chr3:179399454:T:C	chr3:179399454:A:G	A:G	GNB4	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;GNB4;-;-;UTR3;GNB4;-;-;UTR3;GNB4;-;-;-;1358;30;53	Name=AluSz	TRUE	Alu	UTR3
+chr3:179399476:T:C	chr3:179399476:A:G	A:G	GNB4	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;GNB4;-;-;UTR3;GNB4;-;-;UTR3;GNB4;-;-;-;670;29;51	Name=AluSz	TRUE	Alu	UTR3
+chr3:179399478:T:C	chr3:179399478:A:G	A:G	GNB4	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;GNB4;-;-;UTR3;GNB4;-;-;UTR3;GNB4;-;-;-;1188;30;54	Name=AluSz	TRUE	Alu	UTR3
+chr3:44749144:T:C	chr3:44749144:A:G	A:G	KIAA1143	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluY;UTR3;KIAA1143;-;-;UTR3;KIAA1143;-;-;UTR3;KIAA1143;-;-;-;2383;30;55	Name=AluY	TRUE	Alu	UTR3
+chr3:50335518:T:C	chr3:50335518:A:G	A:G	RASSF1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz6;intronic;RASSF1;-;-;intronic;RASSF1;-;-;intronic;RASSF1;-;-;-;1908;30;54	Name=AluSz6	TRUE	Alu	intronic
+chr3:142043827:T:C	chr3:142043827:A:G	A:G	TFDP2	intronic	unknown	T;C;-;R||D;NONREP;-;-/-;intronic;TFDP2;-;-;intronic;TFDP2;-;-;intronic;TFDP2;-;-;711;1029;11;8;8	.	TRUE	None	intronic
+chr3:14944591:T:C	chr3:14944591:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;2474;30;54	Name=AluSz6	TRUE	Alu	ncRNA
+chr3:14944603:T:C	chr3:14944603:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;2477;30;55	Name=AluSz6	TRUE	Alu	ncRNA
+chr3:14944604:T:C	chr3:14944604:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;1600;30;54	Name=AluSz6	TRUE	Alu	ncRNA
+chr3:14944945:T:C	chr3:14944945:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;2076;30;55	Name=AluSq2	TRUE	Alu	ncRNA
+chr3:158827340:A:G	chr3:158827340:A:G	A:G	MFSD1	intronic	unknown	.	.	FALSE	None	intronic
+chr3:52522941:G:A	chr3:52522941:G:A	C:T	STAB1	splicing	unknown	.	.	FALSE	None	splicing
+chr3:127742410:T:C	chr3:127742410:A:G	A:G	MGLL	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;MGLL;-;-;intronic;MGLL;-;-;intronic;MGLL;-;-;-;2;2;2	Name=AluSx1	TRUE	Alu	intronic
+chr3:146519255:T:C	chr3:146519255:A:G	A:G	PLSCR1	intronic	unknown	T;C;-;R;NONREP;-;-/-;intronic;PLSCR1;-;-;intronic;PLSCR1;-;-;intronic;PLSCR1;-;-;-;0;0;0	.	TRUE	None	intronic
+chr3:14944631:T:C	chr3:14944631:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;1942;30;54	Name=AluSz6	TRUE	Alu	ncRNA
+chr3:158827338:G:A	chr3:158827338:G:A	C:T	MFSD1	splicing	unknown	.	.	FALSE	None	splicing
+chr3:45680377:A:G	chr3:45680377:T:C	A:G	LIMD1-AS1	ncRNA
+intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluJb;ncRNA_intronic;LIMD1-AS1;-;-;ncRNA_intronic;LIMD1-AS1;-;-;ncRNA_intronic;LIMD1-AS1;-;-;-;1306;30;52	Name=AluJb	TRUE	Alu	ncRNA
+chr3:45680382:A:G	chr3:45680382:T:C	A:G	LIMD1-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;ncRNA_intronic;LIMD1-AS1;-;-;ncRNA_intronic;LIMD1-AS1;-;-;ncRNA_intronic;LIMD1-AS1;-;-;-;1979;30;53	Name=AluJb	TRUE	Alu	ncRNA
+chr3:45680430:A:G	chr3:45680430:T:C	A:G	LIMD1-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;ncRNA_intronic;LIMD1-AS1;-;-;ncRNA_intronic;LIMD1-AS1;-;-;ncRNA_intronic;LIMD1-AS1;-;-;-;2408;30;55	Name=AluJb	TRUE	Alu	ncRNA
+chr3:46357941:A:G	chr3:46357941:A:G	A:G	CCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:46357953:T:C	chr3:46357953:T:C	A:G	CCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:46375779:A:G	chr3:46375779:T:C	A:G	CCR5AS	ncRNA
+intronic	unknown	A;G;+;R;NONREP;-;-/-;ncRNA_intronic;RP11-24F11.2;-;-;ncRNA_intronic;LOC102724297;-;-;UTR3;CCR5;-;-;-;222;25;38	.	TRUE	None	ncRNA
+chr3:146455257:G:A	chr3:146455257:C:T	C:T	PLSCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:146455266:A:G	chr3:146455266:T:C	A:G	PLSCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:146455270:T:C	chr3:146455270:A:G	A:G	PLSCR2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr3:146455287:T:C	chr3:146455287:A:G	A:G	PLSCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:146455313:C:T	chr3:146455313:G:A	C:T	PLSCR2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr3:158809295:T:C	chr3:158809295:T:C	A:G	MFSD1	intronic	unknown	.	.	FALSE	None	intronic
+chr3:48750129:T:C	chr3:48750129:A:G	A:G	PRKAR2A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;UTR3;PRKAR2A;-;-;downstream;PRKAR2A;-;-;intronic;PRKAR2A;-;-;-;1900;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr3:122557151:T:C	chr3:122557151:A:G	A:G	PARP9	intronic	unknown	T;C;-;R||D;NONREP;-;-/-;intronic;PARP9;-;-;intronic;PARP9;-;-;intronic;PARP9;-;-;-;0;0;0	.	TRUE	None	intronic
+chr3:146543116:T:C	chr3:146543116:A:G	A:G	PLSCR1	intronic	unknown	T;C;-;A||R||D;REP;-;LINE/L2b;intronic;PLSCR1;-;-;intronic;PLSCR1;-;-;intronic;PLSCR1;-;-;-;249;27;40	Name=L2b	TRUE	Other	intronic
+chr3:196728061:C:T	chr3:196728061:C:T	C:T	PIGX	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr3:197885349:A:G	chr3:197885349:A:G	A:G	LRCH3	UTR3	unknown	A;G;+;A||R||D;ALU;rs373565572;SINE/AluSp;UTR3;LRCH3;-;-;intergenic;LRCH3||IQCG;-;-;intergenic;LRCH3||IQCG;-;-;-;2481;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr3:46358019:C:T	chr3:46358019:C:T	C:T	CCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:44749267:T:C	chr3:44749267:A:G	A:G	KIAA1143	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluY;UTR3;KIAA1143;-;-;UTR3;KIAA1143;-;-;UTR3;KIAA1143;-;-;-;2231;30;55	Name=AluY	TRUE	Alu	UTR3
+chr3:94076765:A:G	chr3:94076765:A:G	A:G	NSUN3	intronic	unknown	.	.	FALSE	None	intronic
+chr3:14944573:T:C	chr3:14944573:A:G	A:G	FGD5-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;ncRNA_exonic;FGD5-AS1;-;-;ncRNA_exonic;FGD5-AS1;-;-;intronic;FGD5-AS1;-;-;-;2042;30;54	Name=AluSz6	TRUE	Alu	ncRNA
+chr3:46358064:T:C	chr3:46358064:T:C	A:G	CCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:46358066:A:G	chr3:46358066:A:G	A:G	CCR2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr3:46358070:C:T	chr3:46358070:C:T	C:T	CCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:46358073:G:A	chr3:46358073:G:A	C:T	CCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:185970188:A:G	chr3:185970188:A:G	A:G	NMRAL2P	ncRNA
+intronic	unknown	A;G;+;R;ALU;-;SINE/AluY;ncRNA_intronic;RP11-443P15.2;-;-;ncRNA_intronic;LOC344887;-;-;ncRNA_intronic;LOC344887;-;-;-;4;2;3	Name=AluY	TRUE	Alu	ncRNA
+chr3:197884254:A:G	chr3:197884254:A:G	A:G	LRCH3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;LRCH3;-;-;intergenic;LRCH3||IQCG;-;-;downstream;LRCH3;-;-;-;964;30;52	Name=AluSx1	TRUE	Alu	UTR3
+chr3:197884321:A:G	chr3:197884321:A:G	A:G	LRCH3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;LRCH3;-;-;intergenic;LRCH3||IQCG;-;-;downstream;LRCH3;-;-;-;1378;30;53	Name=AluSx1	TRUE	Alu	UTR3
+chr3:19952093:A:G	chr3:19952093:A:G	A:G	RAB5A	intronic	unknown	A;G;+;A||R||D;REP;-;SINE/FLAM_A;intronic;RAB5A;-;-;intronic;RAB5A;-;-;intronic;RAB5A;-;-;-;1293;30;55	Name=FLAM_A	TRUE	Other	intronic
+chr3:197884320:A:G	chr3:197884320:A:G	A:G	LRCH3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;LRCH3;-;-;intergenic;LRCH3||IQCG;-;-;downstream;LRCH3;-;-;-;1397;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chr3:15410783:T:C	chr3:15410783:A:G	A:G	METTL6	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;METTL6;-;-;UTR3;METTL6;-;-;UTR3;METTL6;-;-;-;1892;30;54	Name=AluJb	TRUE	Alu	UTR3
+chr3:183490657:T:C	chr3:183490657:A:G	A:G	KLHL6	UTR3	unknown	T;C;-;R||D;ALU;-;SINE/AluSg4;UTR3;KLHL6;-;-;UTR3;KLHL6;-;-;UTR3;KLHL6;-;-;-;86;12;15	Name=AluSg4	TRUE	Alu	UTR3
+chr3:179258796:T:C	chr3:179258796:A:G	A:G	KCNMB3	intronic	unknown	.	.	FALSE	None	intronic
+chr3:61742663:C:T	chr3:61742663:C:T	C:T	PTPRG	intronic	unknown	.	.	FALSE	None	intronic
+chr3:197885489:A:G	chr3:197885489:A:G	A:G	LRCH3	UTR3	unknown	A;G;+;R||D;ALU;-;SINE/AluSp;UTR3;LRCH3;-;-;intergenic;LRCH3||IQCG;-;-;intergenic;LRCH3||IQCG;-;-;-;1364;30;53	Name=AluSp	TRUE	Alu	UTR3
+chr3:122549563:T:C	chr3:122549563:A:G	A:G	PARP9	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr;intronic;PARP9;-;-;intronic;PARP9;-;-;intronic;PARP9;-;-;-;40;11;12	Name=AluJr	TRUE	Alu	intronic
+chr3:119532410:T:C	chr3:119532410:A:G	A:G	CD80	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;CD80;-;-;intronic;CD80;-;-;intronic;CD80;-;-;-;45;3;3	Name=AluSx1	TRUE	Alu	intronic
+chr3:122557890:T:C	chr3:122557890:A:G	A:G	PARP9	intronic	unknown	T;C;-;A||R||D;REP;-;DNA/MER104;intronic;PARP9;-;-;intronic;PARP9;-;-;intronic;PARP9;-;-;-;318;25;41	Name=MER104	TRUE	Other	intronic
+chr3:119532245:T:C	chr3:119532245:A:G	A:G	CD80	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;CD80;-;-;intronic;CD80;-;-;intronic;CD80;-;-;-;46;3;3	Name=AluSx1	TRUE	Alu	intronic
+chr3:146454120:G:A	chr3:146454120:C:T	C:T	PLSCR2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr3:119531936:T:C	chr3:119531936:A:G	A:G	CD80	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intronic;CD80;-;-;intronic;CD80;-;-;intronic;CD80;-;-;-;44;4;4	Name=AluSx	TRUE	Alu	intronic
+chr3:119531937:T:C	chr3:119531937:A:G	A:G	CD80	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intronic;CD80;-;-;intronic;CD80;-;-;intronic;CD80;-;-;-;43;5;5	Name=AluSx	TRUE	Alu	intronic
+chr3:146454113:G:A	chr3:146454113:C:T	C:T	PLSCR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr3:146454133:C:T	chr3:146454133:G:A	C:T	PLSCR2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr4:109674919:C:T	chr4:109674919:C:T	C:T	MCUB	intronic	unknown	.	.	FALSE	None	intronic
+chr4:109674927:A:G	chr4:109674927:A:G	A:G	MCUB	intronic	unknown	.	.	FALSE	None	intronic
+chr4:143349869:A:G	chr4:143349869:A:G	A:G	GAB1	intronic	unknown	.	.	FALSE	None	intronic
+chr4:143349872:G:A	chr4:143349872:G:A	C:T	GAB1	intronic	unknown	.	.	FALSE	None	intronic
+chr4:143349902:A:G	chr4:143349902:A:G	A:G	GAB1	intronic	unknown	.	.	FALSE	None	intronic
+chr4:55412300:A:G	chr4:55412300:A:G	A:G	TMEM165	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;intronic;TMEM165;-;-;intronic;TMEM165;-;-;intronic;TMEM165;-;-;-;428;27;48	Name=AluSg	TRUE	Alu	intronic
+chr4:128036516:A:G	chr4:128036516:A:G	A:G	ABHD18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;UTR3;C4orf29;-;-;intergenic;ABHD18||LARP1B;-;-;downstream;C4orf29;-;-;-;1092;30;54	Name=AluSp	TRUE	Alu	UTR3
+chr4:128036549:A:G	chr4:128036549:A:G	A:G	ABHD18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;UTR3;C4orf29;-;-;intergenic;ABHD18||LARP1B;-;-;downstream;C4orf29;-;-;-;1422;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr4:176331175:A:G	chr4:176331175:A:G	A:G	SPCS3	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;SPCS3;-;-;UTR3;SPCS3;-;-;UTR3;SPCS3;-;-;-;1854;30;55	.	TRUE	None	UTR3
+chr4:176331176:A:G	chr4:176331176:A:G	A:G	SPCS3	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;SPCS3;-;-;UTR3;SPCS3;-;-;UTR3;SPCS3;-;-;-;2428;30;55	.	TRUE	None	UTR3
+chr4:184780145:T:C	chr4:184780145:A:G	A:G	ACSL1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;intronic;ACSL1;-;-;intronic;ACSL1;-;-;intronic;ACSL1;-;-;-;114;9;9	Name=AluSp	TRUE	Alu	intronic
+chr4:184781677:T:C	chr4:184781677:A:G	A:G	ACSL1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;ACSL1;-;-;intronic;ACSL1;-;-;intronic;ACSL1;-;-;-;622;26;47	Name=AluSx1	TRUE	Alu	intronic
+chr4:184781747:T:C	chr4:184781747:A:G	A:G	ACSL1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;ACSL1;-;-;intronic;ACSL1;-;-;intronic;ACSL1;-;-;-;518;27;41	Name=AluSx1	TRUE	Alu	intronic
+chr4:184781748:T:C	chr4:184781748:A:G	A:G	ACSL1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;intronic;ACSL1;-;-;intronic;ACSL1;-;-;intronic;ACSL1;-;-;-;537;25;42	Name=AluSx1	TRUE	Alu	intronic
+chr4:184781892:T:C	chr4:184781892:A:G	A:G	ACSL1	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;intronic;ACSL1;-;-;intronic;ACSL1;-;-;intronic;ACSL1;-;-;-;423;25;41	Name=AluSx1	TRUE	Alu	intronic
+chr4:76959016:C:T	chr4:76959016:C:T	C:T	SEPTIN11	intronic	unknown	.	.	FALSE	None	intronic
+chr4:76959019:T:C	chr4:76959019:T:C	A:G	SEPTIN11	intronic	unknown	.	.	FALSE	None	intronic
+chr4:88708222:C:T	chr4:88708222:C:T	C:T	HERC3	UTR3	unknown	.	.	FALSE	None	UTR3
+chr4:128036454:A:G	chr4:128036454:A:G	A:G	ABHD18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;UTR3;C4orf29;-;-;intergenic;ABHD18||LARP1B;-;-;downstream;C4orf29;-;-;-;1048;30;53	Name=AluSp	TRUE	Alu	UTR3
+chr4:128036529:A:G	chr4:128036529:A:G	A:G	ABHD18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;UTR3;C4orf29;-;-;intergenic;ABHD18||LARP1B;-;-;downstream;C4orf29;-;-;-;1332;30;54	Name=AluSp	TRUE	Alu	UTR3
+chr4:145624194:T:C	chr4:145624194:T:C	A:G	MMAA	intronic	unknown	.	.	FALSE	None	intronic
+chr4:145625929:T:C	chr4:145625929:T:C	A:G	MMAA	intronic	unknown	.	.	FALSE	None	intronic
+chr4:176331087:A:G	chr4:176331087:A:G	A:G	SPCS3	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;SPCS3;-;-;UTR3;SPCS3;-;-;UTR3;SPCS3;-;-;-;2420;30;54	.	TRUE	None	UTR3
+chr4:38827285:T:C	chr4:38827285:A:G	A:G	TLR6	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr4:47706819:A:G	chr4:47706819:T:C	A:G	CORIN	intronic	unknown	.	.	FALSE	None	intronic
+chr4:76344668:T:C	chr4:76344668:A:G	A:G	CCDC158	intronic	unknown	.	.	FALSE	None	intronic
+chr4:128036530:A:G	chr4:128036530:A:G	A:G	ABHD18	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;UTR3;C4orf29;-;-;intergenic;ABHD18||LARP1B;-;-;downstream;C4orf29;-;-;-;844;30;54	Name=AluSp	TRUE	Alu	UTR3
+chr4:184799389:T:C	chr4:184799389:A:G	A:G	ACSL1	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;ACSL1;-;-;intronic;ACSL1;-;-;intronic;ACSL1;-;-;-;274;19;27	Name=AluSx	TRUE	Alu	intronic
+chr4:88399651:A:G	chr4:88399651:A:G	A:G	HERC6	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSz;intronic;HERC6;-;-;intronic;HERC6;-;-;intronic;HERC6;-;-;-;15;12;12	Name=AluSz	TRUE	Alu	intronic
+chr4:88399656:A:G	chr4:88399656:A:G	A:G	HERC6	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSz;intronic;HERC6;-;-;intronic;HERC6;-;-;intronic;HERC6;-;-;-;16;10;10	Name=AluSz	TRUE	Alu	intronic
+chr4:102345487:A:G	chr4:102345487:T:C	A:G	SLC39A8	upstream	unknown	.	.	FALSE	None	upstream
+chr4:165278947:A:G	chr4:165278947:T:C	A:G	GK3P	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr4:56460709:A:G	chr4:56460709:A:G	A:G	PAICS	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;PAICS;-;-;UTR3;PAICS;-;-;UTR3;PAICS;-;-;-;2507;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr4:76959083:T:C	chr4:76959083:T:C	A:G	SEPTIN11	intronic	unknown	.	.	FALSE	None	intronic
+chr4:56460147:A:G	chr4:56460147:A:G	A:G	PAICS	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;PAICS;-;-;UTR3;PAICS;-;-;UTR3;PAICS;-;-;-;2298;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr4:56460149:A:G	chr4:56460149:A:G	A:G	PAICS	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;PAICS;-;-;UTR3;PAICS;-;-;UTR3;PAICS;-;-;-;2369;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr4:145624154:C:T	chr4:145624154:C:T	C:T	MMAA	intronic	unknown	.	.	FALSE	None	intronic
+chr4:55371732:A:G	chr4:55371732:T:C	A:G	SRD5A3-AS1	ncRNA
+intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSx;ncRNA_intronic;SRD5A3-AS1;-;-;ncRNA_intronic;SRD5A3-AS1;-;-;ncRNA_intronic;SRD5A3-AS1;-;-;-;1304;30;53	Name=AluSx	TRUE	Alu	ncRNA
+chr4:83294914:T:C	chr4:83294914:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;368;24;37	Name=AluSz	TRUE	Alu	UTR3
+chr4:83294820:T:C	chr4:83294820:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;469;23;40	Name=AluSz	TRUE	Alu	UTR3
+chr4:83295049:T:C	chr4:83295049:A:G	A:G	HPSE	UTR3	unknown	T;C;-;R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;215;19;30	Name=AluSz	TRUE	Alu	UTR3
+chr4:1858570:A:G	chr4:1858570:T:C	A:G	LETM1	upstream	unknown	A;G;+;A||R;ALU;-;SINE/AluSc5;intergenic;LETM1||RN7SL671P;-;-;intergenic;LETM1||WHSC1;-;-;intergenic;LETM1||WHSC1;-;-;-;19;11;12	Name=AluSc5	TRUE	Alu	upstream
+chr4:83294884:T:C	chr4:83294884:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;371;23;35	Name=AluSz	TRUE	Alu	UTR3
+chr4:83294171:T:C	chr4:83294171:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;291;24;38	Name=AluSx1	TRUE	Alu	UTR3
+chr4:83294197:T:C	chr4:83294197:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;348;26;41	Name=AluSx1	TRUE	Alu	UTR3
+chr4:83087642:A:G	chr4:83087642:T:C	A:G	PLAC8	downstream	unknown	.	Name=AluY	FALSE	Alu	downstream
+chr4:83294982:T:C	chr4:83294982:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;282;24;36	Name=AluSz	TRUE	Alu	UTR3
+chr4:83294837:T:C	chr4:83294837:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;231;19;33	Name=AluSz	TRUE	Alu	UTR3
+chr4:83294810:T:C	chr4:83294810:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;381;26;39	Name=AluSz	TRUE	Alu	UTR3
+chr4:83294811:T:C	chr4:83294811:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;211;21;34	Name=AluSz	TRUE	Alu	UTR3
+chr4:83294876:T:C	chr4:83294876:A:G	A:G	HPSE	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;HPSE;-;-;UTR3;HPSE;-;-;UTR3;HPSE;-;-;-;300;22;34	Name=AluSz	TRUE	Alu	UTR3
+chr5:126625956:A:G	chr5:126625956:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1702;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr5:126625957:A:G	chr5:126625957:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;2134;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr5:151268183:A:G	chr5:151268183:A:G	A:G	GM2A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;GM2A;-;-;UTR3;GM2A;-;-;UTR3;GM2A;-;-;-;1297;30;53	Name=AluSc	TRUE	Alu	UTR3
+chr5:91313720:T:C	chr5:91313720:A:G	A:G	LUCAT1	ncRNA
+exonic	unknown	T;C;-;A||R;ALU;-;SINE/AluY;ncRNA_exonic;LUCAT1||RP11-213H15.4;-;-;ncRNA_exonic;LUCAT1;-;-;ncRNA_exonic;AK091866;-;-;-;151;18;22	Name=AluY	TRUE	Alu	ncRNA
+chr5:96774840:T:C	chr5:96774840:A:G	A:G	ERAP1	UTR3	unknown	T;C;-;A||R||D;NONREP;-;-/-;UTR3;ERAP1;-;-;UTR3;ERAP1;-;-;UTR3;ERAP1;-;-;-;2014;30;55	.	TRUE	None	UTR3
+chr5:126625476:A:G	chr5:126625476:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1724;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr5:126625840:A:G	chr5:126625840:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;2019;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr5:126625931:A:G	chr5:126625931:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;2002;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr5:180835373:A:G	chr5:180835373:A:G	A:G	LINC00847	ncRNA
+exonic	unknown	A;G;+;A||R||D;REP;-;LTR/MLT2B3;ncRNA_exonic;LINC00847;-;-;ncRNA_exonic;LINC00847;-;-;ncRNA_exonic;LINC00847;-;-;-;2491;30;55	Name=MLT2B3	TRUE	Other	ncRNA
+chr5:65668049:T:C	chr5:65668049:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;133;13;29	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668067:T:C	chr5:65668067:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;347;19;36	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668091:T:C	chr5:65668091:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;489;24;45	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668117:T:C	chr5:65668117:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;865;27;51	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668135:T:C	chr5:65668135:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;463;25;45	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668189:T:C	chr5:65668189:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;204;16;34	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668203:T:C	chr5:65668203:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;606;28;51	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668225:T:C	chr5:65668225:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;599;28;51	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668226:T:C	chr5:65668226:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;517;27;49	Name=AluSx1	TRUE	Alu	UTR3
+chr5:91309082:T:C	chr5:91309082:A:G	A:G	LUCAT1	ncRNA
+intronic	unknown	T;C;-;R;ALU;-;SINE/AluSz;intergenic;RP11-213H15.1||LUCAT1;-;-;ncRNA_intronic;LUCAT1;-;-;intergenic;Metazoa_SRP||AK091866;-;-;-;357;22;29	Name=AluSz	TRUE	Alu	ncRNA
+chr5:126625755:A:G	chr5:126625755:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1988;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr5:126625771:A:G	chr5:126625771:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;2123;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr5:126625862:A:G	chr5:126625862:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;2128;30;54	Name=AluSz6	TRUE	Alu	UTR3
+chr5:126625942:A:G	chr5:126625942:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1632;30;54	Name=AluSz6	TRUE	Alu	UTR3
+chr5:136049437:A:G	chr5:136049437:A:G	A:G	TGFBI	splicing	unknown	.	.	FALSE	None	splicing
+chr5:150073299:A:G	chr5:150073299:T:C	A:G	CSF1R	splicing	unknown	.	.	FALSE	None	splicing
+chr5:73498559:G:A	chr5:73498559:G:A	C:T	BTF3	splicing	unknown	.	.	FALSE	None	splicing
+chr5:73498561:A:G	chr5:73498561:A:G	A:G	BTF3	UTR5	unknown	.	.	FALSE	None	UTR5
+chr5:91310331:T:C	chr5:91310331:A:G	A:G	LUCAT1	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;downstream;LUCAT1;-;-;ncRNA_intronic;LUCAT1;-;-;downstream;AK091866;-;-;-;336;17;27	Name=AluJb	TRUE	Alu	ncRNA
+chr5:119362595:A:G	chr5:119362595:A:G	A:G	TNFAIP8	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;intronic;TNFAIP8;-;-;intronic;TNFAIP8;-;-;intronic;TNFAIP8;-;-;-;5;4;4	Name=AluJo	TRUE	Alu	intronic
+chr5:126625969:A:G	chr5:126625969:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSz6;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1420;30;54	Name=AluSz6	TRUE	Alu	UTR3
+chr5:43586631:A:G	chr5:43586631:T:C	A:G	NNT-AS1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr5:61378938:A:G	chr5:61378938:A:G	A:G	ZSWIM6	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;ZSWIM6;-;-;intronic;ZSWIM6;-;-;intronic;ZSWIM6;-;-;-;78;14;25	Name=AluJr	TRUE	Alu	intronic
+chr5:65668353:T:C	chr5:65668353:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;1424;29;53	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668365:T:C	chr5:65668365:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;1085;29;53	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668392:T:C	chr5:65668392:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;1211;29;54	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668487:T:C	chr5:65668487:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;743;29;52	Name=AluSc	TRUE	Alu	UTR3
+chr5:65668499:T:C	chr5:65668499:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;308;24;44	Name=AluSc	TRUE	Alu	UTR3
+chr5:65668575:T:C	chr5:65668575:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;712;28;51	Name=AluSc	TRUE	Alu	UTR3
+chr5:65668617:T:C	chr5:65668617:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;525;27;47	Name=AluSc	TRUE	Alu	UTR3
+chr5:78984968:G:A	chr5:78984968:C:T	C:T	ARSB	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr5:126625477:A:G	chr5:126625477:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1195;30;54	Name=AluSz	TRUE	Alu	UTR3
+chr5:149981840:A:G	chr5:149981840:A:G	A:G	SLC26A2	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;SLC26A2;-;-;UTR3;SLC26A2;-;-;UTR3;SLC26A2;-;-;-;439;27;44	.	TRUE	None	UTR3
+chr5:149981852:A:G	chr5:149981852:A:G	A:G	SLC26A2	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;SLC26A2;-;-;UTR3;SLC26A2;-;-;UTR3;SLC26A2;-;-;-;504;29;49	.	TRUE	None	UTR3
+chr5:65668393:T:C	chr5:65668393:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;644;27;49	Name=AluSx1	TRUE	Alu	UTR3
+chr5:65668658:T:C	chr5:65668658:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;153;12;26	Name=AluSc	TRUE	Alu	UTR3
+chr5:65668659:T:C	chr5:65668659:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;250;19;34	Name=AluSc	TRUE	Alu	UTR3
+chr5:91310335:T:C	chr5:91310335:A:G	A:G	LUCAT1	ncRNA
+intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluJb;downstream;LUCAT1;-;-;ncRNA_intronic;LUCAT1;-;-;downstream;AK091866;-;-;-;264;16;22	Name=AluJb	TRUE	Alu	ncRNA
+chr5:61375262:G:A	chr5:61375262:G:A	C:T	ZSWIM6	intronic	unknown	.	.	FALSE	None	intronic
+chr5:126625512:A:G	chr5:126625512:A:G	A:G	PHAX	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;UTR3;PHAX;-;-;UTR3;PHAX;-;-;UTR3;PHAX;-;-;-;1214;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr5:65668641:T:C	chr5:65668641:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;326;20;38	Name=AluSc	TRUE	Alu	UTR3
+chr5:140334284:A:G	chr5:140334284:T:C	A:G	HBEGF	intronic	unknown	.	.	FALSE	None	intronic
+chr5:73509575:G:A	chr5:73509575:G:A	C:T	BTF3	downstream	unknown	.	.	FALSE	None	downstream
+chr5:179706335:A:G	chr5:179706335:A:G	A:G	CANX	intronic	unknown	.	.	FALSE	None	intronic
+chr5:147770339:T:C	chr5:147770339:A:G	A:G	JAKMIP2	intronic	unknown	T;C;-;A;NONREP;-;-/-;intronic;JAKMIP2;-;-;intronic;JAKMIP2;-;-;intronic;JAKMIP2;-;-;-;9;2;3	.	TRUE	None	intronic
+chr5:65668694:T:C	chr5:65668694:A:G	A:G	SGTB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;SGTB;-;-;UTR3;SGTB;-;-;UTR3;SGTB;-;-;-;72;11;24	Name=AluSc	TRUE	Alu	UTR3
+chr5:157478552:T:C	chr5:157478552:A:G	A:G	ADAM19	UTR3	unknown	T;C;-;A||R||D;REP;-;LTR/MER92B;UTR3;ADAM19;-;-;UTR3;ADAM19;-;-;ncRNA_exonic;AL049415;-;-;-;1724;30;54	Name=MER92B	TRUE	Other	UTR3
+chr6:108042167:T:C	chr6:108042167:A:G	A:G	OSTM1	UTR3	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;UTR3;OSTM1;-;-;UTR3;OSTM1;-;-;ncRNA_exonic;AJ420489;-;-;-;1198;30;55	Name=FLAM_C	TRUE	Other	UTR3
+chr6:108042172:T:C	chr6:108042172:A:G	A:G	OSTM1	UTR3	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;UTR3;OSTM1;-;-;UTR3;OSTM1;-;-;ncRNA_exonic;AJ420489;-;-;-;1233;30;54	Name=FLAM_C	TRUE	Other	UTR3
+chr6:108042685:T:C	chr6:108042685:A:G	A:G	OSTM1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;OSTM1;-;-;UTR3;OSTM1;-;-;ncRNA_exonic;AJ420489;-;-;-;1893;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr6:108907743:A:G	chr6:108907743:A:G	A:G	ARMC2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:108907783:G:A	chr6:108907783:G:A	C:T	ARMC2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:117999245:T:C	chr6:117999245:T:C	A:G	SLC35F1	intronic	unknown	.	.	FALSE	None	intronic
+chr6:159693251:G:A	chr6:159693251:C:T	C:T	SOD2	UTR5	unknown	.	.	FALSE	None	UTR5
+chr6:166931122:A:G	chr6:166931122:T:C	A:G	RNASET2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:24977069:C:T	chr6:24977069:G:A	C:T	RIPOR2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:3021122:T:C	chr6:3021122:A:G	A:G	HTATSF1P2	ncRNA
+exonic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr4;ncRNA_exonic;RP1-90J20.12;-;-;ncRNA_exonic;HTATSF1P2;-;-;ncRNA_exonic;HTATSF1P2;-;-;-;526;29;47	Name=AluJr4	TRUE	Alu	ncRNA
+chr6:3022234:T:C	chr6:3022234:A:G	A:G	HTATSF1P2	ncRNA
+exonic	unknown	T;C;-;R||D;ALU;-;SINE/AluJr;ncRNA_exonic;RP1-90J20.12;-;-;ncRNA_exonic;HTATSF1P2;-;-;ncRNA_exonic;HTATSF1P2;-;-;-;560;29;47	Name=AluJr	TRUE	Alu	ncRNA
+chr6:3154097:G:A	chr6:3154097:C:T	C:T	TUBB2A	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr6:3154115:C:T	chr6:3154115:G:A	C:T	TUBB2A	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr6:3154127:G:A	chr6:3154127:C:T	C:T	TUBB2A	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr6:3224841:G:A	chr6:3224841:C:T	C:T	TUBB2B	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr6:33127853:A:G	chr6:33127853:A:G	A:G	HLA-DPB2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:33127883:A:G	chr6:33127883:A:G	A:G	HLA-DPB2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:33128038:A:G	chr6:33128038:A:G	A:G	HLA-DPB2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:33128041:A:G	chr6:33128041:A:G	A:G	HLA-DPB2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:73593820:T:C	chr6:73593820:A:G	A:G	SLC17A5	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr;UTR3;SLC17A5;-;-;UTR3;SLC17A5;-;-;UTR3;SLC17A5;-;-;-;2038;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr6:73594290:T:C	chr6:73594290:A:G	A:G	SLC17A5	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx3;UTR3;SLC17A5;-;-;UTR3;SLC17A5;-;-;UTR3;SLC17A5;-;-;-;2125;30;55	Name=AluSx3	TRUE	Alu	UTR3
+chr6:73594291:T:C	chr6:73594291:A:G	A:G	SLC17A5	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx3;UTR3;SLC17A5;-;-;UTR3;SLC17A5;-;-;UTR3;SLC17A5;-;-;-;1790;30;55	Name=AluSx3	TRUE	Alu	UTR3
+chr6:108042693:T:C	chr6:108042693:A:G	A:G	OSTM1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;OSTM1;-;-;UTR3;OSTM1;-;-;ncRNA_exonic;AJ420489;-;-;-;1590;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr6:149594429:A:G	chr6:149594429:A:G	A:G	RPS18P9	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:166931119:C:T	chr6:166931119:G:A	C:T	RNASET2	splicing	unknown	.	.	FALSE	None	splicing
+chr6:31281256:T:C	chr6:31281256:A:G	A:G	HLA-C	upstream	unknown	.	.	FALSE	None	upstream
+chr6:73424191:T:C	chr6:73424191:A:G	A:G	CGAS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluY;UTR3;MB21D1;-;-;downstream;MB21D1;-;-;downstream;MB21D1;-;-;-;577;27;48	Name=AluY	TRUE	Alu	UTR3
+chr6:73425032:T:C	chr6:73425032:A:G	A:G	CGAS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MB21D1;-;-;downstream;MB21D1;-;-;downstream;MB21D1;-;-;-;1;1;1	Name=AluSz	TRUE	Alu	UTR3
+chr6:73425033:T:C	chr6:73425033:A:G	A:G	CGAS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MB21D1;-;-;downstream;MB21D1;-;-;downstream;MB21D1;-;-;-;1;1;1	Name=AluSz	TRUE	Alu	UTR3
+chr6:73425057:T:C	chr6:73425057:A:G	A:G	CGAS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MB21D1;-;-;downstream;MB21D1;-;-;downstream;MB21D1;-;-;-;212;23;37	Name=AluSz	TRUE	Alu	UTR3
+chr6:89338489:G:A	chr6:89338489:C:T	C:T	UBE2J1	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr6:108042214:T:C	chr6:108042214:A:G	A:G	OSTM1	UTR3	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_C;UTR3;OSTM1;-;-;UTR3;OSTM1;-;-;ncRNA_exonic;AJ420489;-;-;-;549;29;51	Name=FLAM_C	TRUE	Other	UTR3
+chr6:18128884:T:C	chr6:18128884:A:G	A:G	TPMT	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc8;UTR3;TPMT;-;-;UTR3;TPMT;-;-;UTR3;TPMT;-;-;-;841;28;52	Name=AluSc8	TRUE	Alu	UTR3
+chr6:31616809:C:T	chr6:31616809:C:T	C:T	AIF1	intronic	unknown	.	.	FALSE	None	intronic
+chr6:33128048:C:T	chr6:33128048:C:T	C:T	HLA-DPB2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:36673808:G:A	chr6:36673808:C:T	C:T	PANDAR	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:36673810:T:C	chr6:36673810:A:G	A:G	PANDAR	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr6:73424951:T:C	chr6:73424951:A:G	A:G	CGAS	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MB21D1;-;-;downstream;MB21D1;-;-;downstream;MB21D1;-;-;-;611;28;48	Name=AluSz	TRUE	Alu	UTR3
+chr6:116258821:C:T	chr6:116258821:C:T	C:T	DSE	UTR5	unknown	.	.	FALSE	None	UTR5
+chr6:116258845:A:G	chr6:116258845:A:G	A:G	DSE	UTR5	unknown	.	.	FALSE	None	UTR5
+chr6:26096396:A:G	chr6:26096396:A:G	A:G	HFE	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSg;UTR3;HFE;-;-;intergenic;HFE||HIST1H4C;-;-;intergenic;HFE||HIST1H4C;-;-;-;1421;30;53	Name=AluSg	TRUE	Alu	UTR3
+chr6:26096408:A:G	chr6:26096408:A:G	A:G	HFE	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;UTR3;HFE;-;-;intergenic;HFE||HIST1H4C;-;-;intergenic;HFE||HIST1H4C;-;-;-;1303;30;53	Name=AluSg	TRUE	Alu	UTR3
+chr6:31281234:G:A	chr6:31281234:C:T	C:T	HLA-C	upstream	unknown	.	.	FALSE	None	upstream
+chr6:17530986:T:C	chr6:17530986:T:C	A:G	CAP2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:17530987:G:A	chr6:17530987:G:A	C:T	CAP2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:17531002:T:C	chr6:17531002:T:C	A:G	CAP2	intronic	unknown	.	.	FALSE	None	intronic
+chr6:29896854:T:C	chr6:29896854:T:C	A:G	HLA-H	downstream	unknown	.	.	FALSE	None	downstream
+chr6:29896855:C:T	chr6:29896855:C:T	C:T	HLA-H	downstream	unknown	.	.	FALSE	None	downstream
+chr6:31948513:G:A	chr6:31948513:G:A	C:T	CFB	splicing	unknown	.	.	FALSE	None	splicing
+chr6:31948514:T:C	chr6:31948514:T:C	A:G	CFB	splicing	unknown	.	.	FALSE	None	splicing
+chr7:100358223:T:C	chr7:100358223:T:C	A:G	STAG3L5P-PVRIG2P-PILRB	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:100358329:G:A	chr7:100358329:G:A	C:T	PILRB	exonic	synonymous SNV	.	Name=(CTG)n	FALSE	Simple
+repeat	exonic
+chr7:100358334:T:C	chr7:100358334:T:C	A:G	PILRB	exonic	nonsynonymous SNV	.	Name=(CTG)n	FALSE	Simple
+repeat	exonic
+chr7:100418633:A:G	chr7:100418633:T:C	A:G	ZCWPW1	intronic	unknown	.	Name=AluSx1	FALSE	Alu	intronic
+chr7:17344729:A:G	chr7:17344729:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1539;30;54	Name=AluSx	TRUE	Alu	UTR3
+chr7:17344734:A:G	chr7:17344734:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1295;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr7:17344769:A:G	chr7:17344769:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1573;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr7:17344771:A:G	chr7:17344771:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1964;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr7:17344813:A:G	chr7:17344813:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;2125;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr7:17345106:A:G	chr7:17345106:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1905;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345139:A:G	chr7:17345139:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1012;30;52	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345155:A:G	chr7:17345155:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;12;6;6	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345156:A:G	chr7:17345156:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;rs542539241;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;12;6;6	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345159:A:G	chr7:17345159:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1640;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345208:A:G	chr7:17345208:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;2346;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345256:A:G	chr7:17345256:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;2303;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345263:A:G	chr7:17345263:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;2134;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:26193377:T:C	chr7:26193377:A:G	A:G	HNRNPA2B1	intronic	unknown	.	.	FALSE	None	intronic
+chr7:26193384:A:G	chr7:26193384:T:C	A:G	HNRNPA2B1	intronic	unknown	.	.	FALSE	None	intronic
+chr7:5527994:A:G	chr7:5527994:T:C	A:G	ACTB	intronic	unknown	.	.	FALSE	None	intronic
+chr7:5527996:A:G	chr7:5527996:T:C	A:G	ACTB	intronic	unknown	.	.	FALSE	None	intronic
+chr7:5528000:C:T	chr7:5528000:G:A	C:T	ACTB	intronic	unknown	.	.	FALSE	None	intronic
+chr7:5528003:C:T	chr7:5528003:G:A	C:T	ACTB	splicing	unknown	.	.	FALSE	None	splicing
+chr7:5528187:T:C	chr7:5528187:A:G	A:G	ACTB	splicing	unknown	T;C;-;A;NONREP;-;-/-;splicing;ACTB;-;-;splicing;ACTB;-;-;splicing;ACTB;-;-;600;366;1796;30;53	.	TRUE	None	splicing
+chr7:5528188:G:A	chr7:5528188:C:T	C:T	ACTB	intronic	unknown	.	.	FALSE	None	intronic
+chr7:66154305:A:G	chr7:66154305:A:G	A:G	CRCP	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;ncRNA_intronic;RP5-1132H15.1;-;-;UTR3;CRCP;-;-;UTR3;CRCP;-;-;-;2485;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr7:66741908:A:G	chr7:66741908:A:G	A:G	RABGEF1	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluY;intronic;KCTD7||RABGEF1;-;-;intronic;RABGEF1;-;-;intronic;RABGEF1;-;-;-;33;15;20	Name=AluY	TRUE	Alu	intronic
+chr7:100373724:A:G	chr7:100373724:A:G	A:G	PILRA	intronic	unknown	.	.	FALSE	None	intronic
+chr7:17345061:A:G	chr7:17345061:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1315;30;53	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345062:A:G	chr7:17345062:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1315;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345168:A:G	chr7:17345168:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1991;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:17345258:A:G	chr7:17345258:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;2056;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr7:20827400:G:A	chr7:20827400:G:A	C:T	RPL23P8	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:26364636:G:A	chr7:26364636:G:A	C:T	SNX10	splicing	unknown	.	.	FALSE	None	splicing
+chr7:44802329:A:G	chr7:44802329:A:G	A:G	PPIA	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;PPIA;-;-;UTR3;PPIA;-;-;UTR3;PPIA;-;-;-;2394;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr7:5528189:A:G	chr7:5528189:T:C	A:G	ACTB	intronic	unknown	.	.	FALSE	None	intronic
+chr7:66741883:A:G	chr7:66741883:A:G	A:G	RABGEF1	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluY;intronic;KCTD7||RABGEF1;-;-;intronic;RABGEF1;-;-;intronic;RABGEF1;-;-;-;24;12;14	Name=AluY	TRUE	Alu	intronic
+chr7:129056455:T:C	chr7:129056455:T:C	A:G	TPI1P2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:129056482:T:C	chr7:129056482:T:C	A:G	TPI1P2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:20827406:C:T	chr7:20827406:C:T	C:T	RPL23P8	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:23275201:A:G	chr7:23275201:A:G	A:G	GPNMB	downstream	unknown	A;G;+;A||R;REP;-;SINE/FLAM_C;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;124;18;25	Name=FLAM_C	TRUE	Other	downstream
+chr7:23275273:A:G	chr7:23275273:A:G	A:G	GPNMB	downstream	unknown	A;G;+;A||R;REP;-;SINE/FLAM_C;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;62;13;18	Name=FLAM_C	TRUE	Other	downstream
+chr7:23275468:A:G	chr7:23275468:A:G	A:G	GPNMB	downstream	unknown	A;G;+;R;ALU;-;SINE/AluJb;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;0;0;0	Name=AluJb	TRUE	Alu	downstream
+chr7:23275470:A:G	chr7:23275470:A:G	A:G	GPNMB	downstream	unknown	A;G;+;R;ALU;-;SINE/AluJb;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;1;1;1	Name=AluJb	TRUE	Alu	downstream
+chr7:23275471:A:G	chr7:23275471:A:G	A:G	GPNMB	downstream	unknown	A;G;+;R;ALU;-;SINE/AluJb;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;0;0;0	Name=AluJb	TRUE	Alu	downstream
+chr7:23275479:A:G	chr7:23275479:A:G	A:G	GPNMB	downstream	unknown	A;G;+;R;ALU;-;SINE/AluJb;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;1;1;1	Name=AluJb	TRUE	Alu	downstream
+chr7:23275510:A:G	chr7:23275510:A:G	A:G	GPNMB	downstream	unknown	A;G;+;R;ALU;-;SINE/AluJb;downstream;GPNMB;-;-;downstream;GPNMB;-;-;downstream;GPNMB;-;-;-;15;7;11	Name=AluJb	TRUE	Alu	downstream
+chr7:44801920:A:G	chr7:44801920:A:G	A:G	PPIA	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;PPIA;-;-;UTR3;PPIA;-;-;UTR3;PPIA;-;-;-;2399;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr7:100386072:A:G	chr7:100386072:A:G	A:G	PILRA	intronic	unknown	A;G;+;R;ALU;-;SINE/AluSq2;intronic;PILRA;-;-;intronic;PILRA;-;-;intronic;PILRA;-;-;-;27;8;11	Name=AluSq2	TRUE	Alu	intronic
+chr7:17344903:A:G	chr7:17344903:A:G	A:G	AHR	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;AHR;-;-;UTR3;AHR;-;-;UTR3;AHR;-;-;-;1796;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr7:66715788:A:G	chr7:66715788:A:G	A:G	RABGEF1	intronic	unknown	A;G;+;A||R||D;REP;-;SINE/FAM;intergenic;RP4-756H11.3||RP11-792A8.4;-;-;intronic;RABGEF1;-;-;intronic;RABGEF1;-;-;-;1924;30;54	Name=FAM	TRUE	Other	intronic
+chr7:73233241:A:G	chr7:73233241:A:G	A:G	NCF1B	ncRNA
+intronic	unknown	A;G;+;R||D;ALU;-;SINE/AluJr;ncRNA_intronic;NCF1B;-;-;ncRNA_intronic;NCF1B;-;-;intronic;FKBP6;-;-;-;243;12;16	Name=AluJr	TRUE	Alu	ncRNA
+chr7:48106494:A:G	chr7:48106494:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;2146;30;54	Name=AluSq	TRUE	Alu	intronic
+chr7:48106508:A:G	chr7:48106508:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;1766;30;53	Name=AluSq	TRUE	Alu	intronic
+chr7:48106573:A:G	chr7:48106573:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;2306;30;54	Name=AluSq	TRUE	Alu	intronic
+chr7:48106586:A:G	chr7:48106586:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;2170;30;53	Name=AluSq	TRUE	Alu	intronic
+chr7:127591091:A:G	chr7:127591091:A:G	A:G	ARF5	intronic	unknown	.	.	FALSE	None	intronic
+chr7:128307926:T:C	chr7:128307926:A:G	A:G	RBM28	UTR3	unknown	T;C;-;R||D;ALU;-;SINE/AluJr;UTR3;RBM28;-;-;upstream;MGC27345;-;-;upstream;MGC27345;-;-;-;1635;29;52	Name=AluJr	TRUE	Alu	UTR3
+chr7:129056504:A:G	chr7:129056504:A:G	A:G	TPI1P2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:129056507:T:C	chr7:129056507:T:C	A:G	TPI1P2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:37742260:A:G	chr7:37742260:A:G	A:G	GPR141	UTR3	unknown	A;G;+;R;REP;-;Low_complexity/AT_rich;intronic;EPDR1;-;-;downstream;GPR141;-;-;ncRNA_intronic;BC043356;-;-;-;136;9;12	Name=(TA)n	TRUE	Simple
+repeat	UTR3
+chr7:74774007:A:G	chr7:74774007:A:G	A:G	NCF1	UTR5	unknown	.	.	FALSE	None	UTR5
+chr7:44802500:A:G	chr7:44802500:A:G	A:G	PPIA	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;PPIA;-;-;UTR3;PPIA;-;-;UTR3;PPIA;-;-;-;2231;30;54	.	TRUE	None	UTR3
+chr7:48103964:A:G	chr7:48103964:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;intronic;UPP1;-;-;intronic;UPP1;-;-;UTR3;UPP1;-;-;-;1318;30;53	Name=AluSc	TRUE	Alu	intronic
+chr7:48106428:A:G	chr7:48106428:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;1924;30;53	Name=AluSq	TRUE	Alu	intronic
+chr7:127591093:G:A	chr7:127591093:G:A	C:T	ARF5	intronic	unknown	.	.	FALSE	None	intronic
+chr7:65975657:T:C	chr7:65975657:A:G	A:G	GUSB	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;intronic;GUSB;-;-;intronic;GUSB;-;-;intronic;GUSB;-;-;-;944;30;53	Name=AluSz	TRUE	Alu	intronic
+chr7:75213539:A:G	chr7:75213539:T:C	A:G	GTF2IP1	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr7:75814483:T:C	chr7:75814483:A:G	A:G	CCL24	intronic	unknown	.	Name=AluJr	FALSE	Alu	intronic
+chr7:48106410:A:G	chr7:48106410:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;1622;30;53	Name=AluSq	TRUE	Alu	intronic
+chr7:48106411:A:G	chr7:48106411:A:G	A:G	UPP1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq;intronic;UPP1;-;-;intronic;UPP1;-;-;intronic;UPP1;-;-;-;1743;30;53	Name=AluSq	TRUE	Alu	intronic
+chr7:65975775:T:C	chr7:65975775:A:G	A:G	GUSB	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;GUSB;-;-;intronic;GUSB;-;-;intronic;GUSB;-;-;-;1714;30;54	Name=AluJo	TRUE	Alu	intronic
+chr7:100856726:A:G	chr7:100856726:A:G	A:G	SLC12A9	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;intronic;SLC12A9;-;-;intronic;SLC12A9;-;-;UTR5;SLC12A9;-;-;-;2027;30;54	Name=AluJb	TRUE	Alu	intronic
+chr7:36522116:C:T	chr7:36522116:G:A	C:T	AOAH	splicing	unknown	.	.	FALSE	None	splicing
+chr7:111913766:T:C	chr7:111913766:A:G	A:G	DOCK4	intronic	unknown	T;C;-;R;ALU;-;SINE/AluJb;intronic;DOCK4;-;-;intronic;DOCK4;-;-;intronic;DOCK4;-;-;-;3;2;2	Name=AluJr	TRUE	Alu	intronic
+chr7:48101990:C:T	chr7:48101990:C:T	C:T	UPP1	intronic	unknown	.	.	FALSE	None	intronic
+chr7:48101986:A:G	chr7:48101986:A:G	A:G	UPP1	intronic	unknown	.	.	FALSE	None	intronic
+chr8:11842734:T:C	chr8:11842734:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1560;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842752:T:C	chr8:11842752:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2382;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842775:T:C	chr8:11842775:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1749;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842815:T:C	chr8:11842815:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;13;6;6	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842854:T:C	chr8:11842854:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2365;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842887:T:C	chr8:11842887:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1907;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842904:T:C	chr8:11842904:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2090;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842918:T:C	chr8:11842918:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1335;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11843016:T:C	chr8:11843016:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2036;30;54	Name=AluSg	TRUE	Alu	UTR3
+chr8:11843046:T:C	chr8:11843046:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1316;30;54	Name=AluSg	TRUE	Alu	UTR3
+chr8:11843168:T:C	chr8:11843168:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2268;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr8:11843220:T:C	chr8:11843220:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2348;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr8:11843774:T:C	chr8:11843774:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2458;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843787:T:C	chr8:11843787:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1979;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843814:T:C	chr8:11843814:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2476;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843848:T:C	chr8:11843848:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2461;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843920:T:C	chr8:11843920:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2554;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843971:T:C	chr8:11843971:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2329;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843976:T:C	chr8:11843976:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2362;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11843981:T:C	chr8:11843981:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2575;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:30678436:T:C	chr8:30678436:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;2092;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr8:30678458:T:C	chr8:30678458:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;2163;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr8:30678463:T:C	chr8:30678463:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;1670;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr8:30678498:T:C	chr8:30678498:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;1849;30;54	Name=AluJb	TRUE	Alu	UTR3
+chr8:30678499:T:C	chr8:30678499:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;1674;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr8:30678634:T:C	chr8:30678634:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;2077;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr8:30678635:T:C	chr8:30678635:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;1885;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr8:30679027:T:C	chr8:30679027:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;2191;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr8:30679037:T:C	chr8:30679037:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;2143;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr8:30679086:T:C	chr8:30679086:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;1427;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr8:38973067:A:G	chr8:38973067:A:G	A:G	PLEKHA2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;PLEKHA2;-;-;UTR3;PLEKHA2;-;-;UTR3;PLEKHA2;-;-;-;2338;30;54	Name=AluJb	TRUE	Alu	UTR3
+chr8:106697318:G:A	chr8:106697318:G:A	C:T	OXR1	intronic	unknown	.	.	FALSE	None	intronic
+chr8:106697326:A:G	chr8:106697326:A:G	A:G	OXR1	intronic	unknown	.	.	FALSE	None	intronic
+chr8:11842704:T:C	chr8:11842704:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2370;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842742:T:C	chr8:11842742:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1748;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11842910:T:C	chr8:11842910:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;rs778278521;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1463;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:11843087:T:C	chr8:11843087:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;1941;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr8:11843228:T:C	chr8:11843228:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2540;30;55	Name=AluSg	TRUE	Alu	UTR3
+chr8:11843786:T:C	chr8:11843786:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2541;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:11844000:T:C	chr8:11844000:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2547;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr8:30679066:T:C	chr8:30679066:A:G	A:G	GSR	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;UTR3;GSR;-;-;UTR3;GSR;-;-;UTR3;GSR;-;-;-;1960;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr8:43021876:A:G	chr8:43021876:A:G	A:G	HOOK3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;HOOK3;-;-;UTR3;HOOK3;-;-;UTR3;HOOK3;-;-;-;428;26;42	Name=AluY	TRUE	Alu	UTR3
+chr8:55917030:A:G	chr8:55917030:A:G	A:G	LYN	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;intronic;LYN;-;-;intronic;LYN;-;-;intronic;LYN;-;-;-;8;4;5	Name=AluSz6	TRUE	Alu	intronic
+chr8:55987266:A:G	chr8:55987266:A:G	A:G	LYN	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;intronic;LYN;-;-;intronic;LYN;-;-;intronic;LYN;-;-;-;18;3;4	Name=AluSx1	TRUE	Alu	intronic
+chr8:56012660:A:G	chr8:56012660:A:G	A:G	LYN	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluJr;upstream;RP11-446E9.2;-;-;downstream;LYN;-;-;downstream;LYN;-;-;-;90;6;7	Name=AluJr	TRUE	Alu	UTR3
+chr8:65737074:T:C	chr8:65737074:A:G	A:G	PDE7A	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;PDE7A;-;-;intronic;PDE7A;-;-;intronic;PDE7A;-;-;-;138;23;27	Name=AluJb	TRUE	Alu	intronic
+chr8:18075099:C:T	chr8:18075099:G:A	C:T	ASAH1	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr8:18075101:T:C	chr8:18075101:A:G	A:G	ASAH1	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr8:11842709:T:C	chr8:11842709:A:G	A:G	CTSB	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;UTR3;CTSB;-;-;UTR3;CTSB;-;-;UTR3;CTSB;-;-;-;2197;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr8:106697950:C:T	chr8:106697950:C:T	C:T	OXR1	intronic	unknown	.	.	FALSE	None	intronic
+chr8:106697978:T:C	chr8:106697978:T:C	A:G	OXR1	intronic	unknown	.	.	FALSE	None	intronic
+chr8:97729189:A:G	chr8:97729189:A:G	A:G	MTDH	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;downstream;MTDH;-;-;UTR3;MTDH;-;-;UTR3;MTDH;-;-;-;2093;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr8:55903869:A:G	chr8:55903869:A:G	A:G	LYN	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;intronic;LYN;-;-;intronic;LYN;-;-;intronic;LYN;-;-;-;13;6;6	Name=AluJb	TRUE	Alu	intronic
+chr8:101369399:G:A	chr8:101369399:G:A	C:T	NACA4P	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr8:55932563:A:G	chr8:55932563:A:G	A:G	LYN	intronic	unknown	A;G;+;R||D;ALU;-;SINE/AluSx;intronic;LYN;-;-;intronic;LYN;-;-;intronic;LYN;-;-;-;20;1;1	Name=AluSx	TRUE	Alu	intronic
+chr8:55934064:A:G	chr8:55934064:A:G	A:G	LYN	intronic	unknown	A;G;+;R||D;ALU;-;SINE/AluSg;intronic;LYN;-;-;intronic;LYN;-;-;intronic;LYN;-;-;-;4;1;1	Name=AluSx4	TRUE	Alu	intronic
+chr8:89935615:G:A	chr8:89935615:C:T	C:T	NBN	intronic	unknown	.	.	FALSE	None	intronic
+chr8:55934066:A:G	chr8:55934066:A:G	A:G	LYN	intronic	unknown	A;G;+;R||D;ALU;-;SINE/AluSg;intronic;LYN;-;-;intronic;LYN;-;-;intronic;LYN;-;-;-;4;1;1	Name=AluSx4	TRUE	Alu	intronic
+chr9:112684505:T:C	chr9:112684505:A:G	A:G	INIP	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluJr;UTR3;INIP;-;-;intergenic;KIAA1958||INIP;-;-;intergenic;KIAA1958||INIP;-;-;-;2361;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr9:134885270:A:G	chr9:134885270:A:G	A:G	FCN2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr9:134885276:C:T	chr9:134885276:C:T	C:T	FCN2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr9:134911130:C:T	chr9:134911130:G:A	C:T	FCN1	intronic	unknown	.	.	FALSE	None	intronic
+chr9:87728150:G:A	chr9:87728150:G:A	C:T	CTSL	splicing	unknown	.	.	FALSE	None	splicing
+chr9:112880166:A:G	chr9:112880166:T:C	A:G	SLC46A2	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSx1;intronic;SLC46A2;-;-;intronic;SLC46A2;-;-;intronic;SLC46A2;-;-;-;217;20;26	Name=AluSx1	TRUE	Alu	intronic
+chr9:125596734:A:G	chr9:125596734:T:C	A:G	MAPKAP1	intronic	unknown	.	.	FALSE	None	intronic
+chr9:129506681:A:G	chr9:129506681:A:G	A:G	LINC00963	ncRNA
+intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluY;ncRNA_exonic;LINC00963;-;-;ncRNA_intronic;LINC00963;-;-;ncRNA_intronic;LOC100506190;-;-;-;1898;30;54	Name=AluYf1	TRUE	Alu	ncRNA
+chr9:129506703:A:G	chr9:129506703:A:G	A:G	LINC00963	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;ncRNA_exonic;LINC00963;-;-;ncRNA_intronic;LINC00963;-;-;ncRNA_intronic;LOC100506190;-;-;-;1767;30;54	Name=AluYf1	TRUE	Alu	ncRNA
+chr9:98218050:T:C	chr9:98218050:A:G	A:G	TBC1D2	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr4;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;-;108;12;19	Name=AluJr4	TRUE	Alu	intronic
+chr9:98218054:T:C	chr9:98218054:A:G	A:G	TBC1D2	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr4;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;-;55;9;15	Name=AluJr4	TRUE	Alu	intronic
+chr9:98218323:T:C	chr9:98218323:A:G	A:G	TBC1D2	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluY;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;-;122;14;27	Name=AluY	TRUE	Alu	intronic
+chr9:112685300:T:C	chr9:112685300:A:G	A:G	INIP	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluJb;UTR3;INIP;-;-;intergenic;KIAA1958||INIP;-;-;intergenic;KIAA1958||INIP;-;-;-;2127;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr9:127804942:A:G	chr9:127804942:A:G	A:G	FPGS	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;intronic;FPGS;-;-;intronic;FPGS;-;-;intronic;FPGS;-;-;-;262;28;40	Name=AluSx1	TRUE	Alu	intronic
+chr9:134906134:T:C	chr9:134906134:A:G	A:G	FCN1	UTR3	unknown	T;C;-;R;ALU;-;SINE/AluSz;intergenic;FCN2||FCN1;-;-;intergenic;FCN2||FCN1;-;-;intergenic;FCN2||FCN1;-;-;-;38;5;5	Name=AluSz	TRUE	Alu	UTR3
+chr9:134906173:T:C	chr9:134906173:A:G	A:G	FCN1	UTR3	unknown	T;C;-;R;ALU;-;SINE/AluSz;intergenic;FCN2||FCN1;-;-;intergenic;FCN2||FCN1;-;-;intergenic;FCN2||FCN1;-;-;-;93;6;7	Name=AluSz	TRUE	Alu	UTR3
+chr9:134906200:T:C	chr9:134906200:A:G	A:G	FCN1	UTR3	unknown	T;C;-;R;ALU;-;SINE/AluSz;intergenic;FCN2||FCN1;-;-;intergenic;FCN2||FCN1;-;-;intergenic;FCN2||FCN1;-;-;-;172;7;8	Name=AluSz	TRUE	Alu	UTR3
+chr9:19125559:T:C	chr9:19125559:A:G	A:G	PLIN2	intronic	unknown	T;C;-;R;ALU;rs573598660;SINE/AluJr;intronic;PLIN2;-;-;intronic;PLIN2;-;-;intronic;PLIN2;-;-;-;497;28;48	Name=AluJr	TRUE	Alu	intronic
+chr9:92079161:T:C	chr9:92079161:A:G	A:G	SPTLC1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;SPTLC1;-;-;UTR3;SPTLC1;-;-;UTR3;SPTLC1;-;-;-;796;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chr9:98218402:T:C	chr9:98218402:A:G	A:G	TBC1D2	intronic	unknown	T;C;-;A;ALU;-;SINE/AluY;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;intronic;TBC1D2;-;-;-;20;8;10	Name=AluY	TRUE	Alu	intronic
+chr9:127843246:C:T	chr9:127843246:G:A	C:T	ENG	splicing	unknown	.	.	FALSE	None	splicing
+chr9:134885806:C:T	chr9:134885806:C:T	C:T	FCN2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr9:131708809:T:C	chr9:131708809:A:G	A:G	RAPGEF1	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;intronic;RAPGEF1;-;-;intronic;RAPGEF1;-;-;intronic;RAPGEF1;-;-;-;8;5;5	Name=AluSx1	TRUE	Alu	intronic
+chr9:131606824:T:C	chr9:131606824:A:G	A:G	RAPGEF1	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJo;intronic;RAPGEF1;-;-;intronic;RAPGEF1;-;-;intronic;RAPGEF1;-;-;-;17;7;8	Name=AluJo	TRUE	Alu	intronic
+chr9:92079181:T:C	chr9:92079181:A:G	A:G	SPTLC1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;UTR3;SPTLC1;-;-;UTR3;SPTLC1;-;-;UTR3;SPTLC1;-;-;-;687;30;53	Name=AluSx1	TRUE	Alu	UTR3
+chr9:72953058:C:T	chr9:72953058:G:A	C:T	ALDH1A1	upstream	unknown	.	.	FALSE	None	upstream
+chr9:15167690:T:C	chr9:15167690:A:G	A:G	TTC39B	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSp;UTR3;TTC39B;-;-;intergenic;LOC389705||TTC39B;-;-;intergenic;AK021570||TTC39B;-;-;-;1015;30;53	Name=AluSp	TRUE	Alu	UTR3
+chr9:87773165:C:T	chr9:87773165:C:T	C:T	CTSL3P	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr9:87773183:C:T	chr9:87773183:C:T	C:T	CTSL3P	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr10:100232545:T:C	chr10:100232545:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;2479;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr10:100232668:T:C	chr10:100232668:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;2495;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr10:100233026:T:C	chr10:100233026:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;2394;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr10:100233036:T:C	chr10:100233036:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;2505;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr10:100233053:T:C	chr10:100233053:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;2336;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr10:100233141:T:C	chr10:100233141:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;1485;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr10:100233142:T:C	chr10:100233142:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;1906;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr10:46635298:A:G	chr10:46635298:T:C	A:G	SHLD2P1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr10:50069172:A:G	chr10:50069172:A:G	A:G	WASHC2A	intronic	unknown	A;G;+;R||D;ALU;-;SINE/AluSx3;intronic;FAM21A;-;-;intronic;FAM21A;-;-;intronic;FAM21A;-;-;387;50;90;18;26	Name=AluSg	TRUE	Alu	intronic
+chr10:70163953:T:C	chr10:70163953:A:G	A:G	SAR1A	intronic	unknown	T;C;-;R||D;NONREP;-;-/-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;851;3847;1126;29;51	.	TRUE	None	intronic
+chr10:73248973:T:C	chr10:73248973:T:C	A:G	DNAJC9-AS1	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr;ncRNA_exonic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;-;2414;30;55	Name=AluJr	TRUE	Alu	ncRNA
+chr10:73249057:T:C	chr10:73249057:T:C	A:G	DNAJC9-AS1	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr;ncRNA_exonic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;-;2533;30;55	Name=AluJr	TRUE	Alu	ncRNA
+chr10:73249118:T:C	chr10:73249118:T:C	A:G	DNAJC9-AS1	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr;ncRNA_exonic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;-;2572;30;55	Name=AluJr	TRUE	Alu	ncRNA
+chr10:73249197:T:C	chr10:73249197:T:C	A:G	DNAJC9-AS1	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr;ncRNA_exonic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;-;2551;30;55	Name=AluJr	TRUE	Alu	ncRNA
+chr10:100232510:T:C	chr10:100232510:A:G	A:G	CWF19L1	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSq2;ncRNA_intronic;RP11-316M21.6;-;-;UTR3;CWF19L1;-;-;UTR3;CWF19L1;-;-;-;2160;30;54	Name=AluSq2	TRUE	Alu	UTR3
+chr10:17687220:A:G	chr10:17687220:A:G	A:G	STAM	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;intronic;STAM;-;-;intronic;STAM;-;-;intronic;STAM;-;-;-;36;11;16	Name=AluSz	TRUE	Alu	intronic
+chr10:26761083:T:C	chr10:26761083:A:G	A:G	ABI1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;intronic;ABI1;-;-;intronic;ABI1;-;-;intronic;ABI1;-;-;-;734;29;45	Name=AluJo	TRUE	Alu	intronic
+chr10:26761217:T:C	chr10:26761217:A:G	A:G	ABI1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;intronic;ABI1;-;-;intronic;ABI1;-;-;intronic;ABI1;-;-;-;784;30;49	Name=AluJo	TRUE	Alu	intronic
+chr10:69100098:A:G	chr10:69100098:A:G	A:G	SRGN	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;intronic;SRGN;-;-;intronic;SRGN;-;-;intronic;SRGN;-;-;-;586;29;44	Name=AluSz	TRUE	Alu	intronic
+chr10:73249833:T:C	chr10:73249833:T:C	A:G	DNAJC9-AS1	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluY;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;-;2288;30;55	Name=AluSc	TRUE	Alu	ncRNA
+chr10:16437386:A:G	chr10:16437386:A:G	A:G	PTER	UTR5	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;UTR5;PTER;-;-;UTR5;PTER;-;-;UTR5;PTER;-;-;-;639;28;40	Name=AluJo	TRUE	Alu	UTR5
+chr10:70163676:A:G	chr10:70163676:T:C	A:G	SAR1A	intronic	unknown	A;G;+;R||D;NONREP;-;-/-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;-;60;19;29	.	TRUE	None	intronic
+chr10:70163705:G:A	chr10:70163705:C:T	C:T	SAR1A	intronic	unknown	.	.	FALSE	None	intronic
+chr10:70163731:T:C	chr10:70163731:A:G	A:G	SAR1A	intronic	unknown	T;C;-;R||D;NONREP;-;-/-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;851;3847;0;0;0	.	TRUE	None	intronic
+chr10:70164384:G:A	chr10:70164384:C:T	C:T	SAR1A	intronic	unknown	.	.	FALSE	None	intronic
+chr10:70164400:A:G	chr10:70164400:T:C	A:G	SAR1A	intronic	unknown	.	.	FALSE	None	intronic
+chr10:23433176:A:G	chr10:23433176:A:G	A:G	OTUD1	upstream	unknown	.	Name=AluJb	FALSE	Alu	upstream
+chr10:89383530:G:A	chr10:89383530:G:A	C:T	IFIT1B	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr10:89383538:G:A	chr10:89383538:G:A	C:T	IFIT1B	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr10:89383542:A:G	chr10:89383542:A:G	A:G	IFIT1B	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr10:89383544:G:A	chr10:89383544:G:A	C:T	IFIT1B	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr10:89383563:A:G	chr10:89383563:A:G	A:G	IFIT1B	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr10:73249962:T:C	chr10:73249962:T:C	A:G	DNAJC9-AS1	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluY;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;ncRNA_intronic;DNAJC9-AS1;-;-;-;2012;30;55	Name=AluY	TRUE	Alu	ncRNA
+chr10:74315974:A:G	chr10:74315974:A:G	A:G	ADK	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSz;intronic;ADK;-;-;intronic;ADK;-;-;intronic;ADK;-;-;-;5;3;3	Name=AluSz	TRUE	Alu	intronic
+chr10:28525115:T:C	chr10:28525115:A:G	A:G	WAC-AS1	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSq;ncRNA_intronic;WAC-AS1;-;-;ncRNA_intronic;WAC-AS1;-;-;ncRNA_intronic;WAC-AS1;-;-;-;740;30;54	Name=AluSq	TRUE	Alu	ncRNA
+chr10:96709541:T:C	chr10:96709541:A:G	A:G	PIK3AP1	intronic	unknown	T;C;-;A||R||D;NONREP;-;-/-;intronic;PIK3AP1;-;-;intronic;PIK3AP1;-;-;intronic;PIK3AP1;-;-;-;64;8;9	.	TRUE	None	intronic
+chr10:70163670:A:G	chr10:70163670:T:C	A:G	SAR1A	intronic	unknown	A;G;+;R;NONREP;-;-/-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;intronic;SAR1A;-;-;-;63;17;29	.	TRUE	None	intronic
+chr10:87244693:T:C	chr10:87244693:A:G	A:G	NUTM2A-AS1	ncRNA
+intronic	unknown	T;C;-;A||R;REP;-;LTR/MSTA;ncRNA_exonic;NUTM2A-AS1;-;-;ncRNA_intronic;NUTM2A-AS1;-;-;ncRNA_exonic;NUTM2A-AS1;-;-;-;1595;30;53	Name=MSTA	TRUE	Other	ncRNA
+chr10:92216484:T:C	chr10:92216484:A:G	A:G	CPEB3	intronic	unknown	.	.	FALSE	None	intronic
+chr10:100253152:T:C	chr10:100253152:A:G	A:G	CWF19L1	intronic	unknown	T;C;-;A||R||D;REP;-;SINE/FRAM;intronic;CWF19L1;-;-;intronic;CWF19L1;-;-;intronic;CWF19L1;-;-;-;623;30;49	Name=AluJo	TRUE	Alu	intronic
+chr10:100253148:T:C	chr10:100253148:A:G	A:G	CWF19L1	intronic	unknown	T;C;-;A||R||D;REP;-;SINE/FRAM;intronic;CWF19L1;-;-;intronic;CWF19L1;-;-;intronic;CWF19L1;-;-;-;580;28;46	Name=AluJo	TRUE	Alu	intronic
+chr10:114965119:T:C	chr10:114965119:T:C	A:G	TRUB1	intronic	unknown	.	Name=AluYm1	FALSE	Alu	intronic
+chr10:114965121:A:G	chr10:114965121:A:G	A:G	TRUB1	intronic	unknown	.	Name=AluYm1	FALSE	Alu	intronic
+chr10:114965123:G:A	chr10:114965123:G:A	C:T	TRUB1	intronic	unknown	.	Name=AluYm1	FALSE	Alu	intronic
+chr10:87776602:A:G	chr10:87776602:T:C	A:G	ATAD1	intronic	unknown	.	Name=AluJb	FALSE	Alu	intronic
+chr11:104998898:A:G	chr11:104998898:T:C	A:G	CASP5	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr11:104998929:A:G	chr11:104998929:T:C	A:G	CASP5	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr11:104998935:C:T	chr11:104998935:G:A	C:T	CASP5	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr11:10767453:G:A	chr11:10767453:G:A	C:T	CTR9	intronic	unknown	.	.	FALSE	None	intronic
+chr11:10767482:C:T	chr11:10767482:C:T	C:T	CTR9	intronic	unknown	.	.	FALSE	None	intronic
+chr11:107967317:A:G	chr11:107967317:A:G	A:G	RAB39A	downstream	unknown	A;G;+;A||R;ALU;-;SINE/AluJr;intergenic;RAB39A||CUL5;-;-;intergenic;RAB39A||CUL5;-;-;intergenic;RAB39A||CUL5;-;-;-;380;20;38	Name=AluJr	TRUE	Alu	downstream
+chr11:108365909:A:G	chr11:108365909:A:G	A:G	ATM	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSq2;UTR3;ATM;-;-;UTR3;ATM;-;-;UTR3;ATM;-;-;-;1583;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr11:113189197:A:G	chr11:113189197:A:G	A:G	NCAM1	intronic	unknown	.	Name=AluSx4	FALSE	Alu	intronic
+chr11:18394560:A:G	chr11:18394560:A:G	A:G	LDHA	UTR5	unknown	.	.	FALSE	None	UTR5
+chr11:1891757:C:T	chr11:1891757:C:T	C:T	LSP1	intronic	unknown	.	.	FALSE	None	intronic
+chr11:1891765:T:C	chr11:1891765:T:C	A:G	LSP1	intronic	unknown	.	.	FALSE	None	intronic
+chr11:1891770:C:T	chr11:1891770:C:T	C:T	LSP1	intronic	unknown	.	.	FALSE	None	intronic
+chr11:71999020:G:A	chr11:71999020:G:A	C:T	IL18BP	splicing	unknown	.	.	FALSE	None	splicing
+chr11:72811704:T:C	chr11:72811704:T:C	A:G	ATG16L2	upstream	unknown	T;C;-;A||R;ALU;-;SINE/AluJb;intergenic;STARD10||ATG16L2;-;-;intergenic;STARD10||ATG16L2;-;-;intergenic;ARAP1||ATG16L2;-;-;-;52;10;12	Name=AluJr	TRUE	Alu	upstream
+chr11:74456249:T:C	chr11:74456249:A:G	A:G	KCNE3	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;ncRNA_intronic;RP11-702H23.4||RP11-702H23.6;-;-;UTR3;KCNE3;-;-;UTR3;KCNE3;-;-;-;578;29;46	Name=AluSx1	TRUE	Alu	UTR3
+chr11:77734331:C:T	chr11:77734331:G:A	C:T	RSF1	intronic	unknown	.	.	FALSE	None	intronic
+chr11:77734334:C:T	chr11:77734334:G:A	C:T	RSF1	intronic	unknown	.	.	FALSE	None	intronic
+chr11:13703924:A:G	chr11:13703924:A:G	A:G	FAR1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;intronic;FAR1;-;-;intronic;FAR1;-;-;intronic;FAR1;-;-;-;245;21;29	Name=AluSq2	TRUE	Alu	intronic
+chr11:60946182:T:C	chr11:60946182:A:G	A:G	SLC15A3	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;SLC15A3;-;-;intronic;SLC15A3;-;-;intronic;SLC15A3;-;-;-;14;4;5	Name=AluJb	TRUE	Alu	intronic
+chr11:74455795:T:C	chr11:74455795:A:G	A:G	KCNE3	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx1;ncRNA_intronic;RP11-702H23.4||RP11-702H23.6;-;-;UTR3;KCNE3;-;-;UTR3;KCNE3;-;-;-;992;30;51	Name=AluSx1	TRUE	Alu	UTR3
+chr11:78068542:T:C	chr11:78068542:A:G	A:G	NDUFC2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;NDUFC2;-;-;UTR3;NDUFC2;-;-;UTR3;NDUFC2;-;-;-;1694;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr11:125080652:C:T	chr11:125080652:C:T	C:T	SLC37A2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr11:44615378:G:A	chr11:44615378:G:A	C:T	CD82	intronic	unknown	.	.	FALSE	None	intronic
+chr11:67489459:A:G	chr11:67489459:A:G	A:G	AIP	intronic	unknown	.	.	FALSE	None	intronic
+chr11:72001199:A:G	chr11:72001199:A:G	A:G	IL18BP	splicing	unknown	.	.	FALSE	None	splicing
+chr11:72001200:G:A	chr11:72001200:G:A	C:T	IL18BP	splicing	unknown	.	.	FALSE	None	splicing
+chr11:90283787:C:T	chr11:90283787:C:T	C:T	DISC1FP1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr11:90283796:C:T	chr11:90283796:C:T	C:T	DISC1FP1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr11:90283797:A:G	chr11:90283797:A:G	A:G	DISC1FP1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr11:90283802:T:C	chr11:90283802:T:C	A:G	DISC1FP1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr11:65898408:T:C	chr11:65898408:A:G	A:G	FOSL1	intronic	unknown	T;C;-;R;ALU;-;SINE/AluJb;intronic;FOSL1;-;-;intronic;FOSL1;-;-;intronic;FOSL1;-;-;-;90;14;20	Name=AluJo	TRUE	Alu	intronic
+chr11:78069179:T:C	chr11:78069179:A:G	A:G	NDUFC2	UTR3	unknown	T;C;-;A||R||D;ALU;rs532558534;SINE/AluJb;UTR3;NDUFC2;-;-;UTR3;NDUFC2;-;-;UTR3;NDUFC2;-;-;-;1882;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr11:96327930:T:C	chr11:96327930:A:G	A:G	MAML2	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;MAML2;-;-;intronic;MAML2;-;-;intronic;MAML2;-;-;-;13;6;7	Name=AluSx	TRUE	Alu	intronic
+chr11:44587560:A:G	chr11:44587560:A:G	A:G	CD82	intronic	unknown	.	.	FALSE	None	intronic
+chr11:78068543:T:C	chr11:78068543:A:G	A:G	NDUFC2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;UTR3;NDUFC2;-;-;UTR3;NDUFC2;-;-;UTR3;NDUFC2;-;-;-;862;30;54	Name=AluSc	TRUE	Alu	UTR3
+chr11:118203365:T:C	chr11:118203365:A:G	A:G	JAML	intronic	unknown	T;C;-;A||R||D;REP;-;DNA/MER96;intronic;AMICA1;-;-;intronic;JAML;-;-;intronic;AMICA1;-;-;-;511;27;37	Name=MER96	TRUE	Other	intronic
+chr11:72811771:T:C	chr11:72811771:T:C	A:G	ATG16L2	upstream	unknown	T;C;-;A||R;ALU;-;SINE/AluJb;intergenic;STARD10||ATG16L2;-;-;intergenic;STARD10||ATG16L2;-;-;intergenic;ARAP1||ATG16L2;-;-;-;19;4;5	Name=AluJr	TRUE	Alu	upstream
+chr11:3722805:T:C	chr11:3722805:A:G	A:G	NUP98	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;NUP98;-;-;intronic;NUP98;-;-;intronic;NUP98;-;-;-;71;17;21	Name=AluJb	TRUE	Alu	intronic
+chr11:62801561:C:T	chr11:62801561:G:A	C:T	NXF1	splicing	unknown	.	.	FALSE	None	splicing
+chr11:62738890:A:G	chr11:62738890:A:G	A:G	TTC9C	downstream	unknown	A;G;+;A||R;ALU;-;SINE/AluSx;downstream;TTC9C;-;-;downstream;TTC9C;-;-;downstream;TTC9C;-;-;-;1776;30;54	Name=AluSx	TRUE	Alu	downstream
+chr11:44605056:A:G	chr11:44605056:A:G	A:G	CD82	splicing	unknown	.	.	FALSE	None	splicing
+chr11:115754984:T:C	chr11:115754984:A:G	A:G	LINC00900	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSc;ncRNA_exonic;LINC00900;-;-;downstream;LINC00900;-;-;downstream;LINC00900;-;-;-;35;9;19	Name=AluSc	TRUE	Alu	downstream
+chr11:62410501:T:C	chr11:62410501:T:C	A:G	SCGB1A1	upstream	unknown	.	Name=AluSp	FALSE	Alu	upstream
+chr11:72812188:T:C	chr11:72812188:T:C	A:G	ATG16L2	upstream	unknown	T;C;-;R;ALU;-;SINE/AluJb;intergenic;STARD10||ATG16L2;-;-;intergenic;STARD10||ATG16L2;-;-;intergenic;ARAP1||ATG16L2;-;-;-;30;5;6	Name=AluJr	TRUE	Alu	upstream
+chr11:77023819:A:G	chr11:77023819:A:G	A:G	ACER3	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluY;UTR3;ACER3;-;-;UTR3;ACER3;-;-;downstream;ACER3;-;-;-;1490;30;54	Name=AluY	TRUE	Alu	UTR3
+chr11:44605049:T:C	chr11:44605049:T:C	A:G	CD82	intronic	unknown	.	.	FALSE	None	intronic
+chr11:44605050:C:T	chr11:44605050:C:T	C:T	CD82	intronic	unknown	.	.	FALSE	None	intronic
+chr11:44605052:C:T	chr11:44605052:C:T	C:T	CD82	intronic	unknown	.	.	FALSE	None	intronic
+chr11:125079762:T:C	chr11:125079762:T:C	A:G	SLC37A2	splicing	unknown	.	.	FALSE	None	splicing
+chr11:33717481:G:A	chr11:33717481:C:T	C:T	CD59	intronic	unknown	.	.	FALSE	None	intronic
+chr11:614172:A:G	chr11:614172:T:C	A:G	IRF7	splicing	unknown	.	.	FALSE	None	splicing
+chr11:33717474:A:G	chr11:33717474:T:C	A:G	CD59	intronic	unknown	.	.	FALSE	None	intronic
+chr11:33717475:G:A	chr11:33717475:C:T	C:T	CD59	intronic	unknown	.	.	FALSE	None	intronic
+chr12:112125550:G:A	chr12:112125550:G:A	C:T	TRAFD1	UTR5	unknown	.	.	FALSE	None	UTR5
+chr12:112125552:G:A	chr12:112125552:G:A	C:T	TRAFD1	UTR5	unknown	.	.	FALSE	None	UTR5
+chr12:112125556:T:C	chr12:112125556:T:C	A:G	TRAFD1	UTR5	unknown	.	.	FALSE	None	UTR5
+chr12:112125558:A:G	chr12:112125558:A:G	A:G	TRAFD1	UTR5	unknown	.	.	FALSE	None	UTR5
+chr12:113391119:A:G	chr12:113391119:A:G	A:G	PLBD2	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;intergenic;PLBD2||SDS;-;-;intergenic;PLBD2||SDS;-;-;intergenic;PLBD2||SDS;-;-;-;1995;30;53	.	TRUE	None	UTR3
+chr12:113391120:A:G	chr12:113391120:A:G	A:G	PLBD2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;intergenic;PLBD2||SDS;-;-;intergenic;PLBD2||SDS;-;-;intergenic;PLBD2||SDS;-;-;-;2515;30;54	.	TRUE	None	UTR3
+chr12:120460750:A:G	chr12:120460750:A:G	A:G	GATC	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;GATC;-;-;UTR3;GATC;-;-;UTR3;GATC;-;-;-;2182;30;55	Name=AluY	TRUE	Alu	UTR3
+chr12:50930336:A:G	chr12:50930336:A:G	A:G	METTL7A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;-;1201;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr12:50930380:A:G	chr12:50930380:A:G	A:G	METTL7A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;-;1615;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr12:50931657:A:G	chr12:50931657:A:G	A:G	METTL7A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;-;1208;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr12:55980842:T:C	chr12:55980842:T:C	A:G	RAB5B	intronic	unknown	.	.	FALSE	None	intronic
+chr12:56160154:G:A	chr12:56160154:G:A	C:T	MYL6	intronic	unknown	.	.	FALSE	None	intronic
+chr12:6236276:G:A	chr12:6236276:G:A	C:T	CD9	splicing	unknown	.	.	FALSE	None	splicing
+chr12:6236278:G:A	chr12:6236278:G:A	C:T	CD9	intronic	unknown	.	.	FALSE	None	intronic
+chr12:6537133:C:T	chr12:6537133:C:T	C:T	GAPDH	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr12:68766231:A:G	chr12:68766231:A:G	A:G	SLC35E3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;UTR3;SLC35E3;-;-;downstream;SLC35E3;-;-;downstream;SLC35E3;-;-;-;733;30;53	Name=AluSp	TRUE	Alu	UTR3
+chr12:68843243:A:G	chr12:68843243:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;2141;30;55	.	TRUE	None	UTR3
+chr12:68843273:A:G	chr12:68843273:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;2274;30;55	.	TRUE	None	UTR3
+chr12:68843293:A:G	chr12:68843293:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;2125;30;55	.	TRUE	None	UTR3
+chr12:68843730:A:G	chr12:68843730:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;1797;30;54	.	TRUE	None	UTR3
+chr12:68843749:A:G	chr12:68843749:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R;NONREP;-;-/-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;2584;30;54	.	TRUE	None	UTR3
+chr12:68843772:A:G	chr12:68843772:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;2494;30;54	.	TRUE	None	UTR3
+chr12:8384301:T:C	chr12:8384301:A:G	A:G	LINC00937	ncRNA
+intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluSx;ncRNA_intronic;LINC00937;-;-;ncRNA_intronic;LINC00937;-;-;intronic;LINC00937;-;-;-;407;24;41	Name=AluSx	TRUE	Alu	ncRNA
+chr12:8384360:T:C	chr12:8384360:A:G	A:G	LINC00937	ncRNA
+intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluSx;ncRNA_intronic;LINC00937;-;-;ncRNA_intronic;LINC00937;-;-;intronic;LINC00937;-;-;-;398;25;40	Name=AluSx	TRUE	Alu	ncRNA
+chr12:92860726:A:G	chr12:92860726:T:C	A:G	EEA1	intronic	unknown	.	.	FALSE	None	intronic
+chr12:120461196:A:G	chr12:120461196:A:G	A:G	GATC	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;GATC;-;-;UTR3;GATC;-;-;UTR3;GATC;-;-;-;2292;30;55	Name=AluJr	TRUE	Alu	UTR3
+chr12:27421384:A:G	chr12:27421384:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;3;3;3	Name=AluSz	TRUE	Alu	ncRNA
+chr12:27421494:A:G	chr12:27421494:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;641;25;43	Name=AluSz	TRUE	Alu	ncRNA
+chr12:27421500:A:G	chr12:27421500:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||D;ALU;rs113632419;SINE/AluSz;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;676;25;45	Name=AluSz	TRUE	Alu	ncRNA
+chr12:64449074:A:G	chr12:64449074:A:G	A:G	XPOT	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;UTR3;XPOT;-;-;downstream;XPOT;-;-;downstream;XPOT;-;-;-;1641;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr12:64449075:A:G	chr12:64449075:A:G	A:G	XPOT	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;UTR3;XPOT;-;-;downstream;XPOT;-;-;downstream;XPOT;-;-;-;1529;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr12:69526865:A:G	chr12:69526865:A:G	A:G	FRS2	intronic	unknown	.	Name=AluSc8	FALSE	Alu	intronic
+chr12:69526872:T:C	chr12:69526872:T:C	A:G	FRS2	intronic	unknown	.	Name=AluSc8	FALSE	Alu	intronic
+chr12:69526884:T:C	chr12:69526884:T:C	A:G	FRS2	intronic	unknown	.	Name=AluSc8	FALSE	Alu	intronic
+chr12:71703004:A:G	chr12:71703004:A:G	A:G	TMEM19	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;UTR3;TMEM19;-;-;UTR3;TMEM19;-;-;UTR3;TMEM19;-;-;-;709;29;52	Name=AluSz	TRUE	Alu	UTR3
+chr12:113281292:A:G	chr12:113281292:A:G	A:G	TPCN1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;intronic;TPCN1;-;-;intronic;TPCN1;-;-;intronic;TPCN1;-;-;-;954;30;52	Name=AluSx	TRUE	Alu	intronic
+chr12:123625337:T:C	chr12:123625337:A:G	A:G	EIF2B1	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;EIF2B1;-;-;intronic;EIF2B1;-;-;intronic;EIF2B1;-;-;-;1948;30;54	Name=AluYh3	TRUE	Alu	intronic
+chr12:50930339:A:G	chr12:50930339:A:G	A:G	METTL7A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;-;1054;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr12:6225424:A:G	chr12:6225424:A:G	A:G	CD9	splicing	unknown	.	.	FALSE	None	splicing
+chr12:64450369:A:G	chr12:64450369:A:G	A:G	XPOT	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr4;UTR3;XPOT;-;-;intergenic;XPOT||TBK1;-;-;intergenic;XPOT||TBK1;-;-;-;2071;30;54	Name=AluJr4	TRUE	Alu	UTR3
+chr12:9240016:G:A	chr12:9240016:G:A	C:T	LINC00987	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr12:92860690:T:C	chr12:92860690:A:G	A:G	EEA1	intronic	unknown	.	.	FALSE	None	intronic
+chr12:92860716:A:G	chr12:92860716:T:C	A:G	EEA1	intronic	unknown	.	.	FALSE	None	intronic
+chr12:120461175:A:G	chr12:120461175:A:G	A:G	GATC	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;GATC;-;-;UTR3;GATC;-;-;UTR3;GATC;-;-;-;2131;30;54	Name=AluJr	TRUE	Alu	UTR3
+chr12:121025662:T:C	chr12:121025662:A:G	A:G	OASL	intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluSx1;intronic;OASL;-;-;intronic;OASL;-;-;intronic;OASL;-;-;-;46;8;9	Name=AluSx1	TRUE	Alu	intronic
+chr12:123621771:G:A	chr12:123621771:C:T	C:T	EIF2B1	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr12:24910112:A:G	chr12:24910112:T:C	A:G	BCAT1	intronic	unknown	.	Name=AluSx1	FALSE	Alu	intronic
+chr12:50930540:A:G	chr12:50930540:A:G	A:G	METTL7A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;UTR3;METTL7A;-;-;-;2150;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr12:51886681:A:G	chr12:51886681:A:G	A:G	ANKRD33	upstream	unknown	.	Name=AluJr	FALSE	Alu	upstream
+chr12:66194007:A:G	chr12:66194007:A:G	A:G	IRAK3	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;intronic;IRAK3;-;-;intronic;IRAK3;-;-;intronic;IRAK3;-;-;-;561;24;37	Name=AluJb	TRUE	Alu	intronic
+chr12:24816887:T:C	chr12:24816887:A:G	A:G	BCAT1	UTR3	unknown	T;C;-;A||R;REP;-;DNA/MER1B;UTR3;BCAT1;-;-;UTR3;BCAT1;-;-;UTR3;BCAT1;-;-;-;946;30;51	Name=MER1B	TRUE	Other	UTR3
+chr12:27421321:A:G	chr12:27421321:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;461;24;40	Name=AluSz	TRUE	Alu	ncRNA
+chr12:27423536:A:G	chr12:27423536:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;852;26;46	Name=AluY	TRUE	Alu	ncRNA
+chr12:27423591:A:G	chr12:27423591:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;774;26;47	Name=AluY	TRUE	Alu	ncRNA
+chr12:69484222:C:T	chr12:69484222:C:T	C:T	FRS2	intronic	unknown	.	Name=AluYh3	FALSE	Alu	intronic
+chr12:69484274:T:C	chr12:69484274:T:C	A:G	FRS2	intronic	unknown	.	Name=AluYh3	FALSE	Alu	intronic
+chr12:69484275:G:A	chr12:69484275:G:A	C:T	FRS2	intronic	unknown	.	Name=AluYh3	FALSE	Alu	intronic
+chr12:69484286:A:G	chr12:69484286:A:G	A:G	FRS2	intronic	unknown	.	Name=AluYh3	FALSE	Alu	intronic
+chr12:8636977:A:G	chr12:8636977:T:C	A:G	MFAP5	downstream	unknown	.	.	FALSE	None	downstream
+chr12:8637024:T:C	chr12:8637024:A:G	A:G	MFAP5	downstream	unknown	.	.	FALSE	None	downstream
+chr12:8637026:G:A	chr12:8637026:C:T	C:T	MFAP5	downstream	unknown	.	.	FALSE	None	downstream
+chr12:95467709:C:T	chr12:95467709:C:T	C:T	METAP2	upstream	unknown	.	.	FALSE	None	upstream
+chr12:121216673:A:G	chr12:121216673:A:G	A:G	P2RX4	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;intronic;P2RX4;-;-;intronic;P2RX4;-;-;intronic;P2RX4;-;-;-;20;11;13	Name=AluSq2	TRUE	Alu	intronic
+chr12:27423514:A:G	chr12:27423514:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;799;29;51	Name=AluY	TRUE	Alu	ncRNA
+chr12:55980774:G:A	chr12:55980774:G:A	C:T	RAB5B	intronic	unknown	.	.	FALSE	None	intronic
+chr12:68843234:A:G	chr12:68843234:A:G	A:G	MDM2	UTR3	unknown	A;G;+;A||R||D;NONREP;-;-/-;ncRNA_exonic;RP11-611O2.5;-;-;UTR3;MDM2;-;-;UTR3;MDM2;-;-;-;1562;30;55	.	TRUE	None	UTR3
+chr12:8461009:G:A	chr12:8461009:G:A	C:T	CLEC6A	intronic	unknown	.	.	FALSE	None	intronic
+chr12:8461032:T:C	chr12:8461032:T:C	A:G	CLEC6A	intronic	unknown	.	.	FALSE	None	intronic
+chr12:7829928:T:C	chr12:7829928:A:G	A:G	SLC2A14	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr12:7829933:C:T	chr12:7829933:G:A	C:T	SLC2A14	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr12:96029054:C:T	chr12:96029054:G:A	C:T	LTA4H	splicing	unknown	.	.	FALSE	None	splicing
+chr12:27421344:A:G	chr12:27421344:T:C	A:G	ARNTL2-AS1	ncRNA
+intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;RP11-165P7.1;-;-;ncRNA_intronic;ARNTL2-AS1;-;-;ncRNA_intronic;BC043511;-;-;-;365;24;43	Name=AluSz	TRUE	Alu	ncRNA
+chr12:121335262:T:C	chr12:121335262:A:G	A:G	ANAPC5	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;ANAPC5;-;-;intronic;ANAPC5;-;-;intronic;ANAPC5;-;-;-;389;29;49	Name=AluSq2	TRUE	Alu	intronic
+chr12:55980677:T:C	chr12:55980677:T:C	A:G	RAB5B	intronic	unknown	T;C;-;R;NONREP;-;-/-;intronic;RAB5B;-;-;intronic;RAB5B;-;-;intronic;RAB5B;-;-;-;161;23;34	.	TRUE	None	intronic
+chr12:6750009:T:C	chr12:6750009:A:G	A:G	MLF2	splicing	unknown	.	.	FALSE	None	splicing
+chr12:6750016:A:G	chr12:6750016:T:C	A:G	MLF2	intronic	unknown	.	.	FALSE	None	intronic
+chr12:76829326:A:G	chr12:76829326:A:G	A:G	ZDHHC17	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSg;intronic;ZDHHC17;-;-;intronic;ZDHHC17;-;-;intronic;ZDHHC17;-;-;-;8;5;6	Name=AluSx4	TRUE	Alu	intronic
+chr12:7935085:T:C	chr12:7935085:A:G	A:G	SLC2A3	intronic	unknown	T;C;-;A||R;REP;-;SINE/FLAM_C;intronic;SLC2A3;-;-;intronic;SLC2A3;-;-;intronic;SLC2A3;-;-;-;143;21;31	Name=SVA_E,AluJb	TRUE	Alu	intronic
+chr12:7813581:A:G	chr12:7813581:T:C	A:G	SLC2A14	UTR3	unknown	.	.	FALSE	None	UTR3
+chr12:7813583:C:T	chr12:7813583:G:A	C:T	SLC2A14	UTR3	unknown	.	.	FALSE	None	UTR3
+chr12:121030950:T:C	chr12:121030950:A:G	A:G	OASL	intronic	unknown	T;C;-;R;ALU;-;SINE/AluJr;intronic;OASL;-;-;intronic;OASL;-;-;intronic;OASL;-;-;-;0;0;0	Name=AluJb	TRUE	Alu	intronic
+chr13:110899024:T:C	chr13:110899024:A:G	A:G	ANKRD10	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq;ncRNA_intronic;ANKRD10-IT1;-;-;intronic;ANKRD10;-;-;ncRNA_exonic;AK124233;-;-;-;1880;30;54	Name=AluSq2	TRUE	Alu	intronic
+chr13:41470511:C:T	chr13:41470511:C:T	C:T	RGCC	UTR3	unknown	.	.	FALSE	None	UTR3
+chr13:51967181:C:T	chr13:51967181:G:A	C:T	ATP7B	intronic	unknown	.	.	FALSE	None	intronic
+chr13:110899029:T:C	chr13:110899029:A:G	A:G	ANKRD10	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq;ncRNA_intronic;ANKRD10-IT1;-;-;intronic;ANKRD10;-;-;ncRNA_exonic;AK124233;-;-;-;1606;30;54	Name=AluSq2	TRUE	Alu	intronic
+chr13:21374317:T:C	chr13:21374317:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2231;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374356:T:C	chr13:21374356:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1882;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374431:T:C	chr13:21374431:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2071;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374437:T:C	chr13:21374437:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1663;30;54	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374438:T:C	chr13:21374438:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1658;30;54	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374439:T:C	chr13:21374439:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2046;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:48508568:T:C	chr13:48508568:A:G	A:G	RCBTB2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;-;146;20;30	Name=AluSx	TRUE	Alu	intronic
+chr13:48508586:T:C	chr13:48508586:A:G	A:G	RCBTB2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;-;102;19;22	Name=AluSx	TRUE	Alu	intronic
+chr13:48509113:T:C	chr13:48509113:A:G	A:G	RCBTB2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;-;578;29;46	Name=AluJb	TRUE	Alu	intronic
+chr13:48509161:T:C	chr13:48509161:A:G	A:G	RCBTB2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;-;338;30;41	Name=AluJb	TRUE	Alu	intronic
+chr13:21374321:T:C	chr13:21374321:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;967;30;53	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21375058:T:C	chr13:21375058:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2177;30;54	Name=AluSz	TRUE	Alu	ncRNA
+chr13:21375072:T:C	chr13:21375072:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1687;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:43881548:G:A	chr13:43881548:G:A	C:T	LACC1	splicing	unknown	.	.	FALSE	None	splicing
+chr13:21374485:T:C	chr13:21374485:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1909;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374486:T:C	chr13:21374486:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1992;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374508:T:C	chr13:21374508:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1708;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374516:T:C	chr13:21374516:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1865;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374899:T:C	chr13:21374899:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2022;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:21374971:T:C	chr13:21374971:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2119;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:52642712:A:G	chr13:52642712:A:G	A:G	HNRNPA1L2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr13:21374877:T:C	chr13:21374877:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1784;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:32399063:A:G	chr13:32399063:A:G	A:G	BRCA2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;BRCA2;-;-;UTR3;BRCA2;-;-;UTR3;BRCA2;-;-;-;407;25;33	Name=FLAM_C	TRUE	Other	UTR3
+chr13:48508582:T:C	chr13:48508582:A:G	A:G	RCBTB2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;intronic;RCBTB2;-;-;-;2;2;2	Name=AluSx	TRUE	Alu	intronic
+chr13:100151065:G:A	chr13:100151065:G:A	C:T	PCCA	intronic	unknown	.	.	FALSE	None	intronic
+chr13:21374472:T:C	chr13:21374472:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;789;30;54	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374507:T:C	chr13:21374507:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1469;30;54	Name=AluSx	TRUE	Alu	ncRNA
+chr13:21374913:T:C	chr13:21374913:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1394;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:21374954:T:C	chr13:21374954:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R||D;ALU;rs755582559;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;2220;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:43108006:C:T	chr13:43108006:C:T	C:T	DNAJC15	UTR3	unknown	.	Name=L2a	FALSE	Other	UTR3
+chr13:21374915:T:C	chr13:21374915:T:C	A:G	MIPEPP3	ncRNA
+intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;intergenic;RNA5SP25||ZDHHC20;-;-;ncRNA_intronic;MIPEPP3;-;-;ncRNA_intronic;MIPEPP3;-;-;-;1246;30;55	Name=AluSz	TRUE	Alu	ncRNA
+chr13:32399024:A:G	chr13:32399024:A:G	A:G	BRCA2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;BRCA2;-;-;UTR3;BRCA2;-;-;UTR3;BRCA2;-;-;-;375;24;33	Name=FLAM_C	TRUE	Other	UTR3
+chr14:24138932:C:T	chr14:24138932:C:T	C:T	PSME1	UTR3	unknown	.	.	FALSE	None	UTR3
+chr14:76207236:A:G	chr14:76207236:A:G	A:G	GPATCH2L	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluJo;UTR3;GPATCH2L;-;-;UTR3;GPATCH2L;-;-;intergenic;GPATCH2L||RNU6-31P;-;-;-;1626;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr14:91216422:A:G	chr14:91216422:A:G	A:G	DGLUCY	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;C14orf159;-;-;intronic;C14orf159;-;-;intronic;C14orf159;-;-;-;1518;30;54	Name=AluJr	TRUE	Alu	intronic
+chr14:105488519:A:G	chr14:105488519:A:G	A:G	CRIP1	intronic	unknown	.	.	FALSE	None	intronic
+chr14:105488523:A:G	chr14:105488523:A:G	A:G	CRIP1	intronic	unknown	.	.	FALSE	None	intronic
+chr14:105488524:G:A	chr14:105488524:G:A	C:T	CRIP1	intronic	unknown	.	.	FALSE	None	intronic
+chr14:21460342:T:C	chr14:21460342:A:G	A:G	RAB2B	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;RAB2B;-;-;UTR3;RAB2B;-;-;UTR3;RAB2B;-;-;-;1974;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr14:21460343:T:C	chr14:21460343:A:G	A:G	RAB2B	UTR3	unknown	T;C;-;A||R||D;ALU;rs538348521;SINE/AluSc;UTR3;RAB2B;-;-;UTR3;RAB2B;-;-;UTR3;RAB2B;-;-;-;1150;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr14:52643014:T:C	chr14:52643014:A:G	A:G	ERO1A	UTR3	unknown	T;C;-;A||R||D;REP;-;DNA/MER53;UTR3;ERO1L;-;-;UTR3;ERO1A;-;-;UTR3;ERO1L;-;-;-;1691;30;53	Name=MER53	TRUE	Other	UTR3
+chr14:103427387:T:C	chr14:103427387:T:C	A:G	MARK3	intronic	unknown	.	Name=AluSx	FALSE	Alu	intronic
+chr14:21460331:T:C	chr14:21460331:A:G	A:G	RAB2B	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc;UTR3;RAB2B;-;-;UTR3;RAB2B;-;-;UTR3;RAB2B;-;-;-;1595;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr14:52643105:T:C	chr14:52643105:A:G	A:G	ERO1A	UTR3	unknown	T;C;-;A||R||D;REP;-;DNA/MER53;UTR3;ERO1L;-;-;UTR3;ERO1A;-;-;UTR3;ERO1L;-;-;289;20;1236;30;53	Name=MER53	TRUE	Other	UTR3
+chr14:52643092:T:C	chr14:52643092:A:G	A:G	ERO1A	UTR3	unknown	T;C;-;A||R||D;REP;-;DNA/MER53;UTR3;ERO1L;-;-;UTR3;ERO1A;-;-;UTR3;ERO1L;-;-;289;20;1222;30;54	Name=MER53	TRUE	Other	UTR3
+chr14:22875246:G:A	chr14:22875246:G:A	C:T	LRP10	splicing	unknown	.	.	FALSE	None	splicing
+chr14:94055189:C:T	chr14:94055189:G:A	C:T	DDX24	intronic	unknown	.	.	FALSE	None	intronic
+chr14:61795946:A:G	chr14:61795946:A:G	A:G	SNAPC1	UTR3	unknown	A;G;+;A||R;REP;-;SINE/FLAM_C;UTR3;SNAPC1;-;-;UTR3;SNAPC1;-;-;UTR3;SNAPC1;-;-;-;1672;30;54	Name=FLAM_C	TRUE	Other	UTR3
+chr15:41299253:A:G	chr15:41299253:A:G	A:G	OIP5-AS1	ncRNA
+exonic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;ncRNA_exonic;OIP5-AS1;-;-;ncRNA_exonic;OIP5-AS1;-;-;ncRNA_exonic;OIP5-AS1;-;-;-;2477;30;55	Name=AluSx	TRUE	Alu	ncRNA
+chr15:45555896:T:C	chr15:45555896:T:C	A:G	HMGN2P46	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr15:45555911:A:G	chr15:45555911:A:G	A:G	HMGN2P46	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr15:89201633:T:C	chr15:89201633:T:C	A:G	ABHD2	UTR3	unknown	.	.	FALSE	None	UTR3
+chr15:89201638:C:T	chr15:89201638:C:T	C:T	ABHD2	UTR3	unknown	.	.	FALSE	None	UTR3
+chr15:89201639:A:G	chr15:89201639:A:G	A:G	ABHD2	UTR3	unknown	A;G;+;R;NONREP;-;-/-;UTR3;ABHD2;-;-;UTR3;ABHD2;-;-;UTR3;ABHD2;-;-;558;248;182;27;45	.	TRUE	None	UTR3
+chr15:89899322:T:C	chr15:89899322:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;1584;30;54	Name=AluSz	TRUE	Alu	UTR3
+chr15:34231096:T:C	chr15:34231096:A:G	A:G	SLC12A6	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;downstream;EMC4;-;-;UTR3;SLC12A6;-;-;UTR3;SLC12A6;-;-;-;1944;30;55	Name=AluSp	TRUE	Alu	UTR3
+chr15:34231109:T:C	chr15:34231109:A:G	A:G	SLC12A6	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;downstream;EMC4;-;-;UTR3;SLC12A6;-;-;UTR3;SLC12A6;-;-;-;1524;30;54	Name=AluSp	TRUE	Alu	UTR3
+chr15:45473776:A:G	chr15:45473776:T:C	A:G	SLC30A4	downstream	unknown	.	Name=FLAM_C	FALSE	Other	downstream
+chr15:45491536:A:G	chr15:45491536:T:C	A:G	SLC30A4	intronic	unknown	.	Name=AluJb	FALSE	Alu	intronic
+chr15:45491788:A:G	chr15:45491788:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A;ALU;-;SINE/AluJb;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;2;1;1	Name=AluJb	TRUE	Alu	intronic
+chr15:45491789:A:G	chr15:45491789:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A;ALU;-;SINE/AluJb;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;1;1;1	Name=AluJb	TRUE	Alu	intronic
+chr15:45491794:A:G	chr15:45491794:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A;ALU;-;SINE/AluJb;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;2;1;1	Name=AluJb	TRUE	Alu	intronic
+chr15:79898963:T:C	chr15:79898963:A:G	A:G	ST20	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr15:89814855:T:C	chr15:89814855:A:G	A:G	ANPEP	upstream	unknown	.	.	FALSE	None	upstream
+chr15:89897328:T:C	chr15:89897328:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;2042;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr15:89897337:T:C	chr15:89897337:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;2176;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr15:89897363:T:C	chr15:89897363:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;2064;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr15:89899222:T:C	chr15:89899222:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;1936;30;54	Name=AluSz	TRUE	Alu	UTR3
+chr15:99259687:T:C	chr15:99259687:T:C	A:G	HSP90B2P	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr15:74026725:A:G	chr15:74026725:A:G	A:G	PML	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSz6;intronic;PML;-;-;intronic;PML;-;-;UTR3;PML;-;-;-;602;30;42	Name=AluSz6	TRUE	Alu	intronic
+chr15:74026790:A:G	chr15:74026790:A:G	A:G	PML	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSz6;intronic;PML;-;-;intronic;PML;-;-;UTR3;PML;-;-;-;592;30;43	Name=AluSz6	TRUE	Alu	intronic
+chr15:74026832:A:G	chr15:74026832:A:G	A:G	PML	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;intronic;PML;-;-;intronic;PML;-;-;UTR3;PML;-;-;-;638;29;41	Name=AluSz6	TRUE	Alu	intronic
+chr15:74027392:A:G	chr15:74027392:A:G	A:G	PML	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;PML;-;-;intronic;PML;-;-;UTR3;PML;-;-;-;2;2;2	Name=AluJr	TRUE	Alu	intronic
+chr15:74027453:A:G	chr15:74027453:A:G	A:G	PML	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;PML;-;-;intronic;PML;-;-;UTR3;PML;-;-;-;794;30;45	Name=AluJr	TRUE	Alu	intronic
+chr15:74027472:A:G	chr15:74027472:A:G	A:G	PML	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;PML;-;-;intronic;PML;-;-;UTR3;PML;-;-;-;793;30;48	Name=AluJr	TRUE	Alu	intronic
+chr15:45491042:A:G	chr15:45491042:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A;ALU;-;SINE/AluJb;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;1;1;1	Name=AluJb	TRUE	Alu	intronic
+chr15:45491122:A:G	chr15:45491122:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluJb;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;3;3;3	Name=AluJb	TRUE	Alu	intronic
+chr15:45509938:A:G	chr15:45509938:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A;ALU;-;SINE$SINE/AluJb$AluYc;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;8;3;4	Name=AluJb	TRUE	Alu	intronic
+chr15:45512872:A:G	chr15:45512872:A:G	A:G	HMGN2P46	ncRNA
+intronic	unknown	A;G;+;R;REP;-;SINE/FRAM;ncRNA_intronic;HMGN2P46||RP11-519G16.3;-;-;ncRNA_intronic;HMGN2P46;-;-;intronic;HMGN2P46||SLC30A4;-;-;-;32;6;7	Name=FRAM	TRUE	Other	ncRNA
+chr15:72356620:A:G	chr15:72356620:T:C	A:G	HEXA	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr15:72356624:A:G	chr15:72356624:T:C	A:G	HEXA	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr15:20462954:G:A	chr15:20462954:C:T	C:T	HERC2P3	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr15:41298780:A:G	chr15:41298780:A:G	A:G	OIP5-AS1	ncRNA
+exonic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;ncRNA_exonic;OIP5-AS1;-;-;ncRNA_exonic;OIP5-AS1;-;-;ncRNA_exonic;OIP5-AS1;-;-;-;1783;30;55	Name=AluSx1	TRUE	Alu	ncRNA
+chr15:71164556:A:G	chr15:71164556:A:G	A:G	THSD4	intronic	unknown	.	.	FALSE	None	intronic
+chr15:89897422:T:C	chr15:89897422:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;1526;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr15:89897423:T:C	chr15:89897423:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;1977;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr15:64988793:T:C	chr15:64988793:A:G	A:G	SPG21	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluY;intronic;SPG21;-;-;intronic;SPG21;-;-;intronic;SPG21;-;-;-;114;21;27	Name=AluY	TRUE	Alu	intronic
+chr15:89897428:T:C	chr15:89897428:A:G	A:G	ARPIN	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSq2;intronic;C15orf38-AP3S2;-;-;UTR3;ARPIN;-;-;intronic;C15orf38-AP3S2;-;-;-;2073;30;55	Name=AluSq2	TRUE	Alu	UTR3
+chr15:52505494:T:C	chr15:52505494:A:G	A:G	MYO5A	intronic	unknown	.	.	FALSE	None	intronic
+chr15:52505518:A:G	chr15:52505518:T:C	A:G	MYO5A	intronic	unknown	.	.	FALSE	None	intronic
+chr15:52505499:C:T	chr15:52505499:G:A	C:T	MYO5A	intronic	unknown	.	.	FALSE	None	intronic
+chr15:45491123:A:G	chr15:45491123:T:C	A:G	SLC30A4	intronic	unknown	.	Name=AluJb	FALSE	Alu	intronic
+chr15:45479306:A:G	chr15:45479306:T:C	A:G	SLC30A4	downstream	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;ncRNA_exonic;RP11-519G16.3;-;-;intergenic;C15orf48||SLC30A4;-;-;ncRNA_exonic;AK056686;-;-;-;9;3;4	Name=AluJb	TRUE	Alu	downstream
+chr15:45497284:A:G	chr15:45497284:T:C	A:G	SLC30A4	intronic	unknown	A;G;+;A;ALU;-;SINE/AluSx;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;7;4;5	Name=AluSx	TRUE	Alu	intronic
+chr15:45502943:A:G	chr15:45502943:T:C	A:G	SLC30A4	exonic	stoploss	A;G;+;A;ALU;-;SINE/AluJr;ncRNA_intronic;RP11-519G16.3;-;-;intronic;SLC30A4;-;-;intronic;SLC30A4;-;-;-;27;9;10	Name=AluJr	TRUE	Alu	exonic
+chr15:45491097:A:G	chr15:45491097:T:C	A:G	SLC30A4	intronic	unknown	.	Name=AluJb	FALSE	Alu	intronic
+chr15:45479247:A:G	chr15:45479247:T:C	A:G	SLC30A4	downstream	unknown	A;G;+;R||D;ALU;-;SINE/AluJb;ncRNA_exonic;RP11-519G16.3;-;-;intergenic;C15orf48||SLC30A4;-;-;ncRNA_exonic;AK056686;-;-;-;6;4;4	Name=AluJb	TRUE	Alu	downstream
+chr15:80779365:G:A	chr15:80779365:G:A	C:T	CEMIP	upstream	unknown	.	.	FALSE	None	upstream
+chr16:10931866:A:G	chr16:10931866:A:G	A:G	CIITA	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;intronic;DEXI;-;-;intronic;DEXI;-;-;intronic;DEXI;-;-;-;1108;30;53	Name=AluSx1	TRUE	Alu	UTR3
+chr16:21639981:T:C	chr16:21639981:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;305;21;34	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640001:T:C	chr16:21640001:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;239;16;27	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640035:T:C	chr16:21640035:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;271;22;37	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640084:T:C	chr16:21640084:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;503;25;43	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640211:T:C	chr16:21640211:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;588;24;43	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640707:T:C	chr16:21640707:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;272;19;35	Name=AluSx	TRUE	Alu	UTR3
+chr16:75445933:T:C	chr16:75445933:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg4;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;1217;30;55	Name=AluSg4	TRUE	Alu	UTR3
+chr16:75445993:T:C	chr16:75445993:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg4;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;1531;30;54	Name=AluSg4	TRUE	Alu	UTR3
+chr16:75446009:T:C	chr16:75446009:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg4;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;1869;30;55	Name=AluSg4	TRUE	Alu	UTR3
+chr16:15701182:A:G	chr16:15701182:A:G	A:G	NDE1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;intronic;NDE1;-;-;intronic;NDE1;-;-;intronic;NDE1;-;-;-;1616;30;54	Name=AluSx	TRUE	Alu	intronic
+chr16:15701187:A:G	chr16:15701187:A:G	A:G	NDE1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;intronic;NDE1;-;-;intronic;NDE1;-;-;intronic;NDE1;-;-;-;1636;30;55	Name=AluSx	TRUE	Alu	intronic
+chr16:21640015:T:C	chr16:21640015:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;323;21;35	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640031:T:C	chr16:21640031:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;504;24;42	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640134:T:C	chr16:21640134:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;301;22;37	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640135:T:C	chr16:21640135:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;355;24;40	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640167:T:C	chr16:21640167:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;644;25;44	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640219:T:C	chr16:21640219:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;770;26;46	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640494:T:C	chr16:21640494:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;396;21;39	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640506:T:C	chr16:21640506:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;403;26;44	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640507:T:C	chr16:21640507:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;287;23;40	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640568:T:C	chr16:21640568:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;184;16;29	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640635:T:C	chr16:21640635:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;54;8;10	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640645:T:C	chr16:21640645:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;149;11;22	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640658:T:C	chr16:21640658:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;226;14;26	Name=AluSx	TRUE	Alu	UTR3
+chr16:21640710:T:C	chr16:21640710:A:G	A:G	IGSF6	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;METTL9;-;-;intronic;METTL9;-;-;intronic;METTL9;-;-;-;200;15;27	Name=AluSx	TRUE	Alu	UTR3
+chr16:56618674:T:C	chr16:56618674:T:C	A:G	MT1L	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr16:56618683:T:C	chr16:56618683:T:C	A:G	MT1L	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr16:56618695:T:C	chr16:56618695:T:C	A:G	MT1L	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr16:75445586:T:C	chr16:75445586:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;1469;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr16:75445919:T:C	chr16:75445919:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg4;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;1003;30;55	Name=AluSg4	TRUE	Alu	UTR3
+chr16:81906828:A:G	chr16:81906828:A:G	A:G	PLCG2	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;intronic;PLCG2;-;-;intronic;PLCG2;-;-;intronic;PLCG2;-;-;-;29;6;7	Name=AluSc	TRUE	Alu	intronic
+chr16:67995771:T:C	chr16:67995771:A:G	A:G	DPEP2	intronic	unknown	T;C;-;R;ALU;-;SINE/AluSx;intronic;DPEP2;-;-;intronic;DPEP2;-;-;intronic;DPEP2;-;-;-;97;8;8	Name=AluSx	TRUE	Alu	intronic
+chr16:71398745:T:C	chr16:71398745:T:C	A:G	CALB2	downstream	unknown	.	.	FALSE	None	downstream
+chr16:81906785:A:G	chr16:81906785:A:G	A:G	PLCG2	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;intronic;PLCG2;-;-;intronic;PLCG2;-;-;intronic;PLCG2;-;-;-;26;8;9	Name=AluSc	TRUE	Alu	intronic
+chr16:75445921:T:C	chr16:75445921:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSg4;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;580;30;53	Name=AluSg4	TRUE	Alu	UTR3
+chr16:75445934:T:C	chr16:75445934:A:G	A:G	TMEM170A	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg4;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;UTR3;TMEM170A;-;-;-;407;30;54	Name=AluSg4	TRUE	Alu	UTR3
+chr16:67995842:T:C	chr16:67995842:A:G	A:G	DPEP2	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;DPEP2;-;-;intronic;DPEP2;-;-;intronic;DPEP2;-;-;-;184;12;17	Name=AluSx	TRUE	Alu	intronic
+chr16:30920488:T:C	chr16:30920488:A:G	A:G	FBXL19-AS1	ncRNA
+exonic	unknown	T;C;-;A||R;ALU;-;SINE/AluJr;ncRNA_exonic;FBXL19-AS1;-;-;ncRNA_exonic;FBXL19-AS1;-;-;UTR3;FBXL19-AS1;-;-;-;308;28;46	Name=AluJr	TRUE	Alu	ncRNA
+chr16:30920489:T:C	chr16:30920489:A:G	A:G	FBXL19-AS1	ncRNA
+exonic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr;ncRNA_exonic;FBXL19-AS1;-;-;ncRNA_exonic;FBXL19-AS1;-;-;UTR3;FBXL19-AS1;-;-;-;365;28;49	Name=AluJr	TRUE	Alu	ncRNA
+chr16:70249315:T:C	chr16:70249315:A:G	A:G	EXOSC6	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;downstream;EXOSC6;-;-;downstream;EXOSC6;-;-;downstream;EXOSC6;-;-;-;2035;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr16:57791147:T:C	chr16:57791147:A:G	A:G	KIFC3	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;KIFC3;-;-;intronic;KIFC3;-;-;intronic;KIFC3;-;-;-;50;12;13	Name=AluSx	TRUE	Alu	intronic
+chr16:26032885:T:C	chr16:26032885:T:C	A:G	HS3ST4	intronic	unknown	.	.	FALSE	None	intronic
+chr16:18519286:T:C	chr16:18519286:A:G	A:G	NOMO2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr16:56943123:T:C	chr16:56943123:T:C	A:G	HERPUD1	intronic	unknown	.	.	FALSE	None	intronic
+chr16:31365800:A:G	chr16:31365800:A:G	A:G	ITGAX	intronic	unknown	A;G;+;R;ALU;-;SINE/AluSz;intronic;ITGAX;-;-;intronic;ITGAX;-;-;intronic;ITGAX;-;-;-;219;10;15	Name=AluSz	TRUE	Alu	intronic
+chr16:20856196:T:C	chr16:20856196:A:G	A:G	DCUN1D3	UTR3	unknown	T;C;-;A||R;REP;-;DNA/MADE1;UTR3;DCUN1D3;-;-;intergenic;LOC81691||DCUN1D3;-;-;intronic;ERI2;-;-;-;1278;30;53	Name=MADE1	TRUE	Other	UTR3
+chr17:36090143:T:C	chr17:36090143:A:G	A:G	CCL3	UTR5	unknown	.	.	FALSE	None	UTR5
+chr17:43218405:A:G	chr17:43218405:A:G	A:G	TMEM106A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq4;ncRNA_intronic;LINC00854;-;-;UTR3;TMEM106A;-;-;UTR3;TMEM106A;-;-;-;745;30;48	Name=AluSz	TRUE	Alu	UTR3
+chr17:43218441:A:G	chr17:43218441:A:G	A:G	TMEM106A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq4;ncRNA_intronic;LINC00854;-;-;UTR3;TMEM106A;-;-;UTR3;TMEM106A;-;-;-;1025;30;51	Name=AluSz	TRUE	Alu	UTR3
+chr17:43218485:A:G	chr17:43218485:A:G	A:G	TMEM106A	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq4;ncRNA_intronic;LINC00854;-;-;UTR3;TMEM106A;-;-;UTR3;TMEM106A;-;-;-;556;29;45	Name=AluSz	TRUE	Alu	UTR3
+chr17:45241552:C:T	chr17:45241552:C:T	C:T	FMNL1	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr17:64747362:T:C	chr17:64747362:A:G	A:G	ARHGAP27P1-BPTFP1-KPNA2P3	downstream	unknown	.	.	FALSE	None	downstream
+chr17:7224802:C:T	chr17:7224802:C:T	C:T	ACADVL	intronic	unknown	.	.	FALSE	None	intronic
+chr17:7224803:T:C	chr17:7224803:T:C	A:G	ACADVL	intronic	unknown	.	.	FALSE	None	intronic
+chr17:7579728:T:C	chr17:7579728:T:C	A:G	CD68	splicing	unknown	.	.	FALSE	None	splicing
+chr17:7579733:A:G	chr17:7579733:A:G	A:G	CD68	intronic	unknown	.	.	FALSE	None	intronic
+chr17:75889858:T:C	chr17:75889858:A:G	A:G	TRIM65	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;UTR3;TRIM65;-;-;UTR3;TRIM65;-;-;UTR3;TRIM65;-;-;-;2200;30;55	Name=AluJo	TRUE	Alu	UTR3
+chr17:78422985:A:G	chr17:78422985:A:G	A:G	PGS1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;intronic;PGS1;-;-;intronic;PGS1;-;-;intronic;PGS1;-;-;-;1811;30;55	Name=AluSq2	TRUE	Alu	intronic
+chr17:81822816:T:C	chr17:81822816:A:G	A:G	MCRIP1	UTR3	unknown	T;C;-;A||R;NONREP;-;-/-;UTR3;AC174470.1||FAM195B;-;-;UTR3;FAM195B;-;-;UTR3;FAM195B;-;-;-;2497;30;54	.	TRUE	None	UTR3
+chr17:38753212:C:T	chr17:38753212:C:T	C:T	PSMB3	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr17:43218406:A:G	chr17:43218406:A:G	A:G	TMEM106A	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSq4;ncRNA_intronic;LINC00854;-;-;UTR3;TMEM106A;-;-;UTR3;TMEM106A;-;-;-;490;29;46	Name=AluSz	TRUE	Alu	UTR3
+chr17:61590525:T:C	chr17:61590525:A:G	A:G	NACA2	UTR3	unknown	.	.	FALSE	None	UTR3
+chr17:61590538:C:T	chr17:61590538:G:A	C:T	NACA2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr17:64820859:T:C	chr17:64820859:A:G	A:G	PLEKHM1P1	ncRNA
+intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluY;ncRNA_intronic;PLEKHM1P;-;-;ncRNA_intronic;PLEKHM1P1;-;-;intronic;PLEKHM1P;-;-;-;284;25;35	Name=AluY	TRUE	Alu	ncRNA
+chr17:76489462:T:C	chr17:76489462:A:G	A:G	RHBDF2	intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluY;intronic;RHBDF2;-;-;intronic;RHBDF2;-;-;intronic;RHBDF2;-;-;-;45;8;10	Name=AluY	TRUE	Alu	intronic
+chr17:59962166:T:C	chr17:59962166:A:G	A:G	RNFT1	intronic	unknown	T;C;-;R;ALU;-;SINE/AluSc8;intronic;RNFT1||RP11-178C3.1;-;-;intronic;RNFT1;-;-;intronic;RNFT1;-;-;-;99;19;27	Name=AluSc8	TRUE	Alu	intronic
+chr17:7220834:A:G	chr17:7220834:A:G	A:G	ACADVL	intronic	unknown	.	.	FALSE	None	intronic
+chr17:8964226:T:C	chr17:8964226:A:G	A:G	PIK3R5	intronic	unknown	T;C;-;A||R;ALU;rs568459351;SINE/AluJo;intronic;PIK3R5;-;-;intronic;PIK3R5;-;-;intronic;PIK3R5;-;-;-;35;5;7	Name=AluJo	TRUE	Alu	intronic
+chr17:19649106:C:T	chr17:19649106:C:T	C:T	ALDH3A2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr17:59201709:A:G	chr17:59201709:A:G	A:G	PRR11	UTR3	unknown	A;G;+;R||D;ALU;-;SINE/AluSq2;UTR3;PRR11;-;-;UTR3;PRR11;-;-;UTR3;PRR11;-;-;-;256;21;34	Name=AluSq2	TRUE	Alu	UTR3
+chr17:78187873:A:G	chr17:78187873:A:G	A:G	AFMID	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;intronic;AFMID;-;-;intronic;AFMID;-;-;intronic;AFMID;-;-;-;5;4;4	Name=AluSg	TRUE	Alu	intronic
+chr17:42533451:T:C	chr17:42533451:T:C	A:G	NAGLU	upstream	unknown	.	.	FALSE	None	upstream
+chr17:61070033:T:C	chr17:61070033:T:C	A:G	BCAS3	intronic	unknown	.	.	FALSE	None	intronic
+chr17:64471696:A:G	chr17:64471696:A:G	A:G	MILR1	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluJo;intergenic;MILR1||POLG2;-;-;intergenic;MILR1||POLG2;-;-;intergenic;MILR1||POLG2;-;-;-;422;25;42	Name=AluJo	TRUE	Alu	intronic
+chr17:67338609:T:C	chr17:67338609:A:G	A:G	PSMD12	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSq;UTR3;PSMD12;-;-;UTR3;PSMD12;-;-;intergenic;HELZ||PSMD12;-;-;-;2194;30;55	Name=AluSq	TRUE	Alu	UTR3
+chr17:67338610:T:C	chr17:67338610:A:G	A:G	PSMD12	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSq;UTR3;PSMD12;-;-;UTR3;PSMD12;-;-;intergenic;HELZ||PSMD12;-;-;-;1736;30;55	Name=AluSq	TRUE	Alu	UTR3
+chr17:21553795:T:C	chr17:21553795:A:G	A:G	LINC02693	upstream	unknown	.	Name=AluYm1	FALSE	Alu	upstream
+chr17:21553799:G:A	chr17:21553799:C:T	C:T	LINC02693	upstream	unknown	.	Name=AluYm1	FALSE	Alu	upstream
+chr17:27640569:T:C	chr17:27640569:T:C	A:G	LGALS9	intronic	unknown	.	.	FALSE	None	intronic
+chr17:31534452:A:G	chr17:31534452:A:G	A:G	RAB11FIP4	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;RAB11FIP4;-;-;UTR3;RAB11FIP4;-;-;UTR3;RAB11FIP4;-;-;-;935;28;46	Name=AluJr	TRUE	Alu	UTR3
+chr17:64495026:A:G	chr17:64495026:T:C	A:G	POLG2	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr17:35827586:A:G	chr17:35827586:A:G	A:G	TAF15	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSq2;ncRNA_intronic;AC015849.19;-;-;intronic;TAF15;-;-;intronic;TAF15;-;-;-;1431;30;53	Name=AluSq2	TRUE	Alu	intronic
+chr17:59203698:A:G	chr17:59203698:A:G	A:G	PRR11	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;CTD-2510F5.4;-;-;UTR3;PRR11;-;-;UTR3;PRR11;-;-;-;2;2;2	Name=AluSz	TRUE	Alu	UTR3
+chr17:61070013:A:G	chr17:61070013:A:G	A:G	BCAS3	intronic	unknown	.	.	FALSE	None	intronic
+chr17:1780760:T:C	chr17:1780760:A:G	A:G	SMYD4	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluY;UTR3;SMYD4;-;-;UTR3;SMYD4;-;-;UTR3;SMYD4;-;-;-;1828;30;55	Name=AluYm1	TRUE	Alu	UTR3
+chr17:64322237:T:C	chr17:64322237:A:G	A:G	PECAM1	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSq;intergenic;TEX2||MILR1;-;-;UTR3;PECAM1;-;-;ncRNA_exonic;PECAM1;-;-;-;760;29;47	Name=AluSq	TRUE	Alu	UTR3
+chr17:64322238:T:C	chr17:64322238:A:G	A:G	PECAM1	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSq;intergenic;TEX2||MILR1;-;-;UTR3;PECAM1;-;-;ncRNA_exonic;PECAM1;-;-;-;763;29;49	Name=AluSq	TRUE	Alu	UTR3
+chr17:35421813:T:C	chr17:35421813:A:G	A:G	SLFN12	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSc8;intronic;SLFN12;-;-;intronic;SLFN12;-;-;intronic;SLFN12;-;-;-;157;22;28	Name=AluSc8	TRUE	Alu	intronic
+chr17:59203694:A:G	chr17:59203694:A:G	A:G	PRR11	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;CTD-2510F5.4;-;-;UTR3;PRR11;-;-;UTR3;PRR11;-;-;-;366;24;41	Name=AluSz	TRUE	Alu	UTR3
+chr17:63699075:G:A	chr17:63699075:C:T	C:T	LIMD2	intronic	unknown	.	.	FALSE	None	intronic
+chr17:31534285:A:G	chr17:31534285:A:G	A:G	RAB11FIP4	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;UTR3;RAB11FIP4;-;-;UTR3;RAB11FIP4;-;-;UTR3;RAB11FIP4;-;-;-;855;26;43	Name=AluJr	TRUE	Alu	UTR3
+chr17:59885439:A:G	chr17:59885439:T:C	A:G	TUBD1	intronic	unknown	.	.	FALSE	None	intronic
+chr17:44320618:T:C	chr17:44320618:A:G	A:G	SLC25A39	intronic	unknown	.	.	FALSE	None	intronic
+chr17:74530932:T:C	chr17:74530932:A:G	A:G	CD300LB	intronic	unknown	.	Name=AluJo	FALSE	Alu	intronic
+chr18:49791480:G:A	chr18:49791480:C:T	C:T	ACAA2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr18:32068979:A:G	chr18:32068979:A:G	A:G	RNF125	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;ncRNA_intronic;RP11-53I6.2;-;-;UTR3;RNF125;-;-;UTR3;RNF125;-;-;-;779;29;52	Name=AluSg	TRUE	Alu	UTR3
+chr18:32068984:A:G	chr18:32068984:A:G	A:G	RNF125	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;ncRNA_intronic;RP11-53I6.2;-;-;UTR3;RNF125;-;-;UTR3;RNF125;-;-;-;802;28;51	Name=AluSg	TRUE	Alu	UTR3
+chr18:9124987:A:G	chr18:9124987:T:C	A:G	NDUFV2-AS1	ncRNA
+intronic	unknown	.	.	FALSE	None	ncRNA
+chr18:9794694:A:G	chr18:9794694:A:G	A:G	RAB31	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSx4;intronic;RAB31;-;-;intronic;RAB31;-;-;intronic;RAB31;-;-;-;17;10;10	Name=AluSx4	TRUE	Alu	intronic
+chr18:32069110:A:G	chr18:32069110:A:G	A:G	RNF125	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg;ncRNA_intronic;RP11-53I6.2;-;-;UTR3;RNF125;-;-;UTR3;RNF125;-;-;-;179;21;33	Name=AluSg	TRUE	Alu	UTR3
+chr18:2923166:A:G	chr18:2923166:T:C	A:G	LPIN2	intronic	unknown	.	Name=AluSq2	FALSE	Alu	intronic
+chr19:12745696:C:T	chr19:12745696:C:T	C:T	GET3	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:13772665:A:G	chr19:13772665:A:G	A:G	MRI1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;ncRNA_intronic;CTB-5E10.3;-;-;UTR3;MRI1;-;-;UTR3;MRI1;-;-;-;2;2;2	Name=AluY	TRUE	Alu	UTR3
+chr19:14734699:T:C	chr19:14734699:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;278;18;28	Name=AluSx	TRUE	Alu	UTR3
+chr19:18924915:C:T	chr19:18924915:C:T	C:T	DDX49	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:35903904:G:A	chr19:35903904:G:A	C:T	HCST	splicing	unknown	.	.	FALSE	None	splicing
+chr19:36115662:C:T	chr19:36115662:C:T	C:T	TBCB	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:40377888:G:A	chr19:40377888:G:A	C:T	PLD3	intronic	unknown	.	.	FALSE	None	intronic
+chr19:4117431:G:A	chr19:4117431:C:T	C:T	MAP2K2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:48960918:A:G	chr19:48960918:A:G	A:G	BAX	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr19:51768890:T:C	chr19:51768890:T:C	A:G	FPR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:54098440:T:C	chr19:54098440:A:G	A:G	OSCAR	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;OSCAR;-;-;intronic;OSCAR;-;-;intronic;OSCAR;-;-;-;404;24;35	Name=AluSx	TRUE	Alu	intronic
+chr19:54237215:T:C	chr19:54237215:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;438;25;32	Name=AluSx	TRUE	Alu	downstream
+chr19:54237223:T:C	chr19:54237223:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;449;25;32	Name=AluSx	TRUE	Alu	downstream
+chr19:54237241:T:C	chr19:54237241:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;465;25;33	Name=AluSx	TRUE	Alu	downstream
+chr19:54237247:T:C	chr19:54237247:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;681;28;40	Name=AluSx	TRUE	Alu	downstream
+chr19:54237251:T:C	chr19:54237251:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;552;25;35	Name=AluSx	TRUE	Alu	downstream
+chr19:54237281:T:C	chr19:54237281:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;543;27;38	Name=AluSx	TRUE	Alu	downstream
+chr19:54238175:T:C	chr19:54238175:A:G	A:G	LILRA6	downstream	unknown	T;C;-;R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;335;16;23	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238176:T:C	chr19:54238176:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;rs564193531;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;323;16;22	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238186:T:C	chr19:54238186:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;242;11;17	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238202:T:C	chr19:54238202:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;304;16;22	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238240:T:C	chr19:54238240:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;283;17;24	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238242:T:C	chr19:54238242:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;200;17;21	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238257:T:C	chr19:54238257:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;231;13;18	Name=AluSx3	TRUE	Alu	downstream
+chr19:54238262:T:C	chr19:54238262:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;242;13;17	Name=AluSx3	TRUE	Alu	downstream
+chr19:54336984:T:C	chr19:54336984:A:G	A:G	LILRA4	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr19:54336985:A:G	chr19:54336985:T:C	A:G	LILRA4	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr19:54336986:C:T	chr19:54336986:G:A	C:T	LILRA4	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr19:54710245:C:T	chr19:54710245:C:T	C:T	LILRP2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr19:13773192:A:G	chr19:13773192:A:G	A:G	MRI1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;CTB-5E10.3;-;-;UTR3;MRI1;-;-;UTR3;MRI1;-;-;-;2303;30;54	Name=AluSz	TRUE	Alu	UTR3
+chr19:14734257:T:C	chr19:14734257:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;560;27;49	Name=AluJb	TRUE	Alu	UTR3
+chr19:14734269:T:C	chr19:14734269:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;440;25;41	Name=AluJb	TRUE	Alu	UTR3
+chr19:14734311:T:C	chr19:14734311:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;529;27;49	Name=AluJb	TRUE	Alu	UTR3
+chr19:14734324:T:C	chr19:14734324:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;469;26;45	Name=AluJb	TRUE	Alu	UTR3
+chr19:14734645:T:C	chr19:14734645:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;420;21;38	Name=AluSx	TRUE	Alu	UTR3
+chr19:14734660:T:C	chr19:14734660:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;325;21;35	Name=AluSx	TRUE	Alu	UTR3
+chr19:14734664:T:C	chr19:14734664:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;308;22;34	Name=AluSx	TRUE	Alu	UTR3
+chr19:14734700:T:C	chr19:14734700:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;340;20;33	Name=AluSx	TRUE	Alu	UTR3
+chr19:16085208:A:G	chr19:16085208:A:G	A:G	TPM4	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJr;intronic;TPM4;-;-;intronic;TPM4;-;-;intronic;TPM4;-;-;-;213;23;35	Name=AluJr	TRUE	Alu	intronic
+chr19:52560246:A:G	chr19:52560246:A:G	A:G	ZNF808	downstream	unknown	A;G;+;A||R;ALU;-;SINE/AluSg4;intergenic;ZNF808||ZNF701;-;-;intergenic;ZNF808||ZNF701;-;-;intergenic;ZNF808||ZNF701;-;-;-;213;26;37	Name=AluSg4	TRUE	Alu	downstream
+chr19:52839008:T:C	chr19:52839008:A:G	A:G	ZNF468	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSc8;UTR3;ZNF468;-;-;UTR3;ZNF468;-;-;UTR3;ZNF468;-;-;272;17;1300;30;54	Name=AluSc8	TRUE	Alu	UTR3
+chr19:54237280:T:C	chr19:54237280:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;548;27;37	Name=AluSx	TRUE	Alu	downstream
+chr19:54598101:A:G	chr19:54598101:A:G	A:G	LILRA1	intronic	unknown	A;G;+;R;NONREP;-;-/-;intronic;LILRA1||LILRB1;-;-;intronic;LILRA1;-;-;intronic;LILRA1;-;-;-;142;6;8	.	TRUE	None	intronic
+chr19:54712920:T:C	chr19:54712920:T:C	A:G	LILRP2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr19:8540447:T:C	chr19:8540447:A:G	A:G	MYO1F	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;intronic;MYO1F;-;-;intronic;MYO1F;-;-;intronic;MYO1F;-;-;-;369;24;36	Name=AluSx1	TRUE	Alu	intronic
+chr19:11577319:T:C	chr19:11577319:A:G	A:G	ACP5	splicing	unknown	.	.	FALSE	None	splicing
+chr19:11579879:A:G	chr19:11579879:T:C	A:G	ACP5	upstream	unknown	A;G;+;A||R;ALU;-;SINE/AluSp;upstream;ACP5;-;-;upstream;ACP5;-;-;upstream;ACP5;-;-;-;12;4;4	Name=AluSp	TRUE	Alu	upstream
+chr19:12646026:T:C	chr19:12646026:A:G	A:G	MAN2B1	downstream	unknown	T;C;-;R||D;ALU;rs367700005;SINE/AluSx1;intronic;CTD-2192J16.22;-;-;downstream;MAN2B1;-;-;downstream;MAN2B1;-;-;-;95;22;30	Name=AluSx1	TRUE	Alu	downstream
+chr19:14734297:T:C	chr19:14734297:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluJb;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;356;21;34	Name=AluJb	TRUE	Alu	UTR3
+chr19:40366916:G:A	chr19:40366916:G:A	C:T	PLD3	splicing	unknown	.	.	FALSE	None	splicing
+chr19:51768865:G:A	chr19:51768865:G:A	C:T	FPR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:51768874:T:C	chr19:51768874:T:C	A:G	FPR2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr19:52703863:T:C	chr19:52703863:A:G	A:G	ZNF611	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluY;UTR3;ZNF611;-;-;UTR3;ZNF611;-;-;UTR3;ZNF611;-;-;-;509;30;53	Name=AluY	TRUE	Alu	UTR3
+chr19:14734293:T:C	chr19:14734293:A:G	A:G	ADGRE2	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;EMR2;-;-;UTR3;ADGRE2;-;-;UTR3;EMR2;-;-;-;336;19;34	Name=AluJb	TRUE	Alu	UTR3
+chr19:43648205:T:C	chr19:43648205:A:G	A:G	PLAUR	intronic	unknown	T;C;-;A;ALU;-;SINE/AluY;intronic;PLAUR;-;-;intronic;PLAUR;-;-;intronic;PLAUR;-;-;-;100;11;14	Name=AluYh3	TRUE	Alu	intronic
+chr19:43648206:T:C	chr19:43648206:A:G	A:G	PLAUR	intronic	unknown	T;C;-;R;ALU;-;SINE/AluY;intronic;PLAUR;-;-;intronic;PLAUR;-;-;intronic;PLAUR;-;-;-;104;12;16	Name=AluYh3	TRUE	Alu	intronic
+chr19:43663252:T:C	chr19:43663252:A:G	A:G	PLAUR	intronic	unknown	T;C;-;R||D;REP;-;DNA/MADE1;ncRNA_exonic;AC006953.1;-;-;intronic;PLAUR;-;-;intronic;PLAUR;-;-;-;31;8;9	Name=MADE1	TRUE	Other	intronic
+chr19:54891526:A:G	chr19:54891526:A:G	A:G	FCAR	downstream	unknown	.	Name=AluYh3	FALSE	Alu	downstream
+chr19:54891602:A:G	chr19:54891602:A:G	A:G	FCAR	downstream	unknown	A;G;+;R;ALU;-;SINE/AluY;downstream;CTB-61M7.2;-;-;downstream;FCAR;-;-;intergenic;FCAR||NCR1;-;-;-;176;6;6	Name=AluYh3	TRUE	Alu	downstream
+chr19:13760054:A:G	chr19:13760054:A:G	A:G	CCDC130	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSp;intronic;CCDC130;-;-;intronic;CCDC130;-;-;intronic;CCDC130;-;-;-;2103;30;54	Name=AluSp	TRUE	Alu	intronic
+chr19:13773078:A:G	chr19:13773078:A:G	A:G	MRI1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz;ncRNA_intronic;CTB-5E10.3;-;-;UTR3;MRI1;-;-;UTR3;MRI1;-;-;-;1917;30;55	Name=AluSz	TRUE	Alu	UTR3
+chr19:1391112:C:T	chr19:1391112:C:T	C:T	NDUFS7	intronic	unknown	.	.	FALSE	None	intronic
+chr19:1391113:T:C	chr19:1391113:T:C	A:G	NDUFS7	intronic	unknown	.	.	FALSE	None	intronic
+chr19:4654456:A:G	chr19:4654456:A:G	A:G	TNFAIP8L1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;TNFAIP8L1;-;-;UTR3;TNFAIP8L1;-;-;UTR3;TNFAIP8L1;-;-;-;2028;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr19:6951115:T:C	chr19:6951115:A:G	A:G	ADGRE4P	downstream	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr;intergenic;EMR1||EMR4P;-;-;intergenic;ADGRE1||ADGRE4P;-;-;intergenic;EMR1||EMR4P;-;-;-;91;10;13	Name=AluJr	TRUE	Alu	downstream
+chr19:6951218:T:C	chr19:6951218:A:G	A:G	ADGRE4P	downstream	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJr;intergenic;EMR1||EMR4P;-;-;intergenic;ADGRE1||ADGRE4P;-;-;intergenic;EMR1||EMR4P;-;-;-;170;16;24	Name=AluJr	TRUE	Alu	downstream
+chr19:6951662:T:C	chr19:6951662:A:G	A:G	ADGRE4P	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSq;downstream;EMR4P;-;-;downstream;ADGRE4P;-;-;downstream;EMR4P;-;-;-;212;20;31	Name=AluSq	TRUE	Alu	downstream
+chr19:54238232:T:C	chr19:54238232:A:G	A:G	LILRA6	downstream	unknown	T;C;-;A||R;ALU;-;SINE/AluSx3;intronic;LILRA6||LILRB3;-;-;intronic;LILRB3;-;-;UTR3;LILRA6;-;-;-;116;12;16	Name=AluSx3	TRUE	Alu	downstream
+chr19:35009973:G:A	chr19:35009973:G:A	C:T	GRAMD1A	splicing	unknown	.	.	FALSE	None	splicing
+chr19:43662253:T:C	chr19:43662253:A:G	A:G	PLAUR	intronic	unknown	T;C;-;A;ALU;-;SINE/AluSq2;intronic;PLAUR;-;-;intronic;PLAUR;-;-;intronic;PLAUR;-;-;-;99;16;21	Name=AluSq2	TRUE	Alu	intronic
+chr19:54098814:T:C	chr19:54098814:A:G	A:G	OSCAR	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;OSCAR;-;-;intronic;OSCAR;-;-;intronic;OSCAR;-;-;-;295;15;19	Name=AluSx	TRUE	Alu	intronic
+chr19:54508790:G:A	chr19:54508790:G:A	C:T	LAIR2	intronic	unknown	.	.	FALSE	None	intronic
+chr19:54889643:C:T	chr19:54889643:C:T	C:T	FCAR	intronic	unknown	.	.	FALSE	None	intronic
+chr19:54889644:T:C	chr19:54889644:T:C	A:G	FCAR	intronic	unknown	.	.	FALSE	None	intronic
+chr19:54337570:T:C	chr19:54337570:A:G	A:G	LILRA4	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr19:55050367:A:G	chr19:55050367:T:C	A:G	RDH13	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSq2;ncRNA_intronic;CTC-550B14.6;-;-;intronic;RDH13;-;-;intronic;RDH13;-;-;-;190;23;29	Name=AluSx3	TRUE	Alu	intronic
+chr19:54598066:A:G	chr19:54598066:A:G	A:G	LILRA1	intronic	unknown	A;G;+;R;NONREP;-;-/-;intronic;LILRA1||LILRB1;-;-;intronic;LILRA1;-;-;intronic;LILRA1;-;-;-;123;8;12	.	TRUE	None	intronic
+chr19:54709706:G:A	chr19:54709706:G:A	C:T	LILRP2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr19:18008165:G:A	chr19:18008165:G:A	C:T	ARRDC2	intronic	unknown	.	.	FALSE	None	intronic
+chr19:11577320:G:A	chr19:11577320:C:T	C:T	ACP5	intronic	unknown	.	.	FALSE	None	intronic
+chr19:41871534:A:G	chr19:41871534:A:G	A:G	RPS19	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;UTR3;RPS19;-;-;downstream;RPS19;-;-;downstream;RPS19;-;-;-;2382;30;55	Name=AluSx	TRUE	Alu	UTR3
+chr19:57845900:A:G	chr19:57845900:A:G	A:G	ZNF587B	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;ZNF587B;-;-;UTR3;ZNF587B;-;-;UTR3;ZNF587B;-;-;-;1676;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr19:57845903:A:G	chr19:57845903:A:G	A:G	ZNF587B	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;ZNF587B;-;-;UTR3;ZNF587B;-;-;UTR3;ZNF587B;-;-;-;1611;30;54	Name=AluJb	TRUE	Alu	UTR3
+chr19:12646228:T:C	chr19:12646228:A:G	A:G	MAN2B1	downstream	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJo;intronic;CTD-2192J16.22;-;-;downstream;MAN2B1;-;-;downstream;MAN2B1;-;-;-;346;26;44	Name=AluJo	TRUE	Alu	downstream
+chr19:32583781:A:G	chr19:32583781:A:G	A:G	PDCD5	intronic	unknown	A;G;+;A||R||D;REP;-;SINE/FRAM;intronic;PDCD5;-;-;intronic;PDCD5;-;-;intronic;PDCD5;-;-;-;1813;30;54	Name=FRAM	TRUE	Other	intronic
+chr19:1391171:T:C	chr19:1391171:T:C	A:G	NDUFS7	intronic	unknown	.	.	FALSE	None	intronic
+chr19:58348272:A:G	chr19:58348272:T:C	A:G	A1BG	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluSx;ncRNA_intronic;A1BG-AS1;-;-;intronic;A1BG;-;-;ncRNA_intronic;A1BG-AS1;-;-;-;162;24;38	Name=AluSx	TRUE	Alu	intronic
+chr19:6658092:G:A	chr19:6658092:C:T	C:T	TNFSF14	downstream	unknown	.	Name=AluY	FALSE	Alu	downstream
+chr19:11579828:A:G	chr19:11579828:T:C	A:G	ACP5	upstream	unknown	.	Name=AluSp	FALSE	Alu	upstream
+chr19:11581567:A:G	chr19:11581567:T:C	A:G	ACP5	upstream	unknown	A;G;+;A;ALU;-;SINE/AluSz;intergenic;ACP5||ZNF627;-;-;intergenic;ACP5||ZNF627;-;-;intergenic;ACP5||ZNF627;-;-;-;15;12;12	Name=AluSz	TRUE	Alu	upstream
+chr19:12672525:T:C	chr19:12672525:T:C	A:G	WDR83	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSp;intronic;WDR83;-;-;intronic;WDR83;-;-;intronic;WDR83;-;-;-;2142;30;54	Name=AluSp	TRUE	Alu	intronic
+chr19:18008164:C:T	chr19:18008164:C:T	C:T	ARRDC2	intronic	unknown	.	.	FALSE	None	intronic
+chr19:52556702:A:G	chr19:52556702:A:G	A:G	ZNF808	downstream	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx;downstream;ZNF808;-;-;downstream;ZNF808;-;-;downstream;ZNF808;-;-;-;659;30;55	Name=AluSx	TRUE	Alu	downstream
+chr19:6905090:A:G	chr19:6905090:A:G	A:G	ADGRE1	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluJr;intronic;EMR1;-;-;intronic;ADGRE1;-;-;intronic;EMR1;-;-;-;71;5;6	Name=AluJr	TRUE	Alu	intronic
+chr19:6905514:A:G	chr19:6905514:A:G	A:G	ADGRE1	intronic	unknown	.	Name=AluSg	FALSE	Alu	intronic
+chr19:4236932:T:C	chr19:4236932:T:C	A:G	EBI3	intronic	unknown	.	.	FALSE	None	intronic
+chr19:54712944:A:G	chr19:54712944:A:G	A:G	LILRP2	ncRNA
+exonic	unknown	.	.	FALSE	None	ncRNA
+chr20:36892574:T:C	chr20:36892574:A:G	A:G	SAMHD1	UTR3	unknown	T;C;-;A||R||D;REP;-;SINE/FLAM_A;UTR3;SAMHD1;-;-;UTR3;SAMHD1;-;-;UTR3;SAMHD1;-;-;-;2243;30;54	Name=FLAM_A	TRUE	Other	UTR3
+chr20:45079198:A:G	chr20:45079198:A:G	A:G	STK4	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;STK4;-;-;UTR3;STK4;-;-;ncRNA_exonic;AB209315;-;-;-;2042;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr20:49134784:G:A	chr20:49134784:C:T	C:T	STAU1	intronic	unknown	.	.	FALSE	None	intronic
+chr20:49134831:A:G	chr20:49134831:T:C	A:G	STAU1	intronic	unknown	.	.	FALSE	None	intronic
+chr20:50840357:T:C	chr20:50840357:T:C	A:G	BCAS4	intronic	unknown	.	.	FALSE	None	intronic
+chr20:50840371:T:C	chr20:50840371:T:C	A:G	BCAS4	intronic	unknown	.	.	FALSE	None	intronic
+chr20:3700215:T:C	chr20:3700215:A:G	A:G	SIGLEC1	intronic	unknown	T;C;-;A||R;ALU;-;SINE/AluSx;intronic;SIGLEC1;-;-;intronic;SIGLEC1;-;-;intronic;SIGLEC1;-;-;-;46;9;13	Name=AluSx	TRUE	Alu	intronic
+chr20:5292906:T:C	chr20:5292906:A:G	A:G	PROKR2	downstream	unknown	.	.	FALSE	None	downstream
+chr20:63865266:A:G	chr20:63865266:A:G	A:G	TPD52L2	UTR5	unknown	.	.	FALSE	None	UTR5
+chr20:36905507:C:T	chr20:36905507:G:A	C:T	SAMHD1	intronic	unknown	.	.	FALSE	None	intronic
+chr20:5066414:A:G	chr20:5066414:T:C	A:G	TMEM230	downstream	unknown	.	Name=AluSx	FALSE	Alu	downstream
+chr20:5066415:A:G	chr20:5066415:T:C	A:G	TMEM230	downstream	unknown	.	Name=AluSx	FALSE	Alu	downstream
+chr20:18487707:T:C	chr20:18487707:A:G	A:G	RBBP9	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz6;UTR3;RBBP9;-;-;UTR3;RBBP9;-;-;UTR3;RBBP9;-;-;-;1957;30;54	Name=AluSz6	TRUE	Alu	UTR3
+chr20:18487867:T:C	chr20:18487867:A:G	A:G	RBBP9	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz6;UTR3;RBBP9;-;-;UTR3;RBBP9;-;-;UTR3;RBBP9;-;-;-;2260;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr20:9641331:A:G	chr20:9641331:T:C	A:G	PAK5	intronic	unknown	.	Name=LTR12C	FALSE	Other	intronic
+chr20:49944138:A:G	chr20:49944138:A:G	A:G	RNF114	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;intronic;RNF114;-;-;intronic;RNF114;-;-;intronic;RNF114;-;-;-;2168;30;54	Name=AluSz6	TRUE	Alu	intronic
+chr20:56601947:T:C	chr20:56601947:T:C	A:G	LINC01716	downstream	unknown	.	.	FALSE	None	downstream
+chr20:57488699:T:C	chr20:57488699:A:G	A:G	CTCFL	downstream	unknown	.	.	FALSE	None	downstream
+chr20:50840737:A:G	chr20:50840737:A:G	A:G	BCAS4	intronic	unknown	.	.	FALSE	None	intronic
+chr21:33264941:A:G	chr21:33264941:A:G	A:G	IFNAR2	UTR3	unknown	A;G;+;A||R;ALU;-;SINE/AluSz6;ncRNA_exonic;IL10RB-AS1;-;-;downstream;IFNAR2||IL10RB-AS1;-;-;intronic;IL10RB;-;-;-;2225;30;55	Name=AluSz6	TRUE	Alu	UTR3
+chr21:33427034:C:T	chr21:33427034:C:T	C:T	IFNGR2	splicing	unknown	.	.	FALSE	None	splicing
+chr21:33427037:G:A	chr21:33427037:G:A	C:T	IFNGR2	intronic	unknown	.	.	FALSE	None	intronic
+chr21:14510015:T:C	chr21:14510015:A:G	A:G	SAMSN1	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chr21:33264841:A:G	chr21:33264841:A:G	A:G	IFNAR2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSz6;ncRNA_exonic;IL10RB-AS1;-;-;downstream;IFNAR2||IL10RB-AS1;-;-;intronic;IL10RB;-;-;-;2;2;2	Name=AluSz6	TRUE	Alu	UTR3
+chr21:33405949:A:G	chr21:33405949:A:G	A:G	IFNGR2	intronic	unknown	A;G;+;R;ALU;-;SINE/AluSx;intronic;IFNGR2;-;-;intronic;IFNGR2;-;-;intronic;IFNGR2;-;-;-;61;8;12	Name=AluSx	TRUE	Alu	intronic
+chr21:33263988:A:G	chr21:33263988:A:G	A:G	IFNAR2	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;ncRNA_exonic;IL10RB-AS1;-;-;UTR3;IFNAR2;-;-;UTR3;IFNAR2;-;-;-;1865;30;55	Name=AluSx1	TRUE	Alu	UTR3
+chr21:33357789:A:G	chr21:33357789:A:G	A:G	IFNAR1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg7;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;-;1310;30;53	Name=AluSg7	TRUE	Alu	UTR3
+chr21:33357790:A:G	chr21:33357790:A:G	A:G	IFNAR1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg7;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;-;1905;30;55	Name=AluSg7	TRUE	Alu	UTR3
+chr21:33357802:A:G	chr21:33357802:A:G	A:G	IFNAR1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg7;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;-;1840;30;54	Name=AluSg7	TRUE	Alu	UTR3
+chr21:41429857:A:G	chr21:41429857:A:G	A:G	MX1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc8;intronic;MX1;-;-;intronic;MX1;-;-;intronic;MX1;-;-;-;15;5;5	Name=AluSc8	TRUE	Alu	intronic
+chr21:41448003:A:G	chr21:41448003:A:G	A:G	MX1	intronic	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;intronic;MX1;-;-;intronic;MX1;-;-;intronic;MX1;-;-;-;547;29;43	Name=AluSx1	TRUE	Alu	intronic
+chr21:33357727:A:G	chr21:33357727:A:G	A:G	IFNAR1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg7;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;-;1586;30;55	Name=AluSg7	TRUE	Alu	UTR3
+chr21:33404461:A:G	chr21:33404461:A:G	A:G	IFNGR2	intronic	unknown	A;G;+;A;ALU;-;SINE/AluJb;intronic;IFNGR2;-;-;intronic;IFNGR2;-;-;intronic;IFNGR2;-;-;-;72;12;14	Name=AluJb	TRUE	Alu	intronic
+chr21:41448626:A:G	chr21:41448626:A:G	A:G	MX1	intronic	unknown	A;G;+;R;ALU;-;SINE/AluY;intronic;MX1;-;-;intronic;MX1;-;-;intronic;MX1;-;-;-;159;22;29	Name=AluY	TRUE	Alu	intronic
+chr21:33357771:A:G	chr21:33357771:A:G	A:G	IFNAR1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSg7;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;UTR3;IFNAR1;-;-;-;1370;30;54	Name=AluSg7	TRUE	Alu	UTR3
+chr21:44910787:T:C	chr21:44910787:A:G	A:G	ITGB2	splicing	unknown	.	.	FALSE	None	splicing
+chr21:44910789:T:C	chr21:44910789:A:G	A:G	ITGB2	intronic	unknown	.	.	FALSE	None	intronic
+chr22:17189154:T:C	chr22:17189154:A:G	A:G	ADA2	intronic	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSx;intronic;CECR1;-;-;intronic;CECR1;-;-;intronic;CECR1;-;-;-;264;24;38	Name=AluSx	TRUE	Alu	intronic
+chr22:39018767:A:G	chr22:39018767:A:G	A:G	APOBEC3C	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;APOBEC3C;-;-;UTR3;APOBEC3C;-;-;UTR3;APOBEC3C;-;-;-;1474;30;52	Name=AluJb	TRUE	Alu	UTR3
+chr22:39052278:T:C	chr22:39052278:T:C	A:G	APOBEC3F	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr22:39052279:G:A	chr22:39052279:G:A	C:T	APOBEC3F	exonic	stopgain	.	.	FALSE	None	exonic
+chr22:17113215:A:G	chr22:17113215:A:G	A:G	IL17RA	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;UTR3;IL17RA;-;-;UTR3;IL17RA;-;-;UTR3;IL17RA;-;-;-;996;30;52	Name=AluJb	TRUE	Alu	UTR3
+chr22:24574641:A:G	chr22:24574641:A:G	A:G	SNRPD3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJb;intronic;SNRPD3;-;-;UTR3;SNRPD3;-;-;intronic;SNRPD3;-;-;-;2472;30;55	Name=AluJb	TRUE	Alu	UTR3
+chr22:31276967:T:C	chr22:31276967:T:C	A:G	LIMK2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr22:35660551:A:G	chr22:35660551:A:G	A:G	APOL6	UTR3	unknown	A;G;+;A||R||D;REP;-;LTR/MLT1A0;UTR3;APOL6;-;-;UTR3;APOL6;-;-;UTR3;APOL6;-;-;-;1491;30;54	Name=MLT1A0	TRUE	Other	UTR3
+chr22:39053230:A:G	chr22:39053230:A:G	A:G	APOBEC3F	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;APOBEC3F;-;-;UTR3;APOBEC3F;-;-;UTR3;APOBEC3F;-;-;-;589;28;40	Name=AluSx1	TRUE	Alu	UTR3
+chr22:31277021:T:C	chr22:31277021:T:C	A:G	LIMK2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr22:31277313:A:G	chr22:31277313:A:G	A:G	LIMK2	UTR3	unknown	.	.	FALSE	None	UTR3
+chr22:36266160:A:G	chr22:36266160:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;2053;30;55	Name=AluSc	TRUE	Alu	UTR3
+chr22:42381180:T:C	chr22:42381180:A:G	A:G	NFAM1	UTR3	unknown	T;C;-;R||D;NONREP;-;-/-;UTR3;NFAM1;-;-;UTR3;NFAM1;-;-;UTR3;NFAM1;-;-;-;192;12;15	.	TRUE	None	UTR3
+chr22:31276975:A:G	chr22:31276975:A:G	A:G	LIMK2	exonic	synonymous SNV	.	.	FALSE	None	exonic
+chr22:36266220:A:G	chr22:36266220:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1705;30;52	Name=AluSc	TRUE	Alu	UTR3
+chr22:36266230:A:G	chr22:36266230:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1439;30;52	Name=AluSc	TRUE	Alu	UTR3
+chr22:36266272:A:G	chr22:36266272:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;365;28;39	Name=AluSc	TRUE	Alu	UTR3
+chr22:36266291:A:G	chr22:36266291:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;375;29;39	Name=AluSc	TRUE	Alu	UTR3
+chr22:36266350:A:G	chr22:36266350:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;622;29;47	Name=AluSc	TRUE	Alu	UTR3
+chr22:36266351:A:G	chr22:36266351:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSc;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1276;30;50	Name=AluSc	TRUE	Alu	UTR3
+chr22:36266650:A:G	chr22:36266650:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1585;30;53	Name=AluY	TRUE	Alu	UTR3
+chr22:36266694:A:G	chr22:36266694:A:G	A:G	APOL1	UTR3	unknown	A;G;+;R||D;ALU;-;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;776;30;45	Name=AluY	TRUE	Alu	UTR3
+chr22:36266748:A:G	chr22:36266748:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||D;ALU;rs181540965;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;825;30;48	Name=AluY	TRUE	Alu	UTR3
+chr22:36266758:A:G	chr22:36266758:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1649;30;52	Name=AluY	TRUE	Alu	UTR3
+chr22:36266825:A:G	chr22:36266825:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1445;30;55	Name=AluY	TRUE	Alu	UTR3
+chr22:36266826:A:G	chr22:36266826:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1199;30;54	Name=AluY	TRUE	Alu	UTR3
+chr22:38989602:T:C	chr22:38989602:T:C	A:G	APOBEC3B	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr22:38989603:G:A	chr22:38989603:G:A	C:T	APOBEC3B	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chr22:39053205:A:G	chr22:39053205:A:G	A:G	APOBEC3F	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;UTR3;APOBEC3F;-;-;UTR3;APOBEC3F;-;-;UTR3;APOBEC3F;-;-;-;394;27;37	Name=AluSx1	TRUE	Alu	UTR3
+chr22:35660685:A:G	chr22:35660685:A:G	A:G	APOL6	UTR3	unknown	A;G;+;A||R||D;REP;-;LTR/MLT1A0;UTR3;APOL6;-;-;UTR3;APOL6;-;-;UTR3;APOL6;-;-;-;1377;30;53	Name=MLT1A0	TRUE	Other	UTR3
+chr22:36266743:A:G	chr22:36266743:A:G	A:G	APOL1	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluY;UTR3;APOL1;-;-;UTR3;APOL1;-;-;UTR3;APOL1;-;-;-;1;1;1	Name=AluY	TRUE	Alu	UTR3
+chr22:25354239:T:C	chr22:25354239:A:G	A:G	LRP5L	intronic	unknown	T;C;-;A||R||D;NONREP;-;-/-;intronic;LRP5L;-;-;intronic;LRP5L;-;-;intronic;LRP5L;-;-;-;424;29;40	.	TRUE	None	intronic
+chr22:37474681:A:G	chr22:37474681:T:C	A:G	MFNG	intronic	unknown	.	.	FALSE	None	intronic
+chr22:44192110:G:A	chr22:44192110:G:A	C:T	PARVG	intronic	unknown	.	.	FALSE	None	intronic
+chr22:25724973:A:G	chr22:25724973:A:G	A:G	GRK3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;UTR3;ADRBK2;-;-;UTR3;ADRBK2;-;-;UTR3;ADRBK2;-;-;-;706;30;52	Name=AluJo	TRUE	Alu	UTR3
+chr22:25724994:A:G	chr22:25724994:A:G	A:G	GRK3	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluJo;UTR3;ADRBK2;-;-;UTR3;ADRBK2;-;-;UTR3;ADRBK2;-;-;-;747;30;52	Name=AluJo	TRUE	Alu	UTR3
+chr22:26523856:T:C	chr22:26523856:A:G	A:G	TPST2	UTR3	unknown	T;C;-;A||D;ALU;rs184190163;SINE/AluSx;ncRNA_exonic;CTA-445C9.15;-;-;intergenic;TFIP11||TPST2;-;-;intergenic;TFIP11||TPST2;-;-;-;1066;30;55	Name=AluSx	TRUE	Alu	UTR3
+chrX:123913445:A:G	chrX:123913445:A:G	A:G	XIAP	UTR3	unknown	A;G;+;A||D;ALU;rs182574700;SINE/AluSx;UTR3;XIAP;-;-;UTR3;XIAP;-;-;UTR3;XIAP;-;-;-;2291;30;55	Name=AluSx	TRUE	Alu	UTR3
+chrX:150231060:A:G	chrX:150231060:A:G	A:G	MIR2114	downstream	unknown	.	.	FALSE	None	downstream
+chrX:150231061:T:C	chrX:150231061:T:C	A:G	MIR2114	downstream	unknown	.	.	FALSE	None	downstream
+chrX:23702537:T:C	chrX:23702537:A:G	A:G	ACOT9	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSg7;UTR3;ACOT9;-;-;intergenic;PRDX4||ACOT9;-;-;intergenic;PRDX4||ACOT9;-;-;-;1587;30;54	Name=AluSg7	TRUE	Alu	UTR3
+chrX:2906270:T:C	chrX:2906270:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;1753;30;54	Name=AluJb	TRUE	Alu	UTR3
+chrX:2906415:T:C	chrX:2906415:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;1257;30;55	Name=AluJb	TRUE	Alu	UTR3
+chrX:3610360:T:C	chrX:3610360:A:G	A:G	PRKX	intronic	unknown	T;C;-;R||D;ALU;-;SINE/AluSx1;intronic;PRKX;-;-;intronic;PRKX;-;-;intronic;PRKX;-;-;-;413;24;38	Name=AluSx1	TRUE	Alu	intronic
+chrX:77827502:T:C	chrX:77827502:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;R;ALU;-;SINE/AluSg;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;614;30;52	Name=AluSg	TRUE	Alu	UTR3
+chrX:77827509:T:C	chrX:77827509:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;R||D;ALU;-;SINE/AluSg;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1182;30;53	Name=AluSg	TRUE	Alu	UTR3
+chrX:10770982:T:C	chrX:10770982:A:G	A:G	MID1	intronic	unknown	T;C;-;R;ALU;-;SINE/AluY;intronic;MID1;-;-;intronic;MID1;-;-;intronic;MID1;-;-;-;26;5;5	Name=AluY	TRUE	Alu	intronic
+chrX:123913420:A:G	chrX:123913420:A:G	A:G	XIAP	UTR3	unknown	A;G;+;A||R||D;ALU;rs750172694;SINE/AluSx;UTR3;XIAP;-;-;UTR3;XIAP;-;-;UTR3;XIAP;-;-;-;1968;30;55	Name=AluSx	TRUE	Alu	UTR3
+chrX:2906302:T:C	chrX:2906302:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;1679;30;54	Name=AluJb	TRUE	Alu	UTR3
+chrX:2906313:T:C	chrX:2906313:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;3;2;2	Name=AluJb	TRUE	Alu	UTR3
+chrX:2906414:T:C	chrX:2906414:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluJb;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;907;30;55	Name=AluJb	TRUE	Alu	UTR3
+chrX:2906433:T:C	chrX:2906433:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A;ALU;rs111953376;SINE/AluJb;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;1350;30;55	Name=AluJb	TRUE	Alu	UTR3
+chrX:2906865:T:C	chrX:2906865:A:G	A:G	ARSD	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;ARSD;-;-;UTR3;ARSD;-;-;UTR3;ARSD;-;-;-;887;30;53	Name=AluSz	TRUE	Alu	UTR3
+chrX:119750918:T:C	chrX:119750918:T:C	A:G	SOWAHD	upstream	unknown	.	Name=LTR12C	FALSE	Other	upstream
+chrX:119750937:T:C	chrX:119750937:T:C	A:G	SOWAHD	upstream	unknown	.	Name=LTR12C	FALSE	Other	upstream
+chrX:123913320:A:G	chrX:123913320:A:G	A:G	XIAP	UTR3	unknown	A;G;+;A||D;ALU;rs189931965;SINE/AluSx;UTR3;XIAP;-;-;UTR3;XIAP;-;-;UTR3;XIAP;-;-;-;3;3;3	Name=AluSx	TRUE	Alu	UTR3
+chrX:30687531:A:G	chrX:30687531:A:G	A:G	GK	intronic	unknown	.	.	FALSE	None	intronic
+chrX:23701830:T:C	chrX:23701830:A:G	A:G	ACOT9	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSx1;downstream;ACOT9;-;-;intergenic;PRDX4||ACOT9;-;-;intergenic;PRDX4||ACOT9;-;-;-;1205;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chrX:30677728:A:G	chrX:30677728:A:G	A:G	GK	intronic	unknown	A;G;+;A;ALU;-;SINE/AluSg;intronic;GK;-;-;intronic;GK;-;-;intronic;GK;-;-;-;19;4;4	Name=AluSg	TRUE	Alu	intronic
+chrX:77828417:T:C	chrX:77828417:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1429;30;55	Name=AluSz	TRUE	Alu	UTR3
+chrX:77828418:T:C	chrX:77828418:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1476;30;55	Name=AluSz	TRUE	Alu	UTR3
+chrX:77828504:T:C	chrX:77828504:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1213;30;54	Name=AluSz	TRUE	Alu	UTR3
+chrX:77828118:T:C	chrX:77828118:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz6;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;926;30;51	Name=AluSz6	TRUE	Alu	UTR3
+chrX:77828331:T:C	chrX:77828331:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;2113;30;55	Name=AluSz	TRUE	Alu	UTR3
+chrX:10771037:C:T	chrX:10771037:G:A	C:T	MID1	intronic	unknown	.	Name=AluY	FALSE	Alu	intronic
+chrX:150232407:T:C	chrX:150232407:T:C	A:G	MIR2114	downstream	unknown	.	.	FALSE	None	downstream
+chrX:30698649:A:G	chrX:30698649:A:G	A:G	GK	intronic	unknown	A;G;+;A||R;ALU;-;SINE/AluY;ncRNA_intronic;RP11-242C19.2;-;-;intronic;GK;-;-;intronic;GK;-;-;-;46;8;8	Name=AluY	TRUE	Alu	intronic
+chrX:54564834:A:G	chrX:54564834:A:G	A:G	GNL3L	UTR3	unknown	A;G;+;A||R||D;ALU;-;SINE/AluSx1;intergenic;GNL3L||ITIH6;-;-;UTR3;GNL3L;-;-;UTR3;GNL3L;-;-;-;1115;30;54	Name=AluSx1	TRUE	Alu	UTR3
+chrX:77828148:T:C	chrX:77828148:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz6;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1353;30;54	Name=AluSz6	TRUE	Alu	UTR3
+chrX:77828226:T:C	chrX:77828226:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz6;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;2146;30;54	Name=AluSz6	TRUE	Alu	UTR3
+chrX:78125428:G:A	chrX:78125428:G:A	C:T	PGK1	intronic	unknown	.	.	FALSE	None	intronic
+chrX:154786406:A:G	chrX:154786406:T:C	A:G	MPP1	intronic	unknown	.	.	FALSE	None	intronic
+chrX:77828545:T:C	chrX:77828545:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSz;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1073;30;54	Name=AluSz	TRUE	Alu	UTR3
+chrX:150231505:T:C	chrX:150231505:T:C	A:G	MIR2114	downstream	unknown	T;C;-;R;NONREP;rs782095608;-/-;intergenic;MIR2114||MAMLD1;-;-;intergenic;MIR2114||MAMLD1;-;-;intergenic;MIR2114||MAMLD1;-;-;591;337;14;9;9	.	TRUE	None	downstream
+chrX:150231522:T:C	chrX:150231522:T:C	A:G	MIR2114	downstream	unknown	T;C;-;R;NONREP;-;-/-;intergenic;MIR2114||MAMLD1;-;-;intergenic;MIR2114||MAMLD1;-;-;intergenic;MIR2114||MAMLD1;-;-;591;337;6;4;4	.	TRUE	None	downstream
+chrX:150231975:T:C	chrX:150231975:T:C	A:G	MIR2114	downstream	unknown	.	.	FALSE	None	downstream
+chrX:150231978:T:C	chrX:150231978:T:C	A:G	MIR2114	downstream	unknown	.	.	FALSE	None	downstream
+chrX:77828484:T:C	chrX:77828484:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R||D;ALU;-;SINE/AluSz;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;1628;30;55	Name=AluSz	TRUE	Alu	UTR3
+chrX:77828175:T:C	chrX:77828175:A:G	A:G	MAGT1	UTR3	unknown	T;C;-;A||R;ALU;-;SINE/AluSz6;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;UTR3;MAGT1;-;-;-;588;30;52	Name=AluSz6	TRUE	Alu	UTR3
+chrX:150231340:G:A	chrX:150231340:G:A	C:T	MIR2114	downstream	unknown	.	.	FALSE	None	downstream
+chrX:121048805:T:C	chrX:121048805:T:C	A:G	GLUD2	exonic	nonsynonymous SNV	.	.	FALSE	None	exonic
+chrX:154786403:A:G	chrX:154786403:T:C	A:G	MPP1	intronic	unknown	.	.	FALSE	None	intronic
+chrX:121047959:A:G	chrX:121047959:A:G	A:G	GLUD2	exonic	nonsynonymous SNV	A;G;+;R;NONREP;-;-/-;exonic;GLUD2;nonsynonymous	.	TRUE	None	exonic
+chrX:121047963:A:G	chrX:121047963:A:G	A:G	GLUD2	exonic	synonymous SNV	A;G;+;R;NONREP;-;-/-;exonic;GLUD2;synonymous	.	TRUE	None	exonic
+chrX:48775896:A:G	chrX:48775896:A:G	A:G	GLOD5	downstream	unknown	.	.	FALSE	None	downstream

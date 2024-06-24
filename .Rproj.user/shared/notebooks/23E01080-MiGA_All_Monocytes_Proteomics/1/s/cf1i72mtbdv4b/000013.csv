@@ -1,0 +1,1 @@
+"0","knitr::kable(table(mg_meta$Region), ""simple"", caption = ""MG Proteomics Region"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

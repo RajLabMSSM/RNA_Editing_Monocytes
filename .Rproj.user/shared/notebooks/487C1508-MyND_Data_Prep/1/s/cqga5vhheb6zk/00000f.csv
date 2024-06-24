@@ -1,0 +1,1 @@
+"0","knitr::kable(table(bi_meta$Batch), caption = ""134: BI(V3)"")"

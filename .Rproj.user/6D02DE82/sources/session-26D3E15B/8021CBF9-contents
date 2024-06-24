@@ -1,0 +1,147 @@
+---
+title: "Alternation (Stimulated Microglia) : Data Preperation"
+author: "Hyomin Seo"
+date: "June 2023-June 2024"
+output:
+  rmarkdown::html_document:
+   theme: cerulean
+   highlight: kate
+   code_folding: hide
+   toc: true
+   toc_float: true
+   df_print: paged
+   smooth_scroll: true
+   number_sections: false
+   self_contained: true
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages('BiocManager')
+#BiocManager::install("satuRn")
+#BiocManager::install("edgeR")
+#install.packages("dplyr")
+#install.packages("tidyverse")
+library(tidyverse)
+library(BiocManager)
+library(satuRn) 
+library(SummarizedExperiment)
+#library(edgeR)
+library(dplyr)
+library(purrr)
+library(patchwork)
+library(limma)
+library(ggfortify)
+library(data.table)
+library(matrixStats)
+library(broom)
+library(ComplexHeatmap)
+library(limma)
+library(variancePartition)
+library(rlang)
+library(gplots)
+library(ggplot2)
+library("ggpubr")
+library(factoextra)
+library(ComplexHeatmap)
+library(ggplotify)
+library(ggplot2)
+library(wesanderson)
+```
+
+
+
+
+
+
+```{r data_prep_1, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+meta<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Raw/LRRK2_iMGL_meta.tsv")
+meta$Stimulation<-meta$Treatment
+meta<-meta%>%dplyr::select(-c(Treatment))
+meta$Stimulation<- gsub("basal", "Basal", meta$Stimulation)
+meta<- as.data.frame(lapply(meta, as.character))
+
+pattern_to_remove <- "Picard_mqc_generalstats_picard_|STAR_mqc_generalstats_star_"
+colnames(meta) <- gsub(pattern_to_remove, "", colnames(meta))
+
+sample<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Raw/efthymiou_samples.tsv")
+sample <- separate(sample,sample,into = c("Sample_Number", "sample"), sep = "-")
+sample<-sample%>%dplyr::select(-c("bam_path"))
+meta<-merge(meta, sample, by ="Sample_Number",.keep_all=TRUE)
+meta<-meta%>%mutate(Sample= paste(Sample_Number, sample, sep = "-"))
+meta<-meta%>%dplyr::select(-c(Sample_Number,Sample_name,
+                              featureCounts_mqc_generalstats_featurecounts_Assigned,
+                              summed_median,
+                             uniquely_mapped,sample,
+                             Trimmomatic_mqc_generalstats_trimmomatic_dropped_pct ))
+
+meta<-meta%>%dplyr::select(Sample,Stimulation, everything())
+meta$Iso<-gsub("1","Iso_1",meta$Iso)
+meta$Iso<-gsub("2","Iso_2",meta$Iso)
+
+write_tsv(meta, "/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Alternative_Metadata.tsv")
+
+```
+
+
+```{r data_1, echo= TRUE, message = FALSE, eval=FALSE}
+editing_type<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Editing_Type.tsv")
+
+editing_ag_condition<-editing_type%>%dplyr::filter(grepl("A:G", Editing_Index))
+editing_ct_condition<-editing_type%>%dplyr::filter(grepl("C:T", Editing_Index))
+
+make_editing_condition<-function(editing_type_in,tsv_name){
+  editing_condition<-editing_type_in%>% dplyr::select(-c("Editing_Index","Mean","ESid"))
+  editing_condition<-as.data.frame(t(editing_condition))
+  editing_condition<-editing_condition%>%rownames_to_column("Sample")
+  meta_sample<-meta%>%dplyr::select(c(Sample,Stimulation))
+  editing_condition<-merge(editing_condition, meta_sample, by ="Sample", .keep_all=TRUE)
+  editing_condition<-editing_condition%>%dplyr::select(-c("Sample"))
+  editing_condition$Mean <- rowMeans(editing_condition[, -which(names(editing_condition) == "Stimulation")])
+  editing_condition<-editing_condition%>%dplyr::select(c(Stimulation, Mean, everything(.)))
+  write_tsv(editing_condition,tsv_name)
+}
+  
+editing_ag_condition<-make_editing_condition(editing_ag_condition,"/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_AG_Editing.tsv")
+editing_ct_condition<-make_editing_condition(editing_ct_condition,"/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_CT_Editing.tsv")
+```
+
+```{r data_1, echo= TRUE, message = FALSE, eval=FALSE}
+tpm<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Gene_Expression/Processed_Normalized_TPM.tsv")
+colnames(tpm) <- gsub("X", "", colnames(tpm))
+names(tpm) <- gsub(x = names(tpm), pattern = "\\.", replacement = "-")
+
+gencode<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData/gencode.v30.tx2gene.tsv")
+meta_sample<-meta%>%dplyr::select(c(Sample,Stimulation))
+
+a_genes<-gencode%>%dplyr::filter(grepl("ADAR|APOBEC",GENENAME))%>%
+  distinct(GENENAME, .keep_all=TRUE)%>%
+  dplyr::select(-c(TXNAME))
+tpm<-tpm%>%dplyr::filter(GENEID %in% a_genes$GENEID)
+tpm<-merge(tpm, a_genes, by="GENEID")
+
+adar_tpm<-tpm%>%dplyr::filter(grepl("ADAR",GENENAME))%>%
+  dplyr::select(GENENAME, GENEID, everything(.))
+adar_tpm<-adar_tpm%>%pivot_longer(where(is.numeric), names_to="Sample" , values_to = "Norm_TPM")
+adar_tpm<-merge(adar_tpm, meta_sample, by="Sample",.keep_all=TRUE)
+
+
+apob_tpm<-tpm%>%dplyr::filter(grepl("APOBEC",GENENAME))%>%
+  dplyr::select(GENENAME, GENEID, everything(.))
+apob_tpm<-apob_tpm%>%pivot_longer(where(is.numeric), names_to="Sample" , values_to = "Norm_TPM")
+apob_tpm<-merge(apob_tpm, meta_sample, by="Sample",.keep_all=TRUE)
+
+filepath<-file.path("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData")
+save(adar_tpm,apob_tpm,file= file.path(filepath,"Efthymiou_A_Genes_TPM.RData"))
+
+a_genes_meta<-rbind(adar_tpm,apob_tpm)
+a_genes_meta<-a_genes_meta%>%dplyr::select(c(GENENAME, Sample, Norm_TPM))
+a_genes_meta<-a_genes_meta%>%pivot_wider(names_from = GENENAME, values_from =Norm_TPM)
+meta_all<-merge(meta, a_genes_meta, by ="Sample")
+write_tsv(meta_all, "/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Alternative_Metadata_All.tsv")
+write_tsv(meta_all, "/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Efhymiou_Metadata_All.tsv")
+```
+
+

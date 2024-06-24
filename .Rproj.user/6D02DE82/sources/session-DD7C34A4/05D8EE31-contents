@@ -1,0 +1,1671 @@
+---
+title: "MG and MNC Proteomics: Differential "
+author: "Hyomin Seo"
+date: "May 2024"
+output:
+  rmarkdown::html_document:
+   theme: cerulean
+   highlight: kate
+   code_folding: hide
+   toc: true
+   toc_float: true
+   df_print: paged
+   smooth_scroll: true
+   number_sections: false
+   self_contained: true
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packFinal_Diagnosiss('BiocManFinal_Diagnosisr')
+#BiocManFinal_Diagnosisr::install("satuRn")
+#BiocManFinal_Diagnosisr::install("edgeR")
+
+#install.packFinal_Diagnosiss("dplyr")
+#install.packFinal_Diagnosiss("tidyverse")
+library(tidyverse)
+library(BiocManager)
+library(satuRn) 
+library(SummarizedExperiment)
+library(edgeR)
+library(dplyr)
+library(purrr)
+library(patchwork)
+library(limma)
+library(ggfortify)
+library(data.table)
+library(matrixStats)
+library(broom)
+library(ComplexHeatmap)
+library(limma)
+library(variancePartition)
+library(rlang)
+library(gplots)
+library(ggplot2)
+library("ggpubr")
+library(factoextra)
+library(ComplexHeatmap)
+library(ggplotify)
+library(ggplot2)
+library(wesanderson)
+library(ggrepel)
+library(gprofiler2)
+library(readxl)
+#install.packages("colorRamp2")
+library(colorRamp2)
+library(DT)
+#install.packFinal_Diagnosiss("downloadthis")
+library(downloadthis)
+htmltools::tagList( # for the icons
+  rmarkdown::html_dependency_font_awesome()
+)
+
+library(clusterProfiler)
+library(readxl)
+#install.packFinal_Diagnosiss("xlsx")
+ 
+#library(xlsx)
+
+
+library("variancePartition")
+library("edgeR")
+library("BiocParallel")
+#install.packFinal_Diagnosiss("statmod")
+library("statmod")
+
+#install.packages("openxlsx")
+library(openxlsx)
+
+```
+
+
+
+## Proteomics Tables {.tabset .tabset-fade .tabset-pills}
+
+```{r data_1, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+aand_meta<-read_tsv("MNC_Proteomic/Clinical_Masterlist - AANDS_7T.tsv")
+adrc_meta<-read_tsv("MNC_Proteomic/Clinical_Masterlist - ADRC.tsv")
+nyu_meta<-read_tsv("MNC_Proteomic/Clinical_Masterlist - NYUMD.tsv")
+
+common_cols <- Reduce(intersect, lapply(list(names(aand_meta), names(adrc_meta), 
+                                             names(nyu_meta)), unique))
+aand_meta <- aand_meta[, common_cols]
+aand_meta<- aand_meta%>%
+  separate(Sample_ID, into = c("Sample","Visit"), sep = "-")
+adrc_meta<-read_tsv("MNC_Proteomic/Clinical_Masterlist - ADRC.tsv")
+adrc_meta <- adrc_meta[, common_cols]
+adrc_meta<- adrc_meta%>%
+  separate(Sample_ID, into = c("Sample","Visit"), sep = "-")
+nyu_meta <- nyu_meta[, common_cols]
+nyu_meta<- nyu_meta%>%
+  separate(Sample_ID, into = c("Sample","Visit"), sep = "-")
+
+```
+
+```{r data_2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+norm_mnc<-read_tsv("MNC_Proteomic/MNC_ReportProtein (1).tsv")
+
+norm_mnc<-norm_mnc%>%dplyr::select(-c("PG.ProteinAccessions","PG.Organisms",
+                                    "PG.ProteinDescriptions","PG.UniProtIds",
+                                    "PG.ProteinNames","PG.ProteinGroups"))
+norm_mnc<-norm_mnc %>%
+  distinct(PG.Genes, .keep_all = TRUE)
+
+# rows_with_na <- which(is.na(norm_mnc$PG.Genes))
+norm_mnc<-norm_mnc[-856, ]
+
+norm_mnc<-norm_mnc%>%column_to_rownames("PG.Genes")
+
+norm_mnc_long<-as.data.frame(t(norm_mnc))
+norm_mnc_long<-norm_mnc_long[order(rownames(norm_mnc_long)),]
+norm_mnc_long<-norm_mnc_long%>%rownames_to_column("Sample")
+
+#############--------------------------------------------------################
+nan_counts <- colSums(is.na(norm_mnc_long))
+percentFinal_Diagnosis_nan <- nan_counts / nrow(norm_mnc_long) * 100
+
+# There are 2143 gene
+high_na_genes_5 <- names(percentFinal_Diagnosis_nan[percentFinal_Diagnosis_nan > 5])
+#high_na_genes_5<-as.data.frame(high_na_genes_5)
+genes_to_keep<-setdiff(colnames(norm_mnc_long), high_na_genes_5)
+# 4596 genes
+norm_mnc_long<-norm_mnc_long[,genes_to_keep]
+
+#############--------------------------------------------------################
+norm_mnc_long<-norm_mnc_long %>%
+  separate(Sample, into = c("Sample", "Delete"), sep = "Mar")
+norm_mnc_long<-norm_mnc_long%>%dplyr::select(-c('Delete'))
+
+norm_mnc_long<-norm_mnc_long %>%
+  separate(Sample, into = c("Delete","Sample"), sep = "MNC_")
+norm_mnc_long<-norm_mnc_long%>%dplyr::select(-c('Delete'))
+
+norm_mnc_long<-norm_mnc_long %>%
+  separate(Sample, into = c("Sample","Delete"), sep = "_")
+norm_mnc_long<-norm_mnc_long%>%dplyr::select(-c('Delete'))
+```
+
+
+```{r data_3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+# Samples with -# Visitng 
+norm_mnc_long_select<-norm_mnc_long%>%dplyr::filter(grepl("*-01$|*-02$|*-03$",Sample))
+norm_mnc_long_select<-norm_mnc_long_select %>%
+  separate(Sample, into = c("Sample","Delete"), sep = "-")
+
+# Fixing one sample name 
+norm_mnc_long_select <- norm_mnc_long_select %>%
+  mutate(Sample = ifelse(Sample == "NYUMD" & Delete == "0117", "NYUMD0117", Sample))
+norm_mnc_long_select<-norm_mnc_long_select%>%dplyr::select(-c('Delete'))
+
+
+norm_mnc_long_rest<-norm_mnc_long%>%dplyr::filter(!grepl("*-01$|*-02$|*-03$",Sample))
+norm_mnc_long_rest$Sample<-gsub("-","",norm_mnc_long_rest$Sample)
+
+# 51
+norm_mnc_long<-rbind(norm_mnc_long_select, norm_mnc_long_rest)
+#############--------------------------------------------------################
+impute_missing_with_mean <- function(df) {
+  for (col in names(df)) {
+    col_mean <- mean(df[[col]], na.rm = TRUE)
+    df[[col]][is.na(df[[col]])] <- col_mean
+  }
+  return(df)
+}
+
+# Apply the function to your DataFrame
+norm_mnc_long <- impute_missing_with_mean(norm_mnc_long)
+#############--------------------------------------------------################
+nyu_mnc<-norm_mnc_long%>%dplyr::filter(!grepl("AD*",Sample))
+adrc_mnc<-norm_mnc_long%>%dplyr::filter(grepl("ADRC*",Sample))
+aand_mnc<-norm_mnc_long%>%dplyr::filter(grepl("AAND*",Sample))
+
+#############--------------------------------------------------################
+nyc_mnc_select<-nyu_mnc%>%dplyr::filter(grepl("*-01$|*-02$",Sample))
+nyc_mnc_select<-nyc_mnc_select %>%
+  separate(Sample, into = c("Sample","Delete"), sep = "-")
+nyc_mnc_select <- nyc_mnc_select %>%
+  mutate(Sample = ifelse(Sample == "NYUMD" & Delete == "0117", "NYUMD0117", Sample))
+nyc_mnc_select<-nyc_mnc_select%>%dplyr::select(-c('Delete'))
+
+
+nyc_mnc_rest<-nyu_mnc%>%dplyr::filter(!grepl("*-01$|*-02$",Sample))
+nyc_mnc_rest$Sample<-gsub("-","",nyc_mnc_rest$Sample)
+
+nyc_mnc_all<-rbind(nyc_mnc_select, nyc_mnc_rest)
+
+nyu_meta<-nyu_meta%>%dplyr::filter(Sample %in% nyc_mnc_all$Sample)
+nyu_meta<-distinct(nyu_meta, Sample, .keep_all=TRUE)
+
+#############--------------------------------------------------################
+aand_meta<-aand_meta%>%dplyr::filter(grepl("AANDS0013",Sample))
+aand_meta<-distinct(aand_meta, Sample, .keep_all=TRUE)
+mnc_meta<-rbind(nyu_meta, aand_meta)
+
+#############--------------------------------------------------################
+adrc_mnc_select<-adrc_mnc %>%
+  separate(Sample, into = c("Sample","Delete"), sep = "-")
+adrc_mnc_select<-adrc_mnc_select%>%dplyr::select(-c('Delete'))
+
+adrc_meta<-adrc_meta%>%dplyr::filter(Sample %in% adrc_mnc_select$Sample)
+adrc_meta<-distinct(adrc_meta, Sample, .keep_all=TRUE)
+
+mnc_meta_final<-rbind(mnc_meta,adrc_meta)
+
+
+## Adding additional information manual - given from Dani
+mnc_meta_final <- mnc_meta_final %>%
+  mutate(
+    APOE = ifelse(Sample == "AANDS0013", "Unknown", APOE),
+    Age_at_Draw = ifelse(Sample == "NYUMD0249", "55", Age_at_Draw),
+    Sex_reported = ifelse(Sample == "NYUMD0249", "Female", Sex_reported),
+    Diagnosis = ifelse(Sample == "NYUMD0249", "Control", Diagnosis),
+    #Time_Drawn = ifelse(Sample == "NYUMD0249", "14:00:00", Time_Drawn),
+    Race_reported = ifelse(Sample == "NYUMD0249", "White", Race_reported),
+    Ancestry_reported = ifelse(Sample == "NYUMD0249", "NJ", Ancestry_reported),
+    Diagnosis = ifelse(Sample == "ADRC28850", "Control", Diagnosis),
+    APOE = ifelse(Sample == "ADRC28850", "44", APOE),
+    Diagnosis = ifelse(Sample == "ADRC72652", "Control", Diagnosis),
+    Diagnosis = ifelse(Sample == "ADRC97294", "Control", Diagnosis),
+    APOE = ifelse(Sample == "ADRC97294", "44", APOE)
+  )
+
+
+mnc_meta_final$Diagnosis<-gsub("naMCI","MCI",mnc_meta_final$Diagnosis)
+mnc_meta_final$Ancestry_reported<-gsub("SJ","NJ",mnc_meta_final$Ancestry_reported)
+
+
+mnc_meta_final<-mnc_meta_final%>%
+  mutate(GBA_yesno = case_when( Notes_Mutations == "No GBA" ~ "No",
+                                TRUE ~ GBA_yesno))
+
+
+
+mnc_meta_final$Ancestry_reported  <- ifelse(is.na(mnc_meta_final$Ancestry_reported),
+                                    "Unknown",mnc_meta_final$Ancestry_reported)
+mnc_meta_final$GBA_yesno  <- ifelse(is.na(mnc_meta_final$GBA_yesno),
+                                    "Unknown",mnc_meta_final$GBA_yesno)
+mnc_meta_final$LRRK2_yesno  <- ifelse(is.na(mnc_meta_final$LRRK2_yesno),
+                                    "Unknown",mnc_meta_final$LRRK2_yesno)
+
+mnc_meta_final<-mnc_meta_final%>%dplyr::select(-c("Visit_#","Diagnosis_if_other",
+                                                  "Notes_diagnosis","Fasting_yesno",
+                                                  "GBA_mut","LRRK2_mut","Age_of_onset",
+                                                  "MOCA","Education","Notes_general"))
+#############--------------------------------------------------################
+write_tsv(mnc_meta_final, "MNC_Proteomic/MNC_Meta_51.tsv")
+mnc_meta<-read_tsv("MNC_Proteomic/MNC_Meta_51.tsv")
+mnc_meta_new<-read_excel("MNC_Proteomic/MNC_Meta_48_20240524.xlsx")
+# getting only Ancestry GSA
+mnc_meta_updated <- mnc_meta %>%
+  left_join(select(mnc_meta_new, Sample, Ancestry_GSA), by = "Sample") %>%
+  # three missing samples are all EUR_AJ 
+  mutate(Ancestry_GSA = ifelse(is.na(Ancestry_GSA), "EUR_AJ", Ancestry_GSA))
+
+mnc_meta_updated<-mnc_meta_updated%>%dplyr::select(-c(Notes_Mutations)) 
+
+
+norm_mnc_long_final<-norm_mnc_long%>%dplyr::filter(Sample %in% mnc_meta_updated$Sample)
+write_tsv(norm_mnc_long_final, "MNC_Proteomic/MNC_Norm_Proteomics.tsv")
+#############--------------------------------------------------################
+
+mnc_all<-merge(mnc_meta_updated, norm_mnc_long_final, by='Sample')
+write_tsv(mnc_all, "MNC_Proteomic/MNC_Protein_Norm_Organized.tsv")
+```
+
+
+### Monoctyes Proteomics Tables {.tabset .tabset-fade .tabset-pills}
+```{r data_4, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+mnc_meta<-read_tsv("MNC_Proteomic/MNC_Meta_51.tsv")
+
+print(length(unique(mnc_meta$Sample)))
+knitr::kable(table(mnc_meta$Sex_reported), "simple", caption = "MNC Proteomics Sex",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mnc_meta$Race_reported), "simple", caption = "MNC Proteomics Race",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mnc_meta$Ancestry_reported), "simple", caption = "MNC Proteomics Ancestry",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mnc_meta$Diagnosis), "simple", caption = "MNC Proteomics Diagnosis",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mnc_meta$APOE), "simple", caption = "MNC Proteomics APOE",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mnc_meta$GBA_yesno), "simple", caption = "MNC Proteomics GBA Mutation",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mnc_meta$LRRK2_yesno), "simple", caption = "MNC Proteomics LRRK2 Mutation",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+
+```
+
+### Microglia Proteomics Tables {.tabset .tabset-fade .tabset-pills}
+```{r data_5, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+mg_pro<-read_tsv("Proteomics/MG_Protein_Norm_Organized.tsv")
+mg_pro<-mg_pro%>%column_to_rownames("Sample")
+mg_pro<-mg_pro[order(row.names(mg_pro)),]
+mg_meta<-mg_pro[,1:8]
+mg_meta$new_Final_Diagnosis<-case_when(
+  mg_meta$Final_Diagnosis == "CTR" ~ "CTR",
+  mg_meta$Final_Diagnosis == "OTHER" ~ "OTHER",
+  mg_meta$Final_Diagnosis == "PD" ~ "PD_SYN",
+  mg_meta$Final_Diagnosis == "SYN"~ "PD_SYN"
+)
+
+print(length(unique(mg_meta$Donor_ID)))
+knitr::kable(table(mg_meta$Final_Diagnosis), "simple", caption = "MG Proteomics diagnosis",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mg_meta$Sex), "simple", caption = "MG Proteomics Sex",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mg_meta$Region), "simple", caption = "MG Proteomics Region",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(mg_meta$Cohort), "simple", caption = "MG Proteomics Cohort",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+```
+
+## PCA Plot {.tabset .tabset-fade .tabset-pills}
+```{r pca_1,echo= TRUE, message = FALSE,warning=FALSE, eval=TRUE}
+pca<-function(tpm_in){
+  tpm_in<-as.data.frame(t(tpm_in))
+  tpm_in<-mutate_all(tpm_in, function(x) as.numeric(as.character(x)))
+  tpm_in<-prcomp(tpm_in, scale.=TRUE, center=TRUE)
+  tpm_in<-tpm_in$x[,1:10]
+  tpm_in<-tibble::rownames_to_column(as.data.frame(tpm_in),'Sample')
+  tpm_in
+}
+
+pca_12<-function(meta_in, pca_in){
+
+  meta<-meta_in%>%column_to_rownames("Sample")
+  pca_12<-pca_in%>%column_to_rownames("Sample")%>%dplyr::select("PC1","PC2")
+  pca_12<-merge(meta, pca_12, by =0)%>%
+    column_to_rownames("Row.names")
+  pca_12
+}
+
+# outliers_PC1 <- detect_outliers(mnc_pro_pca_12, "PC1")
+
+detect_outliers <- function(data, column) {
+  Q1 <- quantile(data[[column]], 0.25)
+  Q3 <- quantile(data[[column]], 0.75)
+  IQR_value <- IQR(data[[column]])
+  lower_bound <- Q1 - 1.75 * IQR_value
+  upper_bound <- Q3 + 1.75 * IQR_value
+  
+  outliers <- data[data[[column]] < lower_bound | data[[column]] > upper_bound, ]
+  return(outliers)
+}
+
+detect_outlier_sd <- function(data, column) {
+  # Calculate the mean and standard deviation of the colum
+  mean_val <- mean(data[[column]], na.rm = TRUE)
+  sd_val <- sd(data[[column]], na.rm = TRUE)
+  
+  lower_bound <- mean_val - 3 * sd_val
+  upper_bound <- mean_val + 3 * sd_val
+
+  data$Outlier <- ifelse(data[[column]] < lower_bound | data[[column]] > upper_bound, "Outlier", "Not_Outlier")
+  
+  return(data)
+}
+
+pca_plot <- function(pca_in, col_name,plot_title) {
+  ggplot(pca_in, aes(x = PC1, y = PC2, color = .data[[col_name]])) +
+    geom_point(alpha = 0.9, size = point_size) +
+    labs(color = col_name, title = plot_title) +
+    theme(
+      plot.title = element_text(size = title_size, face = 'bold', hjust = 0.5),
+      axis.text = element_text(size = axis_size),
+      axis.title = element_text(size = axis_size),
+      text = element_text(size = text_size)
+    ) +
+    guides(color = guide_legend(override.aes = list(size=legend_size)))+
+    theme_classic()
+}
+
+pca_plots <- function(pca_in, col_names,plot_title) {
+  plots <- lapply(col_names, function(col_name) {
+    pca_plot(pca_in, col_name,plot_title)
+  })
+  return(plots)
+}
+
+col_names <- c("Cohort", "Region", "APOE", "PMD_min")
+
+#plots <- pca_plots(pca_in, col_names)
+
+```
+
+### MNC PCA Plot {.tabset .tabset-fade .tabset-pills}
+```{r pca_2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+mnc_pro<-read_tsv("MNC_Proteomic/MNC_Protein_Norm_Organized.tsv")
+mnc_pro<-mnc_pro%>%dplyr::select(-c(Ancestry_reported,Time_Drawn))
+#mnc_pro<-mnc_pro%>%column_to_rownames("Sample")
+mnc_pro<-mnc_pro[order(mnc_pro$Sample),]
+
+mnc_meta<-mnc_pro[,1:12]
+mnc_pro<-mnc_pro%>%column_to_rownames("Sample")
+mnc_pro_count<-mnc_pro[-c(1,1:12)]
+mnc_pro_count<-as.data.frame(t(mnc_pro_count))
+
+mnc_pro_pca<-pca(mnc_pro_count)
+mnc_pro_pca_12<-pca_12(mnc_meta, mnc_pro_pca)
+
+# outliers_PC1 <- detect_outliers(mnc_pro_pca_12, "PC1")
+# outliers_PC2 <- detect_outliers(mnc_pro_pca_12, "PC2")
+# 
+# mnc_outliers <- unique(rbind(outliers_PC1, outliers_PC2))
+# mnc_pro_pca_12$Outlier <- case_when(
+#   rownames(mnc_pro_pca_12) %in% rownames(outliers) ~ "Outlier",
+#   TRUE ~ "Not_Outlier"
+# )
+
+outliers_sd_PC1 <- detect_outlier_sd(mnc_pro_pca_12, "PC1")
+outliers_sd_PC2 <- detect_outlier_sd(mnc_pro_pca_12, "PC2")
+
+mnc_sd_outliers <- unique(rbind(outliers_sd_PC1, outliers_sd_PC2))
+# mnc_pro_pca_12$Outlier <- case_when(
+#   rownames(mnc_pro_pca_12) %in% rownames(mnc_sd_outliers) ~ "Outlier",
+#   TRUE ~ "Not_Outlier"
+# )
+mnc_pro_pca_12<-mnc_sd_outliers
+mnc_pro_pca_12<-subset(mnc_pro_pca_12, !(rownames(mnc_pro_pca_12)
+                                         %in% c("NYUMD02511","NYUMD02431")))
+                                               
+filepath<-file.path("/Users/hyominseo/Desktop/MiGA_Bulk/MNC_Proteomic/")
+save(mnc_pro_pca, mnc_pro_pca_12, file= file.path(filepath,"MNC_Proteomic_Norm_PCA_PCA12.RData"))
+
+
+```
+
+
+```{r, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/MNC_Proteomic/MNC_Proteomic_Norm_PCA_PCA12.RData")
+inplot_size = 1.5
+text_size= 8
+title_size = 8
+point_size =2
+axis_size =6
+
+
+col_names <- c("Age_at_Draw","Sex_reported","Diagnosis","APOE","GBA_yesno","LRRK2_yesno","Outlier","Ancestry_GSA")
+plots <- pca_plots(mnc_pro_pca_12, col_names,"MNC Proteomics 51 samples")
+
+plot_grid <- do.call(gridExtra::grid.arrange, c(plots, ncol = 3))
+ggsave(plot=plot_grid,filename="MNC_Proteomic/MNC_Pro_PCA_plots.jpg",width = 14, height = 10,dpi = 600)
+```
+
+
+```{r fig_pca_mnc, echo=FALSE, fig.cap="QC and Expression", out.width = '100%'}
+knitr::include_graphics("MNC_Proteomic/MNC_Pro_PCA_plots.jpg")
+```
+
+
+### MG PCA Plot {.tabset .tabset-fade .tabset-pills}
+```{r pca_3, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+mg_pro<-read_tsv("Proteomics/MG_Protein_Norm_Organized.tsv")
+mg_pro<-mg_pro%>%column_to_rownames("Sample")
+mg_pro<-mg_pro[order(row.names(mg_pro)),]
+
+mg_meta<-mg_pro[,1:8]
+mg_pro_count<-mg_pro[-c(1,1:8)]
+mg_pro_count<-as.data.frame(t(mg_pro_count))
+
+mg_pro_pca<-pca(mg_pro_count)
+mg_meta<-mg_meta%>%rownames_to_column("Sample")
+mg_pro_pca_12<-pca_12(mg_meta, mg_pro_pca)
+# outliers_PC1 <- detect_outliers(mg_pro_pca_12, "PC1")
+# outliers_PC2 <- detect_outliers(mg_pro_pca_12, "PC2")
+# 
+# mg_outliers <- unique(rbind(outliers_PC1, outliers_PC2))
+# mg_pro_pca_12$Outlier <- case_when(
+#   rownames(mg_pro_pca_12) %in% rownames(outliers) ~ "Outlier",
+#   TRUE ~ "Not_Outlier"
+# )
+outliers_sd_PC1 <- detect_outlier_sd(mg_pro_pca_12, "PC1")
+outliers_sd_PC2 <- detect_outlier_sd(mg_pro_pca_12, "PC2")
+
+mg_sd_outliers <- unique(rbind(outliers_sd_PC1, outliers_sd_PC2))
+# mnc_pro_pca_12$Outlier <- case_when(
+#   rownames(mnc_pro_pca_12) %in% rownames(mnc_sd_outliers) ~ "Outlier",
+#   TRUE ~ "Not_Outlier"
+# )
+mg_pro_pca_12<-mg_sd_outliers
+
+filepath<-file.path("/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/")
+save(mg_pro_pca, mg_pro_pca_12, file= file.path(filepath,"MG_Proteomic_Norm_PCA_PCA12.RData"))
+
+```
+
+
+```{r, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/MNC_Proteomic/MNC_Proteomic_Norm_PCA_PCA12.RData")
+inplot_size = 1.5
+text_size= 8
+title_size = 8
+point_size =2
+axis_size =6
+
+col_names <- c("Cohort","Region","Final_Diagnosis","PMD_min","Cause_of_Death","Sex","Outlier",
+               "Age")
+plots <- pca_plots(mg_pro_pca_12, col_names,"MG Proteomics 64 samples")
+
+plot_grid <- do.call(gridExtra::grid.arrange, c(plots, ncol = 3))
+ggsave(plot=plot_grid,filename="Proteomics/MG_Pro_PCA_plots.jpg",width = 14, height = 10,dpi = 600)
+```
+
+
+```{r fig_pca_mg, echo=FALSE, fig.cap="QC and Expression", out.width = '100%'}
+knitr::include_graphics("Proteomics/MG_Pro_PCA_plots.jpg")
+```
+
+
+
+
+### MG+MNC CTR PD PCA Plot {.tabset .tabset-fade .tabset-pills}
+```{r pca_4, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+mnc_pro<-read_tsv("MNC_Proteomic/MNC_Protein_Norm_Organized.tsv")
+mnc_meta<-mnc_pro[,1:12]
+mnc_meta_pd<-mnc_meta%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+mnc_meta_pd<-mnc_meta_pd[order(row.names(mnc_meta_pd)),]
+
+mnc_pro<-mnc_pro%>%column_to_rownames("Sample")
+mnc_pro_count<-mnc_pro[-c(1,1:13)]
+mnc_pro<-mnc_pro_count%>%rownames_to_column("Sample")
+mnc_pro_pd<-mnc_pro%>%dplyr::filter(Sample %in% mnc_meta_pd$Sample)
+
+
+mnc_meta_pd<-mnc_meta_pd%>%dplyr::select(c(Sample, Age_at_Draw, Diagnosis,Sex_reported))
+mnc_meta_pd$Cell<-c("Monocyte")
+mnc_meta_pd$Age<-mnc_meta_pd$Age_at_Draw
+mnc_meta_pd$Sex<-mnc_meta_pd$Sex_reported
+mnc_meta_pd<-mnc_meta_pd%>%select(c(Sample, Diagnosis, Age,Sex, Cell))
+
+mg_pro<-read_tsv("Proteomics/MG_Protein_Norm_Organized.tsv")
+mg_meta<-mg_pro[,1:10]
+mg_meta_pd<-mg_meta%>%dplyr::filter(grepl("^CTR$|^PD$",Final_Diagnosis))
+mg_meta_pd<-mg_meta_pd%>%dplyr::filter(grepl("OCC",Region))
+mg_meta_pd<-mg_meta_pd[order(row.names(mg_meta_pd)),]
+mg_pro_pd<-mg_pro%>%dplyr::filter(Sample %in% mg_meta_pd$Sample)
+mg_pro_pd<-mg_pro_pd%>%dplyr::select(-c(Donor_ID, Cohort,  Region, Final_Diagnosis, PMD_min, Cause_of_Death, Sex, Age))
+
+mg_meta_pd<-mg_meta_pd%>%dplyr::select(c(Sample, Age, Sex, Final_Diagnosis))
+mg_meta_pd$Cell<-c("Microglia")
+mg_meta_pd$Diagnosis<-mg_meta_pd$Final_Diagnosis
+mg_meta_pd$Diagnosis<-gsub("CTR","Control", mg_meta_pd$Diagnosis)
+mg_meta_pd<-mg_meta_pd%>%select(c(Sample, Diagnosis, Age,Sex, Cell))
+
+pro_meta<-rbind(mnc_meta_pd, mg_meta_pd)
+
+common_gene_sample<-intersect(names(mg_pro_pd),names(mnc_pro_pd))
+mg_pro_common<-mg_pro_pd[common_gene_sample]
+mnc_pro_common<-mnc_pro_pd[common_gene_sample]
+pro_count<-rbind(mg_pro_common, mnc_pro_common)
+
+
+pro_count<-pro_count%>%column_to_rownames("Sample")
+pro_count<-as.data.frame(t(pro_count))
+ordered_names<-names(pro_count)[order(names(pro_count))]
+pro_count<-pro_count%>%dplyr::select(all_of(ordered_names))
+pro_meta<-pro_meta%>%column_to_rownames("Sample")
+pro_meta<-pro_meta[order(row.names(pro_meta)),]
+
+
+#pro_meta<-pro_meta%>%rownames_to_column("Sample")
+#write_tsv(pro_meta,"Proteomics/MG_MNC_Pro_Meta.tsv")
+#pro_count<-pro_count%>%rownames_to_column("Gene")
+#write_tsv(pro_count,"Proteomics/MG_MNC_Pro_Count.tsv")
+```
+
+
+```{r pca_5, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+
+pro_pca<-pca(pro_count)
+pro_meta<-pro_meta%>%rownames_to_column("Sample")
+pro_pca_12<-pca_12(pro_meta, pro_pca)
+
+outliers_PC1 <- detect_outliers(pro_pca_12, "PC1")
+outliers_PC2 <- detect_outliers(pro_pca_12, "PC2")
+
+outliers <- unique(rbind(outliers_PC1, outliers_PC2))
+pro_pca_12$Outlier <- case_when(
+  rownames(pro_pca_12) %in% rownames(outliers) ~ "Outlier",
+  TRUE ~ "Not_Outlier"
+)
+
+filepath<-file.path("/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/")
+save(pro_meta,pro_count, pro_pca, pro_pca_12, file= file.path(filepath,"MG_MNC_Proteomic_Norm_PCA_PCA12.RData"))
+```
+
+
+```{r, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+inplot_size = 1.5
+text_size= 8
+title_size = 8
+point_size =2
+axis_size =6
+
+col_names <- c("Diagnosis","Age","Sex","Cell","Outlier")
+plots <- pca_plots(pro_pca_12, col_names,"MG(OCC)+MNC Proteomics 59 samples")
+
+plot_grid <- do.call(gridExtra::grid.arrange, c(plots, ncol = 3))
+ggsave(plot=plot_grid,filename="MNC_Proteomic/MG_MNC_Pro_PCA_plots.jpg",width = 14, height = 10,dpi = 600)
+```
+
+
+```{r fig_pca_all, echo=FALSE, fig.cap="QC and Expression", out.width = '100%'}
+load("/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/MG_MNC_Proteomic_Norm_PCA_PCA12.RData")
+table(pro_meta$Cell)
+table(pro_meta$Diagnosis)
+
+
+knitr::include_graphics("MNC_Proteomic/MG_MNC_Pro_PCA_plots.jpg")
+```
+
+
+
+
+## Heatmap/Boxplot by Gene Set {.tabset .tabset-fade .tabset-pills}
+```{r, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+inplot_size = 3
+text_size= 10
+title_size = 10
+point_size =3
+axis_size =9
+legend_size=9
+
+eigen_plot<-function(df_in, Diagnosis, y_in,y_title, plot_title){
+  wilcox_test<-wilcox.test(Eigengene ~ Diagnosis,  data=df_in)
+  p_value <- wilcox_test$p.value
+  
+  qc_plot<-ggplot(data=df_in,aes(x=Diagnosis, y=y_in, fill =Diagnosis))+
+    geom_jitter(aes(colour=Diagnosis), alpha =0.6, width= 0.25, size = point_size)+
+    geom_boxplot(fill=NA,outlier.shape=NA)+stat_compare_means(label = "p.signif",
+                                                              label.x =1.5,label.y =0.1)+
+    labs(
+      title = paste(
+        plot_title,
+        "\nWilcoxon P.val =", format(p_value, digits = 4)
+      ),
+      x = "Diagnosis",
+      y = y_title)+theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size),
+          axis.text.y = element_text(size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-5,-5,-5,-5))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  qc_plot
+}
+
+
+
+
+heatmap<-function(cov.df, df, print=T, return.PC=T, boxplot=T,
+                  heatmap_title='BOX1', 
+                  title_box='INPUT_BBY', fs1=8, fs2=5){
+  
+  # df<-mnc_count_select_norm
+  # gs<-read.xlsx("/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/MG_GWAS.xlsx")
+  # df<-mnc_count_select_norm
+  # df <- df[rownames(df) %in% toupper(gs[,1]),]
+  # cov.df<-mnc_meta_select
+  # number of genes in the in put count df (12 genes from ANTI class 2 )
+  num_pcs<-nrow(df)
+  
+  # num_pc = gene count, length(colnames(df) = sample count)
+  # cov.df<-mnc_meta_select
+  # df<-mnc_count_select_norm
+  l <- min(num_pcs,length(colnames(df)))
+  covariates <- colnames(cov.df)
+  # df col = sample, df row = genes
+  pca.cov <- prcomp(df,center = T, scale. = T)
+  var <- get_pca_var(pca.cov) # description of PCs
+  ind <- get_pca_ind(pca.cov) # PCs for individuals
+  matrix_rsquared = matrix(NA, nrow = length(cov.df), ncol = l) #Number of factors
+  matrix_pvalue = matrix(NA, nrow = length(cov.df), ncol = l)
+  
+  for (x in 1:length(covariates)){
+    for (y in 1:l){
+      matrix_rsquared[x,y] <- summary( lm(var$cor[,y] ~ cov.df[,covariates[x]]) )$adj.r.squared
+      matrix_pvalue[x,y] <- glance( lm(var$cor[,y] ~ cov.df[,covariates[x]]) )$p.value #To insert pvalues in the heatmap
+    }
+  }
+  
+  rownames(matrix_rsquared) = covariates
+  rownames(matrix_pvalue) = covariates 
+  colnames(matrix_rsquared) = paste("PC",1:l, sep="")
+  
+  matrix_pvalue = matrix(p.adjust(as.vector(as.matrix(matrix_pvalue)),
+                                  method='bonferroni'),ncol=ncol(matrix_pvalue))
+  matrix_pvalue = formatC(matrix_pvalue, format = "e", digits = 2)
+  
+  # png(paste0(work_dir, "LinearReg_15pcs_covariates.png"), width = 10, height = 10, res = 600, units = "in")
+  # pdf(paste0(work_dir, "LinearReg_15pcs_covariates.pdf"), width = 10, height = 10)
+  
+  hh<-Heatmap(matrix_rsquared, 
+          column_title = heatmap_title, 
+          cluster_rows = T,
+          cluster_columns = F,
+          show_row_dend = T,
+          show_column_dend = F,
+          show_row_names = T,
+          show_column_names = T,
+          name = 'R squared',
+          clustering_method_rows = "ward.D2",
+          clustering_distance_rows = "euclidean",
+          col = colorRampPalette(RColorBrewer::brewer.pal(6,"GnBu"))(30), 
+          column_names_gp = grid::gpar(fontsize = fs1),
+          row_names_gp = grid::gpar(fontsize = fs1))
+    #cell_fun = function(j, i, x, y, width, height, fill) {
+    #grid.text(matrix_pvalue[i,j], x, y, gp = gpar(fontsize = fs2))}
+  if (print){
+    draw(hh)
+  }
+  
+  #return pcs
+  if (return.PC){
+    highest_PC <- which.max(abs(matrix_rsquared[rownames(matrix_rsquared) %in% 'Diagnosis',]))
+    eigengene <- pca.cov$rotation[,highest_PC] 
+    #rotations are the loadings - the eigenvectors of, in this case, the donors
+    # should not do $x, because that is the coordinate for PC# vs PC# plot 
+    meta_in<-cov.df%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+    meta_in$Eigengene<-eigengene
+    meta_in
+  }
+  
+  #plot boxplot
+  if (boxplot){
+    bp1 <- eigen_plot(meta_in, meta_in$Diagnosis,meta_in$Eigengene, y_title=paste0('PC',highest_PC),plot_title=title_box)
+    plot(bp1)
+  }
+}
+
+
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+### Microglia 18 CTR/ 16 PD {.tabset .tabset-fade .tabset-pills}
+
+mg_count<-read_tsv("Proteomics/MG_Protein_Norm_Organized.tsv")
+mg_count<-mg_count%>%column_to_rownames("Sample")
+mg_meta<-mg_count[c(1:8)]
+mg_meta$Diagnosis<-mg_meta$Final_Diagnosis
+mg_meta$Diagnosis<-gsub("CTR","Control",mg_meta$Diagnosis)
+# MG 18 Control 16 PD
+mg_meta_select<-mg_meta%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+# Donor ID
+mg_meta_select<-mg_meta_select%>%dplyr::select(-c(Final_Diagnosis,Cohort))
+mg_count<-mg_count[-c(1:8)]
+mg_count_select<-mg_count%>%dplyr::filter(rownames(.) %in% rownames(mg_meta_select))
+mg_count_select<-as.data.frame(t(mg_count_select))
+
+duplicates <- mg_meta_select$Donor_ID[duplicated(mg_meta_select$Donor_ID)]
+mg_meta_select$Duplicate <- as.factor(ifelse(mg_meta_select$Donor_ID %in% duplicates, "Yes", "No"))
+mg_meta_select<-mg_meta_select%>%dplyr::select(-c(Donor_ID))
+
+
+###--------------------------------------------------------------------------###
+###--------------------------------------------------------------------------###
+covariate_matrix <- model.matrix(~ Duplicate + Cause_of_Death+Region+PMD_min+Sex+Age,
+                                 data=mg_meta_select)
+mg_count_select_norm <- removeBatchEffect(mg_count_select, 
+                                          covariates = covariate_matrix)
+
+
+zero_variance_cols <- function(df) {
+  variances <- apply(df, 2, var)
+  zero_var_cols <- names(variances[variances == 0])
+  
+  return(zero_var_cols)
+}
+
+zero_var_columns <- zero_variance_cols(mg_count_select_norm)
+zero_var_columns <- zero_variance_cols(mg_meta_select)
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#### Pre-Regression
+print("Microglia 18 CTR/ 16 PD")
+
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- mg_count_select[rownames(mg_count_select) %in% toupper(gs[,1]),]
+  heatmap(mg_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+```
+
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#### Post-Regression
+print("Microglia 18 CTR/ 16 PD")
+
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/MG_Pro_Gene_Set_Combined_Plots.pdf'
+pdf(output_pdf, width = 8, height = 10)
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- mg_count_select_norm[rownames(mg_count_select_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(mg_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+dev.off()
+
+cat("All plots have been saved to", output_pdf, "\n")
+
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#### Post-Regression
+print("Microglia 18 CTR/ 16 PD")
+
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/Phago_MG_Pro_Gene_Set_Combined_Plots.pdf'
+pdf(output_pdf, width = 8, height = 10)
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset_phago')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset_phago/',i))
+  data <- mg_count_select_norm[rownames(mg_count_select_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(mg_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+dev.off()
+
+cat("All plots have been saved to", output_pdf, "\n")
+
+```
+
+
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+### Monocytes 25 CTR/ 20 PD {.tabset .tabset-fade .tabset-pills}
+mnc_count<-read_tsv("MNC_Proteomic/MNC_Protein_Norm_Organized.tsv")
+mnc_count<-mnc_count%>%column_to_rownames("Sample")
+mnc_meta<-mnc_count[c(1:12)]
+mnc_count<-mnc_count[-c(1:12)]
+mnc_meta_select<-mnc_meta%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+mnc_meta_select<-mnc_meta_select%>%dplyr::select(-c(Visit, Date_of_Draw, Time_Drawn,
+                                                    Race_reported))
+mnc_count_select<-mnc_count%>%dplyr::filter(rownames(.) %in% rownames(mnc_meta_select))
+mnc_count_select<-as.data.frame(t(mnc_count_select))
+
+###--------------------------------------------------------------------------###
+###--------------------------------------------------------------------------###
+
+covariate_matrix <- model.matrix(~ GBA_yesno + LRRK2_yesno + 
+                                   Age_at_Draw + Sex_reported + Ancestry_reported + 
+                                   Ancestry_GSA+
+                                   APOE, data=mnc_meta_select)
+
+# Apply removeBatchEffect with the covariate matrix
+mnc_count_select_norm <- removeBatchEffect(mnc_count_select, 
+                                           covariates = covariate_matrix)
+
+zero_var_columns <- zero_variance_cols(mnc_count_select_norm)
+
+zero_var_columns <- zero_variance_cols(mnc_meta_select)
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+print("Pre-Regressing: Monocytes 25 CTR/ 20 PD")
+
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- mnc_count_select[rownames(mnc_count_select) %in% toupper(gs[,1]),]
+  heatmap(mnc_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+print("Post-Regressing: Monocytes 25 CTR/ 20 PD")
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/Mono_Pro_Gene_Set_Combined_Plots.pdf'
+pdf(output_pdf, width = 8, height = 10)
+
+file_list <- list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')
+files_to_exclude <- c("Clock_1.xlsx", "Clock_2.xlsx")
+filtered_files <- setdiff(file_list, files_to_exclude)
+
+for (i in filtered_files){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- mnc_count_select_norm[rownames(mnc_count_select_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(mnc_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+
+dev.off()
+
+# Confirm message
+cat("All plots have been saved to", output_pdf, "\n")
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+print("Post-Regressing: Monocytes 25 CTR/ 20 PD")
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/Phago_Mono_Pro_Gene_Set_Combined_Plots.pdf'
+pdf(output_pdf, width = 8, height = 10)
+
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset_phago')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset_phago/',i))
+  data <- mnc_count_select_norm[rownames(mnc_count_select_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(mnc_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+
+dev.off()
+
+# Confirm message
+cat("All plots have been saved to", output_pdf, "\n")
+```
+
+
+
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+### MG(OCC)+MNC {.tabset .tabset-fade .tabset-pills}
+
+pro_count<-read_tsv("Proteomics/MG_MNC_Pro_Count.tsv")
+pro_count<-pro_count%>%column_to_rownames("Gene")
+pro_meta<-read_tsv("Proteomics/MG_MNC_Pro_Meta.tsv")
+pro_meta<-pro_meta%>%column_to_rownames("Sample")
+###--------------------------------------------------------------------------###
+###--------------------------------------------------------------------------###
+covariate_matrix <- model.matrix(~ Cell+Age+Sex, data=pro_meta)
+pro_count_norm <- removeBatchEffect(pro_count, covariates = covariate_matrix)
+
+```
+
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+print("Pre-Regressing: MG(OCC)(14)+MNC(45) 32 CTR/ 27 PD")
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- pro_count[rownames(pro_count) %in% toupper(gs[,1]),]
+  heatmap(pro_meta, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+```
+
+
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+print("Post-Regressing: MG(OCC)(14)+MNC(45) 32 CTR/ 27 PD")
+print("Post-Regressing: Monocytes 25 CTR/ 20 PD")
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/MG_Mono+Pro_Gene_Set_Combined_Plots.pdf'
+pdf(output_pdf, width = 8, height = 10)
+
+
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- pro_count_norm[rownames(pro_count_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(pro_meta, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+  
+  
+}
+
+dev.off()
+
+# Confirm message
+cat("All plots have been saved to", output_pdf, "\n")
+```
+
+
+
+
+
+
+
+
+
+
+## Proteomics Differential {.tabset .tabset-fade .tabset-pills}
+
+```{r diff_1,eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+inplot_size = 7
+point_size= 4
+axis_size = 15
+ticks_size =15
+title_size = 15
+text_size = 15
+label_text_size =15
+table_text_size =5
+anno_legend_size= 5
+legend_size = 5
+label_margin = 10
+number_category=12
+
+perform_diff<-function(count_in, form_in, meta_in ){
+  message("norm")
+  count_in_norm<-calcNormFactors(count_in, method="TMM")
+  dge<-DGEList(counts=count_in, samples = meta_in, norm.factors= count_in_norm)
+  message("voom")
+  v <- voom(dge, design= form_in)
+  vfit<-lmFit(v,form_in)
+  efit<-eBayes(vfit)
+  efit
+}
+
+pro_make_DE_genes<-function(linear_in,file_name ){
+  message("Generating Toptable")
+  DE_genes<-topTable(linear_in, sort.by = "p",n=Inf, coef = 2)
+  DE_genes$GENEID<-rownames(DE_genes)  
+
+  # nth is 2nd for MG MNC PD CTR
+  # nth is 3rd for PD
+  #linear_in<-pro_dream_fit
+ # print(summary(decideTests(linear_in,adjust.method = "BH", p.value  = "0.05")))
+  message("Adding Selective Cols")
+  DE_genes$DE_genes_5<-case_when(
+  DE_genes$adj.P.Val < 0.05  ~ "TRUE", 
+    .default = "FALSE"
+    )
+  
+  DE_genes$DE_Direction_5 <- case_when(
+    DE_genes$DE_genes_5 == "TRUE" & DE_genes$logFC > 0.00 ~ "UP",
+    DE_genes$DE_genes_5 == "TRUE" & DE_genes$logFC < 0.00 ~ "DOWN",
+    DE_genes$DE_genes_5 == "FALSE" ~ "FALSE"
+  )
+  
+  message("Adding Selective Cols")
+  DE_genes$DE_genes_10<-case_when(
+  DE_genes$adj.P.Val < 0.1  ~ "TRUE", 
+    .default = "FALSE"
+    )
+  
+  DE_genes$DE_Direction_10 <- case_when(
+    DE_genes$DE_genes_10 == "TRUE" & DE_genes$logFC > 0.00 ~ "UP",
+    DE_genes$DE_genes_10 == "TRUE" & DE_genes$logFC < 0.00 ~ "DOWN",
+    DE_genes$DE_genes_10 == "FALSE" ~ "FALSE"
+  )
+  
+  write_tsv(DE_genes, file_name)
+}
+
+
+make_pro_plots<-function( res_in , plot_title, plot_name){
+  res <-read_tsv(res_in)
+  p<- ggplot(res, aes(P.Value))
+  fdr_plot<- p + geom_density(color="darkblue", fill="lightblue") +
+    theme_classic() +
+    ggtitle("FDR Distribution")
+  
+  #plot.data <- form_1_de
+  plot.data<-read_tsv(res_in)
+  plot.data$id <- rownames(plot.data)
+  data <- data.frame(plot.data)
+  data$P.Value <- (-log10(data$P.Value))
+  data$FDR_5 <- as.factor(abs(data$adj.P.Val < 0.05))
+  data$FDR_10 <- as.factor(abs(data$adj.P.Val < 0.10))
+  data_select<-data%>%dplyr::filter(abs(logFC)>2)
+  data_select<-data_select%>%dplyr::filter(adj.P.Val<0.1)
+  
+  ma <- ggplot(data, aes(AveExpr, logFC, color = FDR_5))
+  ma_plot<-ma + geom_point() +
+    scale_color_manual(values = c("#dbdbdb", "#eb8931"), labels = c ("> 0.05", "< 0.05")) +
+    labs(title = "MA plot", color = "FDR") +
+    theme_classic()
+  
+  vp_5<- ggplot(data, aes(logFC, P.Value, color = FDR_5))
+  vp_plot_5<-vp_5 + geom_point() +
+    scale_color_manual(values = c("#dbdbdb", "#eb8931"), labels = c("> 0.05", "< 0.05")) + 
+    labs(title = "Gene Level Volcano Plot: FDR 5", color = "FDR") +
+    theme_classic()+
+    geom_label_repel(data = data_select, aes(label =GENEID), 
+                     box.padding   = 0, point.padding = 0, force = 100,
+                     segment.size  = 0.3,segment.color = "black",
+                     angle = 180,point.size = point_size,color="black",
+                     nudge_x = 0.5,hjust =0,size = point_size)
+  
+  vp_10<- ggplot(data, aes(logFC, P.Value, color = FDR_10))
+  vp_plot_10<-vp_10 + geom_point() +
+    scale_color_manual(values = c("#dbdbdb", "#eb8931"), labels = c("> 0.1", "< 0.1")) + 
+    labs(title = "Gene Level Volcano Plot: FDR 10", color = "FDR") +
+    theme_classic()+
+    geom_label_repel(data = data_select, aes(label =GENEID), 
+                     box.padding   = 0, point.padding = 0, force = 100,
+                     segment.size  = 0.3,segment.color = "black",
+                     angle = 180,point.size = point_size,color="black",
+                     nudge_x = 0.5,hjust =0,size = point_size)
+  
+  plots<-ggarrange(fdr_plot, ma_plot, vp_plot_5, vp_plot_10,ncol=2,nrow=2)
+  plots<-annotate_figure(plots,top=text_grob(plot_title,
+                                         color = "black",face="bold", size =14))
+  ggsave(plot=plots,filename=plot_name,width = 12, height = 8,dpi = 600)
+}
+```
+
+
+## Monocytes {.tabset .tabset-fade .tabset-pills}
+
+```{r diff_2, eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+mnc_pro<-read_tsv("MNC_Proteomic/MNC_Protein_Norm_Organized.tsv")
+#mnc_pro<-mnc_pro%>%dplyr::filter(!Sample %in% rownames(mnc_outliers))
+
+mnc_pro<-mnc_pro%>%dplyr::select(-c(Ancestry_reported))
+mnc_pro<-mnc_pro%>%column_to_rownames("Sample")
+mnc_pro<-mnc_pro[order(row.names(mnc_pro)),]
+
+mnc_meta<-mnc_pro[,1:11]
+
+mnc_pro_count<-mnc_pro[-c(1,1:11)]
+mnc_pro_count<-as.data.frame(t(mnc_pro_count))
+
+
+if (all(rownames(mnc_meta) == colnames(mnc_pro_count))) {
+  print("Column names of meta match row names of count_all.")
+} else {
+  print("Column names of meta do not match row names of count_all.")
+}
+
+
+Diagnosis<-factor(mnc_meta$Diagnosis, levels=c("Control","PD","MCI","AD"))
+apoe<-as.factor(mnc_meta$APOE)
+age<-mnc_meta$Age_at_Draw
+sex<-as.factor(mnc_meta$Sex_reported)
+gba<-as.factor(mnc_meta$GBA_yesno)
+lrrk<-as.factor(mnc_meta$LRRK2_yesno)
+ancestry<-as.factor(mnc_meta$Ancestry_GSA)
+
+
+diff_mnc_pro_form<-model.matrix(~ Diagnosis+sex+age+apoe+gba+lrrk+ancestry)
+
+diff_mnc_pro<-perform_diff(mnc_pro_count, diff_mnc_pro_form, mnc_meta)
+
+# 2th coefficient
+pro_make_DE_genes(diff_mnc_pro,"Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv")
+make_pro_plots("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv",
+                 "Mono Proteomics:~ Diagnosis+sex+age+apoe+gba+lrrk+ancestry",
+                 "Figures/Differntial/Proteomics/Monocyte_Proteomics/MNC_MiGA_Proteomics_plots.jpg")
+
+```
+
+
+### 51 Monocytes samples
+*  ~  Diagnosis+sex+age+apoe+gba+lrrk+ancestry
+* 4 outlier samples included
+
+
+```{r fig_1, echo=FALSE, fig.cap="/MNC_Proteomics_plots",out.width = '100%'}
+mnc_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv", show_col_types = FALSE)
+knitr::kable(table(mnc_pro_top$DE_Direction_10), "simple", caption = "mnc_pro_top: FDR 10",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::include_graphics("Figures/Differential/Proteomics/Monocyte_Proteomics/MNC_MiGA_Proteomics_plots.jpg")
+```
+
+
+
+## Microglia {.tabset .tabset-fade .tabset-pills}
+```{r protein_4, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+mg_pro<-read_tsv("Proteomics/MG_Protein_Norm_Organized.tsv")
+mg_pro<-mg_pro%>%column_to_rownames("Sample")
+mg_pro<-mg_pro[order(row.names(mg_pro)),]
+
+mg_meta<-mg_pro[,1:8]
+mg_meta$new_Final_Diagnosis<-case_when(
+  mg_meta$Final_Diagnosis == "CTR" ~ "CTR",
+  mg_meta$Final_Diagnosis == "OTHER" ~ "OTHER",
+  mg_meta$Final_Diagnosis == "PD" ~ "PD_SYN",
+  mg_meta$Final_Diagnosis == "SYN"~ "PD_SYN"
+)
+
+
+mg_pro_count<-mg_pro[-c(1,1:8)]
+mg_pro_count<-t(mg_pro_count)
+
+perform_dream<-function(count_in, form_in, meta_in ){
+  message("voom")
+  vobjDream = suppressWarnings( voomWithDreamWeights( count_in, form_in, meta_in))
+  message("dream")
+  fitmm = suppressWarnings (dream( vobjDream, form_in, meta_in ))
+
+  message("linear")
+  fitmm_ebayes <- eBayes(fitmm)
+  fitmm_ebayes
+}
+
+form_pro<- ~ Final_Diagnosis+(1|Sex)+Age+PMD_min+(1|Region)+(1|Cause_of_Death)
+pro_dream_fit<-perform_dream(mg_pro_count, form_pro, mg_meta)
+
+form_grouped_pro<- ~ new_Final_Diagnosis+(1|Sex)+Age+PMD_min+(1|Region)+(1|Cause_of_Death)
+grouped_pro_dream_fit<-perform_dream(mg_pro_count, form_grouped_pro, mg_meta)
+
+
+pro_make_DE_genes(pro_dream_fit, "Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv")
+make_pro_plots("Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv",
+                 "Form Proteomics:DREAM ~ diagnosis+sex+age+min+region+death",
+                 "Figures/Differential/Proteomics/Dream_MG_MiGA_Proteomics_plots.jpg")
+
+pro_make_DE_genes(grouped_pro_dream_fit, "Differential/Final_Toptable/Proteomics/Dream_MG_Grouped_MiGA_Proteomics_Toptable.tsv")
+make_pro_plots("Differential/Final_Toptable/Proteomics/Dream_MG_Grouped_MiGA_Proteomics_Toptable.tsv",
+                 "Form Proteomics:GROUPED DREAM ~ (CTR vs PD+SYN) diagnosis+sex+age+min+region+death",
+                 "Figures/Differential/Proteomics/Dream_MG_Grouped_MiGA_Proteomics_plots.jpg")
+
+```
+
+
+### Microglia Dream Proteomics {.tabset .tabset-fade .tabset-pills}
+*  ~ Final_Diagnosis+(1|Sex)+Age+PMD_min+(1|Region)+(1|Cause_of_Death) (all from MiGA 3)
+
+*  Control Donor : 7 / Sample : 18
+*  PD Donor : 7 / Sample : 18
+*  SYN Donor : 5 / Sample : 13
+*  Other Donor : 8 / Sample : 17 
+
+
+
+```{r fig_3, echo=FALSE, fig.cap="/MiGA_Proteomics_plots",out.width = '100%'}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData")
+mg_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv", show_col_types = FALSE)
+knitr::kable(table(mg_pro_top$DE_Direction_5), "simple", caption = "mg_pro_top: FDR 5",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::include_graphics("Figures/Differential/Proteomics/Dream_MG_MiGA_Proteomics_plots.jpg")
+```
+
+
+### Grouped Microglia Dream Proteomics {.tabset .tabset-fade .tabset-pills}
+*  ~ new_Final_Diagnosis+(1|Sex)+Age+PMD_min+(1|Region)+(1|Cause_of_Death) (all from MiGA 3)
+
+*  Control Donor : 7 / Sample : 18
+*  PD Donor : 7 / Sample : 18 + SYN Donor : 5 / Sample : 13
+*  Other Donor : 8 / Sample : 17 
+
+
+```{r fig_4, echo=FALSE, fig.cap="/MiGA_Proteomics_plots",out.width = '100%'}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData")
+mg_grouped_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/Dream_MG_Grouped_MiGA_Proteomics_Toptable.tsv", show_col_types = FALSE)
+knitr::kable(table(mg_grouped_pro_top$DE_Direction_5), "simple", caption = "mg_pro_top: FDR 5",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::include_graphics("Figures/Differential/Proteomics/Dream_MG_Grouped_MiGA_Proteomics_plots.jpg")
+```
+
+
+### Microglia Dream Proteomics_plot {.tabset .tabset-fade .tabset-pills}
+*  ~ Final_Diagnosis+(1|Sex)+Age+PMD_min+(1|Region)+(1|Cause_of_Death) (all from MiGA 3)
+
+*  Control Donor : 7 / Sample : 18
+*  PD Donor : 7 / Sample : 18
+*  SYN Donor : 5 / Sample : 13
+*  Other Donor : 8 / Sample : 17 
+
+```{r , echo= FALSE, message = FALSE, warning=FALSE, eval=FALSE}
+inplot_size = 7
+point_size= 4
+axis_size = 10
+ticks_size =10
+title_size = 10
+text_size = 10
+label_text_size =10
+table_text_size =5
+anno_legend_size= 5
+legend_size = 5
+label_margin = 10
+number_category=12
+
+index_color <- c("UP" = "#eb8931","DOWN" = "#3193eb","FALSE"="#dbdbdb",
+                 "R_UP" ="#bd6312","R_DOWN"="#2266a4", "NONE"="#dbdbdb")
+
+disease_color <- c("CTR" = "#f28c23","Control" ="#f28c23" ,"PD" = "#6baff6",
+                   "Female" = "#f28c23","Male" = "#6baff6")
+pathway_up_color<-c("GO:BP" = "#eb8931",
+                 "KEGG" = "#bc6d27")
+
+pathway_down_color<-c("GO:BP" = "#3193eb",
+                    "KEGG" = "#2266a4")
+#------------------------------------------------------------------------------#
+mg_vol_highlight<-as.data.frame(c("AIF1","PLD4","CTSH","ITGAM","MEF2C","HLA-DRA",
+                      "SLC2A5","P2RY12","CYBB","CD74","CLUH","ACOT7","PDE1A",
+                      "SLC36A1","ACOT7"))
+colnames(mg_vol_highlight)<-c("GENENAME")
+
+mnc_vol_highlight<-as.data.frame(c("TEME50A","DOCK10","UBE2R2","UVRAG","TMEM106B",
+                      "ACTR10","OSBPL11","YPEL5","CGNL1","PRAF2","RALB","VPS13A",
+                      "RALA","MROH1","PSMA1","NDUFB5","SLC12A9"))
+colnames(mnc_vol_highlight)<-c("GENENAME")
+
+vol_plot<-function(table_in,select_in, col_in, plot_title){
+  select_in<-table_in%>%dplyr::filter(GENENAME %in% select_in$GENENAME)
+  
+  vol_plot<- ggplot(table_in, aes(x=logFC, y=-log10(P.Value),col = col_in))+ 
+    geom_point(size =point_size, alpha=0.7)+
+    scale_color_manual(values = index_color)+
+    labs(x = "logFC", y = "-log10(P.Value)",title=plot_title)+
+    geom_vline(xintercept=0,  col ="#818589", linetype="longdash")+
+    geom_point(data =select_in ,shape=1,color="black", size=point_size)+
+    geom_label_repel(data = select_in, aes(label = GENENAME),
+                     box.padding = 0, point.padding = 0, force = 50,
+                     segment.size = 0.2,segment.color = "black",
+                     angle = 180,point.size = point_size,color="black",
+                     nudge_x = 0.3,hjust =0,size = point_size-2)+
+    theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, face="bold", hjust=0.5),
+          plot.subtitle = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  vol_plot
+}
+
+#vol_plot<-function(table_in,select_in, col_in, plot_title,plot_subtitle)
+mg_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv")
+mg_pro_top$GENENAME<-mg_pro_top$GENEID
+mg_pro_5<-vol_plot(mg_pro_top, mg_vol_highlight, mg_pro_top$DE_Direction_5,
+                   "Microglia Proteomics FDR 5")
+mg_pro_10<-vol_plot(mg_pro_top, mg_vol_highlight, mg_pro_top$DE_Direction_10,
+                   "Microglia Proteomics FDR 10")
+
+mnc_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv")
+mnc_pro_top$GENENAME<-mnc_pro_top$GENEID
+mnc_pro_5<-vol_plot(mnc_pro_top, mnc_vol_highlight, mnc_pro_top$DE_Direction_5,
+                   "Monocytes Proteomics FDR 5")
+mnc_pro_10<-vol_plot(mnc_pro_top, mnc_vol_highlight, mnc_pro_top$DE_Direction_10,
+                   "Monocytes Proteomics FDR 10")
+all<-ggarrange(mg_pro_5, mg_pro_10, mnc_pro_5, mnc_pro_10, ncol=2, nrow=2)
+ggsave(plot=all,filename="Figures/Differential/Proteomics/MG_MNC_Pro_Highlight_Vol.jpg",width = 12, height = 8,dpi = 600)
+```
+
+
+
+```{r, echo=FALSE, fig.cap="/MiGA_Proteomics_plots",out.width = '100%'}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData")
+knitr::include_graphics("Figures/Differential/Proteomics/MG_MNC_Pro_Highlight_Vol.jpg")
+```
+
+```{r , echo= FALSE, message = FALSE, warning=FALSE, eval=FALSE}
+library(forcats)
+
+mnc_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv")
+gene_select<-c("RALA","RALB","PSMA1","YPEL5","DOCK10","ACTR10","UBE2R2","TMEM106B",
+               "AOAH","RUFY2")
+gene_select<-as.data.frame(gene_select)
+colnames(gene_select)<-"GENEID"
+
+mnc_pro_select<-mnc_pro_top%>%dplyr::filter(GENEID %in% gene_select$GENEID)
+mnc_pro_select<-mnc_pro_select%>%dplyr::select(c(logFC, P.Value, adj.P.Val, GENEID))
+#mnc_pro_select<-mnc_pro_select%>%arrange(desc(logFC))
+mnc_pro_select<-mnc_pro_select[order(mnc_pro_select$logFC, decreasing = TRUE),]
+
+anno_plot<-function(df_in, x_in, y_in,fill_in,fill_title, plot_title){
+  anno_plot<-ggplot(df_in,aes(x =x_in, y= y_in,fill = fill_in))+
+    geom_bar(stat ="identity",position ="identity")+
+    #scale_fill_manual(values=anno_palette)+
+    labs(x = "logFC", y = "Gene",fill = fill_title,title="Selected genes logFC in Monocytes Differential, 25 CTR vs 20 PD")+
+    theme_classic()+
+    theme(legend.title = element_text(size=text_size,color="black"),
+          legend.text = element_text(size=text_size,color="black"),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size,color="black"),
+          plot.title = element_text(size=title_size, hjust=0.5,color="black"),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    guides(color = guide_legend(override.aes = list(size=anno_legend_size)))
+  anno_plot
+}
+
+mnc_pro_bar<-anno_plot(mnc_pro_select, mnc_pro_select$logFC, mnc_pro_select$GENEID, 
+                       mnc_pro_select$adj.P.Val, "Adj.Pval", "MG Proteomics Selected Genes")
+mnc_pro_bar
+ggsave(plot=mnc_pro_bar,filename="Figures/Differential/Proteomics/MNC_Pro_Gene_Barplot.jpg",width = 12, height = 8,dpi = 600)
+```
+
+
+
+
+## Microglia Monocytes Comparison 
+```{r protein_comp_1, echo= FALSE, message = FALSE, warning=FALSE, eval=FALSE}
+mg_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv", 
+                     show_col_types = FALSE)
+
+mnc_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv", 
+                      show_col_types = FALSE)
+
+# Proteomics
+mg_pro_share<-mg_pro_top%>%dplyr::filter(GENEID %in% mnc_pro_top$GENEID)%>%
+  dplyr::select(c(GENEID, logFC, P.Value,adj.P.Val,DE_genes_5))
+col_names <- colnames(mg_pro_share)
+cols_to_modify <- col_names[col_names != "GENEID"]
+modified_col_names <- ifelse(col_names %in% cols_to_modify, paste0(col_names, "_MG_Pro"), col_names)
+colnames(mg_pro_share) <- modified_col_names
+
+# MNC Proteomics
+mnc_pro_share<-mnc_pro_top%>%dplyr::filter(GENEID %in% mg_pro_share$GENEID)%>%
+  dplyr::select(c(GENEID, logFC, P.Value,adj.P.Val,DE_genes_5, GENEID))
+col_names <- colnames(mnc_pro_share)
+cols_to_modify <- col_names[col_names != "GENEID"]
+modified_col_names <- ifelse(col_names %in% cols_to_modify, paste0(col_names, "_MNC_Pro"), col_names)
+colnames(mnc_pro_share) <- modified_col_names
+
+all<-merge(mg_pro_share,mnc_pro_share, by ="GENEID")
+all<-all%>%distinct(GENEID, .keep_all=TRUE)
+all$DE_genes<-c("sig")
+
+all$DE_genes<-case_when(
+  all$DE_genes_5_MG_Pro == "TRUE" & all$DE_genes_5_MNC_Pro == "TRUE" ~ "Sig_Both",
+  all$DE_genes_5_MG_Pro == "FALSE" & all$DE_genes_5_MNC_Pro == "TRUE" ~ "Sig_MNC_Pro",
+  all$DE_genes_5_MG_Pro == "FALSE" & all$DE_genes_5_MNC_Pro == "FALSE" ~ "NonSig_Both",
+  all$DE_genes_5_MG_Pro == "TRUE" & all$DE_genes_5_MNC_Pro == "FALSE" ~ "Sig_MG_Pro"
+ )
+
+sig_mg_pro<-all%>%dplyr::filter(grepl("Sig_MG_Pro", DE_genes ))
+sig_mnc_pro<-all%>%dplyr::filter(grepl("Sig_MNC_Pro",DE_genes))
+sig_both<-all%>%dplyr::filter(grepl("^Sig_Both",DE_genes))
+nonsig_both<-all%>%dplyr::filter(grepl("NonSig_Both",DE_genes))
+
+write_tsv(all,"Differential/Comparison/MG_MNC_Pro_Overlap_Genes.tsv")
+################################################################################
+```
+
+
+```{r protein_comp_2, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+comp_p_plot<-function( df_in,x_in, y_in, plot_title){
+    by_plot <- ggplot(df_in,  aes(x = x_in, y = y_in)) +
+    geom_point(size = point_size-0.5, alpha = 0.7,color = "darkgreen") +
+    stat_cor() +
+    geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +  
+    #geom_vline(xintercept = c(0), col = "black", linetype="longdash") +
+    labs(x = "logFC:Migroclia Proteomics", y = "logFC: Monocytes Proteomics",
+         title= plot_title) +
+    theme_classic() +
+    theme(legend.title = element_text(size=text_size+5),
+          legend.text = element_text(size=text_size+5),
+          axis.text.x = element_text(size = axis_size+5,color="black"),
+          axis.text.y = element_text(size = axis_size+5,color="black"),
+          axis.title = element_text(size = axis_size+5),
+          plot.title = element_text(size=title_size+5, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "top")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+    by_plot
+    
+    }
+
+mg_mnc_plot<-comp_p_plot(all, all$logFC_MG_Pro, all$logFC_MNC_Pro, "Genes found in both MG and MNC Proteomics : 4135")
+
+ggsave(plot=mg_mnc_plot,filename="Figures/Differential/Proteomics/Comparison/MG_MNC_Pro_comparison_logFC_plot.jpg",width = 12, height=12,dpi = 600) 
+
+```
+
+
+
+
+* Microglia Proteomic Analysis : model (Dream): ~ Final_Diagnosis+(1|Sex)+Age+PMD_min+(1|Region)+(1|Cause_of_Death) (all from MiGA 3)
+* Monocytes Proteomics Analysis : model (Limma): ~ Diagnosis+sex+age+apoe+gba(yes_no)+lrrk2(yesno)+Ancestry_GSA
+
+### Pro_Trans Comparison: logFC
+```{r fig_5, echo=FALSE, fig.cap="Trans_Pro_comparison_Pval_plot",out.width = '100%'}
+mg_mnc_pro<-read_tsv("Differential/Comparison/MG_MNC_Pro_Overlap_Genes.tsv", show_col_types = FALSE)
+knitr::include_graphics("Figures/Differential/Proteomics/Comparison/MG_MNC_Pro_comparison_logFC_plot.jpg")
+```
+
+## MG MNC Proteomics Comparison {.tabset .tabset-fade .tabset-pills}
+```{r protein_comp_3, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+comp_number<-100
+mg_pro<-read_tsv("Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv")
+mg_pro_top<-mg_pro%>%arrange(adj.P.Val)%>%
+  slice_head(n=comp_number)
+
+mnc_pro<-read_tsv("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv")
+mnc_pro_top<-mnc_pro%>%arrange(adj.P.Val)%>%
+  slice_head(n=comp_number)
+mnc_pro_top<-mnc_pro_top%>%dplyr::select(c(logFC,P.Value,adj.P.Val,GENEID))
+mnc_pro_top$Direction<-case_when(
+  mnc_pro_top$logFC > 0 ~ "UP",
+  mnc_pro_top$logFC < 0 ~ "DOWN"
+)
+
+intersect(mg_pro_top$GENEID, mnc_pro_top$GENEID)
+#modified_col_names <- ifelse(col_names %in% cols_to_modify, paste0(col_names, "_MG_Pro"), col_names)
+```
+
+
+## MG+MNC CTR PD DEP {.tabset .tabset-fade .tabset-pills}
+```{r 15, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+#pro count
+pro_meta<-read_tsv("Proteomics/MG_MNC_Pro_Meta.tsv")
+pro_meta<-pro_meta%>%column_to_rownames("Sample")
+pro_count<-read_tsv("Proteomics/MG_MNC_Pro_Count.tsv")
+pro_count<-pro_count%>%column_to_rownames("Gene")
+
+
+Diagnosis<-factor(pro_meta$Diagnosis, levels=c("Control","PD"))
+age<-pro_meta$Age
+sex<-as.factor(pro_meta$Sex)
+cell<-as.factor(pro_meta$Cell)
+
+
+mg_mnc_pro_form<-model.matrix(~ Diagnosis+cell+sex+age)
+
+mg_mnc_pro<-perform_diff(pro_count, mg_mnc_pro_form, pro_meta)
+
+# 2th coefficient
+pro_make_DE_genes(mg_mnc_pro,"Differential/Final_Toptable/Proteomics/MG_MNC_MiGA_Proteomics_Toptable.tsv")
+make_pro_plots("Differential/Final_Toptable/Proteomics/MG_MNC_MiGA_Proteomics_Toptable.tsv",
+                 "Mono+Micro Proteomics for CTR vs PD:~ Diagnosis+cell+sex+age",
+                 "Figures/Differential/Proteomics/Monocyte_Proteomics/MG_MNC_MiGA_Proteomics_plots.jpg")
+```
+
+
+### Mono+Micro Merge DEP analysis 
+*  ~  Diagnosis+cell+sex+age
+```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData")
+
+pro_meta<-read_tsv("Proteomics/MG_MNC_Pro_Meta.tsv")
+pro_count<-read_tsv("Proteomics/MG_MNC_Pro_Count.tsv")
+
+knitr::kable(table(pro_meta$Diagnosis), "simple", caption = "MG+MNC(OCC) Proteomics diagnosis",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(pro_meta$Sex), "simple", caption = "MG+MNC(OCC) Proteomics Sex",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::kable(table(pro_meta$Cell), "simple", caption = "MG+MNC(OCC) Proteomics Cell",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+```
+
+```{r fig_protein_vol_3, echo=FALSE, fig.cap="/MNC_Proteomics_plots",out.width = '100%'}
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData")
+mg_mnc_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/MG_MNC_MiGA_Proteomics_Toptable.tsv", show_col_types = FALSE)
+knitr::kable(table(mg_mnc_pro_top$DE_Direction_10), "simple", caption = "mg_mnc_pro_top: FDR 10",  table.attr = "style='width:100%;'", show_col_types = FALSE)
+knitr::include_graphics("Figures/Differential/Proteomics/Monocyte_Proteomics/MG_MNC_MiGA_Proteomics_plots.jpg")
+```
+
+
+
+
+
+
+
+## Pathway  {.tabset .tabset-fade .tabset-pills}
+```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+mg_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv")
+# mg_pro_top$DE_Direction_10<-case_when(
+#   mg_pro_top$adj.P.Val < 0.1 & mg_pro_top$logFC > 0 ~ "UP",
+#   mg_pro_top$adj.P.Val < 0.1 & mg_pro_top$logFC < 0 ~ "DOWN", 
+#   mg_pro_top$adj.P.Val >= 0.1 ~ "FALSE"
+# )
+#write_tsv(mg_pro_top,"Differential/Final_Toptable/Dream_MG_MiGA_Proteomics_Toptable.tsv")
+mnc_pro_top<-read_tsv("Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv", show_col_types = FALSE)
+
+mg_pro_gene_5<-mg_pro_top%>%dplyr::filter(!grepl("FALSE", DE_Direction_5))
+mg_pro_gene_10<-mg_pro_top%>%dplyr::filter(!grepl("FALSE", DE_Direction_10))
+
+mnc_pro_gene_5<-mnc_pro_top%>%dplyr::filter(!grepl("FALSE", DE_Direction_5))
+mnc_pro_gene_10<-mnc_pro_top%>%dplyr::filter(!grepl("FALSE", DE_Direction_10))
+```
+
+
+```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+text_size=10
+legend_text_size=10
+legend_size=8
+number_category=15
+
+generate_path<-function( df_in,file_name, title_in, plot_name){
+  #df_in<-mg_pro_gene_5
+  df<-df_in%>%dplyr::select(c(GENEID))
+  df<-df%>%distinct(GENEID)
+  
+  multi_gp = gost(
+      list("all-regulated" = df$GENEID),
+      multi_query = FALSE,
+      evcodes = TRUE, 
+      user_threshold = 0.05, # P val 
+      sources = c("GO:BP", "KEGG") 
+    )
+  gp_mod <- multi_gp$result[,c("query", "source", "term_id","term_name",
+                             "p_value","query_size","intersection_size",
+                             "term_size","effective_domain_size","intersection")]
+  
+  gp_mod <- gp_mod%>%dplyr::filter(grepl("GO:BP|KEGG",gp_mod$source))
+
+  gp_mod$GeneRatio <- paste0(gp_mod$intersection_size, "/",gp_mod$query_size)
+  gp_mod$BgRatio <- paste0(gp_mod$term_size, "/",gp_mod$effective_domain_size)
+  
+  names(gp_mod) <- c("Cluster", "Category", "ID", "Description", "p.adjust",
+                     "query_size", "Count", "term_size","effective_domain_size",
+                     "geneID", "GeneRatio","BgRatio")
+  
+  gp_mod$geneID <- gsub(",", "/", gp_mod$geneID) 
+  
+  message("Writing GP Enrich result Matrix")
+  
+  gp_mod_cluster <- new("compareClusterResult", compareClusterResult = gp_mod)
+  gp_mod_enrich  <- new("enrichResult", result = gp_mod)
+  
+  gp_mod_enrich_df<-as.data.frame(gp_mod_enrich@result)
+  write_tsv(gp_mod_enrich_df, file_name)
+  
+  gp_barplot<-barplot(gp_mod_enrich, showCategory = number_category, 
+                      font.size = text_size) + 
+    ggplot2::ylab("Intersection size")+
+    labs(x="Count",y ="Intersection Size", title=title_in)+theme_bw()+
+    theme(axis.text.y = element_text(color = "black", size = text_size),
+          axis.title = element_text(size = text_size),
+          legend.key.height= unit(0.4, 'cm'),
+          legend.key.width= unit(0.2, 'cm'),
+          legend.title = element_text(size=legend_text_size),
+          legend.text = element_text(size=legend_text_size),
+          plot.title = element_text(size=text_size,face = "bold",hjust=0.5))+ 
+    ggeasy::easy_rotate_y_labels(angle = 30, side = c("right"))+ 
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  #gp_barplot
+  message("Making Plots")
+  ggsave(plot=gp_barplot,filename=plot_name,width = 8, height = 10,dpi = 600)
+}
+
+df_in<-read_tsv("/Users/hyominseo/Desktop/MyND_Monocytes/Cohort_Validation/TopTable/MyND_12_ModelPlus_Toptable.tsv")
+df_in$GENEID<-df_in$GENENAME
+generate_path(df_in, "/Users/hyominseo/Desktop/MyND_Monocytes/Cohort_Validation/Pathway/MyND_12_Pathway_enrich.tsv","MyND 12, FDR 5", "/Users/hyominseo/Desktop/MyND_Monocytes/Cohort_Validation/Pathway/Figure/MyND_12_Pathway_enrich.jpg")
+
+              "58 DEGs in MG Proteomics, FDR 5", "Pathway/DEP/MG/MG_Pro_5_Pathway_enrich_plot.jpg")
+#df_in,file_name, title_in, plot_name
+generate_path(mg_pro_gene_5, "Pathway/DEP/MG/MG_Pro_5_Pathway_enrich.tsv",
+              "58 DEGs in MG Proteomics, FDR 5", "Pathway/DEP/MG/MG_Pro_5_Pathway_enrich_plot.jpg")
+
+generate_path(mg_pro_gene_10, "Pathway/DEP/MG/MG_Pro_10_Pathway_enrich.tsv",
+              "192 DEGs in MG Proteomics, FDR 10", "Pathway/DEP/MG/MG_Pro_10_Pathway_enrich_plot.jpg")
+
+# catches nothing 
+# generate_path(mnc_pro_gene_5, "Pathway/DEP/MNC/MNC_Pro_5_Pathway_enrich.tsv",
+#               "12 DEGs in MNC Proteomics, FDR 5", "Pathway/DEP/MNC/MNC_Pro_5_Pathway_enrich_plot.jpg")
+# 
+# generate_path(mnc_pro_gene_10, "Pathway/DEP/MNC/MNC_Pro_10_Pathway_enrich.tsv",
+#               "46 DEGs in MNC Proteomics, FDR 10", "Pathway/DEP/MNC/MNC_Pro_10_Pathway_enrich_plot.jpg")
+```
+
+
+```{r, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+
+
+
+```
+
+
+
+### FDR 5 MG Protein Pathway {.tabset .tabset-fade .tabset-pills}
+
+```{r fig_path_1, echo=FALSE,out.width = '100%'}
+knitr::include_graphics("Pathway/DEP/MG/MG_Pro_5_Pathway_enrich_plot.jpg")
+```
+
+
+### FDR 10 MG Protein Pathway {.tabset .tabset-fade .tabset-pills}
+
+```{r fig_path_2, echo=FALSE,out.width = '100%'}
+knitr::include_graphics("Pathway/DEP/MG/MG_Pro_10_Pathway_enrich_plot.jpg")
+```

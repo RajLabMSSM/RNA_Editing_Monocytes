@@ -1,0 +1,2 @@
+"0","mg_mnc_pro<-read_tsv(""Differential/Comparison/MG_MNC_Pro_Overlap_Genes.tsv"", show_col_types = FALSE)"
+"0","knitr::include_graphics(""Figures/Differential/Proteomics/Comparison/MG_MNC_Pro_comparison_logFC_plot.jpg"")"

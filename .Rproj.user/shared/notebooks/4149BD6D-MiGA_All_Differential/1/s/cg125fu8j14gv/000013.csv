@@ -1,0 +1,1 @@
+"0","knitr::kable(table(deg_meta$Final_Diagnosis), ""simple"", caption = ""Trans Sample Metadata: Final_Diagnosis"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

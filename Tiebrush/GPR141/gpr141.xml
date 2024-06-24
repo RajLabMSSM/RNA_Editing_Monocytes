@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="hg38" locus="chr7:37742289-37742329" version="8">
+    <Resources>
+        <Resource path="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/GPR141_IFNb_Ed_Sites.bed" type="bed"/>
+        <Resource index="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_lps.tiebrush.bam.bai" path="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_lps.tiebrush.bam" type="bam"/>
+        <Resource index="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_control.tiebrush.bam.bai" path="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_control.tiebrush.bam" type="bam"/>
+        <Resource index="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_ifn.tiebrush.bam.bai" path="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_ifn.tiebrush.bam" type="bam"/>
+    </Resources>
+    <Panel height="11358" name="Panel1713550545200" width="1046">
+        <Track attributeKey="all_control.tiebrush.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_control.tiebrush.bam_coverage" name="all_control.tiebrush.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="212.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="all_control.tiebrush.bam Junctions" autoScale="false" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_control.tiebrush.bam_junctions" maxdepth="50" name="all_control.tiebrush.bam Junctions" visible="true"/>
+        <Track attributeKey="all_control.tiebrush.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="185,185,185" displayMode="EXPANDED" experimentType="RNA" fontSize="10" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_control.tiebrush.bam" name="all_control.tiebrush.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="14942" name="Panel1713550545223" width="1046">
+        <Track attributeKey="all_ifn.tiebrush.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_ifn.tiebrush.bam_coverage" name="all_ifn.tiebrush.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="332.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="all_ifn.tiebrush.bam Junctions" autoScale="false" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_ifn.tiebrush.bam_junctions" maxdepth="50" name="all_ifn.tiebrush.bam Junctions" visible="true"/>
+        <Track attributeKey="all_ifn.tiebrush.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="185,185,185" displayMode="EXPANDED" experimentType="RNA" fontSize="10" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_ifn.tiebrush.bam" name="all_ifn.tiebrush.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="7326" name="Panel1713550545240" width="1046">
+        <Track attributeKey="all_lps.tiebrush.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_lps.tiebrush.bam_coverage" name="all_lps.tiebrush.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="126.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="all_lps.tiebrush.bam Junctions" autoScale="false" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_lps.tiebrush.bam_junctions" maxdepth="50" name="all_lps.tiebrush.bam Junctions" visible="true"/>
+        <Track attributeKey="all_lps.tiebrush.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="185,185,185" displayMode="EXPANDED" experimentType="RNA" fontSize="10" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/all_lps.tiebrush.bam" name="all_lps.tiebrush.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="98" name="FeaturePanel" width="1046">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="+" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="Refseq Genes" clazz="org.broad.igv.track.FeatureTrack" colorScale="ContinuousColorScale;0.0;836.0;255,255,255;0,0,178" fontSize="10" groupByStrand="false" id="https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeq.txt.gz" name="Refseq Genes" visible="true"/>
+        <Track attributeKey="GPR141_IFNb_Ed_Sites.bed" clazz="org.broad.igv.track.FeatureTrack" colorScale="ContinuousColorScale;0.0;0.0;255,255,255;0,0,178" fontSize="10" groupByStrand="false" id="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Tiebrush/GPR141/GPR141_IFNb_Ed_Sites.bed" name="GPR141_IFNb_Ed_Sites.bed" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.008797653958944282,0.2829912023460411,0.5659824046920822,0.8489736070381232"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>

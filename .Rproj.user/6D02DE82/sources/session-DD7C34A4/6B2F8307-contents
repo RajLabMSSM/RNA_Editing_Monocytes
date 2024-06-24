@@ -1,0 +1,237 @@
+inplot_size = 3
+text_size= 10
+title_size = 10
+point_size =3
+axis_size =9
+legend_size=9
+
+eigen_plot<-function(df_in, Diagnosis, y_in,y_title, plot_title){
+  wilcox_test<-wilcox.test(Eigengene ~ Diagnosis,  data=df_in)
+  p_value <- wilcox_test$p.value
+  
+  qc_plot<-ggplot(data=df_in,aes(x=Diagnosis, y=y_in, fill =Diagnosis))+
+    geom_jitter(aes(colour=Diagnosis), alpha =0.6, width= 0.25, size = point_size)+
+    geom_boxplot(fill=NA,outlier.shape=NA)+stat_compare_means(label = "p.signif",
+                                                              label.x =1.5,label.y =0.1)+
+    labs(
+      title = paste(
+        plot_title,
+        "\nWilcoxon P.val =", format(p_value, digits = 4)
+      ),
+      x = "Diagnosis",
+      y = y_title)+theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size),
+          axis.text.y = element_text(size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-5,-5,-5,-5))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  qc_plot
+}
+
+
+
+
+heatmap<-function(cov.df, df, print=T, return.PC=T, boxplot=T,
+                  heatmap_title='BOX1', 
+                  title_box='INPUT_BBY', fs1=8, fs2=5){
+  
+  # gs<-read.xlsx("/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset_phago/GTPases_Phago_3.xlsx")
+  # df<-mg_tpm_select_norm
+  # df <- df[rownames(df) %in% toupper(gs[,1]),]
+  # cov.df<-mg_meta_select
+  # number of genes in the in put count df (12 genes from ANTI class 2 )
+  num_pcs<-nrow(df)
+  ``
+  # num_pc = gene count, length(colnames(df) = sample count)
+  l <- min(num_pcs,length(colnames(df)))
+  covariates <- colnames(cov.df)
+  # df col = sample, df row = genes
+  pca.cov <- prcomp(df,center = T, scale. = T)
+  var <- get_pca_var(pca.cov) # description of PCs
+  ind <- get_pca_ind(pca.cov) # PCs for individuals
+  matrix_rsquared = matrix(NA, nrow = length(cov.df), ncol = l) #Number of factors
+  matrix_pvalue = matrix(NA, nrow = length(cov.df), ncol = l)
+  
+  for (x in 1:length(covariates)){
+    for (y in 1:l){
+      matrix_rsquared[x,y] <- summary( lm(var$cor[,y] ~ cov.df[,covariates[x]]) )$adj.r.squared
+      matrix_pvalue[x,y] <- glance( lm(var$cor[,y] ~ cov.df[,covariates[x]]) )$p.value #To insert pvalues in the heatmap
+    }
+  }
+  
+  rownames(matrix_rsquared) = covariates
+  rownames(matrix_pvalue) = covariates 
+  colnames(matrix_rsquared) = paste("PC",1:l, sep="")
+  
+  matrix_pvalue = matrix(p.adjust(as.vector(as.matrix(matrix_pvalue)),
+                                  method='bonferroni'),ncol=ncol(matrix_pvalue))
+  matrix_pvalue = formatC(matrix_pvalue, format = "e", digits = 2)
+  
+  # png(paste0(work_dir, "LinearReg_15pcs_covariates.png"), width = 10, height = 10, res = 600, units = "in")
+  # pdf(paste0(work_dir, "LinearReg_15pcs_covariates.pdf"), width = 10, height = 10)
+  
+  hh<-Heatmap(matrix_rsquared, 
+              column_title = heatmap_title, 
+              cluster_rows = T,
+              cluster_columns = F,
+              show_row_dend = T,
+              show_column_dend = F,
+              show_row_names = T,
+              show_column_names = T,
+              name = 'R squared',
+              clustering_method_rows = "ward.D2",
+              clustering_distance_rows = "euclidean",
+              col = colorRampPalette(RColorBrewer::brewer.pal(6,"GnBu"))(30), 
+              column_names_gp = grid::gpar(fontsize = fs1),
+              row_names_gp = grid::gpar(fontsize = fs1))
+  #cell_fun = function(j, i, x, y, width, height, fill) {
+  #grid.text(matrix_pvalue[i,j], x, y, gp = gpar(fontsize = fs2))}
+  if (print){
+    draw(hh)
+  }
+  
+  #return pcs
+  if (return.PC){
+    highest_PC <- which.max(abs(matrix_rsquared[rownames(matrix_rsquared) %in% 'Diagnosis',]))
+    eigengene <- pca.cov$rotation[,highest_PC] 
+    #rotations are the loadings - the eigenvectors of, in this case, the donors
+    # should not do $x, because that is the coordinate for PC# vs PC# plot 
+    meta_in<-cov.df%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+    meta_in$Eigengene<-eigengene
+    meta_in
+  }
+  
+  #plot boxplot
+  if (boxplot){
+   
+    bp1 <- eigen_plot(meta_in, meta_in$Diagnosis,meta_in$Eigengene, y_title=paste0('PC',highest_PC),plot_title=title_box)
+    plot(bp1)
+  }
+}
+#save(meta, count_filt,gencode, file = (file.path(filepath,"dream_diff_meta_count.RData")))
+#load("/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/dream_diff_meta_count.RData")
+
+mg_tpm<-read_tsv("new_Metadata/MiGA_ALL_TPM_Norm_Threshold_1.tsv")
+mg_tpm<-mg_tpm%>%distinct(mg_tpm$GENENAME, .keep_all=TRUE)
+mg_tpm<-mg_tpm%>%column_to_rownames("GENENAME")
+mg_tpm<-mg_tpm%>%dplyr::select(-c(GENEID))
+
+mg_meta<-read_tsv("new_Metadata/Final_MiGA_ALL_Meta.tsv")
+mg_meta$Diagnosis<-mg_meta$Final_Diagnosis
+mg_meta$Diagnosis<-gsub("CTR","Control",mg_meta$Diagnosis)
+
+mg_meta<-mg_meta%>%dplyr::select(-c(Final_Diagnosis))
+mg_meta[is.na(mg_meta)]<-"Unknown"
+
+
+mg_meta_select<-mg_meta%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+# just testingi the  biggest region to avoid duplication problem 
+mg_meta_select<-mg_meta_select%>%dplyr::filter(grepl("FR",Region))
+# duplicates <- mg_meta_select$Donor_ID[duplicated(mg_meta_select$Donor_ID)]
+# mg_meta_select$Duplicate <- as.factor(ifelse(mg_meta_select$Donor_ID %in% duplicates, "Yes", "No"))
+# 85 samples
+mg_tpm_select<-mg_tpm%>%dplyr::select(intersect(names(mg_tpm), mg_meta_select$Sample))
+mg_tpm_select<-mg_tpm_select[,order(colnames(mg_tpm_select))]
+
+mg_meta_select<-mg_meta_select%>%column_to_rownames("Sample")
+mg_meta_select<-mg_meta_select[order(row.names(mg_meta_select)),]
+
+if (all(rownames(mg_meta_select) == colnames(mg_tpm_select))) {
+  print("Column names of meta match row names of count_all.")
+} else {
+  print("Column names of meta do not match row names of count_all.")
+}
+
+
+covariate_matrix <- model.matrix(~ Cohort + Cause_of_Death+ Sex + Age + APOE +
+                                   PCT_RIBOSOMAL_BASES + PCT_MRNA_BASES + PCT_CODING_BASES,
+                                 data=mg_meta_select)
+mg_tpm_select_norm <- removeBatchEffect(mg_tpm_select, 
+                                          covariates = covariate_matrix)
+
+
+print("Microglia:Norm TPM: FR: 64 CTR/ 25 PD")
+mg_meta_select<-mg_meta_select%>%dplyr::select(-c(PCT_CORRECT_STRAND_READS,
+                                                  IGNORED_READS,CORRECT_STRAND_READS,
+                                                  INCORRECT_STRAND_READS,Donor_ID,Region))
+####################################################################################
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/MiGA_FR_Gene_Set_Combined_Plots.pdf'
+
+# Open the PDF device
+pdf(output_pdf, width = 8, height = 10)
+
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- mg_tpm_select_norm[rownames(mg_tpm_select_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(mg_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+dev.off()
+
+# Confirm message
+cat("All plots have been saved to", output_pdf, "\n")
+
+
+####################################################################################
+####################################################################################
+
+mg_meta_select<-mg_meta%>%dplyr::filter(grepl("Control|PD",Diagnosis))
+# just testingi the  biggest region to avoid duplication problem 
+mg_meta_select<-mg_meta_select%>%dplyr::filter(grepl("SN",Region))
+# duplicates <- mg_meta_select$Donor_ID[duplicated(mg_meta_select$Donor_ID)]
+# mg_meta_select$Duplicate <- as.factor(ifelse(mg_meta_select$Donor_ID %in% duplicates, "Yes", "No"))
+# 85 samples
+mg_tpm_select<-mg_tpm%>%dplyr::select(intersect(names(mg_tpm), mg_meta_select$Sample))
+mg_tpm_select<-mg_tpm_select[,order(colnames(mg_tpm_select))]
+
+mg_meta_select<-mg_meta_select%>%column_to_rownames("Sample")
+mg_meta_select<-mg_meta_select[order(row.names(mg_meta_select)),]
+
+if (all(rownames(mg_meta_select) == colnames(mg_tpm_select))) {
+  print("Column names of meta match row names of count_all.")
+} else {
+  print("Column names of meta do not match row names of count_all.")
+}
+
+
+covariate_matrix <- model.matrix(~ Cohort + Cause_of_Death+ Sex + Age + APOE +
+                                   PCT_RIBOSOMAL_BASES + PCT_MRNA_BASES + PCT_CODING_BASES,
+                                 data=mg_meta_select)
+mg_tpm_select_norm <- removeBatchEffect(mg_tpm_select, 
+                                        covariates = covariate_matrix)
+
+
+print("Microglia:Norm TPM: SN: 18 CTR/ 13 PD")
+mg_meta_select<-mg_meta_select%>%dplyr::select(-c(PCT_CORRECT_STRAND_READS,
+                                                  IGNORED_READS,CORRECT_STRAND_READS,
+                                                  INCORRECT_STRAND_READS,Donor_ID,Region))
+
+file_dir <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set'
+
+# Define the output PDF file
+output_pdf <- '/Users/hyominseo/Desktop/MiGA_Bulk/Figures/Gene_Set/MiGA_SN_Gene_Set_Combined_Plots.pdf'
+
+# Open the PDF device
+pdf(output_pdf, width = 8, height = 10)
+
+for (i in list.files('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset')){
+  gs <- read.xlsx(paste0('/Users/hyominseo/Desktop/MiGA_Bulk/Proteomics/Gene_set/Gene_subset/',i))
+  data <- mg_tpm_select_norm[rownames(mg_tpm_select_norm) %in% toupper(gs[,1]),]
+  plot_title <- gsub('.xlsx', '', i)
+  heatmap(mg_meta_select, data, print=T, return.PC=T, boxplot=T, heatmap_title=paste(gsub('.xlsx','',i),'PC-covariate Heatmap'), title_box=paste(gsub('.xlsx','',i),'PC-diagnosis boxplot'))
+}
+
+dev.off()
+
+# Confirm message
+cat("All plots have been saved to", output_pdf, "\n")
+

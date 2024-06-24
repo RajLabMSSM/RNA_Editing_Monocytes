@@ -1,0 +1,6 @@
+"0","ss_top<-read_tsv(""/Users/hyominseo/Desktop/RAJ_Patani/Batch_1/Toptable/Editing_Differential/nuclear_sfpqkd_scarmble_Toptable.tsv"",show_col_types = FALSE)"
+"0",""
+"0",""
+"0","writeLines(""td, th { padding : 6px } th { background-color : blue ; color : white; border : 1px solid white; } td { color : blue ; border : 1px solid blue }"", con = ""mystyle.css"")"
+"0","           "
+"0","knitr::kable(table(ss_top$DE_Direction), ""simple"", caption = ""Nuclear: Scramble- sfpqKD"", table.attr = ""style='width:100%;'"")"

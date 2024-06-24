@@ -1,0 +1,2 @@
+"0","dep_path<- read_tsv(""Pathway/DEP/Dream_MG_MiGA_Proteomics_Pathway.tsv"")"
+"0","knitr::kable(table(dep_path$DE_Direction), ""simple"", caption = ""DE Direction of DEPs detected in differential model"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

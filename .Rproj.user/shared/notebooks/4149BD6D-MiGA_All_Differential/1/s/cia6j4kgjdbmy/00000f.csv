@@ -1,0 +1,5 @@
+"0","qc_numeric<-mutate_all(meta_corr, function(x) as.numeric(as.factor(x)))"
+"0","qc_corr<- round(cor(qc_numeric),1)"
+"0","dis<-get_dist(qc_corr)"
+"0","cor_plot<-fviz_dist(dis, gradient = list(low = ""#00AFBB"", mid = ""white"", high = ""#FC4E07""), order=TRUE)"
+"0","cor_plot"

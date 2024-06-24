@@ -1,0 +1,151 @@
+---
+title: "Discovery Analysis"
+author: "Hyomin Seo"
+date: "June 2023-June 2024"
+output:
+  rmarkdown::html_document:
+   theme: cerulean
+   highlight: kate
+   code_folding: hide
+   toc: true
+   toc_float: true
+   df_print: paged
+   smooth_scroll: true
+   number_sections: false
+   self_contained: true
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("dplyr")
+#install.packages("tidyverse")
+library(tidyverse)
+library(dplyr)
+library(purrr)
+library(patchwork)
+library(limma)
+library(ggfortify)
+library(data.table)
+library(matrixStats)
+library(broom)
+library(gplots)
+library(ggplot2)
+library("ggpubr")
+library(ggplotify)
+library(ggplot2)
+#install.packages("BiocManager")
+#BiocManager::install("genefilter")
+library(genefilter)
+```
+
+
+```{r data_1, echo= TRUE, message = FALSE, eval=FALSE}
+qc_rna<-read_tsv("Discovery/Metadata/Raw/multiqc_picard_RnaSeqMetrics.txt")%>%
+   distinct(Sample, .keep_all = TRUE)
+
+meta<-read_tsv("Discovery/Metadata/Raw/metadata_stimulation.txt")
+meta$cohort<-c("PD_Stim")
+meta$APOE<-meta$apoe
+meta$GBA<-meta$gba
+meta$LRRK2<-meta$lrrk2
+meta$Monocyte_count<-meta$monocyte_count
+meta$Monocyte_viability<-meta$monocyte_viability
+
+colnames(meta)[colnames(meta) == "treatment"] <- "Stimulation"
+colnames(meta)[colnames(meta) == "gender"] <- "Sex"
+colnames(meta)[colnames(meta) == "sample"] <- "Sample"
+colnames(meta)[colnames(meta) == "lane"] <- "Batch"
+colnames(meta)[colnames(meta) == "diagnosis"] <- "Diagnosis"
+colnames(meta)[colnames(meta) == "age"] <- "Age"
+
+meta<-meta%>%mutate(Batch = case_when(
+     grepl("A",Batch) ~ "Batch_1",grepl("B",Batch) ~ "Batch_2"))
+
+meta<-merge(meta,qc_rna, by ="Sample")
+meta_165_check<-meta%>%dplyr::select(c(Sample, Stimulation, Batch, Diagnosis, Sex, Age,
+                                   MEDIAN_5PRIME_BIAS,MEDIAN_3PRIME_BIAS,MEDIAN_5PRIME_TO_3PRIME_BIAS))
+
+meta<-meta%>%dplyr::select(c(Sample,Stimulation, Batch, Diagnosis,Sex,Age, APOE,GBA,LRRK2,Monocyte_count, Monocyte_viability,PCT_R1_TRANSCRIPT_STRAND_READS,
+                       PCT_RIBOSOMAL_BASES,PCT_UTR_BASES,PCT_INTRONIC_BASES,
+                       PCT_CODING_BASES,PCT_INTERGENIC_BASES,PCT_MRNA_BASES,
+                       PCT_USABLE_BASES,PF_ALIGNED_BASES,PF_NOT_ALIGNED_BASES))%>%
+   mutate(Alignment_Rate = PF_ALIGNED_BASES/(PF_ALIGNED_BASES+PF_NOT_ALIGNED_BASES))%>%
+  dplyr::select(-c(PF_ALIGNED_BASES,PF_NOT_ALIGNED_BASES))
+
+
+meta<-meta%>%arrange(meta, rownames(meta))
+write_tsv(meta,"Discovery/Metadata/165_Monocytes_Metadata.tsv")
+```
+
+```{r data_2, echo= TRUE, message = FALSE, eval=FALSE}
+####################################### ####################### ############## 
+editing_type<-read_tsv("Discovery/Jacusa/Processed_Editing_Type.tsv")
+editing_ag_condition<-editing_type%>%dplyr::filter(grepl("A:G", Editing_Index))
+editing_ct_condition<-editing_type%>%dplyr::filter(grepl("C:T", Editing_Index))
+
+make_editing_condition<-function(editing_type_in,tsv_name){
+  #editing_condition<-editing_ct_condition
+  editing_condition<-editing_type_in%>% dplyr::select(-c("Editing_Index","Mean"))#,"ESid"))
+  editing_condition<-as.data.frame(t(editing_condition))
+  colnames(editing_condition) <- editing_condition[1, ]
+  editing_condition <- editing_condition[-1, ]
+  editing_condition<-editing_condition %>%
+    mutate_all(as.numeric)
+  editing_condition<-editing_condition%>%rownames_to_column("Sample")
+  editing_condition$Stimulation <- str_split_fixed(editing_condition$Sample, "-", 3)[,3]
+  #editing_condition<-editing_condition%>%dplyr::select(-c("Sample"))
+  #editing_condition$Mean <- rowMeans(editing_condition[, -which(names(editing_condition) == "Stimulation|Sample")])
+  editing_condition$Mean <- rowMeans(editing_condition[, !(names(editing_condition) %in% c("Stimulation", "Sample"))])
+  editing_condition$Sample <-  sub("-(Basal|LPS|IFNb)$", "", editing_condition$Sample)
+  #editing_condition<-editing_condition%>%dplyr::select(c(Sample,Stimulation, Mean, everything(.)))
+  editing_condition<-editing_condition%>%dplyr::select(c(Sample,Stimulation, Mean, everything(.)))
+  #editing_condition<-as.data.frame(t(editing_condition))
+  write_tsv(editing_condition,tsv_name)
+}
+
+editing_ag_condition<-make_editing_condition(editing_ag_condition,"Discovery/Jacusa/Processed_AG_Editing.tsv")
+editing_ct_condition<-make_editing_condition(editing_ct_condition,"Discovery/Jacusa/Processed_CT_Editing.tsv")
+####################################### ####################### ##############
+```
+
+
+```{r data_3, echo= TRUE, message = FALSE, eval=FALSE}
+tpm<-read_tsv("Discovery/Metadata/Gene_Expression/Processed_Normalized_TPM.tsv")
+names(tpm) <- gsub(x = names(tpm), pattern = "\\.", replacement = "-")
+
+gencode<-read_tsv("Discovery/RData/gencode.v30.tx2gene.tsv")
+
+a_genes<-gencode%>%dplyr::filter(grepl("ADAR|APOBEC",GENENAME))%>%
+  distinct(GENENAME, .keep_all=TRUE)%>%
+  dplyr::select(-c(TXNAME))
+tpm<-tpm%>%dplyr::filter(GENEID %in% a_genes$GENEID)
+tpm<-merge(tpm, a_genes, by="GENEID")
+
+adar_tpm<-tpm%>%dplyr::filter(grepl("ADAR",GENENAME))%>%
+  dplyr::select(GENENAME, GENEID, everything(.))
+adar_tpm<-adar_tpm%>%pivot_longer(where(is.numeric), names_to="Sample" , values_to = "Norm_TPM")
+
+adar_tpm[c('chr','num','Stimulation')]<-str_split_fixed(adar_tpm$Sample, "-",3)
+adar_tpm<-adar_tpm%>%dplyr::select(-c(chr,num))
+
+apob_tpm<-tpm%>%dplyr::filter(grepl("APOBEC",GENENAME))%>%
+  dplyr::select(GENENAME, GENEID, everything(.))
+apob_tpm<-apob_tpm%>%pivot_longer(where(is.numeric), names_to="Sample" , values_to = "Norm_TPM")
+
+apob_tpm[c('chr','num','Stimulation')]<-str_split_fixed(apob_tpm$Sample, "-",3)
+apob_tpm<-apob_tpm%>%dplyr::select(-c(chr,num))
+
+filepath<-file.path("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Discovery/RData")
+save(adar_tpm,apob_tpm,file= file.path(filepath,"165_Stim_A_Genes_TPM.RData"))
+
+a_genes_meta<-rbind(adar_tpm,apob_tpm)
+a_genes_meta<-a_genes_meta%>%dplyr::select(c(GENENAME, Sample, Norm_TPM))
+a_genes_meta<-a_genes_meta%>%pivot_wider(names_from = GENENAME, values_from =Norm_TPM)
+meta_all<-merge(meta, a_genes_meta, by ="Sample")
+write_tsv(meta_all, "Discovery/Metadata/165_Monocytes_Metadata_All.tsv")
+```
+
+
+

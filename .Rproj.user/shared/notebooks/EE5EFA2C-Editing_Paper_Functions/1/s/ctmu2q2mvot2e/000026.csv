@@ -1,0 +1,4 @@
+"0","  if(cohort_in == ""M1_IFNb""){deg_des_in<-read_tsv(""/Users/hyominseo/Desktop/RAJ_RNA_Editing/All_Table/All_DES_DEG/Discovery_IFN_DES_DEG_All.tsv"")}
+"
+"2","Error: object 'cohort_in' not found
+"

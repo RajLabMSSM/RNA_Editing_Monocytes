@@ -1,0 +1,332 @@
+"0","#install.packages('BiocManager')"
+"0","#BiocManager::install(""satuRn"")"
+"0","#BiocManager::install(""edgeR"")"
+"0","#install.packages(""dplyr"")"
+"0","#install.packages(""tidyverse"")"
+"0","library(tidyverse)"
+"2","── [1mAttaching core tidyverse packages[22m ──────────────────────────────── tidyverse 2.0.0 ──
+[32m✔[39m [34mdplyr    [39m 1.1.4     [32m✔[39m [34mreadr    [39m 2.1.4
+[32m✔[39m [34mforcats  [39m 1.0.0     [32m✔[39m [34mstringr  [39m 1.5.1
+[32m✔[39m [34mggplot2  [39m 3.5.0     [32m✔[39m [34mtibble   [39m 3.2.1
+[32m✔[39m [34mlubridate[39m 1.9.3     [32m✔[39m [34mtidyr    [39m 1.3.0
+[32m✔[39m [34mpurrr    [39m 1.0.2     "
+"2","── [1mConflicts[22m ────────────────────────────────────────────────── tidyverse_conflicts() ──
+[31m✖[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+[31m✖[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+[36mℹ[39m Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors"
+"0","library(BiocManager)"
+"2","Bioconductor version 3.16 (BiocManager 1.30.22), R 4.2.2 (2022-10-31)
+"
+"2","Bioconductor version '3.16' is out-of-date; the current release version '3.19' is
+  available with R version '4.4'; see https://bioconductor.org/install
+"
+"0","library(satuRn) "
+"2","
+"
+"0","library(SummarizedExperiment)"
+"2","Loading required package: MatrixGenerics
+"
+"2","Loading required package: matrixStats
+"
+"2","
+Attaching package: ‘matrixStats’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    count
+
+"
+"2","
+Attaching package: ‘MatrixGenerics’
+
+"
+"2","The following objects are masked from ‘package:matrixStats’:
+
+    colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse, colCounts,
+    colCummaxs, colCummins, colCumprods, colCumsums, colDiffs, colIQRDiffs,
+    colIQRs, colLogSumExps, colMadDiffs, colMads, colMaxs, colMeans2,
+    colMedians, colMins, colOrderStats, colProds, colQuantiles, colRanges,
+    colRanks, colSdDiffs, colSds, colSums2, colTabulates, colVarDiffs,
+    colVars, colWeightedMads, colWeightedMeans, colWeightedMedians,
+    colWeightedSds, colWeightedVars, rowAlls, rowAnyNAs, rowAnys,
+    rowAvgsPerColSet, rowCollapse, rowCounts, rowCummaxs, rowCummins,
+    rowCumprods, rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
+    rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
+    rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks, rowSdDiffs,
+    rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars, rowWeightedMads,
+    rowWeightedMeans, rowWeightedMedians, rowWeightedSds, rowWeightedVars
+
+"
+"2","Loading required package: GenomicRanges
+"
+"2","Loading required package: stats4
+"
+"2","Loading required package: BiocGenerics
+"
+"2","
+Attaching package: ‘BiocGenerics’
+
+"
+"2","The following objects are masked from ‘package:lubridate’:
+
+    intersect, setdiff, union
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    combine, intersect, setdiff, union
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep, grepl,
+    intersect, is.unsorted, lapply, Map, mapply, match, mget, order, paste,
+    pmax, pmax.int, pmin, pmin.int, Position, rank, rbind, Reduce, rownames,
+    sapply, setdiff, sort, table, tapply, union, unique, unsplit, which.max,
+    which.min
+
+"
+"2","Loading required package: S4Vectors
+"
+"2","
+Attaching package: ‘S4Vectors’
+
+"
+"2","The following objects are masked from ‘package:lubridate’:
+
+    second, second<-
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    first, rename
+
+"
+"2","The following object is masked from ‘package:tidyr’:
+
+    expand
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+"
+"2","Loading required package: IRanges
+"
+"2","
+Attaching package: ‘IRanges’
+
+"
+"2","The following object is masked from ‘package:lubridate’:
+
+    %within%
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    collapse, desc, slice
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    reduce
+
+"
+"2","Loading required package: GenomeInfoDb
+"
+"2","Loading required package: Biobase
+"
+"2","Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with 'browseVignettes()'. To
+    cite Bioconductor, see 'citation(""Biobase"")', and for packages
+    'citation(""pkgname"")'.
+
+"
+"2","
+Attaching package: ‘Biobase’
+
+"
+"2","The following object is masked from ‘package:MatrixGenerics’:
+
+    rowMedians
+
+"
+"2","The following objects are masked from ‘package:matrixStats’:
+
+    anyMissing, rowMedians
+
+"
+"0","library(edgeR)"
+"2","Loading required package: limma
+"
+"2","
+Attaching package: ‘limma’
+
+"
+"2","The following object is masked from ‘package:BiocGenerics’:
+
+    plotMA
+
+"
+"0","library(dplyr)"
+"0","library(purrr)"
+"0","library(patchwork)"
+"0","library(limma)"
+"0","library(ggfortify)"
+"0","library(data.table)"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"2","data.table 1.14.10 using 1 threads (see ?getDTthreads).  Latest news: r-datatable.com
+"
+"2","**********
+This installation of data.table has not detected OpenMP support. It should still work but in single-threaded mode.
+This is a Mac. Please read https://mac.r-project.org/openmp/. Please engage with Apple and ask them for support. Check r-datatable.com for updates, and our Mac instructions here: https://github.com/Rdatatable/data.table/wiki/Installation. After several years of many reports of installation problems on Mac, it's time to gingerly point out that there have been no similar problems on Windows or Linux.
+**********
+"
+"2","
+Attaching package: ‘data.table’
+
+"
+"2","The following object is masked from ‘package:SummarizedExperiment’:
+
+    shift
+
+"
+"2","The following object is masked from ‘package:GenomicRanges’:
+
+    shift
+
+"
+"2","The following object is masked from ‘package:IRanges’:
+
+    shift
+
+"
+"2","The following objects are masked from ‘package:S4Vectors’:
+
+    first, second
+
+"
+"2","The following objects are masked from ‘package:lubridate’:
+
+    hour, isoweek, mday, minute, month, quarter, second, wday, week, yday,
+    year
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    transpose
+
+"
+"0","library(matrixStats)"
+"0","library(broom)"
+"0","library(ComplexHeatmap)"
+"2","Loading required package: grid
+"
+"2","========================================
+ComplexHeatmap version 2.14.0
+Bioconductor page: http://bioconductor.org/packages/ComplexHeatmap/
+Github page: https://github.com/jokergoo/ComplexHeatmap
+Documentation: http://jokergoo.github.io/ComplexHeatmap-reference
+
+If you use it in published research, please cite either one:
+- Gu, Z. Complex Heatmap Visualization. iMeta 2022.
+- Gu, Z. Complex heatmaps reveal patterns and correlations in multidimensional 
+    genomic data. Bioinformatics 2016.
+
+
+The new InteractiveComplexHeatmap package can directly export static 
+complex heatmaps into an interactive Shiny app with zero effort. Have a try!
+
+This message can be suppressed by:
+  suppressPackageStartupMessages(library(ComplexHeatmap))
+========================================
+
+"
+"0","library(limma)"
+"0","library(variancePartition)"
+"2","Loading required package: BiocParallel
+"
+"2","
+Attaching package: ‘variancePartition’
+
+"
+"2","The following object is masked from ‘package:limma’:
+
+    topTable
+
+"
+"0","library(rlang)"
+"2","
+Attaching package: ‘rlang’
+
+"
+"2","The following object is masked from ‘package:data.table’:
+
+    :=
+
+"
+"2","The following object is masked from ‘package:Biobase’:
+
+    exprs
+
+"
+"2","The following objects are masked from ‘package:purrr’:
+
+    %@%, flatten, flatten_chr, flatten_dbl, flatten_int, flatten_lgl,
+    flatten_raw, invoke, splice
+
+"
+"0","library(gplots)"
+"2","
+Attaching package: ‘gplots’
+
+"
+"2","The following object is masked from ‘package:IRanges’:
+
+    space
+
+"
+"2","The following object is masked from ‘package:S4Vectors’:
+
+    space
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    lowess
+
+"
+"0","library(ggplot2)"
+"0","library(""ggpubr"")"
+"0","library(factoextra)"
+"2","Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+"
+"0","library(ComplexHeatmap)"
+"0","library(ggplotify)"
+"0","library(ggplot2)"
+"0","#install.packages(""wesanderson"")"
+"0","library(wesanderson)"
+"0","library(ggrepel)"
+"0","library(gprofiler2)"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"0","  "

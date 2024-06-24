@@ -1,0 +1,1078 @@
+---
+title: "Alterantion Supp Plot"
+date: "August 2023"
+author: "Hyomin Seo"
+output:
+  rmarkdown::html_document:
+   theme: cerulean
+   highlight: kate
+   code_folding: hide
+   toc: true
+   toc_float: true
+   df_print: paged
+   smooth_scroll: true
+   number_sections: false
+   self_contained: true
+---
+
+```{r setup, include=FALSE}
+#install.packages('BiocManager')
+#BiocManager::install("limma")
+#BiocManager::install("edgeR")
+#install.packages("dplyr")
+#install.packages("tidyverse")
+#BiocManager::install("MatrixGenerics")
+library(lattice)
+library(ggplot2)
+library(tidyverse)
+library(BiocManager)
+library(satuRn) 
+library(SummarizedExperiment)
+library(edgeR)
+library(dplyr)
+library(purrr)
+library(patchwork)
+library(limma)
+library(ggfortify)
+library(data.table)
+library(matrixStats)
+library(broom)
+library(ComplexHeatmap)
+library(limma)
+library(variancePartition)
+library(rlang)
+library(gplots)
+library(ggplot2)
+library("ggpubr")
+library(factoextra)
+library(ComplexHeatmap)
+library(ggplotify)
+library(ggplot2)
+library(wesanderson)
+library(gprofiler2)
+#install.packages("ggrepel")
+library(ggrepel)
+#BiocManager::install("EDASeq")
+library(EDASeq)
+#install.packages("ggeasy")
+library(ggeasy)
+```
+
+
+
+### Efhymiou data
+
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+meta<- read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Alternative_Metadata_All.tsv")
+
+meta_long<-meta%>%dplyr::select(-c(Diff_start,summed_mean,total_reads,RIN,uniquely_mapped_percent))%>%
+  pivot_longer(where(is.numeric),names_to="metric", values_to="Value")
+
+anno_all<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Annotation_All.tsv")
+anno_type<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Annotation_Type.tsv")
+editing_all<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Editing_All.tsv")
+editing_type<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Editing_Type.tsv")
+
+editing_ag_condition<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_AG_Editing.tsv")
+editing_ct_condition<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_CT_Editing.tsv")
+
+load("/Users/hyominseo/Desktop/RAJ_Microglia/Efthymiou/RData/Efthymiou_A_Genes_TPM.RData")
+
+gencode<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData/gencode.v30.tx2gene.tsv")%>%
+  distinct(GENEID, .keep_all=TRUE)%>%dplyr::select(-c("TXNAME"))
+
+anno_gene_name<-anno_type%>%dplyr::select(-ESid)
+anno_gene_name$ESid<-anno_gene_name$ESid2
+anno_gene_name<-anno_gene_name%>%dplyr::select(c(ESid, Gene))
+```
+
+
+
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+inplot_size = 4
+point_size= 2
+axis_size = 12
+ticks_size =12
+title_size = 12
+text_size = 12
+label_text_size =15
+table_text_size =5
+anno_legend_size= 3
+legend_size = 3
+label_margin = 10
+
+batch_color<- c("Batch_1"="#9999FF", "Batch_2"="#FF3333")
+
+
+stim_color <- c("Basal" = "#c5c5c5", "LPS" = "#FFA800", 
+                 "IFNb" = "#3A867F","IFNg" = "#3A867F")
+
+all_index_color <- c("A:C" = "#999999", "A:G" = "#F12C17","A:T" = "#999999",
+                   "C:A" = "#999999","C:G" = "#999999","C:T" = "#215BEC",
+                   "G:A" = "#215BEC","G:C" = "#999999","G:T" = "#999999",
+                   "T:A" = "#999999","T:C" = "#F12C17","T:G" = "#999999")
+
+anno_palette <- c( "exonic" = "#F78520","intronic" = "#648fff",
+                   "ncRNA\nexonic" = "#fe6100","ncRNA\nintronic" = "#fe6100",
+                  "ncRNA_exonic" = "#fe6100","ncRNA_intronic" = "#fe6100",
+                  "ncRNA" = "#fe6100",
+                  
+                  "upstream" = "#785ef0","downstream" = "#785ef0",
+                  "intergenic" = "#785ef0",
+                  
+                  "splicing" = "#dc267f",
+                  "UTR3" = "#ffb000",
+                  "UTR5" = "#ff9da7",
+                  
+                  "nonsynonymous_SNV" = "#40B5AD",
+                  "nonsynonymous\nSNV" = "#40B5AD",
+                  
+                  "startloss"="#ff6db6",
+                  "stoploss" ="#ff6db6",
+                  "stopgain" ="#490092", 
+                  
+                  "synonymous\nSNV" ="#F78520",
+                  "synonymous_SNV" ="#F78520",
+                  
+                  "Alu" ="#40B5AD", "LINE" ="#F78520",
+                  "None"="#D3D3D3", "Other" ="#9c755f",
+                  "Simple repeat"= "#D3D3D3", 
+                  
+                  "Known" = "#009292", "Novel" = "#D3D3D3")
+
+index_color <- c("A:G_DE" = "#F12C17","C:T_DE" = "#215BEC","Non_DE"="#D3D3D3")
+
+cohort_color<-c("Replication" = "#db7093", "Discovery"="#009292")
+
+direction_color <- c("UP" = "#648FFF","DOWN" = "#5A45BB","FALSE"="#D3D3D3")
+
+combined_color<-c("DE_Both"="#D81B60", "NA_Both"= "#D3D3D3",
+                  "DE_Discovery" = "#1E88E5", "DE_Replication" = "#FFC107",
+                  "DE_Alternation"= "#FFC107")
+```
+
+
+
+### PCA {.tabset .tabset-fade .tabset-pills}
+
+```{r stim_9,echo= TRUE, message = FALSE,warning=FALSE, eval=TRUE}
+res<-function(df_in, index){
+  df_in<-df_in%>%dplyr::filter(grepl(index, Editing_Index))
+  df_in<-df_in%>%dplyr::select(-c(ESid, Editing_Index, Mean))
+  index_res<-as.data.frame(t(df_in))
+  index_res<-index_res[-1,]
+  index_res<-index_res[,apply(index_res, 2, var, na.rm = TRUE) !=0]
+  index_res<-mutate_all(index_res, function(x) as.numeric(as.character(x)))
+  index_res<-index_res[order(row.names(index_res)), ]
+  index_res
+}
+
+pca<-function(index_res){
+  index_pca<-prcomp(index_res, scale.=TRUE, center=TRUE)
+  index_pca<-index_pca$x[,1:10]
+  index_pca<-tibble::rownames_to_column(as.data.frame(index_pca),'sample')
+  index_pca
+}
+```
+
+```{r stim_10,echo= TRUE, message = FALSE,warning=FALSE, eval=FALSE}
+filepath<-file.path("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData")
+
+ct_res<-res(editing_type, "C:T")
+ag_res<-res(editing_type, "A:G")
+save(ct_res,ag_res,file =(file.path(filepath,"res.RData")))
+
+ct_pca<-pca(ct_res)
+ag_pca<-pca(ag_res)
+save(ct_pca, ag_pca, file = (file.path(filepath,"pca.RData")))
+```
+
+```{r stim_11,echo= TRUE, message = FALSE,warning=FALSE, eval=TRUE}
+load("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData/res.RData")
+
+meta_select<- read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Alternative_Metadata_All.tsv")%>%
+  dplyr::select(-c(Genewiz_ID,Eve_sample))%>%
+  column_to_rownames("Sample")
+
+meta_select<-meta_select%>%dplyr::filter(rownames(.) %in% rownames(ct_res))
+meta_select<-meta_select[order(row.names(meta_select)), ]
+
+covariates<-colnames(meta_select)
+n_var <- length(covariates)
+
+indx<-sapply(meta_select, is.character)
+# assigning factors instead of categorical name values
+meta_select[indx]<-lapply(meta_select[indx],function(x) as.factor(x))
+
+matrix_rsquared <- matrix(NA, nrow = n_var, ncol = 5) 
+matrix_pvalue <- matrix(NA, nrow = n_var, ncol = 5) 
+```
+
+```{r stim_12,echo= TRUE, message = FALSE,warning=FALSE, eval=TRUE}
+load("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData/pca.RData")
+
+pc_matrix<-function(index_pca_in){
+  index_pca<-index_pca_in%>%tibble::column_to_rownames("sample")
+  index_index_pca<-index_pca[,1:5]
+  for (x in 1:n_var){
+    for(y in 1:5){
+      matrix_rsquared[x,y]<-summary(lm(unlist(index_index_pca[,y])~
+                                         as.matrix(meta_select[,covariates[x]])))$adj.r.squared}
+    }
+  matrix_rsquared
+  }
+
+```
+
+############################ PCA PLOT ##########################################
+
+```{r stim_13a,echo= FALSE, message = FALSE,warning=FALSE, eval=TRUE}
+############################ PCA PLOT ##########################################
+pc_heatmap<-function( index_pca_in, plot_title ){
+  index_pca<-index_pca_in%>%tibble::column_to_rownames("sample")
+  index_index_pca<-index_pca[,1:5]
+  index_pc_matrix<-pc_matrix(ct_pca)
+  rownames(index_pc_matrix)<-covariates
+  colnames(index_pc_matrix)<-colnames(index_index_pca)
+  range<-max(abs(index_pc_matrix))
+  
+  pc_heatmap<-pheatmap(index_pc_matrix,
+                       labels_col = colnames(index_pc_matrix),
+                       display_numbers = FALSE,number_color = "white", 
+                       breaks = seq(-range, range,length.out =100),
+                       fontsize = 8, color = hcl.colors(80,"BrBg"),
+                       cluster_rows=F,cluster_cols=F, legend=TRUE, 
+                       main =plot_title,fontface = "plain", border_color = "black")
+  pc_heatmap
+}
+
+ct_heatmap<-pc_heatmap(ct_pca, "CT Editing Index PCA 5")
+ag_heatmap<-pc_heatmap(ag_pca, "AG Editing Index PCA 5")
+ct_plot<-as.ggplot(ct_heatmap, scale=1)
+ag_plot<-as.ggplot(ag_heatmap, scale=1)
+```
+
+#################################################################################
+
+### Variance Partition {.tabset .tabset-fade .tabset-pills}
+
+```{r vp_1, echo= TRUE, message = FALSE, warning = FALSE, eval = FALSE}
+res_norm<-function(index_res){
+  res_norm<-log2(index_res + 0.001)
+  res_norm<-as.data.frame(t(res_norm))
+  res_norm <- res_norm[,match(colnames(res_norm),rownames(meta_select))]
+  res_norm
+  }
+
+# no NA value in neither META nor RES generating normalized editing matrix 
+ct_res_norm<-res_norm(ct_res)
+ag_res_norm<-res_norm(ag_res)
+
+# Final formula the same for both index
+form<- ~  (1|Stimulation) + (1|Genotype)+ ADAR+ADARB1+APOBEC3G + APOBEC3F + APOBEC3D+PCT_RIBOSOMAL_BASES
+
+filepath<-file.path("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData")
+ct_varPart<- fitExtractVarPartModel(ct_res_norm, form,meta_select)
+ag_varPart<- fitExtractVarPartModel(ag_res_norm, form,meta_select)
+save(ct_varPart, ag_varPart, file = (file.path(filepath,"Efthymiou_varPart.RData")))
+```
+
+
+############################ VarP PLOT ##########################################
+```{r stim_13a,echo= FALSE, message = FALSE,warning=FALSE, eval=TRUE}
+load("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData/Efthymiou_varPart.RData")
+
+varPart_plot<-function(varPart_in, plot_title){
+  text_size =7
+  varPart<-sortCols(varPart_in)
+  varPart_plot<-plotVarPart(varPart, label.angle=20)+
+  labs(y = "", title = plot_title)+theme_classic()+
+     theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size-3,angle =20, hjust=1),
+          axis.text.y = element_text(size = axis_size,color='black'),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-5,-5,-5,-5))+
+    theme(legend.position = "none")
+  varPart_plot
+}
+
+ct_varPart_plot<-varPart_plot(ct_varPart, "C:T Editing Index")
+ag_varPart_plot<-varPart_plot(ag_varPart, "A:G Editing Index")
+```
+###############################################################################
+
+
+
+
+###############################################################################
+############################ QC EXP PLOT ######################################
+###############################################################################
+```{r stim_5,  echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+qc_plot<-function(df_in, x_in,Stimulation_Status, y_in){
+  qc_plot<-ggplot(data=df_in,aes(x=x_in, y=y_in))+
+    geom_jitter(aes(colour=Stimulation_Status), alpha =0.6, width= 0.25, size = point_size+1)+
+    geom_boxplot(fill=NA,outlier.shape=NA)+#stat_compare_means(label = "p.signif",label.x =1)+
+    labs(x = "", y = "")+theme_classic()+
+     theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size),
+          axis.text.y = element_text(size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "top")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  qc_plot
+
+}
+
+adar_tpm_plot<-qc_plot(adar_tpm, adar_tpm$GENENAME, adar_tpm$Stimulation, adar_tpm$Norm_TPM)+
+    labs(x = "", y = "Norm_TPM")+
+    scale_color_manual(values = stim_color)+
+  ggeasy::easy_rotate_x_labels(angle = 20, side = c("right"))
+                     
+apob_tpm_plot<-qc_plot(apob_tpm, apob_tpm$GENENAME,  apob_tpm$Stimulation,apob_tpm$Norm_TPM)+
+    labs(x = "", y = "Norm_TPM")+
+    scale_color_manual(values = stim_color)+
+  ggeasy::easy_rotate_x_labels(angle = 20, side = c("right"))
+
+tpm_plots<-ggarrange(adar_tpm_plot,apob_tpm_plot,
+                     ncol=2,common.legend=TRUE)
+
+qc_exp_plots<-ggarrange(tpm_plots,labels=c("A"),
+                      font.label=list(color="black",size= label_text_size))
+# qc_exp_plots<-annotate_figure(qc_exp_plots, 
+#                 top=text_grob("Alternative Cohort iMGL: QC and Expression",
+#                               color = "black", face = "bold", size =title_size+2))
+
+### PCA Heatmap
+pc_plots<-ggarrange(ag_plot, ct_plot,labels=c("B","C"),
+                   font.label=list(color="black",size= label_text_size),
+                   ncol=2)
+
+### VarP
+varp_plots<-ggarrange(ag_varPart_plot, ct_varPart_plot,labels=c("D","E"),
+                   font.label=list(color="black",size= label_text_size), ncol=2)
+
+### ALL QC
+qc_plots<-ggarrange(qc_exp_plots, pc_plots,varp_plots, nrow=3)
+
+ggsave(plot=qc_plots,filename="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Figure/Supp_Figure/Alternation_Supp.jpg",
+       width = 12, height = 12,dpi = 600)
+```
+
+
+```{r fig_1, echo=FALSE, fig.cap="Stimulated_Microglia: QC and Expression", out.width = '100%'}
+knitr::include_graphics("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Figure/Supp_Figure/Alternation_Supp.jpg")
+```
+
+###############################################################################
+############################ RNA PIPE PLOT ####################################
+###############################################################################
+
+```{r stim_6,echo= TRUE, message = FALSE,warning=FALSE,eval=TRUE}
+inplot_size = 3.5
+axis_size = 14
+ticks_size =14
+title_size = 15
+point_size = 5
+text_size = 14
+
+fun_mean <- function(x){
+  return(data.frame(y=round(mean(x),3),label=mean(round(x,3),na.rm=T)))}
+
+bar_plot<-function(df_in, x_in, fill_in, nudge_y_in, plot_title){
+  bar_plot<-ggplot(df_in, mapping = aes(x = x_in , fill = fill_in))+
+    geom_bar(stat = 'count', nudge_y = nudge_y_in,show.legend = FALSE)+
+   geom_text(aes(label = ..count..), nudge_y = nudge_y_in,stat = 'count', size = inplot_size)+
+    scale_fill_manual(values = all_index_color)+
+    labs(x = "", y = "Site Count", title = plot_title)+
+    theme(legend.position = "none")+theme_bw()+
+    theme(axis.title = element_text(size = axis_size))+
+    theme(axis.text = element_text(size= ticks_size))+
+    theme(plot.title = element_text(size = title_size-1,  hjust=0.5))
+  bar_plot
+}
+
+box_plot<-function(df_in, x_in,y_in,fill_in, plot_title){
+  box_plot<-ggplot(df_in,aes(x = x_in , y= y_in,fill = x_in))+
+    geom_boxplot()+
+    scale_fill_manual(values = stim_color)+
+    stat_summary(fun.y=mean, colour="black", geom="point", 
+               shape=20, size=point_size, show.legend=TRUE)+
+    stat_summary(aes(label=round(..y..,3)),fun.data = fun_mean, geom="text", 
+               size=inplot_size, face="blod",vjust=2)+
+    labs(x = "", y = "Editing Rate", title = plot_title)+
+    theme(legend.position = "none")+theme_bw()+
+    theme(axis.title = element_text(size = axis_size))+
+    theme(axis.text = element_text(size= ticks_size))+
+    theme(plot.title = element_text(size = title_size-1, hjust=0.5))
+  box_plot
+}
+
+anno_plot<-function(df_in, x_in,fill_in,fill_title, plot_title){
+  anno_plot<-ggplot(df_in, mapping = aes(x = x_in))+
+    geom_bar(aes(fill = fill_in, position ="fill"))+
+    scale_fill_manual(values=anno_palette)+
+    labs(x = "", y = "Site Count",fill = fill_title)+
+    theme(plot.title = element_text(size = title_size, face = 'bold', hjust=0.5))+
+    theme(legend.position = "none")+theme_bw()+
+    theme(axis.title = element_text(size = axis_size))+
+    theme(axis.text = element_text(size= ticks_size))
+  anno_plot
+}
+
+```
+
+###############################################################################
+############################ RNA PIPE PLOT ####################################
+###############################################################################
+
+```{r stim_7,echo= FALSE, message = FALSE,warning=FALSE, eval=TRUE}
+anno_all_plot<-bar_plot(anno_all, anno_all$Editing_Index,anno_all$Editing_Index,
+                        270, "Editing Sites Counts for All Indexes")
+anno_type_plot<-bar_plot(anno_type,anno_type$Editing_Index,anno_type$Editing_Index,
+                         -300, "Editing Sites Counts for Two Indexes")
+
+count_plots<-ggarrange(anno_all_plot, anno_type_plot, labels=c("A","B"),
+                      font.label=list(color="black",size= text_size),
+                      ncol=2)
+
+editing_ag_condition_plot<-box_plot(editing_ag_condition, editing_ag_condition$Stimulation,
+                                 editing_ag_condition$Mean,editing_ag_condition$Stimulation, 
+                                 "A/G Index: Editing Rate by Stimulation")+theme(legend.position = "none")
+
+editing_ct_condition_plot<-box_plot(editing_ct_condition, editing_ct_condition$Stimulation,
+                                 editing_ct_condition$Mean,editing_ct_condition$Stimulation, 
+                                 "C/T Index: Editing Rate by Stimulation")+theme(legend.position = "none")
+
+type_plots<-ggarrange(editing_ag_condition_plot, editing_ct_condition_plot, labels=c("C","D"),
+                      font.label=list(color="black",size= text_size),
+                      ncol=2)
+anno_type$Location<-sub("_", "\n", anno_type$Location) 
+loc_plot<-anno_plot(anno_type, anno_type$Editing_Index,anno_type$Location,
+                    "Location", "Location")
+anno_type_mut<-anno_type%>%dplyr::filter(!grepl("unknown",Mutation))
+anno_type_mut$Mutation<-sub(" ", "\n", anno_type_mut$Mutation) 
+mut_plot<-anno_plot(anno_type_mut, anno_type_mut$Editing_Index,
+                    anno_type_mut$Mutation,"Known Mutation", "Known Mutation")
+anno_type$rep_type<-sub(" ", "\n", anno_type$rep_type) 
+rep_plot<-anno_plot(anno_type, anno_type$Editing_Index,anno_type$rep_type,
+                    "Repetition", "Repetition")
+
+anno_plots<-ggarrange(loc_plot,mut_plot,rep_plot, labels=c("E","F","G"),
+                      font.label=list(color="black",size= text_size),
+                      ncol=3)
+
+pipeline_plots<-ggarrange(count_plots, type_plots,anno_plots, nrow=3)
+
+pipeline_plots<-annotate_figure(pipeline_plots,
+                top=text_grob("Efthymiou iMGLs: RNA Editing Rate Analysis",
+                              color = "black", face = "bold", size =13))
+ggsave(plot=pipeline_plots,filename="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Figure/Alternation_RNA_Editing_Rate_Analysis.jpg",width = 12, height = 12,dpi = 600)
+```
+
+
+```{r fig_2, echo=FALSE, fig.cap="Stimulated_Monocytes_RNA_Editing_Rate_Analysis", out.width = '100%'}
+knitr::include_graphics("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Figure/Alternation_RNA_Editing_Rate_Analysis.jpg")
+```
+
+
+
+### Differential (FDR 0.05)
+
+```{r limma_1, echo= TRUE, message = FALSE, warning=FALSE, eval= TRUE}
+meta<- read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Efthymiou_Metadata_All.tsv")
+meta_ifng<-meta[grep("IFNg|Basal", meta$Stimulation),]
+meta_lps<-meta[grep("LPS|Basal", meta$Stimulation),]
+
+ifng_ed <- editing_type %>%dplyr::select(one_of(c(meta_ifng$Sample, "ESid")))
+ifng_ed<-ifng_ed%>%column_to_rownames("ESid")
+ifng_ed<-mutate_all(ifng_ed, function(x) as.numeric(as.character(x)))
+
+lps_ed<- editing_type %>%dplyr::select(one_of(c(meta_lps$Sample, "ESid")))
+lps_ed<-lps_ed%>%column_to_rownames("ESid")
+lps_ed<-mutate_all(lps_ed, function(x) as.numeric(as.character(x)))
+```
+
+
+```{r limma_2, echo=TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+
+run_diff<-function(cohort_in,model_in,tsv_title){
+  # Subsetting GENEIDs with TPM>1 
+  if(cohort_in == "IFNg"){meta_in <-meta_ifng}
+  if(cohort_in == "LPS"){meta_in <-meta_lps}
+  
+  meta_in<-meta_in%>%column_to_rownames("Sample")
+  meta_in<-meta_in[ , order(names(meta_in))]
+  
+  if(cohort_in == "IFNg"){condition<-factor(meta_in$Stimulation,
+                                            levels=c("Basal","IFNg"))}
+  if(cohort_in == "LPS"){condition<-factor(meta_in$Stimulation,
+                                         levels=c("Basal","LPS"))}
+  
+  
+  adar<-meta_in$ADAR
+  adarb1<-meta_in$ADARB1
+  apobec3f<-meta_in$APOBEC3F
+  apobec3g<-meta_in$APOBEC3G
+  apobec3c<-meta_in$APOBEC3C
+  genotype<-as.factor(meta_in$Genotype)
+  ribosom<-meta_in$PCT_RIBOSOMAL_BASES
+   
+  
+  if(cohort_in == "IFNg"){editing_in<-ifng_ed}
+  if(cohort_in == "LPS"){editing_in<-lps_ed}
+  
+  if(model_in == "model_1"){model<-
+    model.matrix(~ condition+genotype)}
+  if(model_in == "model_2"){model<-
+    model.matrix(~ condition+genotype+adar+adarb1+apobec3f+
+                   apobec3g+apobec3c)}
+  
+  fit<-lmFit(editing_in, model)
+  fitDupCor<-eBayes(fit)
+  DE_sites<-topTable(fitDupCor, sort.by ="p",n = Inf, coef = 2)
+  DE_sites$ESid<-rownames(DE_sites)
+  
+  DE_sites <- DE_sites[,c("ESid", names(DE_sites)[1:6])]
+  DE_sites[c('chr','num','Editing_Index')]<-str_split_fixed(DE_sites$ESid, ":",3)
+  DE_sites<-subset(DE_sites, select = -c(chr,num))
+  DE_sites$Editing_Index[DE_sites$Editing_Index == "T:C"] <- "A:G"
+  DE_sites$Editing_Index[DE_sites$Editing_Index == "G:A"] <- "C:T"
+  
+  DE_sites<-DE_sites%>%dplyr::mutate(DE_Index = case_when(
+  adj.P.Val < 0.05 & Editing_Index == "A:G" ~ "A:G_DE", 
+  adj.P.Val < 0.05 & Editing_Index == "C:T" ~ "C:T_DE",
+  adj.P.Val > 0.05 & Editing_Index == "A:G" ~ "Non_DE",
+  adj.P.Val > 0.05 & Editing_Index == "C:T" ~ "Non_DE"
+  ))
+  
+  DE_sites_name<-merge(DE_sites, anno_gene_name, by = "ESid")
+  
+  filepath<-file.path("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential")
+  write.table(DE_sites_name, file = file.path(filepath,"LPS_1_Toptable.tsv"), row.names = F, 
+              sep = "\t", quote = F)
+}
+
+run_diff("LPS", "model_1","LPS_1_Toptable.tsv")
+run_diff("LPS", "model_2","LPS_2_Toptable.tsv")
+run_diff("IFNg", "model_1","IFNg_1_Toptable.tsv")
+run_diff("IFNg", "model_2","IFNg_2_Toptable.tsv")
+```
+
+```{r limma_10, echo= TRUE, message = FALSE, warning=FALSE,eval=TRUE}
+ifng_diff<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential/IFNg_1_Toptable.tsv")
+ifng_DE<-ifng_diff%>%dplyr::filter(!grepl("Non_DE", DE_Index))
+ifng_DE_anno<-anno_type%>%dplyr::filter(ESid2 %in% ifng_DE$ESid)
+ifng_DE_anno$Location<-sub("_", "\n", ifng_DE_anno$Location)  
+ifng_DE_anno$Mutation<-sub(" ", "\n", ifng_DE_anno$Mutation)  
+
+lps_diff<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential/LPS_1_Toptable.tsv")
+lps_DE<-lps_diff%>%dplyr::filter(!grepl("Non_DE", DE_Index))
+lps_DE_anno<-anno_type%>%dplyr::filter(ESid2 %in% lps_DE$ESid)
+lps_DE_anno$Location<-sub("_", "\n", lps_DE_anno$Location)  
+lps_DE_anno$Mutation<-sub(" ", "\n", lps_DE_anno$Mutation)  
+
+lps_1_diff<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential/LPS_1_Toptable.tsv")
+lps_2_diff<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential/LPS_2_Toptable.tsv")
+
+ifng_1_diff<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential/IFNg_1_Toptable.tsv")
+ifng_2_diff<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Editing_Differential/IFNg_2_Toptable.tsv")
+
+ifng_1_diff_comp<-ifng_1_diff%>%dplyr::filter(!grepl("Non_DE",DE_Index))%>%
+  dplyr::select(c(ESid, logFC, DE_Index,Gene))
+ifng_1_diff_comp$logFC_IFNg<-ifng_1_diff_comp$logFC
+ifng_1_diff_comp<-ifng_1_diff_comp%>%dplyr::select(-c(logFC))
+
+lps_1_diff_comp<-lps_1_diff%>%dplyr::filter(!grepl("Non_DE",DE_Index))%>%
+  dplyr::select(c(ESid,  logFC, DE_Index))
+lps_1_diff_comp$logFC_LPS<-lps_1_diff_comp$logFC
+lps_1_diff_comp$DE_Index_LPS<-lps_1_diff_comp$DE_Index
+lps_1_diff_comp<-lps_1_diff_comp%>%dplyr::select(-c(DE_Index, logFC))
+
+stim_comp<-merge(ifng_1_diff_comp,lps_1_diff_comp, by ="ESid")
+
+knitr::kable(table(stim_comp$DE_Index), "simple",
+             caption = "IFNg and LPS DEG Shared DEgenes: Model 1", 
+             table.attr = "style='width:70%;'")
+```
+###############################################################################
+
+
+###############################################################################
+########################## Differential Plot  ##################################
+###############################################################################
+
+```{r limma_3, echo= FALSE, message = FALSE, warning=FALSE, eval=TRUE}
+inplot_size = 2
+axis_size = 10
+ticks_size =10
+title_size = 10
+point_size = 2
+text_size = 10
+
+vol_plot<-function(table_in, plot_title){
+  vol_plot<- ggplot(table_in, aes(x=logFC, y=-log10(P.Value),col = DE_Index))+ 
+    geom_point(size =point_size-0.5, alpha=0.7)+
+    scale_color_manual(values = index_color)+
+    labs(x = "logFC", y = "log10(P.Value)",title=plot_title)+
+    geom_vline(xintercept=0, linetype="dashed", color = "grey")+
+    theme_bw()+
+    theme(legend.key.height= unit(0.75, 'cm'),
+          legend.key.width= unit(0.75, 'cm'),
+          legend.title = element_text(size=9),
+          legend.text = element_text(size=9),
+          axis.text.x = element_text(color = "black", size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          plot.subtitle = element_text(size=(title_size-4), face="bold", hjust=0.5))+ 
+    guides(color = guide_legend(override.aes = list(size=4)))+
+    theme(legend.position = "none")
+  vol_plot
+}
+
+anno_plot<-function(df_in, x_in,fill_in,fill_title,plot_title){
+  anno_plot<-ggplot(df_in, mapping = aes(x = x_in))+
+    geom_bar(aes(fill = fill_in, position ="fill"))+
+    scale_fill_manual(values=anno_palette)+
+    labs(x = "", y = "Site Count", fill = fill_title, title=plot_title)+
+    theme_bw()+
+    theme(legend.key.height= unit(0.65, 'cm'),
+          legend.key.width= unit(0.5, 'cm'),
+          legend.title = element_text(size=8),
+          legend.text = element_text(size=8),
+          axis.title = element_text(size = axis_size),
+          axis.text = element_text(size= ticks_size),
+          plot.title = element_text(size = title_size, hjust=0.5))
+  anno_plot
+}
+
+overlap_logfc_plot <- function(comp_in) {
+  overlap_comp_plot <- ggplot(comp_in, aes(x = logFC_IFNg, y = logFC_LPS, col = DE_Index)) +
+    geom_point(size = point_size, alpha = 0.5) +
+    scale_color_manual(values = index_color)+
+    stat_cor() +
+    geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +  
+    geom_vline(xintercept = c(0), col = "grey") +
+    geom_hline(yintercept = c(0), col = "grey") +
+    labs(x = "logFC: IFNg", y = "logFC: LPS") +
+    theme_bw() +
+    theme(
+      legend.key.height = unit(0.7, 'cm'),
+      legend.key.width = unit(0.7, 'cm'),
+      legend.title = element_text(size = 9),
+      legend.text = element_text(size = 9),
+      axis.text.x = element_text(color = "black", size = axis_size),
+      axis.title = element_text(size = axis_size),
+      plot.title = element_text(size = title_size, hjust = 0.5),
+      plot.subtitle = element_text(size = title_size, hjust = 0.5))+ 
+    guides(color = guide_legend(override.aes = list(size=4)))
+
+  overlap_comp_plot
+}
+
+```
+
+###############################################################################
+########################## Differential Plot  ##################################
+###############################################################################
+```{r limma_3, echo= FALSE, message = FALSE, warning=FALSE, eval=TRUE}
+
+### LPS
+lps_1_diff_apo<-lps_1_diff%>%dplyr::filter(grepl("APOBEC|ADAR", Gene))%>%
+  group_by(Gene) %>%
+  filter(abs(logFC) == max(abs(logFC)))
+
+lps_1_plot<-vol_plot(lps_1_diff, "Model 1")+
+  annotate("label", x =c(-0.50,0.58), y = 11, label = c("15","796"), col=c("red"))+
+  annotate("label", x =c(-0.50,0.58), y = 10, label = c("2","18"), col=c("steelblue"))+
+    geom_point(data = lps_1_diff_apo ,shape=1,  color="black", size=2)+
+    geom_label_repel(data = lps_1_diff_apo, aes(label = Gene),
+                     box.padding   = 0, point.padding = 0, force = 100,
+                    segment.size  = 0.2,segment.color = "black",
+                   angle = 180,point.size = point_size,color="black",
+                   nudge_x = 0.25,hjust =0,size = point_size-0.5)+
+  theme(legend.position = "none")
+
+lps_2_plot<-vol_plot(lps_2_diff,  "Model 2")+
+  theme(legend.position = "none")
+
+lps_vol_plots<-ggarrange(lps_1_plot, lps_2_plot,common.legend=TRUE, 
+                         legend="right", labels=c("A"),ncol=2, 
+                         font.label=list(color="black",size= text_size))
+
+lps_loc<-anno_plot(lps_DE_anno,lps_DE_anno$Editing_Index,
+                    lps_DE_anno$Location, "Location", "Location")
+lps_DE_anno_mut<-lps_DE_anno%>%dplyr::filter(!grepl("unknown",Mutation))
+lps_mut<-anno_plot(lps_DE_anno_mut,lps_DE_anno_mut$Editing_Index,
+                    lps_DE_anno_mut$Mutation, "Known Mutation","Known Mutation")
+
+lps_anno_plots<-ggarrange(lps_loc,lps_mut,labels=c("B"),ncol=2, 
+                         font.label=list(color="black",size= text_size))
+
+lps_plots<-ggarrange(lps_vol_plots, lps_anno_plots, ncol=2)
+lps_plots<-annotate_figure(lps_plots,
+                           top=text_grob("LPS Stimulated Monocytes",color = "black",
+                                         face="bold", size =title_size))
+
+### IFNg
+ifng_1_diff_apo<-ifng_1_diff%>%dplyr::filter(grepl("APOBEC|ADAR", Gene))%>%
+  group_by(Gene) %>%
+  filter(abs(logFC) == max(abs(logFC)))
+
+ifng_1_plot<-vol_plot(ifng_1_diff, "Model 1")+
+  annotate("label", x =c(-0.55,0.75), y = 21, label = c("155","2330"), col=c("red"))+
+  annotate("label", x =c(-0.55,0.75), y = 19, label = c("17","64"), col=c("steelblue"))+
+    geom_point(data = ifng_1_diff_apo ,shape=1,  color="black", size=2)+
+    geom_label_repel(data = lps_1_diff_apo, aes(label = Gene),
+                     box.padding   = 0, point.padding = 0, force = 100,
+                    segment.size  = 0.2,segment.color = "black",
+                   angle = 180,point.size = point_size,color="black",
+                   nudge_x = 0.25,hjust =0,size = point_size-0.5)+
+  theme(legend.position = "none")
+ifng_2_plot<-vol_plot(ifng_2_diff,  "Model 2")+
+  theme(legend.position = "none")
+
+ifng_vol_plots<-ggarrange(ifng_1_plot, ifng_2_plot,common.legend=TRUE, 
+                         legend="right",labels=c("C"),ncol=2, 
+                         font.label=list(color="black",size= text_size))
+
+ifng_loc<-anno_plot(ifng_DE_anno,ifng_DE_anno$Editing_Index,
+                    ifng_DE_anno$Location, "Location", "Location")
+ifng_DE_anno_mut<-ifng_DE_anno%>%dplyr::filter(!grepl("unknown",Mutation))
+ifng_mut<-anno_plot(ifng_DE_anno_mut,ifng_DE_anno_mut$Editing_Index,
+                    ifng_DE_anno_mut$Mutation, "Known Mutation","Known Mutation")
+
+ifng_anno_plots<-ggarrange(ifng_loc,ifng_mut,labels=c("D"),ncol=2, 
+                         font.label=list(color="black",size= text_size))
+
+ifng_plots<-ggarrange(ifng_vol_plots, ifng_anno_plots, ncol=2)
+ifng_plots<-annotate_figure(ifng_plots,
+                           top=text_grob("IFNg Stimulated Monocytes",color = "black",
+                                         face="bold", size =title_size))
+
+
+### LPS IFNg comparision 
+stim_comp_apo<-stim_comp%>%dplyr::filter(grepl("APOBEC|ADAR", Gene))%>%
+  group_by(Gene) %>%
+  filter(abs(logFC_LPS) == max(abs(logFC_LPS)))
+
+logfc_comp_plot<-overlap_logfc_plot(stim_comp)+
+  annotate("label", x =c(-0.5), y = 0.6, label = c("648"), col=c("red"))+
+  annotate("label", x =c(-0.5), y = 0.46, label = c("8"), col=c("steelblue"))+
+    geom_point(data = stim_comp_apo ,shape=1,  color="black", size=2)+
+    geom_label_repel(data = stim_comp_apo, aes(label = Gene),
+                     box.padding   = 0, point.padding = 0, force = 100,
+                    segment.size  = 0.2,segment.color = "black",
+                   angle = 180,point.size = point_size,color="black",
+                   nudge_x = 0.25,hjust =0,size = point_size)
+
+logfc_comp_plot<-ggarrange(logfc_comp_plot,labels=c("E"),ncol=1, 
+                         font.label=list(color="black",size= text_size))
+logfc_comp_plot<-annotate_figure(logfc_comp_plot,
+                           top=text_grob("LogFC Comparison of Shared DESites between\nLPS and IFNg Stimulated Monocytes",color = "black",
+                                         face="bold", size =title_size))
+
+### LPS + IFNB
+lps_ifng_plots<-ggarrange(lps_plots,ifng_plots, logfc_comp_plot,nrow=3)
+lps_ifng_plots<-annotate_figure(lps_ifng_plots,
+                           top=text_grob("Differentially Edited Sites and Annotation",
+                                         color = "black",
+                                         face="bold", size =title_size+2))
+
+ggsave(plot=lps_ifng_plots,filename="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Figure/Differentially_Edited_Sites_Annotation.jpg",width = 12, height = 12,dpi = 600)
+```
+
+
+```{r fig_3, echo=FALSE, fig.cap="Differentially_Edited_Sites_Annotation", out.width = '100%'}
+knitr::include_graphics("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Figure/Differentially_Edited_Sites_Annotation.jpg")
+```
+
+################################# Table ########################################
+```{r limma_3a, echo= FALSE, message = FALSE, warning=FALSE, eval=TRUE}
+
+knitr::kable(table(lps_1_diff$DE_Index), "simple", caption = "LPS_1_DE_Direction", 
+             table.attr = "style='width:70%;'")
+knitr::kable(table(lps_2_diff$DE_Index), "simple",caption = "LPS_2_DE_Direction", 
+             table.attr = "style='width:70%;'")
+```
+
+```{r limma_4a, echo=FALSE,message = FALSE, warning=FALSE, eval=TRUE}
+knitr::kable(table(ifng_1_diff$DE_Index),  "simple", caption = "IFNg_1_DE_Direction", 
+             table.attr = "style='width:70%;'")
+knitr::kable(table(ifng_2_diff$DE_Index),  "simple",caption = "IFNg_2_DE_Direction", 
+             table.attr = "style='width:70%;'")
+```
+
+################################# Table ########################################
+```{r limma_13, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+knitr::kable(table(lps_DE_anno$Mutation), "simple",caption = "LPS DEStie Mutation", 
+             table.attr = "style='width:70%;'")
+knitr::kable(table(lps_DE_anno$Location), "simple",caption = "LPS DESite Location", 
+             table.attr = "style='width:70%;'")
+```
+
+```{r limma_12, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+knitr::kable(table(ifng_DE_anno$Mutation), "simple",caption = "IFNg DEStie Mutation", 
+             table.attr = "style='width:70%;'")
+knitr::kable(table(ifng_DE_anno$Location), "simple",caption = "IFNg DEStie Location", 
+             table.attr = "style='width:70%;'")
+```
+
+###############################################################################
+###############################################################################
+# Gene Expression
+
+
+
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+meta<- read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Efthymiou_Metadata_All.tsv")
+
+count<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Gene_Expression/Processed_Gene_Counts.tsv")%>%
+  column_to_rownames("GENEID")
+tpm<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Gene_Expression/Processed_Normalized_TPM.tsv")%>%
+  column_to_rownames("GENEID")
+
+string<-"Genes that have tpm>1 in Stim monocytes: 58929 ->"
+number<-as.integer(nrow(count))
+print(paste(string,number))
+
+meta_ifng<-meta%>%dplyr::filter(grepl("IFNg|Basal",Stimulation))
+meta_lps<-meta%>%dplyr::filter(grepl("LPS|Basal",Stimulation))
+
+count_ifng<-count[names(count) %in% meta_ifng$Sample]
+count_lps<-count[names(count) %in% meta_lps$Sample]
+
+gencode<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/RData/gencode.v30.tx2gene.tsv")
+```
+
+
+
+```{r diff_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+run_diff<-function(cohort_in, toptable_title){
+  # Subsetting GENEIDs with TPM>1 
+  if(cohort_in == "IFNg"){meta_in <-meta_ifng}
+  if(cohort_in == "LPS"){meta_in <-meta_lps}
+  
+  meta_in<-meta_in%>%column_to_rownames("Sample")
+  meta_in<-meta_in[ , order(names(meta_in))]
+  
+  if(cohort_in == "IFNg"){condition<-factor(meta_in$Stimulation, levels=c("Basal","IFNg"))}
+  if(cohort_in == "LPS"){condition<-factor(meta_in$Stimulation, levels=c("Basal","LPS"))}
+  
+  genotype<-meta_in$Genotype
+  
+  model_in<-model.matrix(~ condition+genotype)
+  
+  if(cohort_in == "IFNg"){counts_in<-count_ifng}
+  if(cohort_in == "LPS"){counts_in<-count_lps}
+  
+  counts_in_norm<-calcNormFactors(counts_in, method="TMM")
+  dge<-DGEList(counts=counts_in, samples = meta_in, norm.factors= counts_in_norm)
+  v <- voom(dge, design=model_in)
+  
+  vfit<-lmFit(v,model_in)
+  efit<-eBayes(vfit)
+  
+  message("Generating Toptable")
+  DE_genes<-topTable(efit, sort.by = "p",n=Inf, coef = 2)
+  DE_genes$GENEID<-rownames(DE_genes)  
+  
+  message("Adding Selective Cols")
+  DE_genes$DE_Direction<-case_when(
+    DE_genes$adj.P.Val < 0.05 & DE_genes$logFC > 1.00 ~"UP", 
+    DE_genes$adj.P.Val < 0.05 & DE_genes$logFC < -1.00 ~"DOWN", 
+    .default = "FALSE"
+    )
+  
+  DE_genes <- DE_genes[,c("GENEID", names(DE_genes)[1:8])]
+  
+  message("Adding Gene Names")
+  DE_genes_ID<-merge(DE_genes,gencode, by = "GENEID")
+  # Deleting duplicated GENEID
+  DE_genes_ID<-DE_genes_ID%>%distinct(GENEID, .keep_all=TRUE)
+  DE_genes_ID<-DE_genes_ID%>%dplyr::select(-c(GENEID.1))
+  filepath<-file.path("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Gene_Differential/")
+  write_tsv(DE_genes_ID, file = file.path(filepath,toptable_title))
+}
+
+run_diff("IFNg","IFNg_DEG_Toptable.tsv")
+run_diff("LPS","LPS_DEG_Toptable.tsv")
+
+####################################################################################
+####################################################################################
+####################################################################################
+
+anno_type<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Annotation_Type.tsv")%>%
+    dplyr::select(-c(ESid))
+anno_type$ESid<-anno_type$ESid2
+anno_type<-anno_type%>%dplyr::select(c(ESid, Editing_Index,Location,Mutation,Gene))
+
+```
+
+
+
+```{r diff_3, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+direction_color <- c("UP" = "#40B5AD","DOWN" = "#FFA500","FALSE"="#D3D3D3")
+
+stim_color <- c("Basal" = "#D3D3D3", "LPS" = "#40B5AD", "IFNg" = "#F88379")
+
+index_color <- c("A:G_DE" = "#FA5F55","C:T_DE" = "#40B5AD","Non_DE"="#D3D3D3")
+  
+anno_palette <- c("downstream" = "#40B5AD", "exonic" = "#FFA500","intronic" = "#56B4E9",
+                   "ncRNA" = "#009E73","splicing" = "#FFC000","upstream" = "#0072B2",
+                   "UTR3" = "#F88379","UTR5" = "#CC79A7",
+                  "nonsynonymous\nSNV" = "#40B5AD","startloss"="#FFA500",
+                  "stopgain" ="#56B4E9", "synonymous\nSNV" ="#FFC000",
+                  "Alu" ="#40B5AD", "LINE" ="#FFA500","None"="#56B4E9",
+                  "Other" ="#009E73","Simple repeat"= "#FFC000")
+
+tpm<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Metadata/Gene_Expression/Processed_Normalized_TPM.tsv")%>%
+  column_to_rownames("GENEID")
+names(tpm) <- gsub(x = names(tpm), pattern = "\\.", replacement = "-")
+names(tpm)<-gsub(x=names(tpm), pattern="X",replacement = "")
+
+editing_type<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Jacusa/Processed_Editing_Type.tsv")
+
+lps_comp<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/DEG_DES/LPS_DEG_DES.tsv")
+ifng_comp<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/DEG_DES/IFNg_DEG_DES.tsv")
+```
+
+```{r diff_3, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+vol_plot<-function(cohort_in, plot_title){
+  if(cohort_in == "LPS"){diff_in<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Gene_Differential/LPS_DEG_Toptable.tsv")}
+  if(cohort_in == "LPS"){threshold<-2}
+  if(cohort_in == "IFNg"){diff_in<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/TopTable/Gene_Differential/IFNg_DEG_Toptable.tsv")}
+  if(cohort_in == "IFNg"){threshold<-2}
+  
+  diff_in_a<-diff_in%>%dplyr::filter(grepl("APOBEC|ADAR", GENENAME))%>%
+    dplyr::select(c(GENENAME,GENEID, logFC, adj.P.Val, P.Value, DE_Direction))%>%
+    dplyr::filter(abs(logFC)>1)%>%
+    dplyr::filter(adj.P.Val < 0.05)%>%
+    dplyr::filter(abs(logFC)>threshold)
+
+
+  vol_plot<- ggplot(diff_in, aes(x=logFC, y=-log10(P.Value),col = DE_Direction))+ 
+    geom_point(size =point_size-0.5, alpha=0.7)+
+    scale_color_manual(values = direction_color)+
+    labs(x = "logFC", y = "log10(P.Value)")+
+    labs(title=plot_title)+
+    geom_vline(xintercept=c(-1,1), col ="#818589", linetype="longdash")+
+    geom_point(data = diff_in_a, shape=19,  color="#36454F", size=point_size-0.5)+
+    geom_label_repel(data = diff_in_a, aes(label = GENENAME),
+                   box.padding   = 0, point.padding = 0, force = 100,
+                  segment.size  = 0.3,segment.color = "#36454F",
+                 angle = 180,point.size = point_size-1,color="#36454F",
+                 nudge_x = 0.5,hjust =0,size = point_size-1.2)+theme_classic()+
+    theme(legend.key.height= unit(0.75, 'cm'),
+          legend.key.width= unit(0.75, 'cm'),
+          legend.title = element_text(size=9),
+          legend.text = element_text(size=9),
+          axis.text.x = element_text(color = "black", size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5))+ 
+    guides(color = guide_legend(override.aes = list(size=4)))+
+    theme(legend.position = "none")
+  vol_plot
+}
+
+```
+
+
+```{r diff_3, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+inplot_size = 2
+axis_size = 13
+ticks_size =13
+title_size = 13
+point_size = 3.3
+text_size = 13
+legend_size =0.5
+
+lps_vol<-vol_plot("LPS","LPS Model: ~ stimulaion+genotype")+
+  annotate("label", x =c(-2.5,5), y = 15, label = c("525","506"), 
+           col=c("orange","steelblue"))
+ifn_vol<-vol_plot("IFNg","IFNb Model: ~ stimulaion+genotype")+
+  annotate("label", x =c(-5,7.5), y = 28, label = c("1753","1500"), 
+           col=c("orange","steelblue"))
+deg_vol_plots<-ggarrange(lps_vol,ifn_vol)
+
+deg_vol_plots<-annotate_figure(deg_vol_plots,top=text_grob("Efthymiou Monocytes Gene Expression",
+                              color = "black", face = "bold", size =title_size))
+
+
+ggsave(plot=deg_vol_plots,filename="/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Figure/Alternation_Gene_Expression.jpg",width = 8, height =5,dpi = 600)
+```
+
+
+```{r fig_tpm_1, echo=FALSE, fig.cap="LPS_Stimulated_Monocytes_Gene_Expression", out.width = '100%'}
+knitr::include_graphics("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Alternation/Figure/Alternation_Gene_Expression.jpg")
+```
+
+####################################################################################
+####################################################################################
+###############################################################################
+### Pathway Gprofiler {.tabset .tabset-fade .tabset-pills}
+
+```{r path_1, echo= FALSE, message = FALSE, warning=FALSE, eval=FALSE}
+run_gprofiler<-function(cohort_in,gp_title){
+  if (cohort_in == "LPS"){diff_in<-read_tsv("TopTable/Editing_Differential/LPS_1_Toptable.tsv")}
+  if (cohort_in == "IFNg"){diff_in<-read_tsv("TopTable/Editing_Differential/IFNg_1_Toptable.tsv")}
+  
+  gene_name_all<-diff_in[['Gene']]
+  gene_name_up<-diff_in%>%dplyr::filter(logFC >0)
+  gene_name_down<-diff_in%>%dplyr::filter(logFC <0)
+  #gene_name_down<-gene_name_down%>%dplyr::select("Gene")
+  #write_tsv(gene_name_down,"Pathway/Python/Gene_Name/IFNg_1_DOWN_Name.tsv")
+ 
+  multi_gp<- gost(list("up-regulated" = gene_name_up$Gene,
+                       organism = "hsapiens",domain_scope = "custom",
+                       custom_bg=gene_name_all,
+                       "down-regulated" = gene_name_down$Gene,
+                       organism = "hsapiens",domain_scope = "custom",
+                       custom_bg=gene_name_all))
+
+  message("Writing gost tsv")
+  multi_gp<-multi_gp$result%>%arrange(desc(precision))
+  multi_gp<-multi_gp%>%dplyr::filter(grepl("GO:BP|KEGG",source))
+  multi_gp$log_P_value<-(-log(multi_gp$p_value))
+  multi_gp<-multi_gp%>%
+    dplyr::select(c("significant","p_value","precision","term_id","source","term_name","log_P_value"))
+  filepath<-"/Users/hyominseo/Desktop/RAJ_Microglia/Pathway/"
+  write_tsv(multi_gp, file =file.path(filepath,gp_title))
+}
+
+run_gprofiler("LPS","LPS_DES_GP.tsv")
+run_gprofiler("IFNg",""IFNg_DES_GP.tsv")
+```
+
+
+#### LPS
+```{r path_2, echo= FALSE, message = FALSE, warning=FALSE, eval=TRUE}
+lps_deg_gp<-read_tsv("Pathway/LPS_DES_GP.tsv")
+print(table(lps_deg_gp$source))
+head(lps_deg_gp,10)
+```
+
+
+```{r path_3, echo= FALSE, message=FALSE, warning=FALSE, eval=TRUE}
+lps_1_up_gsea<-read_tsv("Pathway/Python/LPS_1_UP_GSEA.tsv")
+lps_1_up_gsea<-lps_1_up_gsea[,-1]
+paste0("LPS UP DEG ", nrow(lps_1_up_gsea))
+head(lps_1_up_gsea,5)
+
+knitr::include_graphics("Pathway/Python/Figure/LPS_1_UP_GSEA.png")
+
+lps_1_down_gsea<-read_tsv("Pathway/Python/LPS_1_DOWN_GSEA.tsv")
+lps_1_down_gsea<-lps_1_down_gsea[,-1]
+paste0("LPS DOWN DEG ", nrow(lps_1_down_gsea))
+head(lps_1_down_gsea,5)
+
+knitr::include_graphics("Pathway/Python/Figure/LPS_1_DOWN_GSEA.png")
+```
+
+

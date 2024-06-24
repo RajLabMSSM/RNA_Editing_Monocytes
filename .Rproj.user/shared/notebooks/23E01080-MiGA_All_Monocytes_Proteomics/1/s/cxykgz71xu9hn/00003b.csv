@@ -1,0 +1,10 @@
+"0","  for (x in 1:length(covariates)){
+    for (y in 1:l){
+      matrix_rsquared[x,y] <- summary( lm(var$cor[,y] ~ cov.df[,covariates[x]]) )$adj.r.squared
+      matrix_pvalue[x,y] <- glance( lm(var$cor[,y] ~ cov.df[,covariates[x]]) )$p.value #To insert pvalues in the heatmap
+    }
+  }
+"
+"2","Error in (function (cond)  : 
+  error in evaluating the argument 'object' in selecting a method for function 'summary': subscript out of bounds
+"

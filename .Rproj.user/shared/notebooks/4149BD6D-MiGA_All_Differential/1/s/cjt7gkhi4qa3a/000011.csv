@@ -1,0 +1,37 @@
+"0","dge$Cohort<- meta$Cohort
+dge$PMD_min<- meta$PMD_min
+dge$Region<- meta$Region
+dge$Cause_of_Death<-meta$Cause_of_Death
+dge$ribo<-meta$PCT_RIBOSOMAL_BASES
+dge$mrna<-meta$PCT_MRNA_BASES
+dge$coding<-meta$PCT_CODING_BASES
+
+design<-model.matrix(~0 + dge$Cohort, data = dge$samples)
+dge<-removeBatchEffect(dge, design = design)
+normalized_tpm <- cpm(dge,log=TRUE)
+normalized_tpm <- as.data.frame(normalized_tpm)
+
+check<-select_gene(normalized_tpm, ""^ENTPD1$|^P2RY12$|^GNAI2$|^GNAI3$|^GNB4$|^GNG5$|
+                   ^PRKAR2B$|^PRKACB$|^VASP$|^GSK3B$|^RAP1A$|^PLCB2$|^PIK3AP1$|^PIK3CD"")
+
+check_color<- c(""CTR"" = ""#f28c23"",""PD"" = ""#6baff6"")
+diga_comparisons <- list( c(""CTR"",""PD""))
+
+check<-check%>%dplyr::filter(grepl(""CTR|PD"",Final_Diagnosis))
+check_plot<-qc_plot(check, check$Final_Diagnosis, check$Final_Diagnosis,
+                     diga_comparisons,check$Norm_TPM,'Genes')+
+  scale_color_manual(values = check_color)+
+  facet_wrap(~GENENAME, scales=""free_y"")
+
+ggsave(plot=check_plot,filename=""Figures/Temp/Gene_Selection_Regressed_Norm_TPM_Trans.jpg"",
+       width = 10, height = 13,dpi = 600)
+
+
+deg_check<-read_tsv(""Differential/Toptable/Form_New_Dream_toptable.tsv"")
+deg_check<-deg_check%>%dplyr::filter(grepl(""^ENTPD1$|^P2RY12$|^GNAI2$|^GNAI3$|^GNB4$|^GNG5$|
+                   ^PRKAR2B$|^PRKACB$|^VASP$|^GSK3B$|^RAP1A$|^PLCB2$|^PIK3AP1$|^PIK3CD"",GENENAME))
+deg_check<-deg_check[,c(""logFC"",""adj.P.Val"",""DE_Direction_5"",""GENENAME"")]
+```
+"
+"2","Error: attempt to use zero-length variable name
+"

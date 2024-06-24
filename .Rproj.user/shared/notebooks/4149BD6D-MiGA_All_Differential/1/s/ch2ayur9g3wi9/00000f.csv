@@ -1,0 +1,4 @@
+"0","load(""/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData"")"
+"0","form_fr_new_group<-read_tsv(""Differential/Final_Toptable/Region_Specific/FR_form_new_group_toptable.tsv"", show_col_types = FALSE)"
+"0",""
+"0","knitr::kable(table(form_fr_new_group$DE_Direction_5), ""simple"", caption = ""Region FR form 1: FDR 5"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"
