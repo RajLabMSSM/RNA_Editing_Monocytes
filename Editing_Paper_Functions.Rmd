@@ -539,7 +539,7 @@ gene_vol_plot<-function(cohort_in, plot_title,plot_subtitle){
   if(cohort_in == "Micro_IFNg"){diff_in<-Micro_DEG_IFNg}
   
   if(cohort_in == "M1_LPS"){diff_in_risk<-diff_in%>%
-    dplyr::filter(grepl("CCR2|APOBEC3B$",GENENAME))}
+    dplyr::filter(grepl("CD59|GPNMB$",GENENAME))}
   if(cohort_in == "M1_IFNb"){diff_in_risk<-diff_in%>%
     dplyr::filter(grepl("CXCL11|^CXCR2$",GENENAME))}
   
@@ -579,9 +579,8 @@ gene_vol_plot<-function(cohort_in, plot_title,plot_subtitle){
 
 ################################################################################ 
 gene_tpm_editing_plot<-function(ed_type_in,tpm_in, deg_des_in, GENE, plot_title){
-  # ed_type_in<-M1_editing_type
-  # tpm_in<-M1_tpm
-  # # #check<-tpm_in%>%rownames_to_column("GENEID")
+  #ed_type_in<-M1_editing_type
+   #tpm_in<-tpm_in%>%rownames_to_column("GENEID")
   # deg_des_in<-M1_lps_deg_des
   # GENE<-"APOBEC3B"
   # plot_title<-"APOBEC3B"
@@ -634,7 +633,7 @@ mut_loc_plot<-function(cohort_in){
   if(cohort_in == "M1_LPS"){deg_des_in<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/All_Table/All_DES_DEG/Discovery_LPS_DES_DEG_All.tsv")}
   if(cohort_in == "M1_IFNb"){deg_des_in<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/All_Table/All_DES_DEG/Discovery_IFN_DES_DEG_All.tsv")}
   
-  if(cohort_in == "M1_LPS"){risk_genes<-deg_des_in%>%dplyr::filter(grepl("CCR2|APOBEC3B$",Gene))}
+  if(cohort_in == "M1_LPS"){risk_genes<-deg_des_in%>%dplyr::filter(grepl("CD59|GPNMB$",Gene))}
   if(cohort_in == "M1_IFNb"){risk_genes<-deg_des_in%>%dplyr::filter(grepl("CXCL11|CXCR2",Gene))}
   deg_des_in$`Gene Region` <-deg_des_in$Location
   risk_genes$`Gene Region` <-risk_genes$Location
@@ -715,13 +714,14 @@ mpra_color <- c("Basal" = "#c5c5c5", "LPS_Y" = "#FFA800",
                 "Discover_LPS" ="#FFA800", 
                  "IFNb_Y" = "#3A867F","N"="#D3D3D3",
                 "Discover_IFNb" = "#3A867F",
-                "LPS_MPRA"="#FFA800","IFNb_MPRA" ="#3A867F" )
+                "LPS_MPRA"="#FFA800","IFNb_MPRA" ="#3A867F",
+                "LPS_IFNb" = "#F78520")
 
 
 vol_plot_mpra<-function(table_in, plot_title){
   vol_plot<- ggplot(table_in, aes(x=logFC, y=logP,col = significant,shape=significant))+ 
     geom_point(size =point_size+1, alpha=0.8)+
-    scale_shape_manual(values = c("N" = 16, "LPS_Y" = 17, "IFNb_Y" = 16))+
+    scale_shape_manual(values = c("N" = 16, "LPS_Y" = 17, "IFNb_Y" = 16, "LPS_IFNb" = 18))+
     scale_color_manual(values =mpra_color)+
     labs(x = "logFC", y = "-log10(P.Value)",title=plot_title)+
     geom_vline(xintercept=0,  col ="#818589", linetype="longdash")+
@@ -979,15 +979,15 @@ fun_mean <- function(x){
 
 violin_plot<-function(df_in, x_in,y_in,fill_in, plot_title,my_comparisons){
   violin_plot<-ggplot(df_in,aes(x = x_in , y= y_in,fill =x_in))+
-    geom_violin()+
+    geom_violin()+ geom_boxplot(width=0.095,fill=NA,outlier.shape = NA)+
     scale_fill_manual(values = stim_color)+
     labs(x = "", y = "logFC of Differentially Edited Sites",title=plot_title)+
-    #stat_compare_means(comparisons = my_comparisons,
-    #                   label = "p.signif",label.x.npc = "center",label.y.npc = "top") +
-    #stat_summary(fun.y=mean, colour="black", geom="point", 
-    #           shape=20, size=point_size, show.legend=TRUE)+
-    #stat_summary(aes(label=round(..y..,3)),fun.data = fun_mean, geom="text", 
-     #          size=inplot_size, face="blod",vjust=2)+
+    # stat_compare_means(comparisons = my_comparisons,
+    #                    label = "p.signif",label.x.npc = "center",label.y.npc = "top") +
+    # stat_summary(fun.y=mean, colour="black", geom="point", 
+    #            shape=20, size=point_size, show.legend=TRUE)+
+    # stat_summary(aes(label=round(..y..,3)),fun.data = fun_mean, geom="text", 
+    #           size=inplot_size, face="blod",vjust=2)+
     theme_classic() + theme(
       legend.title = element_text(size = text_size),
       legend.text = element_text(size = text_size),

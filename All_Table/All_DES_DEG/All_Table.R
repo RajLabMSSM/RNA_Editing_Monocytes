@@ -163,6 +163,11 @@ all_esid_merge<-all_esid_merge%>%select(c(
   Alternation_DES_IFN_logFC, Location, Mutation, known_a_i, rep_type
 ))
 
+all_esid_merge$Editing_Index<-gsub("G:A","C:T", all_esid_merge$Editing_Index)
+all_esid_merge$Editing_Index<-gsub("T:C","A:G", all_esid_merge$Editing_Index)
+all_esid_merge<-all_esid_merge%>%dplyr::filter(grepl("A:G|C:T",Editing_Index))
+
+write_tsv(all_esid_merge, "All_Table/All_esid.tsv")
 ################################################################################ 
 ################################################################################
 ################################################################################

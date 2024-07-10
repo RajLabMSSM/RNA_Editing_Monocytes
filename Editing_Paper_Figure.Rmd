@@ -439,11 +439,7 @@ ggsave(plot=f1_plots,filename="Figure/Main_Figure/Figure_1.jpg",width = 12, heig
        dpi = 600)
 ```
 
-```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
 
-recoding<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
-recoding<-recoding%>%dplyr::filter(grepl("sig",aa_change))
-````
 
 
 ################################################################################ 
@@ -452,7 +448,7 @@ recoding<-recoding%>%dplyr::filter(grepl("sig",aa_change))
 ```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
 legend_size = 4
 
-M1_DES_LPS_select<-M1_DES_LPS%>%dplyr::filter(grepl("CCR2|APOBEC3B$",Gene))%>%
+M1_DES_LPS_select<-M1_DES_LPS%>%dplyr::filter(grepl("CD59|GPNMB$",Gene))%>%
   group_by(Gene) %>%
   filter(abs(logFC) == max(abs(logFC)))
 
@@ -474,13 +470,14 @@ M1_tpm<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/Discovery/Metadata/Ge
 names(M1_tpm) <- gsub(x = names(M1_tpm), pattern = "\\.", replacement = "-")
 
 M1_lps_deg_des<-read_tsv("All_Table/All_DES_DEG/Discovery_LPS_DES_DEG_All.tsv")
-#ccr:"CCR2: chr3:46357941:A:G synonymous SNV exonic"
-ccr<-gene_tpm_editing_plot(M1_editing_type, M1_tpm, M1_lps_deg_des, "CCR2","CCR2: synonymous")
-#apobec 3b chr22:38989603:G:A C:T nonsynonymous SNV exonic
-apo<-gene_tpm_editing_plot(M1_editing_type, M1_tpm, M1_lps_deg_des, "APOBEC3B","APOBEC3B: nonsynonymous")
+
+# GPNMB chr7:23275201:A:G
+gpn<-gene_tpm_editing_plot(M1_editing_type, M1_tpm, M1_lps_deg_des, "GPNMB","GPNMB: Downstream")
+#CD59 chr11:33717481:C:T
+cd<-gene_tpm_editing_plot(M1_editing_type, M1_tpm, M1_lps_deg_des, "CD59","CD59: Intronic")
 
 
-genes<-ggarrange(ccr,apo, ncol=2, common.legend = T,labels=c("D","E"),
+genes<-ggarrange(gpn, cd, ncol=2, common.legend = T,labels=c("D","E"),
                       font.label = list(color = "black", size = label_text_size,
                                         margin=c(label_margin,label_margin)))
 second_row<-ggarrange(first_row,genes,nrow=2)
@@ -921,9 +918,9 @@ ggsave(plot=dis_rep_supp_plot,filename="Figure/Main_Figure/Figure_5.jpg",
 ################################################################################
 
 ```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
-all_esid<-read_tsv("All_Table/All_DES_DEG/BOTH_DES_DEG_All.tsv")
-all_esid$Editing_Index<-gsub("G:A","C:T", all_esid$Editing_Index)
-all_esid$Editing_Index<-gsub("T:C","A:G", all_esid$Editing_Index)
+#all_esid<-read_tsv("All_Table/All_DES_DEG/BOTH_DES_DEG_All.tsv")
+all_esid<-read_tsv("All_Table/All_esid.tsv")
+
 
 all_exonic<-all_esid%>%dplyr::filter(grepl("^exonic$",Location))
 ################################################################################ 
@@ -934,8 +931,17 @@ all_exonic_mut_plot<-anno_plot(all_exonic_mut,all_exonic_mut$Editing_Index,
                                all_exonic_mut$Mutation,"Subtitution Type", "Subtitution Type")
 
 ################################################################################                        
-#all_esid_gene_exo<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
+all_esid_gene_exo<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
+all_esid_gene_exo<-all_esid_gene_exo%>%dplyr::filter(grepl("^exonic$",Location))
+all_esid_gene_exo<-all_esid_gene_exo%>%distinct(ESid, .keep_all=TRUE)
+
+all_esid_gene_exo$Editing_Index<-gsub("G:A","C:T", all_esid_gene_exo$Editing_Index)
+all_esid_gene_exo$Editing_Index<-gsub("T:C","A:G", all_esid_gene_exo$Editing_Index)
+all_esid_gene_exo<-all_esid_gene_exo%>%dplyr::filter(grepl("A:G|C:T",Editing_Index))
+
+
 cohorts<-c("Discovery","Replication","iMicroglia")
+
 names(cohorts)<-cohorts
 
 
@@ -1011,17 +1017,27 @@ first_row<-ggarrange(upset_gg, all_exonic_mut_plot,
 ```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
 mpra_out<-read_tsv("MPRA/Result/monocyte_MPRA_results.txt")
 out_raj<-mpra_out%>%dplyr::filter(!grepl("*control",category))
-
 out_raj_discovery<-out_raj%>%dplyr::filter(grepl("165", cohorts))
+
 dis_lps<-out_raj_discovery%>%dplyr::filter(grepl("LPS",cohorts))
 dis_lps$significant<-gsub("Y","LPS_Y",dis_lps$significant)
 dis_ifn<-out_raj_discovery%>%dplyr::filter(grepl("IFN",cohorts))
 dis_ifn$significant<-gsub("Y","IFNb_Y",dis_ifn$significant)
 
 dis_lps_com<-dis_lps%>%dplyr::select(c(ESid, logFC, logP, significant))
+dis_lps_com_de<-dis_lps_com%>%dplyr::filter(grepl("LPS_Y",significant))
 dis_ifn_com<-dis_ifn%>%dplyr::select(c(ESid, logFC, logP, significant))
+dis_ifn_com_de<-dis_ifn_com%>%dplyr::filter(grepl("IFNb_Y",significant))
+
+both<-as.data.frame(intersect(dis_lps_com_de$ESid, dis_ifn_com_de$ESid))
+colnames(both)<-c("ESid")
 #colnames(dis_ifn_com)[4]<-"significant_ifn"
+
 dis_com<-rbind(dis_lps_com, dis_ifn_com)
+dis_com<-dis_com%>%mutate(significant = case_when(
+  ESid %in% both$ESid ~ "LPS_IFNb",
+  TRUE ~ significant
+))
 
 mpra_dis_com<-vol_plot_mpra(dis_com, "MPRA: Discovery LPS/ IFNb Sites")
 ################################################################################ 

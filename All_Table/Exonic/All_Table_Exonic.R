@@ -165,7 +165,7 @@ write_tsv(all_esid_gene_exo, "All_Table/all_esid_gene_exonic.tsv")
 
 recoding<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
 recoding<-recoding%>%dplyr::filter(grepl("sig",aa_change))
-re_gene<-recoding%>%distinct(Gene.refGene.keep_all=TRUE)
+re_gene<-recoding%>%distinct(Gene.refGene,.keep_all=TRUE)
 write_tsv(re_gene, "All_Table/exonic_sig_recoding_gene.tsv")
 ################################################################################
 ################################################################################

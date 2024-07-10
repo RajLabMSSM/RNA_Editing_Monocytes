@@ -12,6 +12,27 @@ library(gplots)
 library(ggplot2)
 library(ggrepel)
 library(ggpubr)
+
+all_table<-read_tsv("All_Table/All_DES_DEG/BOTH_DES_DEG_All.tsv")
+
+dis_sig_re<-read_tsv("All_Table/Exonic/Discovery_sig_recoding_editing.tsv")
+gene_summary<-read.table("All_Table/Exonic/gene_specific_summary.txt",
+                          header = FALSE, sep = "", dec = "")
+gene_summary_match<-gene_summary%>%dplyr::filter(Symbol %in% dis_sig_re$Gene)
+gene_match_path<-gene_summary_match%>%dplyr::filter(!grepl("-",
+                                                           Alleles_reported_Pathogenic_Likely_pathogenic))
+gene_match_path<-gene_match_path%>%dplyr::select(c(Symbol, Total_submisstions,Total_alleles, 
+                                                   Alleles_reported_Pathogenic_Likely_pathogenic))
+gene_match_path$Gene<-gene_match_path$Symbol
+dis_sig_re_path<-dis_sig_re%>%dplyr::filter(Gene %in% gene_match_path$Symbol)
+
+dis_sig_re_path<-merge(gene_match_path, dis_sig_re_path, by="Gene")
+dis_sig_re_path<-dis_sig_re_path%>%select(c(Gene, Alleles_reported_Pathogenic_Likely_pathogenic,
+                                          Mean, AAsub, aa_change, ESid, everything()))
+
+write_tsv(dis_sig_re_path, "All_Table/Exonic/Discovery_sig_recoding_editing_Pathogenic.tsv")
+
+
 recoding<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
 recoding<-recoding%>%dplyr::filter(grepl("sig",aa_change))
 re_gene<-recoding%>%distinct(Gene.refGene,.keep_all=TRUE)
