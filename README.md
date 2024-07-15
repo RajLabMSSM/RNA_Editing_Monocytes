@@ -12,6 +12,7 @@
 ## Raj Lab, Hyomin Seo. 
 
 1) [Sample Cohorts](#sample-cohorts)
+   - Discovery, Replication, and iMicroglia (Alternative) cohorts.
 2) [Rmarkdowns](#Rmarkdowns) 
    - Editing_Paper_Figure.Rmd
    - Editing_Paper_Functions.Rmd
@@ -20,7 +21,13 @@
    - Alternative/Alternative_Analysis & _Data_Prep.Rmd
 3) [Jacusa outputs](#Jacusa-outputs)
 
-4) [MPRA](#MPRA-analysis)
+4) [MFE](#MFE-analysis)
+   - MPRA.R
+   - MPRA_MFE_Discovery_IFNb & LPS_Genes.tsv
+   - MPRA/Input, MPRA/Result
+   - MPRA/Pathway
+
+5) [MPRA](#MPRA-analysis)
    - MPRA.R
    - MPRA_MFE_Discovery_IFNb & LPS_Genes.tsv
    - MPRA/Input, MPRA/Result
@@ -55,7 +62,7 @@ _____
 1) Editing_Paper_Figure.Rmd & Editing_Paper_Functions.Rmd
    - Markdown where all main figures were produced/ all functions used to produce the figures in seperate rmd. 
 2) Discovery/Discovery_Analysis.Rmd & _Data_Prep.Rmd
-   - Markdown for PCA analysis, DES and DEG for discovery cohort/ sets of scripts to organize the raw data for discovery cohorts
+   - Markdown for **PCA analysis, DES and DEG** for discovery cohort/ sets of scripts to organize the raw data for discovery cohorts
 3) Replication/Replication_Analysis.Rmd &_Data_Prep.Rmd
    - Same as 2), for Replication cohort 
 3) Alternative/Alternative_Analysis.Rmd & _Data_Prep.Rmd
@@ -65,7 +72,7 @@ ___
 
 ___
 
-## MPRA Analysis
+## [MPRA Analysis](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/MPRA)
 1) MPRA.R
    - Script for MPRA analysis for overall significant-volcano plot, miRNA-significant-volcano plot, pathway analysis for miRNA_significant genes (nothing significant), getting list of  IFNb/LPS significant MPRA genes for MFE analysis. 
 
