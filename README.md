@@ -8,12 +8,13 @@
 4. Icahn Institute for Data Science and Genomic Technology, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 5. Estelle and Daniel Maggin Department of Neurology, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 
+# ADD MPRA ANALYSIS authors 
 -----
 ## Raj Lab, Hyomin Seo. 
 
 1) [Sample Cohorts](#sample-cohorts)
    - Discovery, Replication, and iMicroglia (Alternative) cohorts.
-2) [Rmarkdowns](#Rmarkdowns) 
+2) [Rmarkdowns_PCA/DES/DEG](#Rmarkdowns-(PCA/DES/DEG)) 
    - Editing_Paper_Figure.Rmd
    - Editing_Paper_Functions.Rmd
    - Discovery/Discovery_Analysis & _Data_Prep.Rmd
@@ -21,17 +22,19 @@
    - Alternative/Alternative_Analysis & _Data_Prep.Rmd
 3) [Jacusa outputs](#Jacusa-outputs)
 
-4) [MFE](#MFE-analysis)
+4) [MFE: Minimum Free Energy](#MFE-analysis)
+   - Fasta_RNAFold.R & MPRA_Fasta_RNAFold.R
+   - Python/MFE_Multi_Editing.ipynb, _Editing_MPRA.ipynb, GENENAME.ipynb
+   - Bed_files/, Raw_fasta/, Edited_fasta/, RNAfold/, Delta_MFE/
+
+5) [MPRA: Massively Parallel Reporter Assay](#MPRA-analysis)
    - MPRA.R
    - MPRA_MFE_Discovery_IFNb & LPS_Genes.tsv
    - MPRA/Input, MPRA/Result
    - MPRA/Pathway
-
-5) [MPRA](#MPRA-analysis)
-   - MPRA.R
-   - MPRA_MFE_Discovery_IFNb & LPS_Genes.tsv
-   - MPRA/Input, MPRA/Result
-   - MPRA/Pathway 
+  
+6) [Tiebrush](#tiebrush)
+   - Gene-specific files for IGV viewing 
 _____
 ## Sample Cohorts 
 ### Discovery Cohort
@@ -57,7 +60,7 @@ _____
 |     :--:     |  :---:  |  :---:   |  :---:  |  :---:  | 
 | Sample       | 35      | 35       |  35     |  105    | 
 _____
-## Rmarkdowns
+## Rmarkdowns (PCA/DES/DEG)
 * All the makrdowns are in the form of Rmd but **not configured to be an organized-knitted html**, because the focus was to produce publication-worth figures.
 1) Editing_Paper_Figure.Rmd & Editing_Paper_Functions.Rmd
    - Markdown where all main figures were produced/ all functions used to produce the figures in seperate rmd. 
@@ -71,7 +74,21 @@ ___
 ## Jacusa outputs
 
 ___
+## [MFE Analysis](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/MFE)
+* This can be organized into one snakemake pipeline - for future 
+1) Fasta_RNAFold.R & MPRA_Fasta_RNAFold.R
+   - MFE analysis Rscript for IFNb and LPS genes (2000bp)
+   - MFE analysis Rscript for MPRA specific genes (300bp)
+     
+2) Python/MFE_Multi_Editing.ipynb, _Editing_MPRA.ipynb, GENENAME.ipynb
+   - Python script for making combination MFE analysis for IFNb and LPS genes
+   - for MPRA specific genes
+   - for gene-specific combination
+     
+3) Bed_files/, Raw_fasta/, Edited_fasta/, RNAfold/, Delta_MFE/
+   - folders with all sub-data created from R and Python scripts
 
+___
 ## [MPRA Analysis](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/MPRA)
 1) MPRA.R
    - Script for MPRA analysis for overall significant-volcano plot, miRNA-significant-volcano plot, pathway analysis for miRNA_significant genes (nothing significant), getting list of  IFNb/LPS significant MPRA genes for MFE analysis. 
@@ -86,7 +103,11 @@ ___
    - Result for pathway analysis on miRNA-significant genes, nothing significant was found 
 
 ___
-
+## [Tiebrush](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Tiebrush)
+1) Gene specific folders
+   - For specific genes, bam, bai ,bigwig, bed files for Basal samples, IFN-stimulated samples, and LPS-stimulated samples, to be loaded in IGV to visually see Editing rates. 
+  
+___  
 
 ## Abastract 
 
