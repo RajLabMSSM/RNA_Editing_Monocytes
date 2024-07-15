@@ -34,7 +34,11 @@
    - MPRA/Pathway
   
 6) [Tiebrush](#tiebrush)
-   - Gene-specific files for IGV viewing 
+   - Gene-specific files for IGV viewing
+  
+6) [Figures](#figures)
+   - Instead of having knitted markdown, we created sets of organized figures
+   - Main_Figure/ , Supp_Figure/, MFE/
 _____
 ## Sample Cohorts 
 ### Discovery Cohort
@@ -108,7 +112,17 @@ ___
    - For specific genes, bam, bai ,bigwig, bed files for Basal samples, IFN-stimulated samples, and LPS-stimulated samples, to be loaded in IGV to visually see Editing rates. 
   
 ___  
+## [Figures]((https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Figure)
+1) Main_Figure
+   - Figure 1~5 (.png), created in Editing_Paper_Figure.Rmd + Adobe illustrator
+     
+2) Supp_Figure
+   - Supp figure (PCA figures) for discovery, replication, alternation (iMicroglia), created seperatley in cohort-wise analysis.Rmd
+   - MPRA supplement figure, created in Editing_Paper_Figure.Rmd + Adobe illustrator
 
+3) MFE
+   - Two MFE figures (new_Final_MFE_Figure, new_Supp_MFE_Figure.png) 
+___  
 ## Abastract 
 
 RNA editing is a posttranscriptional modification that produces RNA molecules with different sequence information from what is genomically encoded. The consequences of RNA editing include not only the production of alternative protein products but also changes in gene expression, alterations in RNA stability, and modifications to splicing patterns. The two most frequent types of RNA editing are Cytosine to Uracil (C-to-U, read as Thymine), facilitated by APOBEC enzyme genes, and Adenosine to Inosine (A-to-G, read as Guanosine), facilitated by the ADAR enzyme family of genes. It has been demonstrated that ADAR-mediated RNA editing critically regulates the innate immune interferon (IFN) pathways, and genetic variants associated with several immunoinflammatory diseases dysregulate this vital function of RNA editing. 
