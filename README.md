@@ -1,3 +1,4 @@
+* ADD MPRA ANALYSIS authors 
 ### Cytosine-to-Uracil RNA editing is upregulated by pro-inflammatory stimulation of myeloid cells
 
 * Hyomin Seo1-5, Winston Cuddleston1-5, Madison Parks1-5 Elisa Navarro1-5, Towfique Raj1-5, Jack Humphrey1-5
@@ -8,9 +9,8 @@
 4. Icahn Institute for Data Science and Genomic Technology, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 5. Estelle and Daniel Maggin Department of Neurology, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 
-# ADD MPRA ANALYSIS authors 
 -----
-## Raj Lab, Hyomin Seo. 
+## Raj Lab, Hyomin Seo. 2024 July
 
 1) [Sample Cohorts](#sample-cohorts)
    - Discovery, Replication, and iMicroglia (Alternative) cohorts.
@@ -112,7 +112,7 @@ ___
    - For specific genes, bam, bai ,bigwig, bed files for Basal samples, IFN-stimulated samples, and LPS-stimulated samples, to be loaded in IGV to visually see Editing rates. 
   
 ___  
-## [Figures]((https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Figure)
+## [Figures](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Figure)
 1) Main_Figure
    - Figure 1~5 (.png), created in Editing_Paper_Figure.Rmd + Adobe illustrator
      
