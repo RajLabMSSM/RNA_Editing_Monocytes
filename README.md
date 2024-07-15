@@ -1,13 +1,19 @@
-* ADD MPRA ANALYSIS authors 
 ### Cytosine-to-Uracil RNA editing is upregulated by pro-inflammatory stimulation of myeloid cells
 
-* Hyomin Seo1-5, Winston Cuddleston1-5, Madison Parks1-5 Elisa Navarro1-5, Towfique Raj1-5, Jack Humphrey1-5
+Hyomin Seo1-5, Winston Cuddleston1-5, Ting Fu6,7, Madison Parks1-5, Elisa Navarro1-5,8-10, Xinshu Grace Xiao6,7, Towfique Raj1-5, Jack Humphrey1-5
 
+Affiliations:
 1. Department of Genetics and Genomic Sciences, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 2. Nash Family Department of Neuroscience & Friedman Brain Institute, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 3. Ronald M. Loeb Center for Alzheimer’s Disease, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 4. Icahn Institute for Data Science and Genomic Technology, Icahn School of Medicine at Mount Sinai, New York, NY, USA
 5. Estelle and Daniel Maggin Department of Neurology, Icahn School of Medicine at Mount Sinai, New York, NY, USA
+6. Bioinformatics Interdepartmental Program, University of California, Los Angeles, Los Angeles, CA 90095, USA
+7. Department of Integrative Biology and Physiology, University of California, Los Angeles, Los Angeles, CA 90095, USA
+8. Instituto Universitario de Investigacion en Neuroquimica, Departamento de Bioquimica y Biologia Molecular, Facultad de Medicina, Universidad Complutense, Madrid, Spain;
+9. Centro de Investigacion Biomedica en Red de Enfermedades Neurodegenerativas (CIBERNED), Instituto de Salud Carlos III, Madrid, Spain;
+10. Instituto Ramon y Cajal de Investigacion Sanitaria (IRYCIS), Madrid, Spain.
+
 
 -----
 ## Raj Lab, Hyomin Seo. 2024 July
@@ -21,7 +27,9 @@
    - Replication/Replication_Analysis & _Data_Prep.Rmd
    - Alternative/Alternative_Analysis & _Data_Prep.Rmd
 3) [Jacusa outputs](#Jacusa-outputs)
-
+   - Post-jacusa processing script
+  
+   
 4) [MFE: Minimum Free Energy](#MFE-analysis)
    - Fasta_RNAFold.R & MPRA_Fasta_RNAFold.R
    - Python/MFE_Multi_Editing.ipynb, _Editing_MPRA.ipynb, GENENAME.ipynb
@@ -76,7 +84,9 @@ _____
    - Same as 2), for Alternative (iMicroglia) cohort 
 ___
 ## Jacusa outputs
+1) Post-jacusa processing script
 
+2) 
 ___
 ## [MFE Analysis](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/MFE)
 * This can be organized into one snakemake pipeline - for future 
