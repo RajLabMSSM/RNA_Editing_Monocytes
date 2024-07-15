@@ -61,11 +61,11 @@ _____
 * All the makrdowns are in the form of Rmd but **not configured to be an organized-knitted html**, because the focus was to produce publication-worth figures.
 1) Editing_Paper_Figure.Rmd & Editing_Paper_Functions.Rmd
    - Markdown where all main figures were produced/ all functions used to produce the figures in seperate rmd. 
-2) Discovery/Discovery_Analysis.Rmd & _Data_Prep.Rmd
+2) [Discovery/Discovery_Analysis.Rmd & _Data_Prep.Rmd](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Discovery)
    - Markdown for **PCA analysis, DES and DEG** for discovery cohort/ sets of scripts to organize the raw data for discovery cohorts
-3) Replication/Replication_Analysis.Rmd &_Data_Prep.Rmd
+3) [Replication/Replication_Analysis.Rmd &_Data_Prep.Rmd](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Replication)
    - Same as 2), for Replication cohort 
-3) Alternative/Alternative_Analysis.Rmd & _Data_Prep.Rmd
+3) [Alternative/Alternative_Analysis.Rmd & _Data_Prep.Rmd](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Alternation)
    - Same as 2), for Alternative (iMicroglia) cohort 
 ___
 ## Jacusa outputs
