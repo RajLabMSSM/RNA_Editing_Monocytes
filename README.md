@@ -28,7 +28,7 @@ Affiliations:
    - Alternative/Alternative_Analysis & _Data_Prep.Rmd
 3) [Jacusa outputs](#Jacusa-outputs)
    - Post-jacusa processing script
-  
+   - Discovery, Replication, iMicroglia Jacusa processed outputs 
    
 4) [MFE: Minimum Free Energy](#MFE-analysis)
    - Fasta_RNAFold.R & MPRA_Fasta_RNAFold.R
@@ -86,7 +86,7 @@ ___
 ## Jacusa outputs
 1) Post-jacusa processing script
 
-2) 
+2) Discovery, Replication, iMicroglia Jacusa processed outputs 
 ___
 ## [MFE Analysis](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/MFE)
 * This can be organized into one snakemake pipeline - for future 
