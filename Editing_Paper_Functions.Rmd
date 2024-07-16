@@ -1,0 +1,1014 @@
+---
+title: "Eiditng Paper Figure_Functions"
+author: "Hyomin Seo"
+date: "July 2024"
+output:
+  rmarkdown::html_document:
+   theme: cerulean
+   highlight: kate
+   code_folding: hide
+   toc: true
+   toc_float: true
+   df_print: paged
+   smooth_scroll: true
+   number_sections: false
+   self_contained: true
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages('BiocManager')
+#BiocManager::install("satuRn")
+#BiocManager::install("edgeR")
+
+#install.packages("dplyr")
+#install.packages("tidyverse")
+library(tidyverse)
+library(BiocManager)
+library(satuRn) 
+library(SummarizedExperiment)
+library(edgeR)
+library(dplyr)
+library(purrr)
+library(patchwork)
+library(limma)
+library(ggfortify)
+library(data.table)
+library(matrixStats)
+library(broom)
+library(ComplexHeatmap)
+library(limma)
+library(variancePartition)
+library(rlang)
+library(gplots)
+library(ggplot2)
+library("ggpubr")
+library(factoextra)
+library(ComplexHeatmap)
+library(ggplotify)
+library(ggplot2)
+library(wesanderson)
+library(ggrepel)
+library(gprofiler2)
+library(gridExtra)
+library(kableExtra)
+#install.packages("ggVennDiagram")
+library(ggVennDiagram)
+#install.packages("VennDiagram")
+library(VennDiagram)
+```
+
+
+################################################################################ 
+#################################### PLOT ######################################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+inplot_size = 4
+point_size= 2
+axis_size = 12
+ticks_size =12
+title_size = 12
+text_size = 12
+label_text_size =15
+table_text_size =5
+anno_legend_size= 3
+legend_size = 3
+label_margin = 10
+
+batch_color<- c("Batch_1"="#9999FF", "Batch_2"="#FF3333")
+
+
+stim_color <- c("Basal" = "#c5c5c5", "LPS" = "#FFA800", 
+                 "IFNb" = "#3A867F","IFNg" = "#3A867F")
+
+all_index_color <- c("A:C" = "#999999", "A:G" = "#F12C17","A:T" = "#999999",
+                   "C:A" = "#999999","C:G" = "#999999","C:T" = "#215BEC",
+                   "G:A" = "#215BEC","G:C" = "#999999","G:T" = "#999999",
+                   "T:A" = "#999999","T:C" = "#F12C17","T:G" = "#999999")
+
+anno_palette <- c( "exonic" = "#F78520","intronic" = "#648fff",
+                   "ncRNA\nexonic" = "#fe6100","ncRNA\nintronic" = "#fe6100",
+                  "ncRNA_exonic" = "#fe6100","ncRNA_intronic" = "#fe6100",
+                  "ncRNA" = "#fe6100",
+                  
+                  "upstream" = "#785ef0","downstream" = "#785ef0",
+                  "intergenic" = "#785ef0",
+                  
+                  "splicing" = "#dc267f",
+                  "UTR3" = "#ffb000",
+                  "UTR5" = "#ff9da7",
+                  
+                  "nonsynonymous_SNV" = "#40B5AD",
+                  "nonsynonymous\nSNV" = "#40B5AD",
+                  
+                  "startloss"="#ff6db6",
+                  "stoploss" ="#ff6db6",
+                  "stopgain" ="#490092", 
+                  
+                  "synonymous\nSNV" ="#F78520",
+                  "synonymous_SNV" ="#F78520",
+                  
+                  "Alu" ="#40B5AD", "LINE" ="#F78520",
+                  "None"="#D3D3D3", "Other" ="#9c755f",
+                  "Simple repeat"= "#D3D3D3", 
+                  
+                  "Known" = "#009292", "Novel" = "#D3D3D3")
+
+index_color <- c("A:G_DE" = "#F12C17","C:T_DE" = "#215BEC","Non_DE"="#D3D3D3")
+
+cohort_color<-c("Replication" = "#db7093", "Discovery"="#009292")
+
+rate_index_color<-c("Replication:AG" = "#F12C17", "Discovery:AG"="#F12C17",
+                    "Replication:CT" = "#215BEC", "Discovery:CT"="#215BEC")
+rate_index_shape<-c("Replication" = "triangle", "Discovery" = "square")
+
+direction_color <- c("UP" = "#648FFF","DOWN" = "#5A45BB","FALSE"="#D3D3D3")
+
+combined_color<-c("DE_Both"="#D81B60", "NA_Both"= "#D3D3D3",
+                  "DE_Discovery" = "#1E88E5", "DE_Replication" = "#FFC107",
+                  "DE_Alternation"= "#FFC107")
+```
+
+
+
+################################################################################ 
+################################# PREP FUNC ####################################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+#################################################################################
+gencode<-read_tsv("/Users/hyominseo/Desktop/RAJ/Gene_Differential/gencode.v30.tx2gene.tsv")%>%
+  dplyr::select(c(GENEID,GENENAME))
+#################################################################################
+change_esid12_anno<-function(anno_in){
+  anno_in<-anno_in%>%dplyr::select(-c(ESid))
+  anno_in$ESid<-anno_in$ESid2
+  anno_in<-anno_in%>%dplyr::select(-c(ESid2))
+  anno_in
+}
+#################################################################################
+make_deg_des<-function(deg_in, des_in,anno_in, file_name){
+  #deg_in<-M1_DEG_IFNb
+  deg_in<-deg_in%>%dplyr::filter(!grepl("FALSE",DE_Direction))
+  colnames(deg_in) <- paste0(colnames(deg_in), "_DEG")
+  deg_in$GENEID<-deg_in$GENEID_DEG
+  
+  #des_in<-M1_DES_IFNb
+  des_in$GENENAME<-des_in$Gene
+  colnames(des_in) <- paste0(colnames(des_in), "_DES")
+  des_in$GENENAME<-des_in$GENENAME_DES
+  des_in$DE_Index<-des_in$DE_Index_DES
+  des_in$ESid<-des_in$ESid_DES
+  
+  des_in<-merge(des_in, gencode, by = "GENENAME")%>%distinct(GENENAME,.keep_all=TRUE)
+  des_in<-des_in%>%dplyr::filter(!grepl("Non_DE",DE_Index_DES))
+  
+  deg_des<-merge(deg_in, des_in, by="GENEID")%>%
+    dplyr::select(c(GENEID,GENEID,GENENAME,logFC_DEG,  DE_Direction_DEG,
+                    ESid,logFC_DES, DE_Index))
+  deg_des_anno<-merge(deg_des, anno_in, by="ESid")
+  write_tsv(deg_des_anno, file_name)
+}
+
+#################################################################################
+make_shared_esid_col<-function(des_in,pattern_in){
+  DES_shared<-des_in
+  DES_shared$logPval<-(-log10(DES_shared$adj.P.Val))
+  DES_shared<-DES_shared%>%dplyr::select(c("ESid","DE_Index","logPval",
+                                               "Editing_Index","logFC","Gene"))
+  DES_shared<-DES_shared%>%column_to_rownames("ESid")
+  colnames(DES_shared) <- paste0(colnames(DES_shared), pattern_in)
+  DES_shared
+}
+
+
+rename_location<-function(anno_in){
+  anno_in <- anno_in %>%
+  mutate(`Gene Region` = case_when(
+      Location %in% c("downstream", "upstream") ~ "intergenic",
+      startsWith(Location, "ncRNA") ~ "ncRNA",
+      TRUE ~ as.character(Location))) 
+  anno_in
+  }
+
+```
+
+
+
+
+################################################################################ 
+###################### SHARED DES M12 MICRO M1 ##################################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+M1_DES_LPS_shared<-make_shared_esid_col(M1_DES_LPS,"_Discovery")
+M2_DES_LPS_shared<-make_shared_esid_col(M2_DES_LPS,"_Replication")
+
+M12_DES_LPS<-merge(M1_DES_LPS_shared, M2_DES_LPS_shared, by=0)
+
+M12_DES_LPS<-M12_DES_LPS%>%dplyr::mutate(DE_Index_Discovery = case_when(
+  DE_Index_Discovery == "A:G_DE" ~ "DE_Discovery", 
+  DE_Index_Discovery == "C:T_DE" ~ "DE_Discovery",
+  DE_Index_Discovery == "Non_DE" ~ "Non_Discovery"))
+
+M12_DES_LPS<-M12_DES_LPS%>%dplyr::mutate(DE_Index_Replication = case_when(
+  DE_Index_Replication == "A:G_DE" ~ "DE_Replication", 
+  DE_Index_Replication == "C:T_DE" ~ "DE_Replication",
+  DE_Index_Replication == "Non_DE" ~ "Non_Replication"))
+
+M12_DES_LPS<-M12_DES_LPS%>%dplyr::mutate(Combined_Index = case_when(
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Replication == "DE_Replication" ~ "DE_Both", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Replication == "Non_Replication" ~ "NA_Both", 
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Replication == "Non_Replication" ~ "DE_Discovery", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Replication == "DE_Replication" ~ "DE_Replication"
+))
+
+########################################################################################
+########################################################################################
+M1_DES_IFNb_shared<-make_shared_esid_col(M1_DES_IFNb,"_Discovery")
+M2_DES_IFNg_shared<-make_shared_esid_col(M2_DES_IFNg,"_Replication")
+
+M12_DES_IFN<-merge(M1_DES_IFNb_shared, M2_DES_IFNg_shared, by=0)
+
+M12_DES_IFN<-M12_DES_IFN%>%dplyr::mutate(DE_Index_Discovery = case_when(
+  DE_Index_Discovery == "A:G_DE" ~ "DE_Discovery", 
+  DE_Index_Discovery == "C:T_DE" ~ "DE_Discovery",
+  DE_Index_Discovery == "Non_DE" ~ "Non_Discovery"))
+
+M12_DES_IFN<-M12_DES_IFN%>%dplyr::mutate(DE_Index_Replication = case_when(
+  DE_Index_Replication == "A:G_DE" ~ "DE_Replication", 
+  DE_Index_Replication == "C:T_DE" ~ "DE_Replication",
+  DE_Index_Replication == "Non_DE" ~ "Non_Replication"))
+
+M12_DES_IFN<-M12_DES_IFN%>%dplyr::mutate(Combined_Index = case_when(
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Replication == "DE_Replication" ~ "DE_Both", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Replication == "Non_Replication" ~ "NA_Both", 
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Replication == "Non_Replication" ~ "DE_Discovery", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Replication == "DE_Replication" ~ "DE_Replication"
+))
+########################################################################################
+########################################################################################
+Micro_DES_LPS_shared<-make_shared_esid_col(Micro_DES_LPS,"_Alternation")
+
+Micro_M1_DES_LPS<-merge(M1_DES_LPS_shared,Micro_DES_LPS_shared, by=0)
+
+Micro_M1_DES_LPS<-Micro_M1_DES_LPS%>%dplyr::mutate(DE_Index_Discovery = case_when(
+  DE_Index_Discovery == "A:G_DE" ~ "DE_Discovery", 
+  DE_Index_Discovery == "C:T_DE" ~ "DE_Discovery",
+  DE_Index_Discovery == "Non_DE" ~ "Non_Discovery"))
+
+Micro_M1_DES_LPS<-Micro_M1_DES_LPS%>%dplyr::mutate(DE_Index_Alternation = case_when(
+  DE_Index_Alternation == "A:G_DE" ~ "DE_Alternation", 
+  DE_Index_Alternation == "C:T_DE" ~ "DE_Alternation",
+  DE_Index_Alternation == "Non_DE" ~ "Non_Alternation"))
+
+Micro_M1_DES_LPS<-Micro_M1_DES_LPS%>%dplyr::mutate(Combined_Index = case_when(
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Alternation == "DE_Alternation" ~ "DE_Both", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Alternation == "Non_Alternation" ~ "NA_Both", 
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Alternation == "Non_Alternation" ~ "DE_Discovery", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Alternation == "DE_Alternation" ~ "DE_Alternation"
+))
+########################################################################################
+########################################################################################
+Micro_DES_IFN_shared<-make_shared_esid_col(Micro_DES_IFNg,"_Alternation")
+
+Micro_M1_DES_IFN<-merge(M1_DES_IFNb_shared,Micro_DES_IFN_shared, by=0)
+
+Micro_M1_DES_IFN<-Micro_M1_DES_IFN%>%dplyr::mutate(DE_Index_Discovery = case_when(
+  DE_Index_Discovery == "A:G_DE" ~ "DE_Discovery", 
+  DE_Index_Discovery == "C:T_DE" ~ "DE_Discovery",
+  DE_Index_Discovery == "Non_DE" ~ "Non_Discovery"))
+
+Micro_M1_DES_IFN<-Micro_M1_DES_IFN%>%dplyr::mutate(DE_Index_Alternation = case_when(
+  DE_Index_Alternation == "A:G_DE" ~ "DE_Alternation", 
+  DE_Index_Alternation == "C:T_DE" ~ "DE_Alternation",
+  DE_Index_Alternation == "Non_DE" ~ "Non_Alternation"))
+
+Micro_M1_DES_IFN<-Micro_M1_DES_IFN%>%dplyr::mutate(Combined_Index = case_when(
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Alternation == "DE_Alternation" ~ "DE_Both", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Alternation == "Non_Alternation" ~ "NA_Both", 
+  DE_Index_Discovery == "DE_Discovery" & DE_Index_Alternation == "Non_Alternation" ~ "DE_Discovery", 
+  DE_Index_Discovery == "Non_Discovery" & DE_Index_Alternation == "DE_Alternation" ~ "DE_Alternation"
+))
+```
+
+
+################################################################################ 
+###################### PLOTTING FUNCTION EDITING ###############################
+################################################################################
+```{r stim_9,echo= TRUE, message = FALSE,warning=FALSE, eval=TRUE}
+log_comp_plot <- function(comp_in,comp_in_select, plot_title) {
+  log_comp_plot <- ggplot(comp_in, aes(x = logFC_Discovery, y = logFC_Replication, 
+                                     col = Combined_Index)) +
+    geom_point(size = point_size, alpha = 0.7) +
+    scale_color_manual(values = combined_color)+
+    #stat_cor(label.x.npc="left",label.y.npc ="top") +
+    geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +  
+    geom_vline(xintercept = c(0), col = "black", linetype="longdash") +
+    geom_hline(yintercept = c(0), col = "black", linetype="longdash") +
+    labs(x = "DE Rate logFC:Discovery", y = "DE Rate logFC:Replication",title=plot_title) +
+    theme_classic() +
+    geom_point(data = comp_in_select ,shape=1,  color="black", size=2)+
+    geom_label_repel(data = comp_in_select, aes(label = Gene_Discovery), 
+                     box.padding   = 0, point.padding = 0, force = 100,
+                     segment.size  = 0.3,segment.color = "black",
+                     angle = 180,point.size = point_size,color="black",
+                     nudge_x = 0.5,hjust =0,size = point_size)+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size-0.5,color="black"),
+          axis.text.y = element_text(size = axis_size-0.5,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "top")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  log_comp_plot
+}
+
+
+micro_log_comp_plot <- function(comp_in,comp_in_select,plot_title) {
+  micro_log_comp_plot <- ggplot(comp_in, aes(x = logFC_Discovery, y = logFC_Alternation, 
+                                     col = Combined_Index)) +
+    geom_point(size = point_size, alpha = 0.7) +
+    scale_color_manual(values = combined_color)+
+    #stat_cor() +
+    geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +  
+    geom_vline(xintercept = c(0), col = "black", linetype="longdash") +
+    geom_hline(yintercept = c(0), col = "black", linetype="longdash") +
+    labs(x = "DE Rate logFC:Discovery", y = "DE Rate logFC:Alternative",title=plot_title) +
+    theme_classic() +
+    geom_point(data = comp_in_select ,shape=1,  color="black", size=2)+
+    geom_label_repel(data = comp_in_select, aes(label = Gene_Discovery), 
+                     box.padding   = 0, point.padding = 0, force = 100,
+                     segment.size  = 0.3,segment.color = "black",
+                     angle = 180,point.size = point_size,color="black",
+                     nudge_x = 0.5,hjust =0,size = point_size)+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "top")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  micro_log_comp_plot
+}
+
+discovery_compare<-function(comp_in,x_in,x_title,plot_title){
+  discovery_plot<-
+    ggplot(comp_in, aes(x=x_in, y=Discovery_Rate,col=Cohort))+
+    geom_point(size= point_size+0.5, alpha=0.7)+
+    scale_color_manual(values = mono_cohort_color)+
+    geom_smooth(method="lm", level=0.98, se = FALSE, show.legend = FALSE)+
+    stat_cor(method="pearson",label.x.npc = "left",label.y.npc = "top")+
+      labs(x = x_title, y = "Editing Site Discovery Rate",title = plot_title)+theme_bw()+
+    theme(legend.title = element_text(size=text_size+1),
+          legend.text = element_text(size=text_size+1),
+          axis.text.x = element_text(size = axis_size+1,color="black"),
+          axis.text.y = element_text(size = axis_size+1,color="black"),
+          axis.title = element_text(size = axis_size+1),
+          plot.title = element_text(size=title_size+1, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+discovery_plot
+}
+
+```
+
+
+
+
+################################################################################ 
+###################### PLOTTING FUNCTION EDITING ###############################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+shared_DES_plot <- function(comp_in, plot_title) {
+  shared_DES_plot <- ggplot(comp_in, aes(x = logFC_Discovery, y = logFC_Replication, 
+                                     col = Combined_Index)) +
+    geom_point(size = point_size, alpha = 0.7) +
+    scale_color_manual(values = combined_color)+
+    stat_cor() +
+    geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +  
+    geom_vline(xintercept = c(0), col = "black", linetype="longdash") +
+    geom_hline(yintercept = c(0), col = "black", linetype="longdash") +
+    labs(x = "log10(Pval):Discovery", y = "log10(Pval):Replication",title=plot_title) +
+    theme_bw() +
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size),
+          axis.text.y = element_text(size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "top")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  shared_DES_plot
+}
+
+disc_rate_comp_plot<-function(comp_in,x_in,x_title,plot_title){
+  discovery_plot<-
+    ggplot(comp_in, aes(x=x_in, y=Discovery_Rate,col=Cohort))+
+    geom_point(size= point_size+0.5, alpha=0.7)+
+    scale_color_manual(values = cohort_color)+
+    geom_smooth(method="lm", level=0.98, se = FALSE, show.legend = FALSE)+
+    stat_cor(method="pearson")+
+      labs(x = x_title, y = "Editing Site Discovery Rate",title = plot_title)+
+    theme_bw() +
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size),
+          axis.text.y = element_text(size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "top")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+discovery_plot
+}
+```
+
+
+
+################################################################################ 
+########################## DISCOVERY RATE COMP #################################
+################################################################################
+```{r stim_9,echo= TRUE, message = FALSE,warning=FALSE, eval=TRUE}
+
+
+calc_ed_disc_rate<-function(ed_in,meta_in, pattern_in){
+  meta_check<-meta_in%>%dplyr::select(c("Sample", "Stimulation",
+                                         "PCT_INTRONIC_BASES", "PCT_CODING_BASES"))
+  #ed_in<-M1_editing_type
+  ed_check<-ed_in%>%dplyr::select(-c("Mean","Editing_Index"))
+  ed_check<-ed_check%>%column_to_rownames("ESid")
+  ed_check<-as.data.frame(t(ed_check))
+  # how many sites that have rate of 0 
+  ed_check$Count_Zeros <- rowSums(ed_check == 0)
+  # how many sites were 'discovered' in one sample 
+  ed_check$Discovery_Rate <- (1-(ed_check$Count_Zeros/ncol(ed_check))*100)
+  ed_check<-ed_check%>%dplyr::select(c(Count_Zeros, Discovery_Rate))
+  ed_check<-ed_check%>%rownames_to_column("Sample")
+  ed_check<-merge(ed_check, meta_check, by ="Sample")
+  ed_check$Cohort<-c(pattern_in)
+  ed_check
+}
+# (1 - (sites found in the sample but editing rate of 0)/(all the sites found in one sample))*100 
+# so, says, sample AD-1-Basal (for both AG and CT summed) has 2773 sites with editing rate of 0, that 7172 sites were found in total, 
+# it s discovery rate it (1- (2773/7172)) * 100 = 61.335% 
+
+calc_ed_disc_rate_index<-function(ed_in,meta_in, qc_in, index_in,pattern_in_index, 
+                                  pattern_in_cohort){
+  meta_check<-meta_in%>%dplyr::select(c("Sample", "Stimulation",
+                                         "PCT_INTRONIC_BASES", "PCT_CODING_BASES"))
+
+  qc_in_col<-qc_in%>%column_to_rownames("Sample")
+  meta_check<-merge(meta_check, qc_in, by ="Sample")
+  ed_in<-M1_editing_type
+  index_in<-"A:G"
+  ed_in<-ed_in%>%dplyr::filter(grepl(index_in,Editing_Index))
+  ed_check<-ed_in%>%dplyr::select(-c("Mean","Editing_Index"))
+  ed_check<-ed_check%>%column_to_rownames("ESid")
+  ed_check<-as.data.frame(t(ed_check))
+  ed_check<-merge(ed_check, qc_in_col,by = "row.names", all = TRUE)
+  # how many sites that have rate of 0 
+  ed_check$Count_Zeros <- rowSums(ed_check == 0)
+  # how many sites were 'discovered' in one sample 
+  #col<-as.numeric(ncol(ed_check)-2)
+  ed_check$Count_Sites <- ncol(ed_check) - ed_check$Count_Zero
+  ed_check$Discovery_Rate<-(ed_check$Count_Sites/(ed_check$PF_ALIGNED_BASES/1000000))
+  #ed_check$Discovery_Rate <- (1-(ed_check$Count_Zeros/ncol(ed_check))*100)
+  ed_check<-ed_check%>%dplyr::select(c(Row.names,Count_Zeros, Count_Sites,Discovery_Rate))
+  ed_check<-ed_check%>%column_to_rownames("Row.names")
+  ed_check<-ed_check%>%rownames_to_column("Sample")
+  ed_check<-merge(ed_check, meta_check, by ="Sample")
+  ed_check$Cohort_Index<-c(pattern_in_index)
+  ed_check$Cohort<-c(pattern_in_cohort)
+  ed_check
+}
+
+# Count_Disc_Sites = (total found sites in one sample) - (found sites with ed rate of 0)
+# Discovery_Rate = (Count_Disc_Sites) / (PF_Aligned_bases of that sample/1000000)
+
+
+ed_disc_comp_plot<-function(comp_in,x_in,x_title){
+  discovery_plot<-
+    ggplot(comp_in, aes(x=x_in, y=Discovery_Rate,col=Cohort_Index,shape=Cohort))+
+    geom_point(size= point_size+0.5, alpha=0.7)+
+    scale_color_manual(values = rate_index_color)+
+    geom_smooth(method="lm", level=0.98, se = FALSE, show.legend = FALSE)+
+    #stat_cor(method="pearson",label.x.npc = "left",label.y.npc = "top")+
+      #labs(x = x_title, y = "Editing Site Discovery Rate")+
+    theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color='black'),
+          axis.text.y = element_text(size = axis_size,color='black'),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))+
+    scale_shape_manual(values = rate_index_shape)
+discovery_plot
+}
+
+```
+
+
+################################################################################ 
+########################## FUNCTION GENE PLOTS #################################
+################################################################################
+```{r diff_3, echo= TRUE, message = FALSE, warning=FALSE, eval=FALSE}
+gene_vol_plot<-function(cohort_in, plot_title,plot_subtitle){
+  if(cohort_in == "M1_LPS"){diff_in<-M1_DEG_LPS}
+  if(cohort_in == "M1_IFNb"){diff_in<-M1_DEG_IFNb}
+  
+  if(cohort_in == "M2_LPS"){diff_in<-M2_DEG_LPS}
+  if(cohort_in == "M2_IFNg"){diff_in<-M2_DEG_IFNg}
+  
+  if(cohort_in == "Micro_LPS"){diff_in<-Micro_DEG_LPS}
+  if(cohort_in == "Micro_IFNg"){diff_in<-Micro_DEG_IFNg}
+  
+  if(cohort_in == "M1_LPS"){diff_in_risk<-diff_in%>%
+    dplyr::filter(grepl("CD59|GPNMB$",GENENAME))}
+  if(cohort_in == "M1_IFNb"){diff_in_risk<-diff_in%>%
+    dplyr::filter(grepl("CXCL11|^CXCR2$",GENENAME))}
+  
+  if(cohort_in == "M2_LPS"){diff_in_risk<-diff_in%>%
+    dplyr::filter(grepl("ANYGENE",GENENAME))}
+  if(cohort_in == "M2_IFNg"){diff_in_risk<-diff_in%>%
+    dplyr::filter(grepl("ANYGENE",GENENAME))}
+  
+  diff_in_risk<-diff_in_risk %>%dplyr::filter(adj.P.Val < 0.05)
+
+  vol_plot<- ggplot(diff_in, aes(x=logFC, y=-log10(P.Value),col = DE_Direction))+ 
+    geom_point(size =point_size, alpha=0.7)+
+    scale_color_manual(values = direction_color)+
+    labs(x = "logFC", y = "-log10(P.Value)")+
+    labs(title=plot_title,subtitle=plot_subtitle)+
+    geom_vline(xintercept=c(-1,1), col ="#818589", linetype="longdash")+
+    geom_point(data = diff_in_risk, shape=19,  color="black", size=point_size)+
+    geom_label_repel(data = diff_in_risk, aes(label = GENENAME),
+                     box.padding   = 0, point.padding = 0, force = 100,
+                     segment.size  = 0.3,segment.color = "black",
+                     angle = 180,point.size =point_size, color="black",
+                     nudge_x = 0.5,hjust =0,size = point_size)+
+    theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          plot.subtitle = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  vol_plot
+}
+
+################################################################################ 
+gene_tpm_editing_plot<-function(ed_type_in,tpm_in, deg_des_in, GENE, plot_title){
+  #ed_type_in<-M1_editing_type
+   #tpm_in<-tpm_in%>%rownames_to_column("GENEID")
+  # deg_des_in<-M1_lps_deg_des
+  # GENE<-"APOBEC3B"
+  # plot_title<-"APOBEC3B"
+  
+  deg_des_in<-deg_des_in%>%dplyr::filter(grepl(GENE, Gene))
+  deg_des_in$GENENAME<-deg_des_in$Gene
+  deg_des_in<-merge(deg_des_in, gencode, by ="GENENAME")
+  deg_des_in$GENEID<-str_split_fixed(deg_des_in$GENEID, "\\.", 2)[, 1]
+  
+  tpm_in$GENEID<-str_split_fixed(tpm_in$GENEID, "\\.", 2)[, 1]
+  #gene_deg_des$GENEID<-gsub("ENSG00000121807.7","ENSG00000121807.5", gene_deg_des$GENEID)
+  
+  gene_deg_des<-deg_des_in
+  gene_tpm_norm<-tpm_in%>%dplyr::filter(GENEID %in% gene_deg_des$GENEID)
+  gene_tpm_norm<-gene_tpm_norm%>%column_to_rownames("GENEID")%>%
+    pivot_longer(where(is.numeric), names_to = "Sample", values_to = "Norm_TPM")
+  
+  gene_editing<-ed_type_in%>%dplyr::filter(ESid %in% gene_deg_des$ESid)%>%
+    column_to_rownames("ESid")%>%
+    pivot_longer(where(is.numeric), names_to ="Sample", values_to="Editing_Rate")
+  
+  gene_editing[c('Disease','num','Stimulation')]<-str_split_fixed(gene_editing$Sample, "-",3)
+  gene_all<-merge(gene_tpm_norm, gene_editing, by ="Sample")
+  
+  all_plot<-
+    ggplot(gene_all, aes(x=Norm_TPM, y=Editing_Rate, col=Stimulation)) +
+    geom_point(size=point_size, alpha=0.9) + 
+    scale_color_manual(values = stim_color) +
+    #stat_cor(method="pearson") +
+    labs(x = "Norm TPM", y = "RNA Editing Rate") +
+    labs(title= plot_title) + theme_classic() +
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size-1, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3)) +
+    theme(legend.position = "none") + 
+    guides(color = guide_legend(override.aes = list(size=legend_size-0.5)))
+  all_plot
+}
+
+
+################################################################################ 
+
+
+mut_loc_plot<-function(cohort_in){
+  if(cohort_in == "M1_LPS"){deg_des_in<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/All_Table/All_DES_DEG/Discovery_LPS_DES_DEG_All.tsv")}
+  if(cohort_in == "M1_IFNb"){deg_des_in<-read_tsv("/Users/hyominseo/Desktop/RAJ_RNA_Editing/All_Table/All_DES_DEG/Discovery_IFN_DES_DEG_All.tsv")}
+  
+  if(cohort_in == "M1_LPS"){risk_genes<-deg_des_in%>%dplyr::filter(grepl("CD59|GPNMB$",Gene))}
+  if(cohort_in == "M1_IFNb"){risk_genes<-deg_des_in%>%dplyr::filter(grepl("CXCL11|CXCR2",Gene))}
+  deg_des_in$`Gene Region` <-deg_des_in$Location
+  risk_genes$`Gene Region` <-risk_genes$Location
+  
+  deg_des_in$`Editing Index` <-deg_des_in$Editing_Index
+  risk_genes$`Editing Index` <-risk_genes$Editing_Index
+  
+  loc_plot <- ggplot(deg_des_in, aes(x=logFC, y=DES_logFC)) +
+  geom_point(aes(col=`Gene Region`, shape=`Editing Index`), size=point_size+1, alpha=0.7) +
+  scale_color_manual(values=anno_palette, name = "Gene Region") +
+  geom_vline(xintercept=c(0), col ="grey") +
+  geom_hline(yintercept=c(0), col="grey") +
+  #stat_cor() +
+  geom_smooth(method = "lm", se = FALSE, show.legend = FALSE,
+              color = "black", size =0.5) +
+  labs(x = "Differentially Expressed Genes logFC", 
+       y = "Differentially Edited Sites logFC", 
+       fill = "Gene Region", col ="Editing Index") +
+  geom_label_repel(data = risk_genes, aes(label = Gene),
+                   box.padding   = 0, point.padding = 0, force = 100,
+                   segment.size  = 0.3, segment.color = "black",
+                   angle = 180, point.size = point_size, color = "black",
+                   nudge_x = 0.5, hjust = 0, size = point_size+1) +
+  geom_point(data=risk_genes, size = point_size, alpha=1, 
+             aes(shape=`Editing Index`, color=`Gene Region`)) +
+  theme_bw() +
+  theme(legend.title = element_text(size=text_size),
+        legend.text = element_text(size=text_size),
+        axis.text.x = element_text(size = axis_size, color="black"),
+        axis.text.y = element_text(size = axis_size, color="black"),
+        axis.title = element_text(size = axis_size),
+        plot.title = element_text(size=title_size, hjust=0.5),
+        legend.margin = margin(0,0,0,0),
+        legend.box.margin = margin(-3,-3,-3,-3),
+        legend.position = "right",
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  guides(color = guide_legend(override.aes = list(size=legend_size)))
+}
+
+```
+
+
+################################################################################ 
+########################## FUNCTION SITE PLOTS #################################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+vol_plot<-function(table_in,select_in, plot_title,plot_subtitle){
+  vol_plot<- ggplot(table_in, aes(x=logFC, y=-log10(P.Value),col = DE_Index))+ 
+    geom_point(size =point_size, alpha=0.7)+
+    scale_color_manual(values = index_color)+
+    labs(x = "logFC", y = "-log10(P.Value)",title=plot_title,subtitle = plot_subtitle)+
+    geom_vline(xintercept=0,  col ="#818589", linetype="longdash")+
+    geom_point(data =select_in ,shape=1,color="black", size=point_size)+
+    geom_label_repel(data = select_in, aes(label = Gene),
+                    box.padding = 0, point.padding = 0, force = 50,
+                    segment.size = 0.2,segment.color = "black",
+                    angle = 180,point.size = point_size,color="black",
+                    nudge_x = 0.3,hjust =0,size = point_size)+
+    theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          plot.subtitle = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  vol_plot
+}
+
+#mpra_color <- c("Y" = "#1E88E5","C:T_DE" = "#215BEC","N"="#D3D3D3")
+
+mpra_color <- c("Basal" = "#c5c5c5", "LPS_Y" = "#FFA800", 
+                "Discover_LPS" ="#FFA800", 
+                 "IFNb_Y" = "#3A867F","N"="#D3D3D3",
+                "Discover_IFNb" = "#3A867F",
+                "LPS_MPRA"="#FFA800","IFNb_MPRA" ="#3A867F",
+                "LPS_IFNb" = "#F78520")
+
+
+vol_plot_mpra<-function(table_in, plot_title){
+  vol_plot<- ggplot(table_in, aes(x=logFC, y=logP,col = significant,shape=significant))+ 
+    geom_point(size =point_size+1, alpha=0.8)+
+    scale_shape_manual(values = c("N" = 16, "LPS_Y" = 17, "IFNb_Y" = 16, "LPS_IFNb" = 18))+
+    scale_color_manual(values =mpra_color)+
+    labs(x = "logFC", y = "-log10(P.Value)",title=plot_title)+
+    geom_vline(xintercept=0,  col ="#818589", linetype="longdash")+
+    theme_classic()+
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          plot.subtitle = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  vol_plot
+}
+
+
+deg_comp_plot_mpra <- function(comp_in, plot_title) {
+  log_comp_plot <- ggplot(comp_in, aes(x = logFC, y = logFC_MPRA, 
+                                       col = significant_MPRA)) +
+    geom_point(size = point_size, alpha = 0.7) +
+    scale_color_manual(values = mpra_color)+
+    #stat_cor(label.x.npc="left",label.y.npc ="top") +
+    geom_smooth(method = "lm", se = FALSE, show.legend = FALSE) +  
+    #geom_vline(xintercept = c(0), col = "black", linetype="longdash") +
+    #geom_hline(yintercept = c(0), col = "black", linetype="longdash") +
+    labs(x = "DEG logFC", y = "MPRA logFC",title=plot_title) +
+    theme_classic() +
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size-0.5,color="black"),
+          axis.text.y = element_text(size = axis_size-0.5,color="black"),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  log_comp_plot
+}
+
+
+
+qc_plot_mpra <- function(df_in, Cohort, y_in,plot_title) {
+  qc_plot <- ggplot(data = df_in, aes(x = Cohort, y = y_in)) +
+    scale_color_manual(values = mpra_color) +
+    geom_jitter(aes(color=Cohort),alpha = 0.7, width = 0.25, size = point_size) +
+    geom_boxplot(fill = NA,outlier.shape=NA) +
+    #stat_compare_means(label = "p.signif", label.x.npc = "center", label.y.npc = "center") +
+    labs(x = "", y = plot_title)+
+    #stat_summary(aes(label = round(..y.., 3)),
+    #  fun.data = fun_mean,geom = "text",
+    #  size = inplot_size,vjust = 2) 
+    theme_classic() + theme(
+      legend.title = element_text(size = text_size,color="black"),
+      legend.text = element_text(size = text_size,color="black"),
+      axis.text.y = element_text(size = axis_size,color="black"),
+      axis.text.x = element_text(size = axis_size,color='black'),
+      axis.title = element_text(size = axis_size,color="black"),
+      plot.title = element_text(size = title_size, hjust = 0.5,color="black"),
+      legend.margin = margin(0, 0, 0, 0),
+      legend.box.margin = margin(-3,-3,-3,-3))+
+    guides(color = guide_legend(override.aes = list(size = anno_legend_size)))+
+    theme(legend.position = "none")
+  qc_plot
+}
+
+
+
+line_plot_mpra<-function(comp_in,x_in,y_in,x_title){
+  discovery_plot<-
+    ggplot(comp_in, aes(x=x_in, y=y_in,col=Cohort))+
+    geom_point(size= point_size+0.5, alpha=0.7)+
+    scale_color_manual(values = mpra_color)+
+    geom_smooth(method="lm", level=0.98, se = FALSE, show.legend = FALSE)+
+    #stat_cor(method="pearson")+
+    labs(x = x_title, y = "Delta MFE")+
+    theme_classic() +
+    theme(legend.title = element_text(size=text_size),
+          legend.text = element_text(size=text_size),
+          axis.text.x = element_text(size = axis_size),
+          axis.text.y = element_text(size = axis_size),
+          axis.title = element_text(size = axis_size),
+          plot.title = element_text(size=title_size, hjust=0.5),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+    guides(color = guide_legend(override.aes = list(size=legend_size)))
+  discovery_plot
+}
+
+
+```
+
+
+################################################################################ 
+############################ ANNOTATION PLOTS ##################################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+
+bar_plot<-function(df_in, x_in, fill_in, nudge_y_in, plot_title){
+  bar_plot<-ggplot(df_in, mapping = aes(x = x_in , fill = fill_in))+
+    scale_fill_manual(values = all_index_color)+
+    geom_bar(stat = 'count', nudge_y = nudge_y_in,show.legend = FALSE)+
+    #geom_text(aes(label = ..count..), nudge_y = nudge_y_in,stat = 'count',size = inplot_size)+
+    labs(x = "Editing Index", y = "Site Count", title = plot_title)+
+    theme_classic()+theme(legend.title = element_text(size=text_size,color="black"),
+          legend.text = element_text(size=text_size,color="black"),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size,color="black"),
+          plot.title = element_text(size=title_size, hjust=0.5,color="black"),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")+
+  coord_flip()
+  bar_plot
+}
+
+################################################################################
+fun_mean <- function(x){
+  return(data.frame(y=round(mean(x),3),label=mean(round(x,3),na.rm=T)))}
+
+box_plot<-function(df_in, x_in,y_in, fill_in,my_comparisons,plot_title){
+  box_plot<-ggplot(df_in,aes(x = x_in , y= y_in,fill = x_in))+
+    geom_boxplot(width=0.5)+
+    scale_fill_manual(values = stim_color)+
+    stat_compare_means(comparisons = my_comparisons,
+                       label = "p.signif",label.x.npc = "center",
+      label.y.npc = "top") +
+    stat_summary(fun.y=mean, colour="black", geom="point", 
+               shape=20, face="bold",size=point_size, show.legend=TRUE)+
+    stat_summary(aes(label=round(..y..,3)),fun.data = fun_mean, geom="text", 
+               size=inplot_size, face="bold",vjust=2)+
+    labs(x = "", y = "Editing Rate", title = plot_title)+
+    theme_classic()+theme(legend.title = element_text(size=text_size,color="black"),
+          legend.text = element_text(size=text_size,color="black"),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size,color="black"),
+          plot.title = element_text(size=title_size, hjust=0.5,color="black"),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    theme(legend.position = "none")
+  box_plot
+}
+
+################################################################################
+anno_plot<-function(df_in, x_in,fill_in,fill_title, plot_title){
+  anno_plot<-ggplot(df_in, mapping = aes(x = x_in))+
+    geom_bar(aes(fill = fill_in, position ="fill"))+
+    scale_fill_manual(values=anno_palette)+
+    labs(x = "", y = "Site Count",fill = fill_title)+
+    theme_classic()+theme(legend.title = element_text(size=text_size,color="black"),
+          legend.text = element_text(size=text_size,color="black"),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size,color="black"),
+          plot.title = element_text(size=title_size, hjust=0.5,color="black"),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    guides(color = guide_legend(override.aes = list(size=anno_legend_size)))
+  anno_plot
+}
+
+################################################################################
+anno_per_plot<-function(df_in, x_in,fill_in,fill_title, plot_title){
+  anno_plot<-ggplot(data = df_in,aes( x = x_in)) + 
+    geom_bar(aes(fill = fill_in), position = "fill", width = 0.7) +
+  scale_y_continuous(labels =scales::percent_format(accuracy = 1))+
+    #geom_bar(stat = "identity", position = "fill", width = 0.7) +  
+    scale_fill_manual(values = anno_palette) +
+    labs(x = "", y = "Percentage", fill = fill_title) + 
+    theme_classic()+theme(legend.title = element_text(size=text_size,color="black"),
+          legend.text = element_text(size=text_size,color="black"),
+          axis.text.x = element_text(size = axis_size,color="black"),
+          axis.text.y = element_text(size = axis_size,color="black"),
+          axis.title = element_text(size = axis_size,color="black"),
+          plot.title = element_text(size=title_size, hjust=0.5,color="black"),
+          legend.margin=margin(0,0,0,0),
+          legend.box.margin=margin(-3,-3,-3,-3))+
+    guides(color = guide_legend(override.aes = list(size=anno_legend_size)))
+  anno_plot
+}
+
+################################################################################
+qc_plot <- function(df_in, x_in, Sample_Cohort, y_in, plot_title) {
+  qc_plot <- ggplot(data = df_in, aes(x = x_in, y = y_in)) +
+    geom_jitter(aes(colour = Sample_Cohort), alpha = 0.7, width = 0.25, size = point_size) +
+    scale_color_manual(values = cohort_color) +
+    geom_boxplot(fill = NA,outlier.shape=NA) +
+    #stat_compare_means(label = "p.signif", label.x.npc = "center", label.y.npc = "center") +
+    labs(x = "", y = plot_title)+#, title = plot_title) +
+    #stat_summary(aes(label = round(..y.., 3)),
+    #  fun.data = fun_mean,geom = "text",
+    #  size = inplot_size,vjust = 2) +
+    theme_classic() + theme(
+      legend.title = element_text(size = text_size,color="black"),
+      legend.text = element_text(size = text_size,color="black"),
+      axis.text.y = element_text(size = axis_size,color="black"),
+      #axis.text.x = element_text(size = axis_size,color='black'),
+      axis.text.x=element_blank(),
+      #axis.ticks.x = element_blank(),
+      axis.title = element_text(size = axis_size,color="black"),
+      plot.title = element_text(size = title_size, hjust = 0.5,color="black"),
+      legend.margin = margin(0, 0, 0, 0),
+      legend.box.margin = margin(-3,-3,-3,-3))+
+    guides(color = guide_legend(override.aes = list(size = anno_legend_size)))
+   qc_plot
+}
+
+```
+
+
+################################################################################ 
+######################### DELTA RATE LOGFC PLOTS ###############################
+################################################################################
+```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
+
+make_stim_editing<-function(ed_in,col_basal, col_lps, col_ifn){
+  ed_basal<-ed_in %>%
+    dplyr::select(matches("ESid|Editing_Index|-Basal"))
+  ed_lps<-ed_in %>%
+    dplyr::select(matches("ESid|Editing_Index|-LPS"))
+  ed_ifn<-ed_in %>%
+    dplyr::select(matches("ESid|Editing_Index|-IFNb"))
+  
+  ed_basal$Mean_Basal <- rowMeans(ed_basal[,!(names(ed_basal) %in% c("ESid","Editing_Index"))])
+  ed_lps$Mean_LPS <- rowMeans(ed_lps[, !(names(ed_lps) %in% c("ESid", "Editing_Index"))])
+  ed_ifn$Mean_IFN <- rowMeans(ed_ifn[, !(names(ed_ifn) %in% c("ESid", "Editing_Index"))])
+  
+  ed_basal<-ed_basal%>%dplyr::select(c(ESid, Editing_Index, Mean_Basal))
+  ed_lps<-ed_lps%>%dplyr::select(c(ESid,Mean_LPS))
+  ed_ifn<-ed_ifn%>%dplyr::select(c(ESid,Mean_IFN))
+  
+  ed_all<-merge(ed_basal, ed_lps, by ="ESid")
+  ed_all<-merge(ed_all, ed_ifn, by ="ESid")
+  
+  ed_all <- ed_all %>%
+    # This keep returning non-numeric col but I CANT fix this shit
+  mutate(
+     Delta_Basal = 0,
+     Delta_LPS = across(starts_with("Mean_LPS"), ~ . - Mean_Basal),
+     Delta_IFN = across(starts_with("Mean_IFN"), ~ . - Mean_Basal)
+   )
+  ed_all$Real_Editing_Index<- sub(".+:(\\w+:\\w+)$", "\\1", ed_all$ESid)
+  ed_all
+}
+
+
+fun_mean <- function(x){
+  return(data.frame(y=round(mean(x),3),label=mean(round(x,3),na.rm=T)))}
+
+violin_plot<-function(df_in, x_in,y_in,fill_in, plot_title,my_comparisons){
+  violin_plot<-ggplot(df_in,aes(x = x_in , y= y_in,fill =x_in))+
+    geom_violin()+ geom_boxplot(width=0.095,fill=NA,outlier.shape = NA)+
+    scale_fill_manual(values = stim_color)+
+    labs(x = "", y = "logFC of Differentially Edited Sites",title=plot_title)+
+    # stat_compare_means(comparisons = my_comparisons,
+    #                    label = "p.signif",label.x.npc = "center",label.y.npc = "top") +
+    # stat_summary(fun.y=mean, colour="black", geom="point", 
+    #            shape=20, size=point_size, show.legend=TRUE)+
+    # stat_summary(aes(label=round(..y..,3)),fun.data = fun_mean, geom="text", 
+    #           size=inplot_size, face="blod",vjust=2)+
+    theme_classic() + theme(
+      legend.title = element_text(size = text_size),
+      legend.text = element_text(size = text_size),
+      axis.text.y = element_text(size = axis_size),
+      axis.text.x = element_blank(),
+      #axis.ticks.x = element_blank(),
+      axis.title = element_text(size = axis_size),
+      plot.title = element_text(size = title_size, hjust = 0.5),
+      legend.margin = margin(0, 0, 0, 0),
+      legend.box.margin = margin(-3,-3,-3,-3))+
+    guides(color = guide_legend(override.aes = list(size = anno_legend_size)))
+  violin_plot
+}
+
+```
+    
+    
+    
+ 
+
+
+
+
+
