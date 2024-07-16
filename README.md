@@ -26,25 +26,30 @@ Affiliations:
    - Discovery/Discovery_Analysis & _Data_Prep.Rmd
    - Replication/Replication_Analysis & _Data_Prep.Rmd
    - Alternative/Alternative_Analysis & _Data_Prep.Rmd
+   
 3) [Jacusa outputs](#Jacusa-outputs)
    - Post-jacusa processing script 
-   - Discovery, Replication, iMicroglia Jacusa processed outputs 
-   
-4) [MFE: Minimum Free Energy](#MFE-analysis)
+   - Discovery, Replication, iMicroglia Jacusa processed outputs
+     
+4) [All Table](#all-table)
+   - All A to I and C to U editing sites, across three cohorts
+   - Exonic and AA recoding sites 
+
+5) [MFE: Minimum Free Energy](#MFE-analysis)
    - Fasta_RNAFold.R & MPRA_Fasta_RNAFold.R
    - Python/MFE_Multi_Editing.ipynb, _Editing_MPRA.ipynb, GENENAME.ipynb
    - Bed_files/, Raw_fasta/, Edited_fasta/, RNAfold/, Delta_MFE/
 
-5) [MPRA: Massively Parallel Reporter Assay](#MPRA-analysis)
+6) [MPRA: Massively Parallel Reporter Assay](#MPRA-analysis)
    - MPRA.R
    - MPRA_MFE_Discovery_IFNb & LPS_Genes.tsv
    - MPRA/Input, MPRA/Result
    - MPRA/Pathway
   
-6) [Tiebrush](#tiebrush)
-   - Gene-specific files for IGV viewing
+7) [Tiebrush](#tiebrush)
+   - Gene-specific bam/bai/tiebrush files for IGV viewing
   
-6) [Figures](#figures)
+8) [Figures](#figures)
    - Instead of having knitted markdown, we created sets of organized figures
    - Main_Figure/ , Supp_Figure/, MFE/
 _____
@@ -130,7 +135,8 @@ ___
 ## [Tiebrush](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Tiebrush)
 1) Gene specific folders
    - For specific genes, bam, bai ,bigwig, bed files for Basal samples, IFN-stimulated samples, and LPS-stimulated samples, to be loaded in IGV to visually see Editing rates. 
-  
+2) All samples
+   - For all samples, all genes, by Stimulation
 ___  
 ## [Figures](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Figure)
 1) Main_Figure
