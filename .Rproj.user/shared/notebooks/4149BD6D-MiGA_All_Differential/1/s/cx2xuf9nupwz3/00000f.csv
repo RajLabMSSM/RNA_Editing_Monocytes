@@ -1,2 +1,0 @@
-"0","form_fr<-read_tsv(""Differential/Final_Toptable/Region_Specific/FR_form_toptable.tsv"", show_col_types = FALSE)"
-"0","knitr::kable(table(form_fr$DE_Direction_5), ""simple"", caption = ""Region FR form 1: FDR 5"",  table.attr = ""style='width:100%;'"")"

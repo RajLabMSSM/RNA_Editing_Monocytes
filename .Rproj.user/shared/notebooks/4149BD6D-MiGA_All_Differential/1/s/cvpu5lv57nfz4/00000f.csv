@@ -1,3 +1,0 @@
-"0","#load(""/Users/hyominseo/Desktop/MiGA_Bulk/Differential/RData/region_specific_dream_diff_meta_count.RData"")"
-"0","mg_pro_top<-read_tsv(""Differential/Final_Toptable/Proteomics/Dream_MG_MiGA_Proteomics_Toptable.tsv"", show_col_types = FALSE)"
-"0","knitr::kable(table(mg_pro_top$DE_Direction_5), ""simple"", caption = ""mg_pro_top: FDR 5"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

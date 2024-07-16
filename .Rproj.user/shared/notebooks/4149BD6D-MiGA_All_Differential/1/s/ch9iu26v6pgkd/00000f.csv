@@ -1,4 +1,0 @@
-"0","# run"
-"0","res.dist<-dist(qc_corr, method='euclidean')"
-"0","res.hc<-hclust(res.dist, method='ward.D2')"
-"0","plot(res.hc, cex=0.8,main = ""Monocytes Covariates Dendogram"", sub ='Euclidean Distance among covariates')"

@@ -1,2 +1,0 @@
-"0","deg_meta<-read_tsv(""new_Metadata/Final_MiGA_ALL_Meta.tsv"")"
-"0","knitr::kable(table(deg_meta$Region), ""simple"", caption = ""Trans Sample Metadata: Region"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

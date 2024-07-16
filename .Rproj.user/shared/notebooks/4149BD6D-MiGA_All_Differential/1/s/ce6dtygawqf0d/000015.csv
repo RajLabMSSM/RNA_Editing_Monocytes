@@ -1,2 +1,0 @@
-"0","dep_meta<-read_tsv(""Proteomics/MG_Protein_Norm_Organized.tsv"")"
-"0","knitr::kable(table(dep_meta$Region), ""simple"", caption = ""Proteomics Sample Metadata: Region"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

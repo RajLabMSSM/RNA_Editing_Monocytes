@@ -1,1 +1,0 @@
-"0","knitr::kable(table(mnc_meta$APOE), ""simple"", caption = ""MNC Proteomics APOE"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

@@ -1,1 +1,0 @@
-"0","knitr::kable(table(mynd_2_meta$Diagnosis, mynd_2_meta$Institution), caption = ""300: MyND_2(V2)"")"

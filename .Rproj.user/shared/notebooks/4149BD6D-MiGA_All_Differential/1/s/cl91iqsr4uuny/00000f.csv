@@ -1,6 +1,0 @@
-"0","library('BiocParallel')"
-"0","library(doParallel)"
-"0",""
-"0","params = BiocParallel::MulticoreParam(workers=4, progressbar=T)"
-"0","register(params)"
-"0","registerDoParallel(4)"

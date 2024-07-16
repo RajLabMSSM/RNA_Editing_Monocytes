@@ -1,6 +1,0 @@
-"0","quality_plot<-qc_plot(meta_long, meta_long$Cohort, meta_long$Cohort, meta_long$Value)+"
-"0","  facet_wrap(~metric, scales=""free_y"")+"
-"0","  #scale_color_manual(values = batch_color)+"
-"0","    theme(legend.position = ""top"")"
-"0",""
-"0","ggsave(plot=quality_plot,filename=""Figures/MiGA_All/MiGA_All_QC.jpg"",width = 14, height = 10,dpi = 600)"

@@ -1,8 +1,0 @@
-"0","calc_hc<-function(meta_in,plot_title){"
-"0","  qc_numeric<-mutate_all(meta_in, function(x) as.numeric(as.factor(x)))"
-"0","  qc_corr<- round(cor(qc_numeric),1)"
-"0","  res.dist<-dist(qc_corr, method='euclidean')"
-"0","  res.hc<-hclust(res.dist, method='ward.D2')"
-"0","  plot(res.hc, cex=0.5,cex.main = 1,cex.sub = 1,main =plot_title, "
-"0","     sub ='Euclidean Distance among covariates')"
-"0","}"

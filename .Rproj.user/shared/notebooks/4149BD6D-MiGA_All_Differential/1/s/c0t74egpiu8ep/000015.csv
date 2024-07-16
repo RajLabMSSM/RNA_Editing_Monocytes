@@ -1,2 +1,0 @@
-"0","form_occ<-read_tsv(""Differential/Final_Toptable/Region_Specific/OCC_form_toptable.tsv"", show_col_types = FALSE)"
-"0","knitr::kable(table(form_occ$DE_Direction_5), ""simple"", caption = ""Region OCC form 1: FDR 5"",  table.attr = ""style='width:100%;'"")"

@@ -1,3 +1,0 @@
-"0",""
-"0","knitr::kable(table(meta_1_donor$Final_Diagnosis), ""simple"", caption = ""MiGA 1 Cohort Donor Final_Diagnosis"",  table.attr = ""style='width:100%;'"","
-"0","             col.names = c(""Final_Diagnosis"", ""Donor Count""))"

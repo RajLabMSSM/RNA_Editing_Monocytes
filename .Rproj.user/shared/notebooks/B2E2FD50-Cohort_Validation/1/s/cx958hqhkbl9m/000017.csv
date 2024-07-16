@@ -1,4 +1,0 @@
-"0","mynd_12_gp<-read_tsv(""Pathway/MyND_12_GP.tsv"")
-"
-"2","Error: 'Pathway/MyND_12_GP.tsv' does not exist in current working directory ('/Users/hyominseo/Desktop/MyND_Monocytes').
-"

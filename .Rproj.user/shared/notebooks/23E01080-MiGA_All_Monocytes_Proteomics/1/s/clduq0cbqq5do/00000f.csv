@@ -1,8 +1,0 @@
-"0","mnc_meta<-read_tsv(""MNC_Proteomic/MNC_Meta_51.tsv"")"
-"0",""
-"0","print(length(unique(mnc_meta$Sample)))"
-"1","[1]"
-"1"," 51"
-"1","
-"
-"0","knitr::kable(table(mnc_meta$Sex_reported), ""simple"", caption = ""MNC Proteomics Sex"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"

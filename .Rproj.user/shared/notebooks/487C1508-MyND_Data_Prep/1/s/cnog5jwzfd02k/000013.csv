@@ -1,6 +1,0 @@
-"0","PD_Cont_meta<-read_tsv(""Metadata/Organized/MyND_PD_Control_Monocytes_Meta_Final.tsv"")"
-"0",""
-"0","bi_meta<-read_tsv(""Metadata/Organized/BI_meta.tsv"")"
-"0","mynd_1_meta<-read_tsv(""Metadata/Organized/MyND_1_meta.tsv"")"
-"0","mynd_2_meta<-read_tsv(""Metadata/Organized/MyND_2_meta.tsv"")"
-"0","mynd_12_meta<-read_tsv(""Metadata/Organized/MyND_12_meta.tsv"")"

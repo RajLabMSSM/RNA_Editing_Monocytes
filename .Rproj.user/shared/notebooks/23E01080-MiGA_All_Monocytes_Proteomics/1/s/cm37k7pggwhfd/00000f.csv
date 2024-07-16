@@ -1,2 +1,0 @@
-"0","mnc_pro_top<-read_tsv(""Differential/Final_Toptable/Proteomics/MNC_MiGA_Proteomics_Toptable.tsv"", show_col_types = FALSE)"
-"0","knitr::kable(table(mnc_pro_top$DE_Direction_10), ""simple"", caption = ""mnc_pro_top: FDR 10"",  table.attr = ""style='width:100%;'"", show_col_types = FALSE)"
