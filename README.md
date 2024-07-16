@@ -27,7 +27,7 @@ Affiliations:
    - Replication/Replication_Analysis & _Data_Prep.Rmd
    - Alternative/Alternative_Analysis & _Data_Prep.Rmd
 3) [Jacusa outputs](#Jacusa-outputs)
-   - Post-jacusa processing script
+   - Post-jacusa processing script 
    - Discovery, Replication, iMicroglia Jacusa processed outputs 
    
 4) [MFE: Minimum Free Energy](#MFE-analysis)
