@@ -921,40 +921,29 @@ ggsave(plot=dis_rep_supp_plot,filename="Figure/Main_Figure/Figure_5.jpg",
 #all_esid<-read_tsv("All_Table/All_DES_DEG/BOTH_DES_DEG_All.tsv")
 all_esid<-read_tsv("All_Table/All_esid.tsv")
 
-
 all_exonic<-all_esid%>%dplyr::filter(grepl("^exonic$",Location))
 ################################################################################ 
+all_esid_gene_exo<-read_tsv("All_Table/DE_All_recoding.tsv")
+all_exonic<-all_esid_gene_exo
 
 all_exonic_mut<-all_exonic%>%dplyr::filter(!grepl("unknown",Mutation))
+all_esid_gene_exo$Editing_Index<-gsub("G:A","C:T", all_esid_gene_exo$Editing_Index)
+all_esid_gene_exo$Editing_Index<-gsub("T:C","A:G", all_esid_gene_exo$Editing_Index)
 all_exonic_mut$Mutation<-sub(" ", "\n", all_exonic_mut$Mutation) 
 all_exonic_mut_plot<-anno_plot(all_exonic_mut,all_exonic_mut$Editing_Index,
                                all_exonic_mut$Mutation,"Subtitution Type", "Subtitution Type")
 
 ################################################################################                        
-all_esid_gene_exo<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
-all_esid_gene_exo<-all_esid_gene_exo%>%dplyr::filter(grepl("^exonic$",Location))
-all_esid_gene_exo<-all_esid_gene_exo%>%distinct(ESid, .keep_all=TRUE)
+all_esid<-read_tsv("All_Table/All_esid.tsv")
+all_esid_exo<-all_esid%>%dplyr::filter(grepl("^exonic$",Location))
 
-all_esid_gene_exo$Editing_Index<-gsub("G:A","C:T", all_esid_gene_exo$Editing_Index)
-all_esid_gene_exo$Editing_Index<-gsub("T:C","A:G", all_esid_gene_exo$Editing_Index)
-all_esid_gene_exo<-all_esid_gene_exo%>%dplyr::filter(grepl("A:G|C:T",Editing_Index))
+all_esid_exo<-all_esid_exo%>%dplyr::select(c(ESid, Editing_Cohort))
 
-
-cohorts<-c("Discovery","Replication","iMicroglia")
-
-names(cohorts)<-cohorts
-
-
-all_exonic_esid<-all_exonic%>%dplyr::select(c(ESid, Editing_Cohort))
-all_exonic_esid$Editing_Cohort<-gsub("Alternation","iMicroglia",all_exonic_esid$Editing_Cohort)
-all_exonic_esid$combination<-all_exonic_esid$Editing_Cohort
-all_exonic_esid<-all_exonic_esid%>%dplyr::select(c(ESid, combination))
-
-new_df <-all_exonic_esid %>%
+new_df <-all_esid_exo%>%
   mutate(
-    Discovery = grepl("Discovery", combination),
-    Replication = grepl("Replication", combination),
-    iMicroglia = grepl("iMicroglia", combination)
+    Discovery = grepl("Discovery", Editing_Cohort),
+    Replication = grepl("Replication", Editing_Cohort),
+    iMicroglia = grepl("iMicroglia", Editing_Cohort)
   ) %>%
   select(ESid, Discovery, Replication, iMicroglia) %>%
   column_to_rownames(var = "ESid")
@@ -982,17 +971,24 @@ upset_plot<-upset(
 )
 upset_gg <- ggplotify::as.ggplot(upset_plot)
 ################################################################################ 
+de_sig_rec<-read_tsv("All_Table/DE_All_Recoding.tsv")
+
+de_sig_rec_mut<-de_sig_rec%>%dplyr::filter(!grepl("unknown",Mutation))
+de_sig_rec_mut$Mutation<-sub(" ", "\n", de_sig_rec_mut$Mutation) 
+de_sig_rec_mut_plot<-anno_plot(de_sig_rec_mut,de_sig_rec_mut$Editing_Index,
+                               de_sig_rec_mut$Mutation,"Subtitution Type", "Subtitution Type")
+################################################################################ 
 combined_color<-c("sig"="#ff8565", "Unidentified"= "#d6d6d6","benign" = "#40B5AD")
 
-all_esid_gene_exo<-read_tsv("All_Table/all_esid_gene_exonic.tsv")
-all_esid_gene_exo<-all_esid_gene_exo%>%dplyr::filter(grepl("^exonic$", Location))
-all_esid_gene_exo <-all_esid_gene_exo %>%
+de_sig_rec<-read_tsv("All_Table/DE_All_Recoding.tsv")
+
+de_sig_rec <-de_sig_rec %>%
   mutate(across(everything(), ~ factor(ifelse(is.na(.), "Unknown", as.character(.)))))
-all_esid_gene_exo<-all_esid_gene_exo%>%distinct(ESid, .keep_all=TRUE)
+de_sig_rec<-de_sig_rec%>%distinct(ESid, .keep_all=TRUE)
 
-all_esid_gene_exo_re<-all_esid_gene_exo%>%dplyr::filter(grepl("sig|benign|Unknown",aa_change))
+de_sig_rec_re<-de_sig_rec%>%dplyr::filter(grepl("sig|benign|Unknown",aa_change))
 
-recoding_anno_plot<- ggplot(all_esid_gene_exo_re, aes(x = "", fill = aa_change)) +
+recoding_anno_plot<- ggplot(de_sig_rec_re, aes(x = "", fill = aa_change)) +
   geom_bar(stat = "count", width = 0.8) +
   scale_fill_manual(values=combined_color)+
   geom_text(aes(label = after_stat(count)),stat = "count",
@@ -1140,7 +1136,7 @@ thrid_row<-ggarrange(delta_mfe_plot, delta_mpra_mfe_plot_ifn,delta_mpra_mfe_plot
 
 ```{r stim_1, echo= TRUE, message = FALSE, warning=FALSE, eval=TRUE}
 re_mpra_supp<-ggarrange(first_row,second_row,thrid_row, nrow=3)
-ggsave(plot=re_mpra_supp,filename="Figure/Supp_Figure/new_Re_MPRA_Supp.jpg",width = 12, height = 12,dpi = 600)
+ggsave(plot=re_mpra_supp,filename="Figure/Main_Figure/Re_MPRA_Supp.jpg",width = 12, height = 12,dpi = 600)
 ```
 
 
