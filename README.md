@@ -84,9 +84,19 @@ _____
    - Same as 2), for Alternative (iMicroglia) cohort 
 ___
 ## Jacusa outputs
-1) Post-jacusa processing script
+1) [Post-jacusa processing script]](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/blob/main/jacusa_output_processing.R)
+   -  script to processed output of Jacusa pipeline 
 
-2) Discovery, Replication, iMicroglia Jacusa processed outputs 
+2) Discovery, Replication, iMicroglia Jacusa processed outputs
+   -  Discovery/Jacusa,  Replication/Jacusa, Alternation/Jacusa 
+___
+## [All Table](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/All_Table)
+1) All_Table.R
+   - Creating all detected ESid matrix , all exonic sites, all exonic-recoding sites.
+   - All_esid.tsv : All A to I and C to U sites across three cohorts. ALL logFC, Location, Mutation information for all sites.  
+   - DE_All_Recoding.tsv :  Differentially Edited sites at least once in three cohorts, either stimulation, with identified Amino Acid recoding.
+   - DE_Sig_Recoding.tsv :  Differentially Edited sites at least once in three cohorts, either stimulation, with Significant identified Amino Acid recoding.
+
 ___
 ## [MFE Analysis](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/MFE)
 * This can be organized into one snakemake pipeline - for future 
@@ -124,11 +134,10 @@ ___
 ___  
 ## [Figures](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/tree/main/Figure)
 1) Main_Figure
-   - Figure 1~5 (.png), created in Editing_Paper_Figure.Rmd + Adobe illustrator
+   - Figure 1~6 (.png), created in Editing_Paper_Figure.Rmd + Adobe illustrator
      
 2) Supp_Figure
    - Supp figure (PCA figures) for discovery, replication, alternation (iMicroglia), created seperatley in cohort-wise analysis.Rmd
-   - MPRA supplement figure, created in Editing_Paper_Figure.Rmd + Adobe illustrator
 
 3) MFE
    - Two MFE figures (new_Final_MFE_Figure, new_Supp_MFE_Figure.png) 
