@@ -84,7 +84,7 @@ _____
    - Same as 2), for Alternative (iMicroglia) cohort 
 ___
 ## Jacusa outputs
-1) [Post-jacusa processing script]](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/blob/main/jacusa_output_processing.R)
+1) [Post-jacusa processing script](https://github.com/RajLabMSSM/RNA_Editing_Monocytes/blob/main/jacusa_output_processing.R)
    -  script to processed output of Jacusa pipeline 
 
 2) Discovery, Replication, iMicroglia Jacusa processed outputs
